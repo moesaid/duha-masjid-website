@@ -1,0 +1,165 @@
+{
+    "navigation_bar": [
+        {
+            "label": "Home",
+            "url": "/",
+            "type": "single_link"
+        },
+        {
+            "label": "About Us",
+            "type": "dropdown",
+            "children": [
+                {
+                    "label": "Who We Are (Mission & Vision)",
+                    "url": "/about/mission"
+                },
+                {
+                    "label": "Leadership & Board",
+                    "url": "/about/board"
+                },
+                {
+                    "label": "Imams & Scholars",
+                    "url": "/about/team"
+                },
+                {
+                    "label": "Policies & Constitution",
+                    "url": "/about/policies"
+                },
+                {
+                    "label": "Contact & Location",
+                    "url": "/contact"
+                }
+            ]
+        },
+        {
+            "label": "Services",
+            "type": "dropdown",
+            "note": "Life-cycle based services",
+            "children": [
+                {
+                    "label": "Prayer Services (Daily & Jummah)",
+                    "url": "/services/prayer"
+                },
+                {
+                    "label": "Matrimony (Nikkah)",
+                    "url": "/services/matrimony"
+                },
+                {
+                    "label": "Funeral (Janazah) & Burial",
+                    "url": "/services/funeral"
+                },
+                {
+                    "label": "Zakat & Financial Assistance",
+                    "url": "/services/financial-aid"
+                },
+                {
+                    "label": "Counseling (Family & Religious)",
+                    "url": "/services/counseling"
+                },
+                {
+                    "label": "New Muslim Support (Shahada)",
+                    "url": "/services/new-muslims"
+                }
+            ]
+        },
+        {
+            "label": "Education",
+            "type": "dropdown",
+            "children": [
+                {
+                    "label": "Weekend School (Sunday School)",
+                    "url": "/education/weekend-school"
+                },
+                {
+                    "label": "Quran Academy (Hifz)",
+                    "url": "/education/quran-academy"
+                },
+                {
+                    "label": "Adult Halaqas",
+                    "url": "/education/adult-classes"
+                },
+                {
+                    "label": "Library",
+                    "url": "/education/library"
+                }
+            ]
+        },
+        {
+            "label": "Community",
+            "type": "dropdown",
+            "children": [
+                {
+                    "label": "Youth Group",
+                    "url": "/community/youth"
+                },
+                {
+                    "label": "Sisters Committee",
+                    "url": "/community/sisters"
+                },
+                {
+                    "label": "Outreach & Interfaith",
+                    "url": "/community/outreach"
+                },
+                {
+                    "label": "Food Pantry",
+                    "url": "/community/food-pantry"
+                }
+            ]
+        },
+        {
+            "label": "Events",
+            "type": "dropdown",
+            "children": [
+                {
+                    "label": "Calendar",
+                    "url": "/events/calendar"
+                },
+                {
+                    "label": "Ramadan & Eid",
+                    "url": "/events/seasonal"
+                },
+                {
+                    "label": "Weekly Programs",
+                    "url": "/events/weekly"
+                }
+            ]
+        },
+        {
+            "label": "Media",
+            "type": "dropdown",
+            "children": [
+                {
+                    "label": "Live Stream",
+                    "url": "/media/live"
+                },
+                {
+                    "label": "Khutbah Archive",
+                    "url": "/media/khutbahs"
+                },
+                {
+                    "label": "Newsletter",
+                    "url": "/media/newsletter"
+                }
+            ]
+        },
+        {
+            "label": "Get Involved",
+            "type": "dropdown",
+            "children": [
+                {
+                    "label": "Membership",
+                    "url": "/join/membership"
+                },
+                {
+                    "label": "Volunteer",
+                    "url": "/join/volunteer"
+                },
+                {
+                    "label": "Donate",
+                    "url": "/donate",
+                    "highlight": true
+                }
+            ]
+        }
+    ]
+}
