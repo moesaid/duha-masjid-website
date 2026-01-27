@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import styles from '../_styles/HeroSlider.module.css';
+import styles from '../_styles/HeroSlider.module.scss';
 
 // ========================================
 // CONFIGURATION

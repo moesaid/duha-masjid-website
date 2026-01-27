@@ -338,71 +338,8 @@
 }
 
 /* ========================================
-   5. LEADERSHIP (Arch Portraits)
+   5. NEXT GENERATION (Split Block)
    ======================================== */
-
-.leadershipSection {
-    padding: 5rem 2rem;
-    background: oklch(0.96 0.01 90);
-}
-
-.leadershipGroup {
-    margin-bottom: 4rem;
-}
-
-.leadershipGroup:last-child {
-    margin-bottom: 0;
-}
-
-.groupTitle {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--color-primary);
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.leadersGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.leaderCard {
-    text-align: center;
-}
-
-.archPortrait {
-    width: 140px;
-    height: 160px;
-    margin: 0 auto 1rem;
-    background: oklch(0.92 0.02 85);
-    border: 2px solid #d4af37;
-    border-radius: 70px 70px 0 0;
-    overflow: hidden;
-}
-
-.leaderName {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: 0.25rem;
-}
-
-.leaderTitle {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-style: italic;
-    color: #d4af37;
-}
-
-/* ========================================
-   6. NEXT GENERATION (Split Block)
-   ======================================== */
-
 .nextGenSection {
     display: grid;
     grid-template-columns: 1fr 1fr;

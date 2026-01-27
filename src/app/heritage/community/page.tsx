@@ -1,4 +1,4 @@
-import styles from '../_styles/template.module.css';
+import styles from '../_styles/template.module.scss';
 
 export default function CommunityPage() {
     return (

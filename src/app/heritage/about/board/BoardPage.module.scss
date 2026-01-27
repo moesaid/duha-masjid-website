@@ -1,0 +1,528 @@
+/* Board Page Styles
+ * Design: Corporate-Islamic Governance Aesthetic
+ * Vibe: Structured, Transparent, Accountable
+ */
+
+// ========================================
+// Variables
+// ========================================
+$midnight-green: #0a3a3a;
+$gold: #d4af37;
+$gold-dark: #b8960c;
+$cream: oklch(0.97 0.01 85);
+$cream-dark: oklch(0.94 0.02 85);
+$text-dark: #1a1a1a;
+$text-muted: #555;
+
+// ========================================
+// 1. GOVERNANCE HERO
+// ========================================
+
+.governanceHero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $midnight-green;
+    padding: 5rem 2rem;
+    overflow: hidden;
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.3' opacity='0.1'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Cpath d='M30 10L50 30L30 50L10 30z'/%3E%3Ccircle cx='30' cy='30' r='5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+}
+
+.heroBadge {
+    display: inline-block;
+    background: rgba($gold, 0.15);
+    color: $gold;
+    padding: 0.5rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba($gold, 0.3);
+}
+
+.heroTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: #fff;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.heroQuote {
+    position: relative;
+    padding: 2rem;
+    background: rgba(#fff, 0.05);
+    border-left: 3px solid $gold;
+}
+
+.quoteIcon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: $gold;
+    opacity: 0.5;
+}
+
+.quoteText {
+    font-family: var(--font-body, Georgia, serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(#fff, 0.9);
+    line-height: 1.7;
+    margin: 0 0 1rem 0;
+}
+
+.quoteCite {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: $gold;
+    font-style: normal;
+}
+
+// ========================================
+// 2. PRESIDENT'S MESSAGE (Letterhead)
+// ========================================
+
+.presidentSection {
+    padding: 5rem 2rem;
+    background: $cream-dark;
+    display: flex;
+    justify-content: center;
+}
+
+.letterhead {
+    max-width: 850px;
+    width: 100%;
+    background: #fff;
+    padding: 3rem;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.05),
+        0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+
+    // Paper texture effect
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+    }
+}
+
+.letterheadHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid $midnight-green;
+}
+
+.masjidLogo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logoArabic {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1.5rem;
+    color: $midnight-green;
+    line-height: 1;
+}
+
+.logoEnglish {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    color: $gold-dark;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.letterheadDate {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: $text-muted;
+}
+
+.letterContent {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 2rem;
+    align-items: start;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.presidentPhoto {
+    position: relative;
+    width: 150px;
+    height: 180px;
+    border: 3px solid $midnight-green;
+    overflow: hidden;
+
+    @media (max-width: 700px) {
+        margin: 0 auto 1rem;
+    }
+}
+
+.presidentImage {
+    object-fit: cover;
+}
+
+.letterText {
+    font-family: var(--font-body, Georgia, serif);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: $text-dark;
+
+    p {
+        margin-bottom: 1rem;
+    }
+}
+
+.letterSalutation {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1.1rem;
+    color: $midnight-green;
+    font-style: italic;
+}
+
+.letterGreeting {
+    font-weight: 600;
+    color: $midnight-green;
+}
+
+.letterSignature {
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.signatureLine {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $midnight-green;
+    font-style: italic;
+    margin-bottom: 0.25rem;
+}
+
+.signatureTitle {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: $gold-dark;
+}
+
+// ========================================
+// 3. EXECUTIVE COMMITTEE (Portrait Grid)
+// ========================================
+
+.executiveSection {
+    padding: 5rem 2rem;
+    background: #fff;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $midnight-green;
+    margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.executiveGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+    }
+}
+
+.portraitCard {
+    background: $cream;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+        .contactOverlay {
+            opacity: 1;
+        }
+    }
+}
+
+.portraitImageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: $cream-dark;
+}
+
+.portraitImage {
+    object-fit: cover;
+}
+
+.contactOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba($midnight-green, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contactIcon {
+    color: #fff;
+    transition: transform 0.3s ease;
+
+    .contactOverlay:hover & {
+        transform: scale(1.2);
+    }
+}
+
+.portraitInfo {
+    padding: 1.25rem;
+    text-align: center;
+    background: #fff;
+}
+
+.memberName {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: $midnight-green;
+    margin-bottom: 0.25rem;
+}
+
+.memberRole {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $gold-dark;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+// ========================================
+// 4. SUB-COMMITTEES (Accordions)
+// ========================================
+
+.committeesSection {
+    padding: 5rem 2rem;
+    background: $cream;
+}
+
+.committeesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.accordionItem {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.accordionHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: rgba($gold, 0.05);
+    }
+
+    &.accordionOpen {
+        background: $midnight-green;
+
+        .accordionTitle {
+            color: #fff;
+        }
+
+        .accordionIcon {
+            color: $gold;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.accordionTitle {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: $midnight-green;
+    transition: color 0.2s ease;
+}
+
+.accordionIcon {
+    color: $gold-dark;
+    transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.accordionContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &.accordionContentOpen {
+        max-height: 300px;
+    }
+}
+
+.membersList {
+    padding: 1rem 1.5rem 1.5rem;
+    list-style: none;
+}
+
+.memberItem {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:first-child {
+        font-weight: 600;
+        color: $midnight-green;
+    }
+}
+
+// ========================================
+// 5. BYLAWS CTA BANNER
+// ========================================
+
+.bylawsBanner {
+    padding: 4rem 2rem;
+    background:
+        linear-gradient(135deg, rgba($gold, 0.95) 0%, rgba($gold-dark, 0.95) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' fill-opacity='0.03' d='M50 0L100 50L50 100L0 50z'/%3E%3C/svg%3E");
+    background-size: cover, 50px 50px;
+}
+
+.bannerContent {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    @media (max-width: 700px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.bannerText {
+    flex: 1;
+}
+
+.bannerTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: $midnight-green;
+    margin-bottom: 0.5rem;
+}
+
+.bannerSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba($midnight-green, 0.8);
+    margin: 0;
+}
+
+.bannerButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: $midnight-green;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+        background: darken($midnight-green, 5%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+}

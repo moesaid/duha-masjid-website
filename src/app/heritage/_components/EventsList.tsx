@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import styles from '../_styles/EventsList.module.css';
+import styles from '../_styles/EventsList.module.scss';
 
 interface Event {
     id: string;

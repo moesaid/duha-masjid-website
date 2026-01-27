@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import styles from '../_styles/Footer.module.css';
+import styles from '../_styles/Footer.module.scss';
 
 // Types for navigation structure
 interface NavItem {

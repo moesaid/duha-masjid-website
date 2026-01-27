@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import styles from '../_styles/DonationSection.module.css';
+import styles from '../_styles/DonationSection.module.scss';
 
 interface GivingLevel {
     id: string;

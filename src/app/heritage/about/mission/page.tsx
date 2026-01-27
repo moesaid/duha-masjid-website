@@ -1,5 +1,5 @@
-import styles from './MissionPage.module.css';
-import templateStyles from '../../_styles/template.module.css';
+import styles from './MissionPage.module.scss';
+import templateStyles from '../../_styles/template.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -56,19 +56,7 @@ const impactStats = [
     { number: '39', label: 'Years of Service' },
 ];
 
-// Leadership
-const imams = [
-    { name: 'Sheikh Abdullah Rahman', title: 'Head Imam' },
-    { name: 'Imam Yusuf Hassan', title: 'Associate Imam' },
-    { name: 'Ustadh Ahmad Malik', title: 'Youth Director' },
-];
 
-const boardMembers = [
-    { name: 'Dr. Omar Khan', title: 'President' },
-    { name: 'Sr. Fatima Ahmed', title: 'Vice President' },
-    { name: 'Br. Khalid Mansour', title: 'Treasurer' },
-    { name: 'Sr. Aisha Patel', title: 'Secretary' },
-];
 
 export default function MissionPage() {
     return (
@@ -140,39 +128,6 @@ export default function MissionPage() {
                 </div>
             </section>
 
-            {/* 5. Leadership (Arch Portraits) */}
-            <section className={styles.leadershipSection}>
-                <div className={styles.sectionHeader}>
-                    <div className={styles.sectionLabel}>Our Stewards</div>
-                    <h2 className={styles.sectionTitle}>Guided by Wisdom</h2>
-                </div>
-
-                <div className={styles.leadershipGroup}>
-                    <h3 className={styles.groupTitle}>Imams & Scholars</h3>
-                    <div className={styles.leadersGrid}>
-                        {imams.map((imam, index) => (
-                            <div key={index} className={styles.leaderCard}>
-                                <div className={styles.archPortrait} />
-                                <div className={styles.leaderName}>{imam.name}</div>
-                                <div className={styles.leaderTitle}>{imam.title}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className={styles.leadershipGroup}>
-                    <h3 className={styles.groupTitle}>Board of Directors</h3>
-                    <div className={styles.leadersGrid}>
-                        {boardMembers.map((member, index) => (
-                            <div key={index} className={styles.leaderCard}>
-                                <div className={styles.archPortrait} />
-                                <div className={styles.leaderName}>{member.name}</div>
-                                <div className={styles.leaderTitle}>{member.title}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* 6. Next Generation Block */}
             <section className={styles.nextGenSection}>

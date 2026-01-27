@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import styles from '../_styles/ServicesGrid.module.css';
+import styles from '../_styles/ServicesGrid.module.scss';
 
 interface Service {
     id: string;

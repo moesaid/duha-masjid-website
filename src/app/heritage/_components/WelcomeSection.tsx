@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import styles from '../_styles/WelcomeSection.module.css';
+import styles from '../_styles/WelcomeSection.module.scss';
 
 interface WelcomeSectionProps {
     templateId: string;

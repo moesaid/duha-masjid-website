@@ -2,7 +2,7 @@ import {
     Header,
     Footer,
 } from './_components';
-import templateStyles from './_styles/template.module.css';
+import templateStyles from './_styles/template.module.scss';
 
 export default function HeritageLayout({
     children,

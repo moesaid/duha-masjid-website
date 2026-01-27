@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from '../_styles/PrayerTimesWidget.module.css';
+import styles from '../_styles/PrayerTimesWidget.module.scss';
 
 // Types for prayer schedule
 interface Prayer {

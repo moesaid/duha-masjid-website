@@ -1,0 +1,521 @@
+/* Policies Page Styles
+ * Design: Digital Archive / Library
+ * Vibe: Authoritative, Clear, Archival
+ */
+
+// ========================================
+// Variables
+// ========================================
+$navy: #1a2639;
+$burgundy: #8b2332;
+$parchment: oklch(0.96 0.02 80);
+$cream: oklch(0.94 0.02 85);
+$gold: #c9a227;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+
+// ========================================
+// 1. ARCHIVE HERO
+// ========================================
+
+.archiveHero {
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $navy;
+    overflow: hidden;
+}
+
+.heroTexture {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Crect width='2' height='40' x='0'/%3E%3Crect width='2' height='40' x='8'/%3E%3Crect width='2' height='40' x='16'/%3E%3Crect width='2' height='40' x='24'/%3E%3Crect width='2' height='40' x='32'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 40px 40px;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 700px;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba($gold, 0.15);
+    color: $gold;
+    padding: 0.5rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba($gold, 0.3);
+}
+
+.heroTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(#fff, 0.75);
+    margin: 0;
+}
+
+// ========================================
+// 2. DOCUMENT LIBRARY
+// ========================================
+
+.librarySection {
+    padding: 4rem 2rem;
+    background: $parchment;
+}
+
+.libraryLayout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+// Sidebar
+.sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+
+    @media (max-width: 900px) {
+        position: static;
+    }
+}
+
+.sidebarTitle {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.categoryNav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @media (max-width: 900px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.categoryButton {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-dark;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: rgba($navy, 0.05);
+        border-color: rgba($navy, 0.2);
+    }
+
+    &.categoryActive {
+        background: $navy;
+        color: #fff;
+        border-color: $navy;
+
+        svg {
+            color: $gold;
+        }
+    }
+
+    svg {
+        color: $text-muted;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+        width: auto;
+        flex: 1;
+        justify-content: center;
+        min-width: 140px;
+    }
+}
+
+// Documents Area
+.documentsArea {
+    min-width: 0;
+}
+
+.documentsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $navy;
+}
+
+.documentsTitle {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: $navy;
+    margin: 0;
+}
+
+.documentsCount {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+}
+
+.documentsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+// File Folder Card
+.fileCard {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.fileFolderTab {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    width: 80px;
+    height: 12px;
+    background: $cream;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        right: -8px;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-left: 8px solid $cream;
+        border-top: 12px solid transparent;
+    }
+}
+
+.fileContent {
+    padding: 2rem 1.5rem 1.5rem;
+}
+
+.fileIcon {
+    color: $burgundy;
+    margin-bottom: 1rem;
+}
+
+.fileTitle {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: $navy;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.fileDescription {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.fileMeta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+
+    svg {
+        color: $gold;
+    }
+}
+
+.downloadButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $navy;
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: darken($navy, 5%);
+    }
+}
+
+// ========================================
+// 3. CODE OF CONDUCT BREAKOUT
+// ========================================
+
+.conductSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, $burgundy 0%, darken($burgundy, 10%) 100%);
+}
+
+.conductContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.conductHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.conductIcon {
+    color: $gold;
+    margin-bottom: 1rem;
+}
+
+.conductTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.conductSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(#fff, 0.8);
+    margin: 0;
+}
+
+.rulesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.ruleCard {
+    background: rgba(#fff, 0.1);
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(#fff, 0.1);
+}
+
+.ruleNumber {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: $gold;
+    color: $navy;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.ruleTitle {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.ruleDescription {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(#fff, 0.85);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.conductCta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.fullPolicyLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    color: $burgundy;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $gold;
+        color: $navy;
+    }
+}
+
+// ========================================
+// 4. FAQ SECTION
+// ========================================
+
+.faqSection {
+    padding: 5rem 2rem;
+    background: #fff;
+}
+
+.faqContainer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $navy;
+}
+
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.faqItem {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.faqQuestion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: $parchment;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    span {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        color: $navy;
+        text-align: left;
+        flex: 1;
+        padding-right: 1rem;
+    }
+
+    &.faqOpen {
+        background: $navy;
+
+        span {
+            color: #fff;
+        }
+
+        .faqIcon {
+            color: $gold;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.faqIcon {
+    color: $gold;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faqAnswer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &.faqAnswerOpen {
+        max-height: 500px;
+    }
+
+    p {
+        padding: 1.5rem;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-muted;
+        line-height: 1.8;
+        margin: 0;
+        background: #fff;
+    }
+}

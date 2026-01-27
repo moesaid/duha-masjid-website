@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import styles from '../_styles/NewsletterBand.module.css';
+import styles from '../_styles/NewsletterBand.module.scss';
 
 interface NewsletterBandProps {
     templateId: string;

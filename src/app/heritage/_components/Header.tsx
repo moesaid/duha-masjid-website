@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import styles from '../_styles/Header.module.css';
+import styles from '../_styles/Header.module.scss';
 
 // Types for navigation structure
 interface NavChild {
