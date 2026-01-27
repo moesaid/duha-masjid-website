@@ -1,0 +1,708 @@
+/* Prayer Services Page Styles
+ * Design: Serene, Time-Honored, Ritualistic
+ * Texture: Marble/Sandstone for schedule board
+ * Typography: Monospace for time digits
+ */
+
+// ========================================
+// Variables
+// ========================================
+$forest-green: #1a4a3a;
+$dark-green: #0d2d23;
+$gold: #c9a227;
+$cream: #f9f7f2;
+$charcoal: #1a1a1a;
+$marble-white: #f5f5f0;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+
+// ========================================
+// 1. THE SANCTUARY HERO
+// ========================================
+
+.sanctuaryHero {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: brightness(0.3) saturate(0.8);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center,
+            transparent 0%,
+            rgba($dark-green, 0.5) 70%,
+            rgba($dark-green, 0.8) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    padding: 2rem;
+}
+
+.calligraphy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.arabicCall {
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: $gold;
+    line-height: 1.2;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.transliteration {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(#fff, 0.7);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.heroVerse {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-top: 1px solid rgba($gold, 0.3);
+    border-bottom: 1px solid rgba($gold, 0.3);
+
+    p {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-style: italic;
+        color: rgba(#fff, 0.9);
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    cite {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $gold;
+        margin-top: 0.75rem;
+        font-style: normal;
+    }
+}
+
+// ========================================
+// 2. THE MAWAQIT (SCHEDULE BOARD)
+// ========================================
+
+.mawaqitSection {
+    padding: 5rem 2rem;
+    background: $marble-white;
+
+    // Subtle marble texture
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.scheduleBoard {
+    max-width: 700px;
+    margin: 0 auto;
+    background: $dark-green;
+    box-shadow:
+        0 0 0 4px $gold,
+        0 0 0 8px $dark-green,
+        0 0 0 10px $gold,
+        0 20px 60px rgba(0, 0, 0, 0.3);
+
+    // Mehrab arch shape framing effect at top
+    &::before {
+        content: '';
+        display: block;
+        height: 8px;
+        background: linear-gradient(90deg,
+                $gold 0%,
+                lighten($gold, 15%) 50%,
+                $gold 100%);
+    }
+}
+
+.boardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba($gold, 0.2);
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.boardIcon {
+    color: $gold;
+}
+
+.boardTitleBlock {
+    flex: 1;
+}
+
+.boardTitle {
+    font-family: var(--font-arabic, 'Amiri', serif);
+    font-size: 1.75rem;
+    color: $gold;
+    margin: 0;
+}
+
+.boardSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(#fff, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.boardDate {
+    text-align: right;
+
+    @media (max-width: 600px) {
+        text-align: center;
+    }
+}
+
+.hijriDate {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: #fff;
+}
+
+.gregorianDate {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(#fff, 0.5);
+}
+
+.prayerGrid {
+    padding: 1rem 2rem 2rem;
+}
+
+.gridHeader {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba($gold, 0.2);
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(#fff, 0.5);
+
+        svg {
+            opacity: 0.6;
+        }
+    }
+}
+
+.prayerRow {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(#fff, 0.06);
+    transition: all 0.3s ease;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.currentPrayer {
+    background: rgba($gold, 0.15);
+    margin: 0 -1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid rgba($gold, 0.3);
+
+    .prayerArabic,
+    .prayerEnglish {
+        color: $gold !important;
+    }
+
+    .timeDigits {
+        color: #fff !important;
+    }
+}
+
+.prayerName {
+    display: flex;
+    flex-direction: column;
+}
+
+.prayerArabic {
+    font-family: var(--font-arabic, 'Amiri', serif);
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.prayerEnglish {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(#fff, 0.5);
+}
+
+.prayerTime {
+    display: flex;
+    align-items: center;
+}
+
+.timeDigits {
+    font-family: 'Space Mono', 'Courier New', monospace;
+    font-size: 1.1rem;
+    color: rgba(#fff, 0.8);
+    letter-spacing: 0.05em;
+}
+
+.iqamahTime {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.boardFooter {
+    padding: 1.25rem 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.downloadLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(#fff, 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: $gold;
+    }
+}
+
+// ========================================
+// 3. JUMU'AH SECTION
+// ========================================
+
+.jumuahSection {
+    padding: 5rem 2rem;
+    background: $cream;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $forest-green;
+}
+
+.jumuahGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+.jumuahCard {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.shiftBadge {
+    display: inline-block;
+    background: $forest-green;
+    color: #fff;
+    padding: 0.25rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.shiftTime {
+    font-family: 'Space Mono', 'Courier New', monospace;
+    font-size: 2rem;
+    color: $gold;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.khateebInfo {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    text-align: left;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.minbarIcon {
+    color: $gold;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.khateebDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.khateebName {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: $forest-green;
+    font-weight: 500;
+}
+
+.khutbahTopic {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    font-style: italic;
+}
+
+.jumuahNote {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    margin-top: 2rem;
+}
+
+// ========================================
+// 4. FACILITY & ACCESS GUIDE
+// ========================================
+
+.facilitySection {
+    padding: 5rem 2rem;
+    background: #fff;
+}
+
+.facilityGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
+
+.entranceCard {
+    background: $marble-white;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.entranceHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    background: $forest-green;
+    color: #fff;
+
+    svg {
+        color: $gold;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        margin: 0;
+    }
+}
+
+.entrancePhoto {
+    position: relative;
+    height: 180px;
+    background: #ddd;
+}
+
+.entranceImage {
+    object-fit: cover;
+}
+
+.entranceDetails {
+    list-style: none;
+    padding: 1.5rem;
+    margin: 0;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        svg {
+            color: $gold;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+    }
+}
+
+.floorPlanNote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    max-width: 600px;
+    margin: 2.5rem auto 0;
+    padding: 1rem 1.5rem;
+    background: rgba($forest-green, 0.05);
+    border: 1px solid rgba($forest-green, 0.1);
+
+    svg {
+        color: $gold;
+        flex-shrink: 0;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+    }
+}
+
+// ========================================
+// 5. DAILY PROGRAMS
+// ========================================
+
+.programsSection {
+    padding: 4rem 2rem;
+    background: $cream;
+}
+
+.programsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 550px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.programItem {
+    background: #fff;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.programTime {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+
+    svg {
+        color: $gold;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $text-muted;
+    }
+}
+
+.programDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.programName {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: $forest-green;
+    margin-bottom: 0.25rem;
+}
+
+.programDays {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+}
+
+// ========================================
+// 6. QIBLA DIRECTION
+// ========================================
+
+.qiblaSection {
+    padding: 4rem 2rem;
+    background: $forest-green;
+}
+
+.qiblaBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.compassWrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.compassRing {
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgba(#fff, 0.3);
+    border-radius: 50%;
+    position: relative;
+}
+
+.compassNeedle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 40px;
+    background: linear-gradient($gold 50%, rgba(#fff, 0.3) 50%);
+    transform: translate(-50%, -50%) rotate(54deg);
+    transform-origin: center center;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 10px solid $gold;
+    }
+}
+
+.compassN {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $gold;
+}
+
+.qiblaInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.qiblaLabel {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(#fff, 0.5);
+}
+
+.qiblaAngle {
+    font-family: 'Space Mono', 'Courier New', monospace;
+    font-size: 2rem;
+    color: $gold;
+    font-weight: 700;
+}
+
+.qiblaNote {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(#fff, 0.5);
+}

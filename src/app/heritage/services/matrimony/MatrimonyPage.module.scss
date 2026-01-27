@@ -1,0 +1,807 @@
+/* Matrimony Services Page Styles
+ * Design: Celebratory, Sacred, Formal
+ * Palette: Soft Cream, Warm Gold, Pale Blush
+ * Motifs: Floral Arabesque, Interlocking Rings
+ */
+
+// ========================================
+// Variables
+// ========================================
+$forest-green: #1a4a3a;
+$warm-gold: #c9a227;
+$pale-gold: #e8d5a3;
+$soft-cream: #fdfbf7;
+$warm-cream: #f9f5ed;
+$pale-blush: #faf5f3;
+$rose-gold: #c4a47c;
+$charcoal: #2a2a2a;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+
+// ========================================
+// 1. THE COVENANT HERO
+// ========================================
+
+.covenantHero {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: brightness(0.4) saturate(0.9);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center,
+            rgba($warm-gold, 0.15) 0%,
+            rgba($charcoal, 0.4) 70%,
+            rgba($charcoal, 0.7) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    padding: 2rem;
+}
+
+.calligraphy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.arabicVerse {
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    color: $warm-gold;
+    line-height: 1.3;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.transliteration {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(#fff, 0.85);
+    margin-top: 0.5rem;
+}
+
+.verseRef {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $warm-gold;
+    font-style: normal;
+    margin-top: 0.25rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.heroTagline {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(#fff, 0.75);
+    margin: 0;
+}
+
+.heroFlourish {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.flourishLine {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $warm-gold, transparent);
+}
+
+.flourishIcon {
+    color: $warm-gold;
+}
+
+// ========================================
+// 2. THE PATH TO NIKKAH
+// ========================================
+
+.processSection {
+    padding: 5rem 2rem;
+    background: $soft-cream;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $warm-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $forest-green;
+}
+
+.processTimeline {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.processStep {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.timelineConnector {
+    position: absolute;
+    left: 24px;
+    top: 56px;
+    bottom: -2.5rem;
+    width: 2px;
+    background: linear-gradient(180deg, $warm-gold 0%, $pale-gold 100%);
+}
+
+.stepNumber {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $warm-gold;
+    border-radius: 50%;
+    z-index: 1;
+
+    span {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: #fff;
+        font-weight: 500;
+    }
+}
+
+.stepContent {
+    flex: 1;
+    background: #fff;
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+
+    // Ornamental border effect
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        right: -1px;
+        height: 4px;
+        background: linear-gradient(90deg, $warm-gold 0%, $pale-gold 50%, $warm-gold 100%);
+    }
+}
+
+.criticalStep .stepContent {
+    border-color: rgba($warm-gold, 0.3);
+    background: rgba($warm-gold, 0.03);
+}
+
+.stepHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.stepIcon {
+    color: $warm-gold;
+}
+
+.stepTitles {
+    flex: 1;
+}
+
+.stepTitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: $forest-green;
+    margin: 0;
+}
+
+.stepArabic {
+    font-family: var(--font-arabic, 'Amiri', serif);
+    font-size: 0.9rem;
+    color: $text-muted;
+}
+
+.optionalBadge {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $forest-green;
+    background: rgba($forest-green, 0.1);
+    padding: 0.25rem 0.75rem;
+}
+
+.criticalBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #b45309;
+    background: rgba(#b45309, 0.1);
+    padding: 0.25rem 0.75rem;
+}
+
+.stepDescription {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-muted;
+    line-height: 1.7;
+    margin: 0;
+}
+
+// ========================================
+// 3. SERVICE PACKAGES
+// ========================================
+
+.packagesSection {
+    padding: 5rem 2rem;
+    background: $charcoal;
+}
+
+.packagesSection .sectionLabel {
+    color: rgba(#fff, 0.5);
+}
+
+.packagesSection .sectionTitle {
+    color: #fff;
+}
+
+.packagesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+}
+
+.packageCard {
+    background: $soft-cream;
+    padding: 2.5rem;
+    position: relative;
+
+    // Wedding invitation style border
+    box-shadow:
+        inset 0 0 0 1px rgba($warm-gold, 0.3),
+        inset 0 0 0 4px $soft-cream,
+        inset 0 0 0 5px rgba($warm-gold, 0.2);
+}
+
+.popularCard {
+    box-shadow:
+        inset 0 0 0 2px $warm-gold,
+        inset 0 0 0 6px $soft-cream,
+        inset 0 0 0 7px rgba($warm-gold, 0.3),
+        0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.popularBadge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: $warm-gold;
+    color: #fff;
+    padding: 0.35rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.packageHeader {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.packageName {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: $forest-green;
+    margin: 0 0 0.25rem;
+}
+
+.packageSubtitle {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: $text-muted;
+}
+
+.packagePrice {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.priceAmount {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: $warm-gold;
+    font-weight: 500;
+}
+
+.priceLabel {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.packageFeatures {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+
+        svg {
+            color: $forest-green;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+    }
+}
+
+.packageButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: $forest-green;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: darken($forest-green, 5%);
+    }
+}
+
+.popularCard .packageButton {
+    background: $warm-gold;
+
+    &:hover {
+        background: darken($warm-gold, 8%);
+    }
+}
+
+// ========================================
+// 4. REQUIREMENTS CHECKLIST
+// ========================================
+
+.requirementsSection {
+    padding: 5rem 2rem;
+    background: $warm-cream;
+}
+
+.requirementsScroll {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 3rem;
+    position: relative;
+
+    // Paper scroll / manuscript style
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.05),
+        0 10px 40px rgba(0, 0, 0, 0.08);
+
+    // Corner ornaments
+    &::before,
+    &::after {
+        content: '❧';
+        position: absolute;
+        font-size: 1.5rem;
+        color: $pale-gold;
+    }
+
+    &::before {
+        top: 1rem;
+        left: 1.5rem;
+    }
+
+    &::after {
+        bottom: 1rem;
+        right: 1.5rem;
+        transform: rotate(180deg);
+    }
+}
+
+.scrollHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    svg {
+        color: $warm-gold;
+    }
+
+    h2 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: $forest-green;
+        margin: 0;
+    }
+}
+
+.scrollIntro {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-muted;
+    margin-bottom: 2rem;
+}
+
+.requirementsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-dark;
+        padding: 0.75rem 0;
+        border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        svg {
+            color: $forest-green;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+    }
+}
+
+.criticalReq {
+    background: rgba(#b45309, 0.05);
+    margin: 0 -1rem;
+    padding: 0.75rem 1rem !important;
+
+    svg {
+        color: #b45309 !important;
+    }
+}
+
+.alertIcon {
+    color: #b45309;
+}
+
+.criticalNote {
+    color: #b45309;
+    font-size: 0.85rem;
+}
+
+.scrollFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+    svg {
+        color: $text-muted;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+    }
+
+    a {
+        color: $forest-green;
+        text-decoration: underline;
+    }
+}
+
+// ========================================
+// 5. MATCHMAKING SECTION
+// ========================================
+
+.matchmakingSection {
+    padding: 4rem 2rem;
+    background: $pale-blush;
+}
+
+.matchmakingCard {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.matchmakingContent {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    svg {
+        color: $rose-gold;
+        flex-shrink: 0;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $forest-green;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        margin: 0;
+        line-height: 1.6;
+    }
+}
+
+.matchmakingButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $rose-gold;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: darken($rose-gold, 8%);
+    }
+}
+
+// ========================================
+// 6. BOOKING FORM
+// ========================================
+
+.bookingSection {
+    padding: 5rem 2rem;
+    background: $soft-cream;
+}
+
+.bookingContainer {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.bookingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        color: $text-muted;
+        margin-bottom: 0.5rem;
+    }
+
+    input,
+    select {
+        padding: 0.75rem 1rem;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-dark;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        transition: all 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $warm-gold;
+        }
+    }
+}
+
+.formFieldFull {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        color: $text-muted;
+        margin-bottom: 0.5rem;
+    }
+
+    textarea {
+        padding: 1rem;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-dark;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        resize: vertical;
+        min-height: 100px;
+        transition: all 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $warm-gold;
+        }
+
+        &::placeholder {
+            color: #aaa;
+        }
+    }
+}
+
+.submitButton {
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: $warm-gold;
+    color: #fff;
+    padding: 1.25rem 3rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+
+    &:hover {
+        background: darken($warm-gold, 8%);
+        transform: translateY(-2px);
+    }
+}
+
+.formSuccess {
+    text-align: center;
+    padding: 4rem 2rem;
+
+    svg {
+        color: $warm-gold;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: $forest-green;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-muted;
+    }
+}
