@@ -1,60 +1,62 @@
 import styles from './MissionPage.module.css';
 import templateStyles from '../../_styles/template.module.css';
+import Link from 'next/link';
+import Image from 'next/image';
+import {
+    Diamond,
+    Landmark,
+    BookOpen,
+    Handshake,
+    ArrowRight,
+    Star,
+    Moon,
+    Building2
+} from 'lucide-react';
 
-// SVG Icons as inline components for performance
-const DiamondIcon = () => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={styles.dividerIcon}>
-        <path d="M12 2L22 12L12 22L2 12L12 2Z" />
-    </svg>
-);
-
-const MosqueDomeIcon = () => (
-    <svg viewBox="0 0 100 100" fill="currentColor" className={styles.plaqueWatermark}>
-        <path d="M50 10C30 10 15 30 15 50V90H85V50C85 30 70 10 50 10Z" />
-        <circle cx="50" cy="35" r="8" />
-    </svg>
-);
-
-const CrescentIcon = () => (
-    <svg viewBox="0 0 100 100" fill="currentColor" className={styles.plaqueWatermark}>
-        <path d="M50 10C28 10 10 28 10 50C10 72 28 90 50 90C60 90 69 86 76 80C66 80 58 66 58 50C58 34 66 20 76 20C69 14 60 10 50 10Z" />
-    </svg>
-);
-
-const PrayingHandsIcon = () => (
-    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" className={styles.valueIcon}>
-        <path d="M32 56V36M32 36C28 32 24 28 24 20C24 12 28 8 32 8C36 8 40 12 40 20C40 28 36 32 32 36Z" />
-        <path d="M20 44C18 40 16 36 16 32C16 28 18 24 22 24" />
-        <path d="M44 44C46 40 48 36 48 32C48 28 46 24 42 24" />
-    </svg>
-);
-
-const OpenBookIcon = () => (
-    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" className={styles.valueIcon}>
-        <path d="M32 16V52M32 16C28 12 20 10 12 12V48C20 46 28 48 32 52M32 16C36 12 44 10 52 12V48C44 46 36 48 32 52" />
-    </svg>
-);
-
-const UnityIcon = () => (
-    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" className={styles.valueIcon}>
-        <circle cx="32" cy="20" r="8" />
-        <circle cx="16" cy="40" r="8" />
-        <circle cx="48" cy="40" r="8" />
-        <path d="M32 28V32M24 36L20 40M40 36L44 40" />
-    </svg>
-);
+// Pillar Data (Three core elements)
+const pillars = [
+    {
+        icon: Landmark,
+        watermarkIcon: Building2,
+        label: 'Our Mission',
+        title: 'Cultivating Hearts & Minds',
+        text: 'To cultivate a community grounded in the authentic teachings of Islam, providing spiritual nourishment, educational excellence, and compassionate service to all. We strive to create an environment where every individual can grow in their faith, contribute their unique gifts, and find belonging in the house of Allah.',
+    },
+    {
+        icon: BookOpen,
+        watermarkIcon: Moon,
+        label: 'Our Vision',
+        title: 'A Beacon of Guidance',
+        text: 'To be a beacon of guidance for generations to come—a center of learning, worship, and community that reflects the beauty of Islam to all who enter. We envision a thriving ummah united in purpose, active in service, and grounded in taqwa, serving as a positive force in our city and beyond.',
+    },
+    {
+        icon: Handshake,
+        watermarkIcon: Star,
+        label: 'Our Values',
+        title: 'Unity in Diversity',
+        text: 'Tawheed, service, and unity guide every decision we make. We uphold the oneness of Allah in all worship, serve our community as an act of gratitude, and build bridges within our diverse ummah—embracing our differences as a source of strength.',
+    },
+];
 
 // Timeline Data
 const timelineEvents = [
-    { year: '1985', text: 'A small group of families began gathering for Jummah prayers in a rented community center.' },
-    { year: '1992', text: 'The community purchased its first permanent home, a modest building that would serve as the foundation for growth.' },
-    { year: '2001', text: 'Weekend Islamic school established with 50 students and 5 dedicated volunteer teachers.' },
-    { year: '2010', text: 'Groundbreaking ceremony for the new masjid building, designed with traditional Islamic architecture.' },
-    { year: '2015', text: 'Grand opening of the expanded facility including a full-time school, gymnasium, and community hall.' },
-    { year: '2023', text: 'Serving over 2,000 families with daily prayers, educational programs, and community services.' },
+    { year: '1985', title: 'The Beginning', text: 'A small group of 12 families began gathering for Jummah prayers in a rented community center.' },
+    { year: '1992', title: 'Our First Home', text: 'The community purchased its first permanent home—a modest building that would serve as the foundation.' },
+    { year: '2001', title: 'Seeds of Knowledge', text: 'Weekend Islamic school established with 50 students and 5 dedicated volunteer teachers.' },
+    { year: '2010', title: 'Building the Dream', text: 'Groundbreaking ceremony for the new masjid, designed with traditional Islamic architecture.' },
+    { year: '2015', title: 'Grand Opening', text: 'Expanded facility opened: full-time school, gymnasium, community hall, and prayer spaces.' },
+    { year: '2024', title: 'Serving Generations', text: 'Now serving 2,000+ families with daily prayers, educational programs, and community services.' },
 ];
 
-// Leadership Data
+// Impact Stats
+const impactStats = [
+    { number: '500+', label: 'Families Served' },
+    { number: '120', label: 'Students Enrolled' },
+    { number: '$50K', label: 'Charity Given Yearly' },
+    { number: '39', label: 'Years of Service' },
+];
+
+// Leadership
 const imams = [
     { name: 'Sheikh Abdullah Rahman', title: 'Head Imam' },
     { name: 'Imam Yusuf Hassan', title: 'Associate Imam' },
@@ -68,78 +70,57 @@ const boardMembers = [
     { name: 'Sr. Aisha Patel', title: 'Secretary' },
 ];
 
-// Core Values Data
-const coreValues = [
-    {
-        icon: PrayingHandsIcon,
-        title: 'Tawheed',
-        text: 'Upholding the oneness of Allah in all our worship, decisions, and community life.',
-    },
-    {
-        icon: OpenBookIcon,
-        title: 'Service',
-        text: 'Serving our community and neighbors as an act of worship and gratitude to our Creator.',
-    },
-    {
-        icon: UnityIcon,
-        title: 'Unity',
-        text: 'Building bridges within our diverse ummah, embracing our differences as a source of strength.',
-    },
-];
-
 export default function MissionPage() {
     return (
         <div className={templateStyles.template}>
-            {/* 1. Page Header */}
+            {/* 1. Page Header with Bismillah & Geometric Pattern */}
             <header className={styles.pageHeader}>
-                <div className={styles.bismillah}>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-                <h1 className={styles.pageTitle}>Our Story & Vision</h1>
-                <p className={styles.pageSubtitle}>
-                    Serving the community with the light of Quran and Sunnah since 1985
-                </p>
-                <div className={styles.divider}>
-                    <DiamondIcon />
+                <div className={styles.headerBadge}>Est. 1985</div>
+                <div className={styles.headerContent}>
+                    <div className={styles.bismillah}>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                    <h1 className={styles.pageTitle}>Our Story & Vision</h1>
+                    <p className={styles.pageSubtitle}>
+                        Rooted in faith, growing in service. For nearly four decades, we have been
+                        a sanctuary for souls and a beacon of Islamic knowledge in our community.
+                    </p>
+                    <div className={styles.divider}>
+                        <Diamond className={styles.dividerIcon} size={16} />
+                    </div>
                 </div>
             </header>
 
-            {/* 2. Mission & Vision */}
-            <section className={styles.manifestoSection}>
-                <div className={styles.manifestoGrid}>
-                    <div className={styles.plaque}>
-                        <MosqueDomeIcon />
-                        <span className={styles.plaqueLabel}>Our Mission</span>
-                        <h2 className={styles.plaqueTitle}>Cultivating Hearts & Minds</h2>
-                        <p className={styles.plaqueText}>
-                            To cultivate a community grounded in the authentic teachings of Islam,
-                            providing spiritual nourishment, educational excellence, and compassionate
-                            service to all. We strive to create an environment where every individual
-                            can grow in their faith, contribute their unique gifts, and find belonging
-                            in the house of Allah.
-                        </p>
-                    </div>
-                    <div className={styles.plaque}>
-                        <CrescentIcon />
-                        <span className={styles.plaqueLabel}>Our Vision</span>
-                        <h2 className={styles.plaqueTitle}>A Beacon of Guidance</h2>
-                        <p className={styles.plaqueText}>
-                            To be a beacon of guidance for generations to come—a center of learning,
-                            worship, and community that reflects the beauty of Islam to all who enter.
-                            We envision a thriving ummah united in purpose, active in service, and
-                            grounded in taqwa, serving as a positive force in our city and beyond.
-                        </p>
-                    </div>
+            {/* 2. Three Pillars (Framed Plaques) */}
+            <section className={styles.pillarsSection}>
+                <div className={styles.sectionHeader}>
+                    <div className={styles.sectionLabel}>Our Foundation</div>
+                    <h2 className={styles.sectionTitle}>The Pillars We Stand Upon</h2>
+                </div>
+                <div className={styles.pillarsGrid}>
+                    {pillars.map((pillar, index) => (
+                        <div key={index} className={styles.plaque}>
+                            <pillar.watermarkIcon className={styles.plaqueWatermark} size={120} />
+                            <pillar.icon className={styles.plaqueIcon} size={40} />
+                            <span className={styles.plaqueLabel}>{pillar.label}</span>
+                            <h3 className={styles.plaqueTitle}>{pillar.title}</h3>
+                            <p className={styles.plaqueText}>{pillar.text}</p>
+                        </div>
+                    ))}
                 </div>
             </section>
 
             {/* 3. Timeline */}
             <section className={styles.timelineSection}>
-                <h2 className={styles.sectionTitle}>Our Journey</h2>
+                <div className={styles.sectionHeader}>
+                    <div className={styles.sectionLabel}>Our History</div>
+                    <h2 className={styles.sectionTitle}>The Legacy We Build Upon</h2>
+                </div>
                 <div className={styles.timeline}>
                     {timelineEvents.map((event, index) => (
                         <div key={index} className={styles.timelineItem}>
                             <span className={styles.timelineNode} />
+                            <div className={styles.timelineYear}>{event.year}</div>
                             <div className={styles.timelineCard}>
-                                <div className={styles.timelineYear}>{event.year}</div>
+                                <h3 className={styles.timelineTitle}>{event.title}</h3>
                                 <p className={styles.timelineText}>{event.text}</p>
                             </div>
                         </div>
@@ -147,18 +128,31 @@ export default function MissionPage() {
                 </div>
             </section>
 
-            {/* 4. Leadership */}
+            {/* 4. Impact Strip */}
+            <section className={styles.impactStrip}>
+                <div className={styles.impactGrid}>
+                    {impactStats.map((stat, index) => (
+                        <div key={index} className={styles.impactStat}>
+                            <div className={styles.impactNumber}>{stat.number}</div>
+                            <div className={styles.impactLabel}>{stat.label}</div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* 5. Leadership (Arch Portraits) */}
             <section className={styles.leadershipSection}>
-                <h2 className={styles.sectionTitle}>Our Stewards</h2>
+                <div className={styles.sectionHeader}>
+                    <div className={styles.sectionLabel}>Our Stewards</div>
+                    <h2 className={styles.sectionTitle}>Guided by Wisdom</h2>
+                </div>
 
                 <div className={styles.leadershipGroup}>
                     <h3 className={styles.groupTitle}>Imams & Scholars</h3>
-                    <div className={styles.imamsGrid}>
+                    <div className={styles.leadersGrid}>
                         {imams.map((imam, index) => (
                             <div key={index} className={styles.leaderCard}>
-                                <div className={styles.archPortrait}>
-                                    {/* Placeholder - replace with actual images */}
-                                </div>
+                                <div className={styles.archPortrait} />
                                 <div className={styles.leaderName}>{imam.name}</div>
                                 <div className={styles.leaderTitle}>{imam.title}</div>
                             </div>
@@ -168,12 +162,10 @@ export default function MissionPage() {
 
                 <div className={styles.leadershipGroup}>
                     <h3 className={styles.groupTitle}>Board of Directors</h3>
-                    <div className={styles.boardGrid}>
+                    <div className={styles.leadersGrid}>
                         {boardMembers.map((member, index) => (
                             <div key={index} className={styles.leaderCard}>
-                                <div className={styles.archPortrait}>
-                                    {/* Placeholder - replace with actual images */}
-                                </div>
+                                <div className={styles.archPortrait} />
                                 <div className={styles.leaderName}>{member.name}</div>
                                 <div className={styles.leaderTitle}>{member.title}</div>
                             </div>
@@ -182,17 +174,30 @@ export default function MissionPage() {
                 </div>
             </section>
 
-            {/* 5. Core Values */}
-            <section className={styles.valuesSection}>
-                <h2 className={styles.sectionTitle}>Our Pillars</h2>
-                <div className={styles.valuesGrid}>
-                    {coreValues.map((value, index) => (
-                        <div key={index} className={styles.valueItem}>
-                            <value.icon />
-                            <h3 className={styles.valueTitle}>{value.title}</h3>
-                            <p className={styles.valueText}>{value.text}</p>
-                        </div>
-                    ))}
+            {/* 6. Next Generation Block */}
+            <section className={styles.nextGenSection}>
+                <div className={styles.nextGenImage}>
+                    <Image
+                        src="/images/heritage/youth-learning.jpg"
+                        alt="Holy Quran with prayer beads - passing knowledge to future generations"
+                        fill
+                        className={styles.nextGenPhoto}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                </div>
+                <div className={styles.nextGenContent}>
+                    <h2 className={styles.nextGenTitle}>Building for Tomorrow</h2>
+                    <p className={styles.nextGenText}>
+                        Our work today is not just for ourselves—it is an amanah (trust) for
+                        generations yet to come. Through our Waqf Endowment Fund, we ensure
+                        that the light of this masjid continues to shine long after we are gone.
+                        Every contribution becomes a continuous sadaqah jariyah, benefiting
+                        your akhirah while building a legacy of faith and service.
+                    </p>
+                    <Link href="/heritage/donate" className={styles.ctaButton}>
+                        Support Our Future
+                        <ArrowRight className={styles.ctaIcon} size={18} />
+                    </Link>
                 </div>
             </section>
         </div>

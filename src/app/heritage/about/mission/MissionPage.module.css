@@ -1,284 +1,357 @@
-/* Heritage Mission Page Styles
- * Design: Academic, spiritual, grounded
- * Motifs: Islamic arches, geometric patterns, calligraphic dividers
+/* Mission Page Styles
+ * Combines: Heritage aesthetic + Manifesto structure
+ * Design: Academic, spiritual, grounded with editorial flow
  */
 
 /* ========================================
-   1. PAGE HEADER (The Title Page)
+   1. PAGE HEADER (Heritage Style)
    ======================================== */
 
 .pageHeader {
     position: relative;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 6rem 2rem 4rem;
-    background: linear-gradient(to bottom,
-            oklch(0.95 0.02 85 / 0.3),
-            var(--color-background));
+    padding: 4rem 2rem;
+    background: oklch(0.97 0.01 85);
     overflow: hidden;
 }
 
-/* Geometric pattern overlay */
+/* Islamic Geometric Pattern Overlay */
 .pageHeader::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='none' stroke='%23b8860b' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
-    background-size: 60px 60px;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.6'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3Cpath d='M40 10L70 40L40 70L10 40z'/%3E%3Cpath d='M40 20L60 40L40 60L20 40z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    opacity: 0.15;
     pointer-events: none;
+}
+
+/* Secondary pattern layer for depth */
+.pageHeader::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(45, 90, 61, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.headerBadge {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #d4af37 0%, #b8960c 100%);
+    color: #1a1a1a;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.headerContent {
+    position: relative;
+    z-index: 1;
 }
 
 .bismillah {
     font-family: 'Amiri', 'Traditional Arabic', serif;
-    font-size: 2rem;
-    color: var(--color-secondary);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: #d4af37;
     margin-bottom: 1.5rem;
-    letter-spacing: 0.1em;
+    direction: rtl;
+    letter-spacing: 0.05em;
 }
 
 .pageTitle {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    color: var(--color-primary);
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--color-primary, #2d5a3d);
     margin-bottom: 1rem;
-    letter-spacing: -0.02em;
     line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .pageSubtitle {
-    font-family: var(--font-body);
+    font-family: var(--font-body, Georgia, serif);
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--color-text-muted);
+    color: #555;
     max-width: 600px;
-    margin: 0 auto;
     line-height: 1.6;
+    margin-bottom: 2rem;
 }
 
-/* Ornamental divider */
 .divider {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin: 3rem auto;
-    max-width: 400px;
-}
-
-.divider::before,
-.divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to var(--direction, right),
-            transparent,
-            var(--color-secondary));
-}
-
-.divider::after {
-    --direction: left;
 }
 
 .dividerIcon {
-    width: 24px;
-    height: 24px;
-    color: var(--color-secondary);
+    width: 16px;
+    height: 16px;
+    color: #d4af37;
 }
 
 /* ========================================
-   2. MISSION & VISION (The Manifesto)
+   2. THREE PILLARS (Framed Plaques Style)
    ======================================== */
 
-.manifestoSection {
-    padding: 4rem 2rem;
+.pillarsSection {
+    padding: 5rem 2rem;
+    background: oklch(0.96 0.01 90);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--color-primary, #2d5a3d);
+}
+
+.pillarsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.manifestoGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
-@media (max-width: 768px) {
-    .manifestoGrid {
+@media (max-width: 900px) {
+    .pillarsGrid {
         grid-template-columns: 1fr;
+        max-width: 500px;
     }
 }
 
 .plaque {
     position: relative;
-    padding: 3rem;
-    background: oklch(0.94 0.02 90);
-    border: 3px double var(--color-secondary);
+    padding: 3rem 2rem;
+    background: oklch(0.98 0.01 85);
+    border: 1px solid oklch(0.85 0.03 85);
+    box-shadow:
+        inset 0 0 0 4px oklch(0.98 0.01 85),
+        inset 0 0 0 5px oklch(0.85 0.03 85);
+    text-align: center;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.plaque::before {
-    content: '';
-    position: absolute;
-    inset: 8px;
-    border: 1px solid oklch(0.72 0.14 85 / 0.3);
-    pointer-events: none;
+.plaque:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        inset 0 0 0 4px oklch(0.98 0.01 85),
+        inset 0 0 0 5px oklch(0.85 0.03 85),
+        0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Watermark icons */
 .plaqueWatermark {
     position: absolute;
-    right: 1rem;
-    bottom: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 120px;
     height: 120px;
     opacity: 0.06;
-    color: var(--color-primary);
+    pointer-events: none;
+}
+
+.plaqueIcon {
+    width: 48px;
+    height: 48px;
+    color: var(--color-primary, #2d5a3d);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
 }
 
 .plaqueLabel {
+    display: block;
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--color-secondary);
+    color: #d4af37;
     margin-bottom: 0.75rem;
 }
 
 .plaqueTitle {
     font-family: var(--font-display);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: var(--color-primary);
     margin-bottom: 1rem;
-    line-height: 1.2;
+    position: relative;
+    z-index: 1;
 }
 
 .plaqueText {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.8;
-    color: var(--color-text);
+    color: #555;
     position: relative;
     z-index: 1;
 }
 
 /* ========================================
-   3. TIMELINE (The Legacy)
+   3. TIMELINE (Snake with Diamond Nodes)
    ======================================== */
 
 .timelineSection {
-    padding: 4rem 2rem;
-    background: oklch(0.96 0.01 90);
-}
-
-.sectionTitle {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    color: var(--color-primary);
-    text-align: center;
-    margin-bottom: 3rem;
+    padding: 5rem 2rem;
+    background: #fff;
 }
 
 .timeline {
     position: relative;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding-left: 60px;
 }
 
 /* Central line */
 .timeline::before {
     content: '';
     position: absolute;
-    left: 50%;
+    left: 24px;
     top: 0;
     bottom: 0;
-    width: 3px;
-    background: var(--color-accent);
-    transform: translateX(-50%);
-}
-
-@media (max-width: 768px) {
-    .timeline::before {
-        left: 20px;
-    }
+    width: 2px;
+    background: linear-gradient(to bottom, #d4af37, #b8960c);
 }
 
 .timelineItem {
     position: relative;
-    display: flex;
-    align-items: flex-start;
     margin-bottom: 3rem;
+    padding-left: 2rem;
 }
 
-.timelineItem:nth-child(odd) {
-    flex-direction: row-reverse;
+.timelineItem:last-child {
+    margin-bottom: 0;
 }
 
-@media (max-width: 768px) {
-
-    .timelineItem,
-    .timelineItem:nth-child(odd) {
-        flex-direction: row;
-        padding-left: 50px;
-    }
-}
-
-/* Diamond node */
+/* Diamond node - centered on the line */
 .timelineNode {
     position: absolute;
-    left: 50%;
-    width: 16px;
-    height: 16px;
-    background: var(--color-secondary);
-    transform: translateX(-50%) rotate(45deg);
-    border: 2px solid var(--color-background);
-    box-shadow: 0 0 0 3px var(--color-accent);
-    z-index: 2;
-}
-
-@media (max-width: 768px) {
-    .timelineNode {
-        left: 20px;
-    }
-}
-
-.timelineCard {
-    width: calc(50% - 40px);
-    padding: 1.5rem;
-    background: var(--color-surface);
-    border: 1px solid oklch(0.72 0.14 85 / 0.2);
-    box-shadow: var(--shadow-sm);
-}
-
-@media (max-width: 768px) {
-    .timelineCard {
-        width: 100%;
-    }
+    left: -43px;
+    /* 60px padding - 24px line position - 7px (half of 14px node) = -43px */
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: #d4af37;
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 4px #fff, 0 0 0 5px #d4af37;
 }
 
 .timelineYear {
     font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--color-secondary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.timelineCard {
+    background: oklch(0.98 0.01 85);
+    border-left: 3px solid #d4af37;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.timelineTitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-primary);
     margin-bottom: 0.5rem;
 }
 
 .timelineText {
     font-family: var(--font-body);
     font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--color-text);
+    line-height: 1.7;
+    color: #555;
 }
 
 /* ========================================
-   4. LEADERSHIP (The Stewards)
+   4. IMPACT STRIP
    ======================================== */
 
-.leadershipSection {
+.impactStrip {
+    background: var(--color-primary, #2d5a3d);
     padding: 4rem 2rem;
-    max-width: 1200px;
+}
+
+.impactGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .impactGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.impactStat {
+    text-align: center;
+}
+
+.impactNumber {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #d4af37;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.impactLabel {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ========================================
+   5. LEADERSHIP (Arch Portraits)
+   ======================================== */
+
+.leadershipSection {
+    padding: 5rem 2rem;
+    background: oklch(0.96 0.01 90);
+}
+
 .leadershipGroup {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+}
+
+.leadershipGroup:last-child {
+    margin-bottom: 0;
 }
 
 .groupTitle {
@@ -289,68 +362,33 @@
     margin-bottom: 2rem;
 }
 
-.imamsGrid {
+.leadersGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 2rem;
-}
-
-.boardGrid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-}
-
-@media (max-width: 900px) {
-    .imamsGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .boardGrid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-
-    .imamsGrid,
-    .boardGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .leaderCard {
     text-align: center;
 }
 
-/* Arch mask for portraits */
 .archPortrait {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3/4;
-    margin-bottom: 1rem;
+    width: 140px;
+    height: 160px;
+    margin: 0 auto 1rem;
+    background: oklch(0.92 0.02 85);
+    border: 2px solid #d4af37;
+    border-radius: 70px 70px 0 0;
     overflow: hidden;
-    background: oklch(0.92 0.02 90);
-    border: 2px solid var(--color-secondary);
-    clip-path: polygon(0% 30%,
-            0% 100%,
-            100% 100%,
-            100% 30%,
-            50% 0%);
-    border-radius: 50% 50% 0 0 / 30% 30% 0 0;
-}
-
-.archPortrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .leaderName {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-primary);
     margin-bottom: 0.25rem;
 }
 
@@ -358,55 +396,87 @@
     font-family: var(--font-body);
     font-size: 0.875rem;
     font-style: italic;
-    color: var(--color-accent);
+    color: #d4af37;
 }
 
 /* ========================================
-   5. CORE VALUES (The Pillars)
+   6. NEXT GENERATION (Split Block)
    ======================================== */
 
-.valuesSection {
-    padding: 4rem 2rem;
-    background: var(--color-background);
-}
-
-.valuesGrid {
+.nextGenSection {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    min-height: 450px;
 }
 
 @media (max-width: 768px) {
-    .valuesGrid {
+    .nextGenSection {
         grid-template-columns: 1fr;
-        gap: 2rem;
     }
 }
 
-.valueItem {
-    text-align: center;
+.nextGenImage {
+    position: relative;
+    background: linear-gradient(135deg, #d4af37 0%, #b8960c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 300px;
 }
 
-.valueIcon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 1rem;
-    color: var(--color-primary);
-    stroke-width: 1;
+.nextGenPhoto {
+    object-fit: cover;
 }
 
-.valueTitle {
+.nextGenContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    background: oklch(0.98 0.01 85);
+}
+
+.nextGenTitle {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
     color: var(--color-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
-.valueText {
+.nextGenText {
     font-family: var(--font-body);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--color-primary, #2d5a3d);
+    color: #fff;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.ctaButton:hover {
+    background: oklch(0.35 0.12 145);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(45, 90, 61, 0.3);
+}
+
+.ctaIcon {
+    width: 18px;
+    height: 18px;
 }
