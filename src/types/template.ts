@@ -1,6 +1,14 @@
 import type { ReactNode } from 'react';
 
 /**
+ * Props for layout components
+ */
+export interface LayoutProps {
+  children: ReactNode;
+  templateId: string;
+}
+
+/**
  * Template configuration that each template must export
  */
 export interface TemplateConfig {
@@ -10,8 +18,13 @@ export interface TemplateConfig {
   name: string;
   /** Description of the template */
   description: string;
+  /** Default theme settings */
+  defaultTheme?: {
+    preset: string;
+    defaultMode: 'light' | 'dark' | 'system';
+  };
   /** The main layout component for the template */
-  Layout: React.ComponentType<{ children: ReactNode }>;
+  Layout: React.ComponentType<LayoutProps>;
   /** Page component that handles routing within the template */
   Page: React.ComponentType<PageProps>;
 }

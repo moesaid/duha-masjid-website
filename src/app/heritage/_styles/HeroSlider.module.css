@@ -1,0 +1,1050 @@
+/* HeroSlider - Heritage Background Image Slider */
+
+/* ========================================
+   SLIDER CONTAINER
+   ======================================== */
+.heroSlider {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+/* ========================================
+   SLIDES CONTAINER
+   ======================================== */
+.slidesWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================
+   INDIVIDUAL SLIDE
+   ======================================== */
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-duration, 2000ms) ease-in-out,
+        visibility var(--transition-duration, 2000ms) ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Layer 1: Background Image with Ken Burns Effect */
+.slideBackground {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    animation: kenBurns var(--ken-burns-duration, 16s) ease-in-out infinite alternate;
+}
+
+.slide.active .slideBackground {
+    animation-play-state: running;
+}
+
+.slide:not(.active) .slideBackground {
+    animation-play-state: paused;
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        transform: scale(1.08) translate(-1%, -1%);
+    }
+}
+
+/* Layer 2: Dark Gradient Overlay with Geometric Pattern */
+.slideOverlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg,
+            oklch(0 0 0 / 0.3) 0%,
+            oklch(0 0 0 / 0.5) 50%,
+            oklch(0 0 0 / 0.75) 100%);
+}
+
+/* Subtle geometric pattern texture */
+.slideOverlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20z' fill='none' stroke='%23C9A227' stroke-width='0.3' opacity='0.12'/%3E%3C/svg%3E");
+    opacity: 0.4;
+}
+
+/* Layer 3: Slide Content */
+.slideContent {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-8);
+    z-index: 2;
+}
+
+/* Slide headline - Serif (Playfair Display) */
+.slideHeadline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--heritage-cream);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-4);
+    text-shadow: 0 2px 20px oklch(0 0 0 / 0.5);
+    max-width: 900px;
+}
+
+/* Slide subtitle */
+.slideSubtitle {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xl);
+    color: oklch(0.95 0.02 90);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-8);
+    text-shadow: 0 1px 10px oklch(0 0 0 / 0.5);
+    max-width: 600px;
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+/* CTA Button - Default (outlined) */
+.slideCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4) var(--space-10);
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--heritage-cream);
+    background: transparent;
+    border: 2px solid var(--heritage-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    transition: all var(--transition-normal);
+}
+
+.slideCta:hover {
+    background: var(--heritage-gold);
+    color: var(--heritage-dark);
+}
+
+/* CTA Button - Gold filled variant */
+.slideCta.goldFilled {
+    background: var(--heritage-gold);
+    color: var(--heritage-dark);
+    border-color: var(--heritage-gold);
+}
+
+.slideCta.goldFilled:hover {
+    background: oklch(0.78 0.14 85);
+    border-color: oklch(0.78 0.14 85);
+}
+
+/* ========================================
+   NAVIGATION ARROWS
+   ======================================== */
+.navArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 2px solid var(--heritage-gold);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.navArrow:hover {
+    background: oklch(0.72 0.14 85 / 0.2);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.navArrow.prev {
+    left: var(--space-6);
+}
+
+.navArrow.next {
+    right: var(--space-6);
+}
+
+/* Gold arrow icon */
+.navArrow svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--heritage-gold);
+    stroke-width: 2;
+    fill: none;
+}
+
+/* ========================================
+   INDICATOR DOTS (DIAMONDS)
+   ======================================== */
+.indicators {
+    position: absolute;
+    bottom: 140px;
+    /* Above prayer widget */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: var(--space-4);
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    border: 2px solid oklch(1 0 0 / 0.7);
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.indicator:hover {
+    border-color: var(--heritage-gold);
+}
+
+.indicator.active {
+    background: var(--heritage-gold);
+    border-color: var(--heritage-gold);
+    box-shadow: 0 0 12px oklch(0.72 0.14 85 / 0.5);
+}
+
+/* ========================================
+   ANCHORED PRAYER WIDGET
+   ======================================== */
+.prayerWidgetAnchor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: var(--heritage-dark);
+    border-top: 3px double var(--heritage-gold);
+    padding: var(--space-4) var(--space-6);
+}
+
+.prayerWidgetInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+}
+
+/* Prayer times row */
+.prayerTimesRow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+.prayerTimeItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.prayerTimeItem.active {
+    position: relative;
+}
+
+.prayerTimeItem.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    background: var(--heritage-gold);
+}
+
+.prayerLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: oklch(0.7 0.02 90);
+}
+
+.prayerTimeItem.active .prayerLabel {
+    color: var(--heritage-gold);
+}
+
+.prayerValue {
+    font-family: var(--font-display);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--heritage-cream);
+    font-variant-numeric: tabular-nums;
+}
+
+.prayerTimeItem.active .prayerValue {
+    color: var(--heritage-gold);
+}
+
+/* Jumu'ah info */
+.jumuahInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-1);
+}
+
+.jumuahLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--heritage-terracotta);
+}
+
+.jumuahTime {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--heritage-cream);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+    .prayerTimesRow {
+        gap: var(--space-4);
+    }
+
+    .navArrow {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSlider {
+        height: 100vh;
+    }
+
+    .slideHeadline {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .navArrow {
+        width: 44px;
+        height: 44px;
+    }
+
+    .navArrow.prev {
+        left: var(--space-3);
+    }
+
+    .navArrow.next {
+        right: var(--space-3);
+    }
+
+    .indicators {
+        bottom: 180px;
+    }
+
+    .prayerWidgetAnchor {
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .prayerWidgetInner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .prayerTimesRow {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-4);
+    }
+
+    .jumuahInfo {
+        width: 100%;
+        align-items: center;
+        margin-top: var(--space-3);
+        padding-top: var(--space-3);
+        border-top: 1px solid oklch(0.72 0.14 85 / 0.3);
+    }
+}
+
+/* ========================================
+   SLIDE 1: COUNTDOWN WIDGET
+   ======================================== */
+.countdownWidget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+    padding: var(--space-6) var(--space-8);
+    background: oklch(0 0 0 / 0.3);
+    backdrop-filter: blur(8px);
+    border: 1px solid oklch(0.72 0.14 85 / 0.3);
+}
+
+.countdownLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: oklch(0.85 0.02 90);
+}
+
+.countdownLabel .prayerName {
+    color: var(--heritage-gold);
+    font-weight: 600;
+}
+
+.countdownTimer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.countdownTimer.urgent {
+    animation: urgentPulse 1s ease-in-out infinite;
+}
+
+@keyframes urgentPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.countdownUnit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+}
+
+.countdownValue {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--heritage-cream);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+}
+
+.countdownTimer.urgent .countdownValue {
+    color: var(--heritage-gold);
+}
+
+.countdownUnitLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: oklch(0.6 0.02 90);
+    margin-top: var(--space-1);
+}
+
+.countdownSeparator {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--heritage-gold);
+    margin-bottom: 16px;
+}
+
+/* ========================================
+   SLIDE 2: TIMELINE WIDGET (Services)
+   Horizontal life-journey timeline
+   ======================================== */
+.timelineWidget {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: var(--space-8);
+    padding: var(--space-6) 0;
+}
+
+.timelineLine {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--heritage-gold) 20%,
+            var(--heritage-gold) 80%,
+            transparent 100%);
+    z-index: 0;
+}
+
+.timelineSteps {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.timelineStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.timelineIcon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    background: var(--heritage-dark);
+    border: 2px solid var(--heritage-gold);
+    border-radius: 50%;
+    transition: all var(--transition-normal);
+}
+
+.timelineStep:hover .timelineIcon {
+    background: var(--heritage-gold);
+    transform: scale(1.1);
+}
+
+.timelineLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--heritage-cream);
+}
+
+/* ========================================
+   SLIDE 3: SPOTLIGHT WIDGET (Education)
+   Single featured class with large icon
+   ======================================== */
+.spotlightWidget {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    max-width: 550px;
+    margin-bottom: var(--space-6);
+    padding: var(--space-6) var(--space-8);
+    background: oklch(0 0 0 / 0.35);
+    backdrop-filter: blur(10px);
+    border: 1px solid oklch(0.72 0.14 85 / 0.3);
+}
+
+.spotlightIcon {
+    font-size: 4rem;
+    flex-shrink: 0;
+}
+
+.spotlightContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: left;
+}
+
+.spotlightTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--heritage-cream);
+    margin: 0;
+}
+
+.spotlightDesc {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--heritage-gold);
+    margin: 0;
+}
+
+.spotlightStats {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+}
+
+.spotlightStat {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: oklch(0.8 0.02 90);
+}
+
+.spotlightStat strong {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    color: var(--heritage-cream);
+}
+
+.spotlightDivider {
+    color: oklch(0.5 0 0);
+}
+
+.registrationUrgency {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--heritage-terracotta);
+    margin-bottom: var(--space-6);
+}
+
+.registrationUrgency strong {
+    color: var(--heritage-gold);
+}
+
+/* ========================================
+   SLIDE 4: TESTIMONIAL WIDGET (Community)
+   Large quote from community member
+   ======================================== */
+.testimonialWidget {
+    max-width: 600px;
+    margin-bottom: var(--space-8);
+    padding: var(--space-8);
+    background: oklch(0 0 0 / 0.3);
+    backdrop-filter: blur(10px);
+    border-left: 4px solid var(--heritage-gold);
+}
+
+.testimonialQuote {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--heritage-cream);
+    margin-bottom: var(--space-6);
+}
+
+.testimonialAuthor {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.authorAvatar {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--heritage-dark);
+    background: var(--heritage-gold);
+    border-radius: 50%;
+}
+
+.authorInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.authorName {
+    font-family: var(--font-display);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--heritage-cream);
+}
+
+.authorRole {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: oklch(0.65 0.02 90);
+}
+
+/* ========================================
+   SLIDE 5: FEATURED EVENT WIDGET (Events)
+   Single large event spotlight
+   ======================================== */
+.featuredEventWidget {
+    display: flex;
+    align-items: stretch;
+    max-width: 500px;
+    margin-bottom: var(--space-8);
+    background: oklch(0 0 0 / 0.35);
+    backdrop-filter: blur(10px);
+    border: 1px solid oklch(0.72 0.14 85 / 0.3);
+    overflow: hidden;
+}
+
+.featuredEventDate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6);
+    background: var(--heritage-gold);
+    min-width: 100px;
+}
+
+.eventMonthLarge {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--heritage-dark);
+}
+
+.eventDayLarge {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--heritage-dark);
+    line-height: 1;
+}
+
+.eventYear {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    color: oklch(0.3 0.05 50);
+}
+
+.featuredEventInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-6);
+    text-align: left;
+}
+
+.featuredEventTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--heritage-cream);
+    margin: 0;
+}
+
+.featuredEventDetails {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: oklch(0.75 0.02 90);
+    margin: 0;
+}
+
+.featuredEventCountdown {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--heritage-terracotta);
+    margin-top: var(--space-2);
+}
+
+.featuredEventCountdown strong {
+    color: var(--heritage-gold);
+}
+
+/* ========================================
+   SLIDE 6: VIDEO WIDGET (Media)
+   Mock video player with live badge
+   ======================================== */
+.videoWidget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.videoPlayer {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 16 / 9;
+    background: oklch(0.12 0.02 240);
+    border-radius: var(--space-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.videoPlayButton {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--heritage-gold);
+    border-radius: 50%;
+    transition: all var(--transition-normal);
+    box-shadow:
+        0 0 0 8px oklch(0.72 0.14 85 / 0.2),
+        0 8px 32px oklch(0 0 0 / 0.4);
+}
+
+.videoPlayButton svg {
+    width: 36px;
+    height: 36px;
+    color: var(--heritage-dark);
+    /* Offset to center the play triangle visually */
+    transform: translateX(3px);
+}
+
+.videoPlayer:hover .videoPlayButton {
+    transform: scale(1.08);
+    box-shadow:
+        0 0 0 12px oklch(0.72 0.14 85 / 0.3),
+        0 12px 40px oklch(0 0 0 / 0.5);
+}
+
+.liveBadge {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    background: #c00;
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.liveIndicator {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: livePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.videoInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.videoTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--heritage-cream);
+}
+
+.videoMeta {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: oklch(0.65 0.02 90);
+}
+
+/* ========================================
+   SLIDE 7: THERMOMETER WIDGET (Donate)
+   Vertical progress thermometer
+   ======================================== */
+.thermometerWidget {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+.thermometerGoal,
+.thermometerRaised {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.thermometerLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: oklch(0.6 0.02 90);
+}
+
+.thermometerAmount {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--heritage-cream);
+}
+
+.thermometerBar {
+    position: relative;
+    width: 40px;
+    height: 180px;
+    background: oklch(0.25 0.02 90);
+    border: 2px solid oklch(0.72 0.14 85 / 0.4);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.thermometerFill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg,
+            var(--heritage-gold) 0%,
+            oklch(0.65 0.12 70) 100%);
+    border-radius: 0 0 16px 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: var(--space-2);
+    transition: height 1s ease-out;
+}
+
+.thermometerPercent {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--heritage-dark);
+}
+
+.donorStats {
+    display: flex;
+    gap: var(--space-4);
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: oklch(0.75 0.02 90);
+    margin-bottom: var(--space-6);
+}
+
+.statDivider {
+    color: oklch(0.4 0 0);
+}
+
+/* ========================================
+   RESPONSIVE - ALL UNIQUE WIDGETS
+   ======================================== */
+@media (max-width: 768px) {
+
+    /* Timeline */
+    .timelineWidget {
+        padding: var(--space-4) 0;
+    }
+
+    .timelineIcon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+
+    .timelineLabel {
+        font-size: 9px;
+    }
+
+    /* Spotlight */
+    .spotlightWidget {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-5);
+        gap: var(--space-4);
+    }
+
+    .spotlightContent {
+        text-align: center;
+    }
+
+    .spotlightStats {
+        justify-content: center;
+    }
+
+    /* Testimonial */
+    .testimonialWidget {
+        padding: var(--space-5);
+    }
+
+    .testimonialQuote {
+        font-size: 1rem;
+    }
+
+    /* Featured Event */
+    .featuredEventWidget {
+        flex-direction: column;
+    }
+
+    .featuredEventDate {
+        flex-direction: row;
+        gap: var(--space-3);
+        padding: var(--space-3);
+    }
+
+    .eventDayLarge {
+        font-size: 2rem;
+    }
+
+    .featuredEventInfo {
+        text-align: center;
+        padding: var(--space-4);
+    }
+
+    /* Video */
+    .videoPlayer {
+        max-width: 300px;
+    }
+
+    .videoPlayButton {
+        width: 56px;
+        height: 56px;
+    }
+
+    .videoPlayButton svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Thermometer */
+    .thermometerBar {
+        height: 140px;
+        width: 32px;
+    }
+}

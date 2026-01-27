@@ -1,0 +1,406 @@
+/* Heritage Hero - Traditional Islamic Architecture Style */
+
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    color: var(--heritage-cream);
+    overflow: hidden;
+    padding: var(--space-20) var(--space-6) var(--space-16);
+}
+
+/* Multi-layer background patterns */
+.heroBackground {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+/* Base geometric pattern */
+.heroBackground::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L100 50L50 100L0 50z' fill='none' stroke='%23C9A227' stroke-width='0.3'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='%23C9A227' stroke-width='0.2'/%3E%3Ccircle cx='50' cy='50' r='12' fill='none' stroke='%23C9A227' stroke-width='0.15'/%3E%3C/svg%3E");
+    opacity: 0.06;
+}
+
+/* Radial gradient overlay for depth */
+.heroBackground::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center top, oklch(0.25 0.06 145 / 0.3) 0%, transparent 60%);
+}
+
+/* Decorative corner ornaments */
+.cornerOrnament {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--heritage-gold);
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.cornerOrnament::before,
+.cornerOrnament::after {
+    content: '';
+    position: absolute;
+    background: var(--heritage-gold);
+}
+
+.cornerTopLeft {
+    top: var(--space-8);
+    left: var(--space-8);
+    border-right: none;
+    border-bottom: none;
+}
+
+.cornerTopRight {
+    top: var(--space-8);
+    right: var(--space-8);
+    border-left: none;
+    border-bottom: none;
+}
+
+.cornerBottomLeft {
+    bottom: calc(var(--space-8) + 100px);
+    left: var(--space-8);
+    border-right: none;
+    border-top: none;
+}
+
+.cornerBottomRight {
+    bottom: calc(var(--space-8) + 100px);
+    right: var(--space-8);
+    border-left: none;
+    border-top: none;
+}
+
+/* Main content with arch frame */
+.heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+    padding: var(--space-12) var(--space-8);
+}
+
+/* Bismillah decoration */
+.bismillah {
+    font-family: 'Amiri', serif;
+    font-size: var(--font-size-2xl);
+    color: var(--heritage-gold);
+    opacity: 0.9;
+    margin-bottom: var(--space-6);
+    letter-spacing: 0.1em;
+}
+
+/* Welcome label */
+.welcomeLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--heritage-gold);
+    margin-bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+}
+
+.welcomeLabel::before,
+.welcomeLabel::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--heritage-gold);
+    opacity: 0.6;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: var(--space-2);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+.heroTitleAccent {
+    color: var(--heritage-gold);
+    display: block;
+    font-style: italic;
+}
+
+.heroSubtitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-style: italic;
+    line-height: var(--line-height-relaxed);
+    opacity: 0.85;
+    margin-bottom: var(--space-8);
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Decorative divider */
+.heroDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.heroDivider::before,
+.heroDivider::after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--heritage-gold), transparent);
+}
+
+.dividerDiamond {
+    width: 10px;
+    height: 10px;
+    background: var(--heritage-gold);
+    transform: rotate(45deg);
+}
+
+/* Call-to-action buttons */
+.heroActions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btnPrimary {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    padding: var(--space-4) var(--space-8);
+    background: var(--heritage-gold);
+    color: var(--color-primary);
+    border: 2px solid var(--heritage-gold);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btnPrimary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform var(--transition-slow);
+}
+
+.btnPrimary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px oklch(0.72 0.12 85 / 0.4);
+}
+
+.btnPrimary:hover::before {
+    transform: translateX(100%);
+}
+
+.btnSecondary {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    padding: var(--space-4) var(--space-8);
+    background: transparent;
+    color: var(--heritage-cream);
+    border: 2px solid var(--heritage-cream);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+}
+
+.btnSecondary:hover {
+    background: var(--heritage-cream);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* Islamic arch frame at bottom */
+.heroArchContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+}
+
+.heroArch {
+    position: relative;
+    width: 280px;
+    height: 120px;
+}
+
+/* Main arch shape */
+.heroArch::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    background: var(--heritage-cream);
+    border-radius: 200px 200px 0 0;
+    box-shadow: 0 -4px 24px oklch(0 0 0 / 0.15);
+}
+
+/* Inner arch decoration */
+.heroArch::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 80px;
+    background: transparent;
+    border-radius: 160px 160px 0 0;
+    border: 3px solid var(--heritage-gold);
+    border-bottom: none;
+}
+
+/* Arch side pillars */
+.archPillar {
+    position: absolute;
+    bottom: 0;
+    width: 8px;
+    height: 60px;
+    background: var(--heritage-cream);
+}
+
+.archPillarLeft {
+    left: 32px;
+}
+
+.archPillarRight {
+    right: 32px;
+}
+
+/* Scrolling hint in arch */
+.scrollHint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    animation: bounce 2s infinite;
+}
+
+.scrollHintText {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--color-primary);
+    opacity: 0.7;
+}
+
+.scrollHintIcon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+    opacity: 0.7;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-8px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cornerOrnament {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 75vh;
+        padding: var(--space-16) var(--space-4) var(--space-12);
+    }
+
+    .cornerOrnament {
+        display: none;
+    }
+
+    .bismillah {
+        font-size: var(--font-size-xl);
+    }
+
+    .heroTitle {
+        font-size: var(--font-size-3xl);
+    }
+
+    .heroSubtitle {
+        font-size: var(--font-size-lg);
+    }
+
+    .heroActions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btnPrimary,
+    .btnSecondary {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .heroArch::before {
+        width: 160px;
+        height: 80px;
+    }
+
+    .heroArch::after {
+        width: 120px;
+        height: 60px;
+    }
+}

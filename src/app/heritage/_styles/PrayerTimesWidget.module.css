@@ -1,0 +1,304 @@
+/* Heritage Prayer Times Widget - Classic Table with Ornate Styling */
+
+.prayerWidget {
+    position: relative;
+    padding: var(--space-16) var(--space-6);
+    background: var(--heritage-cream);
+    overflow: hidden;
+}
+
+/* Decorative top border pattern */
+.prayerWidget::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(90deg,
+            var(--color-primary) 0px,
+            var(--color-primary) 20px,
+            var(--heritage-gold) 20px,
+            var(--heritage-gold) 40px);
+}
+
+/* Background watermark */
+.prayerWidget::after {
+    content: '🕌';
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    font-size: 300px;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.widgetContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Section header */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: var(--space-10);
+}
+
+.sectionLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--heritage-gold);
+    margin-bottom: var(--space-3);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+}
+
+.sectionDate {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--color-primary);
+    opacity: 0.7;
+}
+
+.hijriDate {
+    color: var(--heritage-gold);
+    font-weight: 600;
+}
+
+/* Prayer table card */
+.tableCard {
+    background: white;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 8px 32px oklch(0 0 0 / 0.1);
+    overflow: hidden;
+}
+
+/* Decorative header bar */
+.tableHeader {
+    background: var(--color-primary);
+    padding: var(--space-4) var(--space-6);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-4);
+}
+
+.tableHeaderCell {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--heritage-cream);
+    text-align: center;
+}
+
+.tableHeaderCell:first-child {
+    text-align: left;
+}
+
+/* Prayer rows */
+.prayerRow {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 1px solid oklch(0.9 0 0);
+    transition: background var(--transition-fast);
+}
+
+.prayerRow:last-child {
+    border-bottom: none;
+}
+
+.prayerRow:hover {
+    background: oklch(0.98 0.01 85);
+}
+
+/* Active/Next prayer highlight */
+.prayerRowActive {
+    background: oklch(0.25 0.06 145 / 0.08);
+    position: relative;
+}
+
+.prayerRowActive::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--heritage-gold);
+}
+
+.prayerRowActive:hover {
+    background: oklch(0.25 0.06 145 / 0.12);
+}
+
+/* Prayer name */
+.prayerName {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.prayerIcon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: oklch(0.95 0.02 85);
+    color: var(--heritage-gold);
+    font-size: var(--font-size-sm);
+}
+
+.nextBadge {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    background: var(--heritage-gold);
+    color: var(--color-primary);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    margin-left: var(--space-2);
+}
+
+/* Prayer times */
+.prayerTime {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-primary);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeLabel {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-primary);
+    opacity: 0.5;
+    margin-bottom: var(--space-1);
+}
+
+.timeValue {
+    font-weight: 600;
+}
+
+/* Jumuah special row */
+.jumuahRow {
+    background: oklch(0.72 0.12 85 / 0.1);
+    border-top: 2px dashed var(--heritage-gold);
+}
+
+.jumuahRow .prayerName {
+    color: var(--heritage-gold);
+}
+
+/* Footer with masjid info */
+.widgetFooter {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid oklch(0.8 0 0);
+}
+
+.footerLink {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    opacity: 0.8;
+    transition: opacity var(--transition-fast), color var(--transition-fast);
+}
+
+.footerLink:hover {
+    opacity: 1;
+    color: var(--heritage-gold);
+}
+
+.footerIcon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Loading state */
+.loading {
+    text-align: center;
+    padding: var(--space-16);
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .prayerWidget::after {
+        font-size: 150px;
+        right: -10%;
+    }
+
+    .tableHeader,
+    .prayerRow {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .prayerName {
+        font-size: var(--font-size-base);
+    }
+
+    .prayerIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .widgetFooter {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .tableHeaderCell:nth-child(3) {
+        display: none;
+    }
+
+    .prayerTime:last-child {
+        display: none;
+    }
+
+    .tableHeader,
+    .prayerRow {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}

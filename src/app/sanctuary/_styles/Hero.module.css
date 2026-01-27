@@ -1,0 +1,159 @@
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,
+            var(--sanc-sage-light) 0%,
+            var(--sanc-sand) 50%,
+            var(--sanc-cream) 100%);
+    overflow: hidden;
+}
+
+/* Organic wave shapes */
+.heroWaves {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heroWaves::before {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -20%;
+    width: 140%;
+    height: 100%;
+    background: var(--color-background);
+    border-radius: 50% 50% 0 0;
+    opacity: 0.5;
+}
+
+.heroWaves::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    width: 60%;
+    height: 80%;
+    background: var(--color-primary-light);
+    border-radius: var(--radius-blob);
+    opacity: 0.3;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    text-align: center;
+    padding: var(--space-8);
+}
+
+.heroIcon {
+    font-size: 4rem;
+    margin-bottom: var(--space-6);
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-hero);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-6);
+}
+
+.heroTitleHighlight {
+    color: var(--color-primary);
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xl);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-10);
+}
+
+.heroActions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btnPrimary {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: white;
+    background: var(--color-primary);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-xl);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform var(--transition-gentle), box-shadow var(--transition-gentle);
+}
+
+.btnPrimary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btnSecondary {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    background: var(--color-surface);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-xl);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform var(--transition-gentle);
+}
+
+.btnSecondary:hover {
+    transform: translateY(-2px);
+}
+
+/* Quote section */
+.heroQuote {
+    margin-top: var(--space-16);
+    padding: var(--space-6);
+    background: oklch(1 0 0 / 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-xl);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heroQuoteText {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--color-text);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-3);
+}
+
+.heroQuoteSource {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: var(--font-size-3xl);
+    }
+
+    .heroSubtitle {
+        font-size: var(--font-size-lg);
+    }
+}

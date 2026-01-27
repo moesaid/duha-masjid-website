@@ -1,0 +1,163 @@
+/* Heritage Donation Section - Parallax with Giving Levels */
+
+.donationSection {
+    position: relative;
+    padding: var(--space-24) var(--space-6);
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Parallax background */
+.parallaxBackground {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, oklch(0.18 0.06 145) 0%, oklch(0.12 0.04 145) 100%);
+    z-index: 0;
+}
+
+/* Heavy pattern overlay */
+.parallaxBackground::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0L80 40L40 80L0 40z' fill='none' stroke='%23C9A227' stroke-width='0.8'/%3E%3Ccircle cx='40' cy='40' r='15' fill='none' stroke='%23C9A227' stroke-width='0.5'/%3E%3C/svg%3E");
+    opacity: 0.12;
+}
+
+/* Dark overlay for text readability */
+.parallaxBackground::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: oklch(0 0 0 / 0.3);
+}
+
+.donationContainer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Section header */
+.sectionLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--heritage-gold);
+    margin-bottom: var(--space-3);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--heritage-cream);
+    margin-bottom: var(--space-4);
+    line-height: var(--line-height-tight);
+}
+
+.sectionSubtitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--heritage-cream);
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto var(--space-12);
+}
+
+/* Giving levels grid */
+.givingLevels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-10);
+}
+
+.givingTile {
+    background: oklch(1 0 0 / 0.1);
+    border: 2px solid var(--heritage-gold);
+    padding: var(--space-6);
+    text-decoration: none;
+    transition: background var(--transition-normal), transform var(--transition-normal);
+    cursor: pointer;
+}
+
+.givingTile:hover {
+    background: oklch(1 0 0 / 0.15);
+    transform: translateY(-4px);
+}
+
+.givingIcon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-3);
+}
+
+.givingTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--heritage-cream);
+    margin-bottom: var(--space-2);
+}
+
+.givingDescription {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--heritage-cream);
+    opacity: 0.8;
+}
+
+/* Main donate button - most prominent */
+.donateButton {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-primary);
+    background: var(--heritage-gold);
+    border: none;
+    padding: var(--space-5) var(--space-12);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.donateButton::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform var(--transition-slow);
+}
+
+.donateButton:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px oklch(0.72 0.12 85 / 0.5);
+}
+
+.donateButton:hover::before {
+    transform: translateX(100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .givingLevels {
+        grid-template-columns: 1fr;
+    }
+
+    .sectionTitle {
+        font-size: var(--font-size-3xl);
+    }
+}

@@ -1,0 +1,166 @@
+/* Sticky Prayer Pill - Floating bar for prayer times */
+.prayerPill {
+    position: fixed;
+    z-index: 90;
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-normal);
+}
+
+/* Desktop: top-right */
+@media (min-width: 769px) {
+    .prayerPill {
+        top: 80px;
+        right: var(--space-6);
+        border-radius: var(--radius-full);
+    }
+}
+
+/* Mobile: bottom floating bar */
+@media (max-width: 768px) {
+    .prayerPill {
+        bottom: var(--space-4);
+        left: var(--space-4);
+        right: var(--space-4);
+        border-radius: var(--radius-2xl);
+        justify-content: center;
+    }
+}
+
+.prayerPillHidden {
+    transform: translateY(200%);
+}
+
+.pillLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pillPrayer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.pillPrayerName {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.pillPrayerTime {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.pillDivider {
+    width: 1px;
+    height: 24px;
+    background: var(--color-border);
+}
+
+.pillCountdown {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.pillCountdownValue {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.pillExpandBtn {
+    background: var(--color-surface);
+    border: none;
+    padding: var(--space-2);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: background var(--transition-fast), color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pillExpandBtn:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Full Prayer Times Panel */
+.prayerPanel {
+    background: var(--color-surface-elevated);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-lg);
+}
+
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+}
+
+.panelTitle {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.panelDate {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.prayerList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.prayerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    transition: background var(--transition-fast);
+}
+
+.prayerRowActive {
+    background: oklch(0.65 0.15 175 / 0.1);
+    border: 1px solid var(--color-primary);
+}
+
+.prayerName {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.prayerTime {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+}

@@ -1,0 +1,195 @@
+/* Heritage Events List - Table/List Style Community Board */
+
+.eventsSection {
+    position: relative;
+    padding: var(--space-20) var(--space-6);
+    background: white;
+}
+
+.eventsContainer {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Section header */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.sectionLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--heritage-gold);
+    margin-bottom: var(--space-3);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* Events list */
+.eventsList {
+    border: 2px solid var(--color-primary);
+    background: white;
+}
+
+/* Event row */
+.eventRow {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    align-items: center;
+    border-bottom: 1px solid oklch(0.9 0 0);
+    transition: background var(--transition-fast);
+}
+
+.eventRow:last-child {
+    border-bottom: none;
+}
+
+.eventRow:hover {
+    background: oklch(0.98 0.01 85);
+}
+
+/* Patterned divider between rows */
+.eventRow:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 100px;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: repeating-linear-gradient(90deg,
+            var(--heritage-gold) 0px,
+            var(--heritage-gold) 4px,
+            transparent 4px,
+            transparent 8px);
+    opacity: 0.3;
+}
+
+/* Date box */
+.dateBox {
+    background: var(--color-primary);
+    color: var(--heritage-cream);
+    padding: var(--space-3) var(--space-4);
+    text-align: center;
+    min-width: 80px;
+}
+
+.dateDay {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+}
+
+.dateMonth {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    opacity: 0.9;
+}
+
+/* Event details */
+.eventDetails {
+    flex: 1;
+}
+
+.eventTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--space-1);
+}
+
+.eventMeta {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.metaIcon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+}
+
+/* Event type label */
+.eventType {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--heritage-gold);
+    background: oklch(0.72 0.12 85 / 0.15);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+}
+
+/* View all link */
+.viewAllLink {
+    display: block;
+    text-align: center;
+    margin-top: var(--space-8);
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: var(--space-4);
+    border: 2px solid var(--color-primary);
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.viewAllLink:hover {
+    background: var(--color-primary);
+    color: var(--heritage-cream);
+}
+
+/* Loading state */
+.loading {
+    text-align: center;
+    padding: var(--space-12);
+    font-family: var(--font-display);
+    color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .eventRow {
+        grid-template-columns: 70px 1fr;
+        gap: var(--space-4);
+    }
+
+    .eventType {
+        display: none;
+    }
+
+    .dateBox {
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .dateDay {
+        font-size: var(--font-size-xl);
+    }
+}

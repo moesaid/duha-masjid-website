@@ -1,0 +1,129 @@
+.header {
+    background: var(--color-surface);
+    padding: var(--space-5) var(--space-6);
+    position: relative;
+}
+
+.headerInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+}
+
+.logoIcon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--sanc-sage), var(--sanc-sage-light));
+    border-radius: var(--radius-blob);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--font-size-xl);
+}
+
+.logoText {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.logoTagline {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-muted);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.navLink {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-xl);
+    transition: color var(--transition-gentle), background var(--transition-gentle);
+}
+
+.navLink:hover {
+    color: var(--color-text);
+    background: var(--color-surface-muted);
+}
+
+.navLinkActive {
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+}
+
+.donateBtn {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: white;
+    background: var(--color-primary);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    margin-left: var(--space-4);
+    transition: transform var(--transition-gentle), box-shadow var(--transition-gentle);
+}
+
+.donateBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.mobileMenuBtn {
+    display: none;
+    background: var(--color-surface-muted);
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+}
+
+@media (max-width: 900px) {
+    .nav {
+        display: none;
+    }
+
+    .mobileMenuBtn {
+        display: flex;
+    }
+
+    .navMobile {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--color-surface);
+        padding: var(--space-6);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        z-index: 99;
+    }
+
+    .navMobile .navLink {
+        font-size: var(--font-size-lg);
+        padding: var(--space-4);
+    }
+}

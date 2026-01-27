@@ -1,0 +1,86 @@
+/* Heritage Template Design Tokens
+ * Theme: Traditional & Timeless
+ * Aesthetic: Islamic architectural, Arabesque patterns
+ */
+
+.template {
+    /* Color Palette */
+    --heritage-deep-green: oklch(0.40 0.12 145);
+    --heritage-gold: oklch(0.72 0.14 85);
+    --heritage-cream: oklch(0.97 0.02 90);
+    --heritage-terracotta: oklch(0.58 0.16 35);
+    --heritage-dark: oklch(0.20 0.05 145);
+
+    /* Semantic Colors */
+    --color-primary: var(--heritage-deep-green);
+    --color-primary-light: oklch(0.50 0.10 145);
+    --color-secondary: var(--heritage-gold);
+    --color-accent: var(--heritage-terracotta);
+    --color-background: var(--heritage-cream);
+    --color-surface: oklch(0.99 0.01 90);
+    --color-text: var(--heritage-dark);
+    --color-text-muted: oklch(0.45 0.03 145);
+
+    /* Typography - Serif focused */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Merriweather', Georgia, serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+    --font-size-hero: 3.5rem;
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.6;
+    --line-height-relaxed: 1.8;
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-wide: 0.05em;
+
+    /* Spacing - Traditional proportions */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+
+    /* Borders & Shadows - No rounded corners, architectural feel */
+    --radius-none: 0;
+    --radius-sm: 0;
+    --radius-md: 0;
+    --radius-lg: 0;
+    --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.08);
+    --shadow-md: 0 4px 12px oklch(0 0 0 / 0.10);
+    --shadow-lg: 0 8px 24px oklch(0 0 0 / 0.12);
+    --shadow-gold: 0 4px 16px oklch(0.72 0.14 85 / 0.3);
+
+    /* Decorative - Arch dimensions */
+    --arch-curve: 50%;
+    --pattern-opacity: 0.05;
+    --border-ornate: 2px solid var(--heritage-gold);
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+}
+
+/* Dark mode adjustments */
+:global(.dark) .template {
+    --color-background: oklch(0.18 0.04 145);
+    --color-surface: oklch(0.22 0.04 145);
+    --color-text: var(--heritage-cream);
+    --color-text-muted: oklch(0.70 0.02 90);
+    --color-primary: oklch(0.55 0.12 145);
+    --heritage-gold: oklch(0.78 0.14 85);
+}

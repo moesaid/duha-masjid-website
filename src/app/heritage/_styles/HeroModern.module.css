@@ -1,0 +1,360 @@
+/* HeroModern - Clean & Creative Hero (Heritage Design System) */
+
+/* ========================================
+   GRADIENT MESH BACKGROUND - Heritage Colors
+   ======================================== */
+.heroSection {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: var(--space-8) var(--space-6);
+}
+
+/* Abstract gradient mesh background - Heritage palette */
+.heroBackground {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    /* Base gradient - cream to soft green with gold accents */
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, oklch(0.85 0.08 85 / 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 80% at 80% 20%, oklch(0.55 0.08 145 / 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 60% at 70% 80%, oklch(0.90 0.06 85 / 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 50% at 30% 70%, oklch(0.50 0.10 145 / 0.2) 0%, transparent 50%),
+        linear-gradient(180deg,
+            var(--heritage-cream) 0%,
+            oklch(0.95 0.03 90) 50%,
+            oklch(0.92 0.04 100) 100%);
+}
+
+/* Animated mesh overlay - subtle gold/green shifts */
+.heroBackground::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 25% 35%, oklch(0.75 0.12 85 / 0.2) 0%, transparent 25%),
+        radial-gradient(circle at 75% 65%, oklch(0.45 0.10 145 / 0.15) 0%, transparent 30%);
+    animation: meshShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes meshShift {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translate(2%, -2%) scale(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-1%, 1%) scale(1.02);
+        opacity: 0.9;
+    }
+}
+
+/* Subtle arabesque pattern overlay */
+.heroBackground::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='none' stroke='%23C9A227' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+    opacity: 0.5;
+}
+
+/* ========================================
+   CONTENT CONTAINER - 60/40 SPLIT
+   ======================================== */
+.heroContent {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+/* ========================================
+   LEFT COLUMN - THE MESSAGE (60%)
+   ======================================== */
+.messageColumn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+/* Subtle Bismillah calligraphy */
+.bismillah {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: var(--font-size-xl);
+    color: var(--heritage-gold);
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+}
+
+/* Large headline - Heritage serif */
+.headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, var(--font-size-hero));
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--heritage-deep-green);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Sub-headline */
+.subheadline {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    color: var(--color-text-muted);
+    letter-spacing: var(--letter-spacing-wide);
+    line-height: var(--line-height-relaxed);
+    max-width: 540px;
+    font-style: italic;
+}
+
+/* CTA Button - Heritage style (no rounded corners) */
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: fit-content;
+    padding: var(--space-4) var(--space-8);
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--heritage-cream);
+    background: var(--heritage-deep-green);
+    border: 2px solid var(--heritage-deep-green);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--shadow-gold);
+    transition: all var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+.ctaButton:hover {
+    background: transparent;
+    color: var(--heritage-deep-green);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.ctaButton:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   RIGHT COLUMN - PRAYER TIME DOCK (40%)
+   ======================================== */
+.dockColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Heritage-styled floating card with translucency */
+.prayerDock {
+    width: 100%;
+    max-width: 340px;
+    background: oklch(0.99 0.01 90 / 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 2px solid var(--heritage-gold);
+    box-shadow:
+        0 8px 32px oklch(0 0 0 / 0.1),
+        var(--shadow-gold);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Gold corner accent */
+.prayerDock::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, transparent 50%, oklch(0.72 0.14 85 / 0.15) 50%);
+}
+
+/* Dock header */
+.dockHeader {
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid oklch(0.72 0.14 85 / 0.3);
+    background: oklch(0.40 0.12 145 / 0.05);
+}
+
+.dockTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--heritage-deep-green);
+    margin-bottom: var(--space-1);
+}
+
+.dockDate {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.hijriDate {
+    color: var(--heritage-gold);
+    font-weight: 600;
+}
+
+/* Prayer times list */
+.prayerList {
+    padding: var(--space-2) 0;
+}
+
+.prayerItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-6);
+    transition: all var(--transition-fast);
+}
+
+/* Faded state for non-active prayers */
+.prayerItem:not(.active) {
+    opacity: 0.55;
+}
+
+.prayerItem:not(.active):hover {
+    opacity: 0.8;
+    background: oklch(0.72 0.14 85 / 0.05);
+}
+
+/* Active prayer - highlighted with Heritage colors */
+.prayerItem.active {
+    background: oklch(0.40 0.12 145 / 0.08);
+    padding: var(--space-4) var(--space-6);
+    margin: var(--space-2) var(--space-3);
+    border-left: 3px solid var(--heritage-gold);
+}
+
+.prayerName {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--heritage-dark);
+}
+
+.prayerItem.active .prayerName {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--heritage-deep-green);
+}
+
+/* Glowing indicator dot for active prayer - Heritage gold */
+.activeIndicator {
+    width: 8px;
+    height: 8px;
+    background: var(--heritage-gold);
+    box-shadow:
+        0 0 0 3px oklch(0.72 0.14 85 / 0.25),
+        0 0 12px oklch(0.72 0.14 85 / 0.5);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 3px oklch(0.72 0.14 85 / 0.25),
+            0 0 12px oklch(0.72 0.14 85 / 0.5);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 6px oklch(0.72 0.14 85 / 0.15),
+            0 0 20px oklch(0.72 0.14 85 / 0.6);
+    }
+}
+
+.prayerTime {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.prayerItem.active .prayerTime {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--heritage-deep-green);
+}
+
+/* Jumu'ah special row */
+.jumuahItem {
+    border-top: 1px solid oklch(0.72 0.14 85 / 0.2);
+    margin-top: var(--space-2);
+    padding-top: var(--space-4);
+}
+
+.jumuahBadge {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--heritage-cream);
+    background: var(--heritage-terracotta);
+    padding: 2px 6px;
+    margin-left: var(--space-2);
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+@media (max-width: 1024px) {
+    .heroContent {
+        grid-template-columns: 1fr 320px;
+        gap: var(--space-8);
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSection {
+        min-height: auto;
+        padding: var(--space-16) var(--space-4) var(--space-8);
+    }
+
+    .heroContent {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+    }
+
+    .messageColumn {
+        text-align: center;
+        align-items: center;
+    }
+
+    .subheadline {
+        max-width: 100%;
+    }
+
+    .prayerDock {
+        max-width: 100%;
+    }
+}

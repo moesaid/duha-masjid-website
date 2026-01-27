@@ -1,0 +1,206 @@
+/* Today's Status Dashboard Sidebar */
+.dashboard {
+    background: var(--color-surface);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 100px;
+}
+
+.dashboardTitle {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.dashboardTitle::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--hub-green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Prayer Times Section */
+.prayerSection {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 2px dashed var(--color-border);
+}
+
+.sectionLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-3);
+}
+
+.nextPrayer {
+    background: linear-gradient(135deg, var(--hub-orange), oklch(0.70 0.18 45));
+    color: white;
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    margin-bottom: var(--space-4);
+}
+
+.nextPrayerName {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-black);
+}
+
+.nextPrayerTime {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+}
+
+.nextPrayerCountdown {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+    margin-top: var(--space-1);
+}
+
+.prayerGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+}
+
+.prayerItem {
+    background: var(--color-background);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.prayerName {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
+}
+
+.prayerTime {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+/* Next Event Section */
+.eventSection {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 2px dashed var(--color-border);
+}
+
+.eventCard {
+    background: var(--color-background);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.eventImage {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(135deg, var(--hub-sky), var(--hub-green));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--font-size-3xl);
+}
+
+.eventInfo {
+    padding: var(--space-4);
+}
+
+.eventName {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.eventTime {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Open Hours Section */
+.hoursSection {
+    /* Last section, no border */
+}
+
+.hoursList {
+    background: var(--color-background);
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+}
+
+.hoursRow {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.hoursRow:last-child {
+    border-bottom: none;
+}
+
+.hoursDay {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.hoursTime {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
+}
+
+.openNow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--hub-green);
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--space-3);
+}
+
+.openNow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+}
