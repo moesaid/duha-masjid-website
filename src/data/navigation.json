@@ -67,6 +67,10 @@
             "type": "dropdown",
             "children": [
                 {
+                    "label": "Full-Time School",
+                    "url": "/education/full-time-school"
+                },
+                {
                     "label": "Weekend School (Sunday School)",
                     "url": "/education/weekend-school"
                 },

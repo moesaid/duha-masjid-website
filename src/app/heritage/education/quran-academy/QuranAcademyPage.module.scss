@@ -1,0 +1,1040 @@
+/* Quran Academy Page Styles
+ * Design: Sacred, Disciplined, and Elite
+ * Palette: Emerald Green with Metallic Gold
+ * Focus: Islamic Illumination (Tezhip), Authenticity, Excellence
+ */
+
+// ========================================
+// Variables
+// ========================================
+$emerald: #1a5d3a;
+$emerald-dark: #134430;
+$emerald-light: #2a7a50;
+$gold: #c9a227;
+$gold-metallic: #d4af37;
+$gold-light: #e8d078;
+$gold-soft: #f5e6b3;
+$mushaf-cream: #f8f4e8;
+$paper-yellow: #f5f0dc;
+$text-dark: #1a1a1a;
+$text-muted: rgba(#1a1a1a, 0.65);
+$border-gold: rgba(#c9a227, 0.35);
+
+// ========================================
+// Base Page Styles
+// ========================================
+
+.quranAcademyPage {
+    background: $mushaf-cream;
+}
+
+// ========================================
+// 1. THE "GUARDIANS" HERO
+// ========================================
+
+.guardiansHero {
+    position: relative;
+    height: 70vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: saturate(0.8);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba($emerald-dark, 0.85) 0%,
+            rgba($emerald, 0.92) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 850px;
+    padding: 2rem;
+}
+
+.verseCalligraphy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem 2rem;
+    border: 2px solid rgba($gold, 0.4);
+    background: rgba($emerald-dark, 0.3);
+}
+
+.arabicVerse {
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+    color: $gold-light;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+}
+
+.verseTranslation {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(#fff, 0.9);
+    margin-bottom: 0.25rem;
+}
+
+.verseReference {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba($gold, 0.8);
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #fff;
+    font-weight: 400;
+    margin: 0 0 0.75rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: rgba(#fff, 0.85);
+    margin: 0 0 2rem;
+}
+
+.heroActions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.primaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: $gold-metallic;
+    color: $emerald-dark;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $gold-light;
+        transform: translateY(-2px);
+    }
+}
+
+.ctaNote {
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.secondaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 1rem 1.5rem;
+    background: transparent;
+    border: 2px solid rgba(#fff, 0.4);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: $gold;
+        color: $gold;
+    }
+}
+
+.hadithBadge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 1rem 1.5rem;
+    background: rgba($gold, 0.1);
+    border: 1px solid rgba($gold, 0.25);
+
+    svg {
+        color: $gold-light;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-style: italic;
+        color: rgba(#fff, 0.9);
+    }
+
+    cite {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        color: rgba($gold, 0.8);
+        font-style: normal;
+    }
+}
+
+// ========================================
+// 2. THE METHODOLOGY
+// ========================================
+
+.methodologySection {
+    padding: 5rem 2rem;
+    background: $paper-yellow;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $emerald;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $emerald-dark;
+    margin: 0 0 0.75rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.methodologyFlow {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+    @media (max-width: 900px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.methodStep {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @media (max-width: 900px) {
+        flex-direction: column;
+    }
+}
+
+.stepTablet {
+    width: 280px;
+    background: linear-gradient(180deg, #e8e4d8 0%, #d9d5c8 100%);
+    border: 3px solid rgba($emerald, 0.3);
+    box-shadow:
+        inset 0 2px 0 rgba(#fff, 0.5),
+        0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tabletTop {
+    padding: 0.75rem;
+    background: $emerald;
+    text-align: center;
+}
+
+.stepArabic {
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: 1.35rem;
+    color: $gold-light;
+}
+
+.tabletBody {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.stepIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba($emerald, 0.1);
+    border: 2px solid rgba($emerald, 0.25);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+
+    svg {
+        color: $emerald;
+    }
+}
+
+.tabletBody h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: $emerald-dark;
+    margin: 0 0 0.15rem;
+}
+
+.stepSubtitle {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $gold;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.tabletBody p {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.flowArrow {
+    color: $gold;
+
+    @media (max-width: 900px) {
+        transform: rotate(90deg);
+    }
+}
+
+// ========================================
+// 3. PROGRAM TIERS
+// ========================================
+
+.programsSection {
+    padding: 5rem 2rem;
+    background: $mushaf-cream;
+}
+
+.tiersContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+}
+
+.tierCard {
+    background: #fff;
+    border: 3px solid $border-gold;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, $emerald 0%, $emerald-light 50%, $emerald 100%);
+    }
+}
+
+.tierHeader {
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba($emerald, 0.05) 0%, transparent 100%);
+    text-align: center;
+    border-bottom: 1px solid $border-gold;
+}
+
+.tierLabel {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: $emerald;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+}
+
+.tierHeader h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: $emerald-dark;
+    margin: 0 0 0.25rem;
+}
+
+.tierArabic {
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: 1rem;
+    color: $gold;
+}
+
+.tierSchedule {
+    padding: 1rem 1.5rem;
+    background: rgba($gold, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.scheduleItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    svg {
+        color: $emerald;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+    }
+}
+
+.tierTarget {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid $border-gold;
+
+    svg {
+        color: $gold;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: $emerald-dark;
+    }
+}
+
+.tierFeatures {
+    list-style: none;
+    padding: 1rem 1.5rem;
+    margin: 0;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.4rem 0;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+
+        svg {
+            color: $gold;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+    }
+}
+
+.tierRequirement {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba($emerald, 0.05);
+    border-top: 1px solid $border-gold;
+
+    svg {
+        color: $emerald;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: $emerald-dark;
+    }
+}
+
+.tierTuition {
+    padding: 1rem 1.5rem;
+    text-align: center;
+    border-top: 1px solid $border-gold;
+}
+
+.tuitionAmount {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: $emerald-dark;
+}
+
+.tuitionNote {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+}
+
+.tierCta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: $emerald;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $emerald-dark;
+    }
+}
+
+.prerequisiteNote {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba($gold, 0.1);
+    border: 1px solid $border-gold;
+    max-width: 700px;
+    margin: 0 auto;
+
+    svg {
+        color: $gold;
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+// ========================================
+// 4. THE TEACHERS (Sanad)
+// ========================================
+
+.teachersSection {
+    padding: 5rem 2rem;
+    background: $emerald-dark;
+}
+
+.sanadScroll {
+    max-width: 800px;
+    margin: 0 auto;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+        $paper-yellow;
+    border: 4px double $gold;
+    padding: 3rem;
+}
+
+.scrollHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.chainIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: $emerald;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+
+    svg {
+        color: $gold-light;
+    }
+}
+
+.scrollHeader h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: $emerald-dark;
+    margin: 0 0 0.25rem;
+}
+
+.scrollSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: $gold;
+}
+
+.scrollContent {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sanadText {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-dark;
+    line-height: 1.7;
+    margin: 0 0 2rem;
+
+    strong {
+        color: $emerald-dark;
+    }
+}
+
+.pbuh {
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    color: $gold;
+}
+
+.chainVisualization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 1.5rem;
+}
+
+.chainLink {
+    padding: 0.75rem 1.5rem;
+    background: #fff;
+    border: 2px solid $emerald;
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $emerald-dark;
+        font-weight: 500;
+    }
+
+    &.chainCurrent {
+        background: $emerald;
+        border-color: $emerald;
+
+        span {
+            color: #fff;
+        }
+    }
+}
+
+.chainConnector {
+    width: 2px;
+    height: 20px;
+    background: $gold;
+}
+
+.chainDots {
+    padding: 0.5rem;
+
+    span {
+        font-size: 1.25rem;
+        color: $gold;
+        letter-spacing: 0.25em;
+    }
+}
+
+.chainNote {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: $text-muted;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.scrollFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid $border-gold;
+
+    svg {
+        color: $gold;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $emerald-dark;
+    }
+}
+
+// ========================================
+// 5. STUDENT ACHIEVEMENTS
+// ========================================
+
+.achievementsSection {
+    padding: 5rem 2rem;
+    background: $mushaf-cream;
+}
+
+.statsRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statNumber {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: $emerald;
+}
+
+.statLabel {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+}
+
+.statDivider {
+    width: 1px;
+    height: 60px;
+    background: $border-gold;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
+}
+
+.graduatesSection {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: $emerald-dark;
+        text-align: center;
+        margin: 0 0 1.5rem;
+    }
+}
+
+.graduatesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 450px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.graduateCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid $border-gold;
+    text-align: center;
+
+    svg {
+        color: $gold;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.gradName {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $emerald-dark;
+}
+
+.gradDetails {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+}
+
+.testimonialBlock {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba($emerald, 0.05) 0%, transparent 100%);
+    border: 2px solid $border-gold;
+    position: relative;
+}
+
+.quoteIcon {
+    color: $gold;
+    opacity: 0.3;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.testimonialBlock blockquote {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: $text-dark;
+    line-height: 1.7;
+    margin: 0 0 1rem;
+}
+
+.testimonialBlock cite {
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+
+    strong {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $emerald-dark;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: $gold;
+    }
+}
+
+// ========================================
+// 6. ADMISSIONS & TUITION
+// ========================================
+
+.admissionsSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, $paper-yellow 0%, $mushaf-cream 100%);
+}
+
+.admissionsLedger {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    border: 3px double $emerald;
+    padding: 2.5rem;
+}
+
+.processFlow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $border-gold;
+
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 450px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.processStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    position: relative;
+
+    // Arrow connector (hidden on mobile)
+    &:not(:last-child)::after {
+        content: '→';
+        position: absolute;
+        right: -0.75rem;
+        top: 18px;
+        color: $gold;
+        font-size: 1rem;
+
+        @media (max-width: 700px) {
+            display: none;
+        }
+    }
+}
+
+.stepNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: $emerald;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.stepContent {
+    h4 {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: $emerald-dark;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        color: $text-muted;
+        margin: 0;
+        line-height: 1.4;
+    }
+}
+
+.stepArrow {
+    display: none; // Hide the separate arrow element, using CSS pseudo-element instead
+}
+
+
+.tuitionSummary {
+    margin-bottom: 2rem;
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: $emerald-dark;
+        margin: 0 0 1rem;
+        text-align: center;
+    }
+}
+
+.feeRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px dotted rgba($emerald, 0.2);
+
+    span:first-child {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-dark;
+    }
+
+    &.discountRow {
+        background: rgba($gold, 0.1);
+        margin: 0 -0.5rem;
+        padding: 0.75rem 0.5rem;
+        border-bottom: none;
+    }
+}
+
+.feeAmount {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: $emerald-dark;
+}
+
+.scholarshipNote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: rgba($emerald, 0.05);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $emerald-dark;
+
+    svg {
+        color: $gold;
+    }
+}
+
+.admissionActions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.downloadBtn,
+.contactBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex: 1;
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.downloadBtn {
+    background: transparent;
+    border: 2px solid $emerald;
+    color: $emerald;
+
+    &:hover {
+        background: $emerald;
+        color: #fff;
+    }
+}
+
+.contactBtn {
+    background: $gold-metallic;
+    border: 2px solid $gold-metallic;
+    color: $emerald-dark;
+
+    &:hover {
+        background: #b8931f;
+        border-color: #b8931f;
+    }
+}
