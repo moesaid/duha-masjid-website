@@ -1,0 +1,924 @@
+/* Zakat & Financial Aid Page Styles
+ * Design: Trustworthy, Transparent, Compassionate
+ * Palette: Deep Green (growth) and Gold (wealth)
+ * Focus: Clear dual-path for givers and receivers
+ */
+
+// ========================================
+// Variables
+// ========================================
+$deep-green: #1a4a3a;
+$forest-green: #2a5a4a;
+$soft-sage: #7a9a8a;
+$pale-sage: #e8ede9;
+$gold: #c9a227;
+$warm-gold: #d4af37;
+$light-gold: #f5e6b8;
+$cream: #faf8f2;
+$charcoal: #2a2a2a;
+$text-dark: #1a1a1a;
+$text-muted: #5a5a5a;
+
+// ========================================
+// 1. THE PURIFICATION HERO
+// ========================================
+
+.purificationHero {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: brightness(0.4) saturate(0.8);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba($deep-green, 0.6) 0%,
+            rgba($charcoal, 0.7) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.calligraphy {
+    margin-bottom: 2rem;
+}
+
+.arabicVerse {
+    display: block;
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    color: $warm-gold;
+    line-height: 1.6;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.verseReference {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: rgba(#fff, 0.6);
+    margin-top: 0.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(#fff, 0.8);
+    margin: 0;
+}
+
+// ========================================
+// 2. DUAL-PATH NAVIGATION
+// ========================================
+
+.dualPath {
+    padding: 4rem 2rem;
+    background: $cream;
+}
+
+.pathGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.pathCard {
+    padding: 3rem 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    h2 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        margin: 1rem 0 0.5rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-muted;
+        margin: 0 0 1.5rem;
+        line-height: 1.6;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+}
+
+.giveCard {
+    background: linear-gradient(135deg, rgba($light-gold, 0.3) 0%, #fff 100%);
+    border: 2px solid $gold;
+    box-shadow: 0 4px 20px rgba($gold, 0.15);
+
+    .pathIcon {
+        color: $gold;
+    }
+
+    h2 {
+        color: $charcoal;
+    }
+}
+
+.receiveCard {
+    background: linear-gradient(135deg, rgba($pale-sage, 0.5) 0%, #fff 100%);
+    border: 2px solid $soft-sage;
+    box-shadow: 0 4px 20px rgba($deep-green, 0.1);
+
+    .pathIcon {
+        color: $deep-green;
+    }
+
+    h2 {
+        color: $charcoal;
+    }
+}
+
+.pathIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.pathButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.giveButton {
+    background: $gold;
+    color: #fff;
+
+    &:hover {
+        background: darken($gold, 8%);
+    }
+}
+
+.receiveButton {
+    background: $deep-green;
+    color: #fff;
+
+    &:hover {
+        background: darken($deep-green, 5%);
+    }
+}
+
+// ========================================
+// 3. DONOR SECTION
+// ========================================
+
+.donorSection {
+    padding: 5rem 2rem;
+    background: #fff;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $text-dark;
+}
+
+// Tabs
+.tabContainer {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.tabList {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $gold;
+        color: $gold;
+    }
+}
+
+.activeTab {
+    background: $gold;
+    border-color: $gold;
+    color: #fff;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.tabContent {
+    background: $cream;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+}
+
+.tabPanel {
+    display: none;
+}
+
+.activePanel {
+    display: block;
+}
+
+.tabInfo {
+    text-align: center;
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-muted;
+        line-height: 1.7;
+        max-width: 600px;
+        margin: 1rem auto 1.5rem;
+    }
+}
+
+.tabSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $gold;
+    font-weight: 500;
+}
+
+.donateLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $deep-green;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $gold;
+    }
+}
+
+// Calculator
+.calculatorSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.calculatorCard {
+    background: $cream;
+    border: 2px solid $gold;
+    padding: 2rem;
+}
+
+.calculatorHeader {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba($gold, 0.3);
+
+    svg {
+        color: $gold;
+        margin-bottom: 0.5rem;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+    }
+}
+
+.calculatorBody {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.inputGroup {
+    label {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: $text-muted;
+        margin-bottom: 0.25rem;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: #fff;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $gold;
+        }
+
+        &::placeholder {
+            color: rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+.calculatorResult {
+    background: #fff;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.resultRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+    }
+
+    strong {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-dark;
+    }
+}
+
+.zakatDue {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+
+    strong {
+        font-size: 1.25rem;
+        color: $gold;
+    }
+}
+
+.payZakatButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: $gold;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: darken($gold, 8%);
+    }
+}
+
+// Transparency Box
+.transparencyBox {
+    background: $pale-sage;
+    padding: 2rem;
+    border-left: 4px solid $deep-green;
+}
+
+.transparencyHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    svg {
+        color: $deep-green;
+    }
+
+    h4 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $text-dark;
+        margin: 0;
+    }
+}
+
+.transparencyNote {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+}
+
+.distributionList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.distributionItem {
+    display: grid;
+    grid-template-columns: 1fr 100px 40px;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.distributionLabel {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-dark;
+}
+
+.distributionBar {
+    height: 8px;
+    background: rgba(#fff, 0.7);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.distributionFill {
+    height: 100%;
+    background: $deep-green;
+    border-radius: 4px;
+}
+
+.distributionPercent {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $deep-green;
+    text-align: right;
+}
+
+// ========================================
+// 4. APPLICANT SECTION
+// ========================================
+
+.applicantSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, $pale-sage 0%, #fff 100%);
+}
+
+.applicantHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    svg {
+        color: $deep-green;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-family: var(--font-display);
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+        color: $text-dark;
+        margin: 0 0 0.5rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-muted;
+        margin: 0;
+    }
+}
+
+.dignityNote {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-left: 4px solid $deep-green;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+
+    .dignityIcon {
+        flex-shrink: 0;
+        color: $deep-green;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-muted;
+        line-height: 1.6;
+        margin: 0;
+
+        strong {
+            color: $text-dark;
+        }
+    }
+}
+
+.applicantGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.eligibilityCard,
+.processCard {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+
+    h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $text-dark;
+        margin: 0 0 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid $soft-sage;
+
+        svg {
+            color: $deep-green;
+        }
+    }
+}
+
+.eligibilityList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        svg {
+            color: $deep-green;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+    }
+}
+
+.processList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.processStep {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    div {
+        display: flex;
+        flex-direction: column;
+
+        strong {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: $text-dark;
+        }
+
+        span {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: $text-muted;
+        }
+    }
+}
+
+.processNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: $deep-green;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.downloadButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: transparent;
+    border: 2px solid $deep-green;
+    color: $deep-green;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $deep-green;
+        color: #fff;
+    }
+}
+
+.contactNote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: rgba($deep-green, 0.05);
+    text-align: center;
+
+    svg {
+        color: $deep-green;
+        flex-shrink: 0;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        margin: 0;
+
+        a {
+            color: $deep-green;
+            text-decoration: none;
+            font-weight: 500;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// ========================================
+// 5. POLICY & FAQs SECTION
+// ========================================
+
+.policySection {
+    padding: 5rem 2rem;
+    background: $cream;
+}
+
+.policyGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.policyCard {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: $text-dark;
+        margin: 0 0 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid $gold;
+    }
+}
+
+.policyContent {
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        line-height: 1.7;
+        margin: 0 0 1rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.25rem;
+
+        @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+        }
+
+        li {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: $text-dark;
+            padding: 0.25rem 0;
+            padding-left: 1rem;
+            position: relative;
+
+            &::before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: $gold;
+            }
+        }
+    }
+}
+
+.policyNote {
+    font-style: italic;
+    color: $soft-sage !important;
+}
+
+.faqCard {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: $text-dark;
+        margin: 0 0 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid $deep-green;
+    }
+}
+
+.faqList {
+    display: flex;
+    flex-direction: column;
+}
+
+.faqItem {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.faqQuestion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-dark;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $deep-green;
+    }
+
+    svg {
+        color: $soft-sage;
+        flex-shrink: 0;
+    }
+}
+
+.faqAnswer {
+    padding: 0 0 1rem;
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+        line-height: 1.7;
+        margin: 0;
+    }
+}
+
+.expanded .faqQuestion {
+    color: $deep-green;
+    font-weight: 500;
+}
