@@ -198,7 +198,7 @@ $text-muted: #5a5a5a;
     color: #fff;
 
     &:hover {
-        background: darken($gold, 8%);
+        background: #b8921f; // darker gold
     }
 }
 
@@ -207,7 +207,7 @@ $text-muted: #5a5a5a;
     color: #fff;
 
     &:hover {
-        background: darken($deep-green, 5%);
+        background: #153d2f; // darker deep-green
     }
 }
 
@@ -472,7 +472,7 @@ $text-muted: #5a5a5a;
     transition: background 0.3s ease;
 
     &:hover {
-        background: darken($gold, 8%);
+        background: #b8921f; // darker gold
     }
 }
 

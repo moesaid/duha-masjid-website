@@ -437,7 +437,7 @@ $text-muted: #555;
     transition: all 0.3s ease;
 
     &:hover {
-        background: darken($forest-green, 5%);
+        background: #1f4a3a; // darker forest-green
     }
 }
 
@@ -445,7 +445,7 @@ $text-muted: #555;
     background: $warm-gold;
 
     &:hover {
-        background: darken($warm-gold, 8%);
+        background: #c9a227; // darker warm-gold
     }
 }
 
@@ -662,7 +662,7 @@ $text-muted: #555;
     transition: all 0.3s ease;
 
     &:hover {
-        background: darken($rose-gold, 8%);
+        background: #c08a7a; // darker rose-gold
     }
 }
 
@@ -778,7 +778,7 @@ $text-muted: #555;
     margin-top: 1rem;
 
     &:hover {
-        background: darken($warm-gold, 8%);
+        background: #c9a227; // darker warm-gold
         transform: translateY(-2px);
     }
 }

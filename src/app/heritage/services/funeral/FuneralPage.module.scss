@@ -688,6 +688,6 @@ $text-muted: #5a5a5ab6;
     transition: all 0.3s ease;
 
     &:hover {
-        background: darken($soft-sage, 8%);
+        background: #6a8a7a; // darker soft-sage
     }
 }

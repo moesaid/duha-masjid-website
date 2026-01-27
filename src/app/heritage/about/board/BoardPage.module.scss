@@ -521,7 +521,7 @@ $text-muted: #555;
     white-space: nowrap;
 
     &:hover {
-        background: darken($midnight-green, 5%);
+        background: #0a2a2a; // darker midnight-green
         transform: translateY(-2px);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }

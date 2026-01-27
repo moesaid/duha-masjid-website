@@ -302,7 +302,7 @@ $text-muted: #555;
     transition: all 0.3s ease;
 
     &:hover {
-        background: darken($navy, 5%);
+        background: #1a2a3a; // darker navy
     }
 }
 
@@ -312,7 +312,7 @@ $text-muted: #555;
 
 .conductSection {
     padding: 5rem 2rem;
-    background: linear-gradient(135deg, $burgundy 0%, darken($burgundy, 10%) 100%);
+    background: linear-gradient(135deg, $burgundy 0%, #5a2a3a 100%); // darker burgundy
 }
 
 .conductContainer {

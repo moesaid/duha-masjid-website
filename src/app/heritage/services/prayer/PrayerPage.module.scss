@@ -145,7 +145,7 @@ $text-muted: #555;
         height: 8px;
         background: linear-gradient(90deg,
                 $gold 0%,
-                lighten($gold, 15%) 50%,
+                #e8c94a 50%, // lighter gold
                 $gold 100%);
     }
 }

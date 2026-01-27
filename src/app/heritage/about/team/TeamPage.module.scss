@@ -526,7 +526,7 @@ $text-muted: #555;
     transition: all 0.3s ease;
 
     &:hover {
-        background: darken($forest-green, 5%);
+        background: #1f4a3a; // darker forest-green
         transform: translateY(-2px);
     }
 }

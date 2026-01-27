@@ -68,7 +68,7 @@ $text-muted: #555;
 
 .cardGoldBar {
     height: 6px;
-    background: linear-gradient(90deg, $gold 0%, lighten($gold, 15%) 50%, $gold 100%);
+    background: linear-gradient(90deg, $gold 0%, #e8c94a 50%, $gold 100%); // lighter gold center
 }
 
 .cardContent {
@@ -150,7 +150,7 @@ $text-muted: #555;
     transition: all 0.3s ease;
 
     &:hover {
-        background: darken($forest-green, 5%);
+        background: #1f4a3a; // darker forest-green
     }
 }
 
@@ -600,7 +600,7 @@ $text-muted: #555;
     margin-top: 1rem;
 
     &:hover {
-        background: darken($gold, 8%);
+        background: #b8921f; // darker gold
         transform: translateY(-2px);
     }
 }
