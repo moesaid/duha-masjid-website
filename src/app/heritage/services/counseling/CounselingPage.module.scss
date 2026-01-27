@@ -1,0 +1,897 @@
+/* Counseling Services Page Styles
+ * Design: Private, Calming, and Wise
+ * Palette: Warm Earth Tones (Sand, Clay, Warm Grey)
+ * Focus: Trust (Amanah) and Wisdom (Hikmah)
+ */
+
+// ========================================
+// Variables
+// ========================================
+$sand: #e8dcc8;
+$clay: #a67c52;
+$warm-brown: #8b5a2b;
+$wood-dark: #5c3d2e;
+$warm-grey: #706460;
+$soft-cream: #faf6f0;
+$paper: #f5f0e8;
+$charcoal: #3a3535;
+$text-dark: #2a2520;
+$text-muted: rgba(#2a2520, 0.7);
+$accent-green: #4a6741;
+$muted-red: #8b4a4a;
+
+// ========================================
+// 1. THE TRANQUILITY HERO
+// ========================================
+
+.counselingPage {
+    background: $soft-cream;
+}
+
+.tranquilityHero {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: brightness(0.5) sepia(0.3);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba($wood-dark, 0.5) 0%,
+            rgba($charcoal, 0.6) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.calligraphy {
+    margin-bottom: 2rem;
+}
+
+.arabicVerse {
+    display: block;
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    color: $sand;
+    line-height: 1.6;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.verseReference {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: rgba(#fff, 0.6);
+    margin-top: 0.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(#fff, 0.85);
+    margin: 0;
+}
+
+// ========================================
+// 2. OUR PHILOSOPHY
+// ========================================
+
+.philosophySection {
+    padding: 5rem 2rem;
+    background: $paper;
+}
+
+.philosophyContainer {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.prefaceHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+
+    svg {
+        color: $clay;
+    }
+
+    span {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-style: italic;
+        color: $text-dark;
+    }
+}
+
+.philosophyContent {
+    margin-bottom: 2rem;
+}
+
+.prefaceText {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: $text-dark;
+    line-height: 1.9;
+    text-align: center;
+    margin: 0 0 2rem;
+}
+
+.amanahBox {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: #fff;
+    border: 2px solid $clay;
+    box-shadow: 0 4px 16px rgba($wood-dark, 0.1);
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.amanahIcon {
+    color: $warm-brown;
+    flex-shrink: 0;
+}
+
+.amanahContent {
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $text-dark;
+        margin: 0 0 0.5rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-muted;
+        line-height: 1.7;
+        margin: 0;
+    }
+}
+
+.sessionInfo {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $warm-grey;
+
+    svg {
+        color: $clay;
+    }
+}
+
+// ========================================
+// 3. TYPES OF GUIDANCE
+// ========================================
+
+.guidanceSection {
+    padding: 5rem 2rem;
+    background: $soft-cream;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $clay;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $text-dark;
+}
+
+.guidanceGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.serviceCard {
+    display: flex;
+    background: $paper;
+    border: 1px solid rgba($clay, 0.2);
+    box-shadow: 0 4px 16px rgba($wood-dark, 0.08);
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba($wood-dark, 0.12);
+    }
+}
+
+.cardSpine {
+    width: 12px;
+    background: linear-gradient(180deg, $clay 0%, $warm-brown 100%);
+    flex-shrink: 0;
+}
+
+.cardContent {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    svg {
+        color: $clay;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        color: $text-dark;
+        margin: 0;
+    }
+}
+
+.cardDescription {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+
+.cardDetails {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: $warm-grey;
+
+        svg {
+            color: $accent-green;
+        }
+    }
+}
+
+// ========================================
+// 4. THE COUNSELORS
+// ========================================
+
+.counselorsSection {
+    padding: 5rem 2rem;
+    background: #fff;
+}
+
+.counselorsRow {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.counselorCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 2rem;
+    background: $paper;
+    border: 1px solid rgba($clay, 0.2);
+    text-align: center;
+}
+
+.counselorAvatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, $sand 0%, $clay 100%);
+    border-radius: 50%;
+    margin-bottom: 1.25rem;
+
+    svg {
+        color: #fff;
+    }
+}
+
+.counselorInfo {
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+}
+
+.counselorTitle {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $clay;
+    margin-bottom: 1rem;
+}
+
+.credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.credential {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $warm-grey;
+
+    svg {
+        color: $accent-green;
+    }
+}
+
+.specialties {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.specialty {
+    padding: 0.25rem 0.75rem;
+    background: rgba($clay, 0.1);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: $warm-brown;
+}
+
+// ========================================
+// 5. BOOK A SESSION WIDGET
+// ========================================
+
+.bookingSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, $paper 0%, $sand 100%);
+}
+
+.bookingContainer {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    border: 2px solid $clay;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba($wood-dark, 0.15);
+}
+
+.bookingHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    svg {
+        color: $clay;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-family: var(--font-display);
+        font-size: 1.75rem;
+        color: $text-dark;
+        margin: 0 0 0.5rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        margin: 0;
+    }
+}
+
+.bookingProgress {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba($clay, 0.2);
+}
+
+.progressStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    width: 70px;
+}
+
+.stepNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba($clay, 0.3);
+    border-radius: 50%;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $warm-grey;
+    transition: all 0.3s ease;
+}
+
+.stepLabel {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: $warm-grey;
+}
+
+.progressStep.active .stepNumber {
+    background: $clay;
+    border-color: $clay;
+    color: #fff;
+}
+
+.progressStep.completed .stepNumber {
+    background: $accent-green;
+    border-color: $accent-green;
+    color: #fff;
+}
+
+.bookingStep {
+    margin-bottom: 2rem;
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $text-dark;
+        text-align: center;
+        margin: 0 0 1.5rem;
+    }
+}
+
+// Service Options
+.serviceOptions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.serviceOption {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: $paper;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    svg {
+        color: $warm-grey;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+    }
+
+    &:hover {
+        border-color: rgba($clay, 0.3);
+    }
+
+    &.selected {
+        border-color: $clay;
+        background: rgba($sand, 0.5);
+
+        svg {
+            color: $clay;
+        }
+    }
+}
+
+// Counselor Options
+.counselorOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.counselorOption {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: $paper;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+
+    &:hover {
+        border-color: rgba($clay, 0.3);
+    }
+
+    &.selected {
+        border-color: $clay;
+        background: rgba($sand, 0.5);
+    }
+}
+
+.optionAvatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: $sand;
+    border-radius: 50%;
+
+    svg {
+        color: $clay;
+    }
+}
+
+.optionInfo {
+    display: flex;
+    flex-direction: column;
+
+    strong {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-dark;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: $warm-grey;
+    }
+}
+
+// Date & Time Selection
+.dateTimeGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dateSelection,
+.timeSelection {
+    h4 {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: $warm-grey;
+        margin: 0 0 1rem;
+    }
+}
+
+.dateOptions,
+.timeOptions {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.dateOptions {
+    grid-template-columns: 1fr;
+}
+
+.timeOptions {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.dateOption,
+.timeOption {
+    padding: 0.75rem;
+    background: $paper;
+    border: 1px solid transparent;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-dark;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: rgba($clay, 0.3);
+    }
+
+    &.selected {
+        background: $clay;
+        color: #fff;
+        border-color: $clay;
+    }
+}
+
+// Confirmation
+.confirmationBox {
+    text-align: center;
+    padding: 2rem;
+    background: $paper;
+}
+
+.confirmIcon {
+    color: $accent-green;
+    margin-bottom: 1rem;
+}
+
+.confirmationDetails {
+    margin: 1.5rem 0;
+}
+
+.confirmRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px dotted rgba($clay, 0.3);
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $warm-grey;
+    }
+
+    strong {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+    }
+}
+
+.confirmButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: $accent-green;
+    border: none;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #3a5731; // darker green
+    }
+}
+
+// Navigation
+.bookingNav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.backButton {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 2px solid $warm-grey;
+    color: $warm-grey;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: $text-dark;
+        color: $text-dark;
+    }
+}
+
+.nextButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: $clay;
+    border: none;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+        background: $warm-brown;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.alternativeContact {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba($clay, 0.2);
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $warm-grey;
+        margin: 0 0 0.5rem;
+    }
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $clay;
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// ========================================
+// 6. DISCLAIMER SECTION
+// ========================================
+
+.disclaimerSection {
+    padding: 3rem 2rem;
+    background: $muted-red;
+}
+
+.disclaimerContainer {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.disclaimerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+
+    svg {
+        color: #fff;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: #fff;
+        margin: 0;
+    }
+}
+
+.disclaimerText {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(#fff, 0.9);
+    line-height: 1.7;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+
+    strong {
+        color: #fff;
+    }
+}
+
+.crisisResources {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.crisisItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: rgba(#fff, 0.1);
+
+    svg {
+        color: rgba(#fff, 0.8);
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+
+        strong {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        span {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: rgba(#fff, 0.75);
+        }
+    }
+}
