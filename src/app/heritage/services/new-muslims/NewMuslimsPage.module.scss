@@ -1,0 +1,889 @@
+/* New Muslim Support Page Styles
+ * Design: Welcoming, Pure, and Supportive
+ * Palette: "New Dawn" - Soft Whites, Pale Creams, Muted Golds
+ * Focus: Light, Growth, and Open Doors
+ */
+
+// ========================================
+// Variables
+// ========================================
+$soft-white: #fefdfb;
+$pale-cream: #faf8f3;
+$warm-cream: #f5f0e5;
+$muted-gold: #c9a962;
+$light-gold: #e8d5a3;
+$soft-gold: #f5e6c0;
+$text-warm: #3a3530;
+$text-light: rgba(#3a3530, 0.7);
+$accent-sage: #7a9a6d;
+$border-light: rgba(#c9a962, 0.25);
+
+// ========================================
+// Base Page Styles
+// ========================================
+
+.newMuslimsPage {
+    background: $soft-white;
+}
+
+// ========================================
+// 1. THE "HOMECOMING" HERO
+// ========================================
+
+.homecomingHero {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: brightness(1.05) saturate(0.9);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(#fff, 0.4) 0%,
+            rgba($pale-cream, 0.7) 50%,
+            rgba($pale-cream, 0.9) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    padding: 2rem;
+}
+
+.calligraphy {
+    margin-bottom: 1.5rem;
+}
+
+.arabicWord {
+    display: block;
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: $muted-gold;
+    text-shadow: 0 2px 12px rgba($muted-gold, 0.3);
+}
+
+.calligraphyMeaning {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-light;
+    font-style: italic;
+    margin-top: 0.25rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: $text-warm;
+    font-weight: 400;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: $text-light;
+    line-height: 1.8;
+    margin: 0 0 2rem;
+}
+
+.heroActions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.primaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: $muted-gold;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #b8983f;
+        transform: translateY(-2px);
+    }
+}
+
+.secondaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 1rem 1.5rem;
+    background: transparent;
+    border: 2px solid rgba($text-warm, 0.2);
+    color: $text-warm;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: $muted-gold;
+        color: $muted-gold;
+    }
+}
+
+// ========================================
+// 2. THE SHAHADA SECTION
+// ========================================
+
+.shahadaSection {
+    padding: 5rem 2rem;
+    background: $pale-cream;
+}
+
+.shahadaCertificate {
+    max-width: 750px;
+    margin: 0 auto 2rem;
+}
+
+.certificateBorder {
+    padding: 4px;
+    background: linear-gradient(135deg, $muted-gold 0%, $light-gold 50%, $muted-gold 100%);
+}
+
+.certificateInner {
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a962' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+        linear-gradient(180deg, $soft-white 0%, $warm-cream 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.certificateHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+
+    svg {
+        color: $muted-gold;
+    }
+}
+
+.certificateLabel {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: $text-light;
+}
+
+.shahadaArabic {
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    color: $text-warm;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid $border-light;
+    border-bottom: 1px solid $border-light;
+}
+
+.shahadaTransliteration {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-style: italic;
+    color: $text-light;
+    margin-bottom: 1rem;
+}
+
+.shahadaTranslation {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: $text-warm;
+    line-height: 1.7;
+    max-width: 550px;
+    margin: 0 auto 2rem;
+}
+
+.certificateFooter {
+    padding-top: 1.5rem;
+    border-top: 1px solid $border-light;
+}
+
+.shahadaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: $muted-gold;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #b8983f;
+    }
+}
+
+.shahadaNote {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-light;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+// ========================================
+// 3. THE GIFT SECTION
+// ========================================
+
+.giftSection {
+    padding: 5rem 2rem;
+    background: $soft-white;
+}
+
+.giftContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.giftImageWrapper {
+    position: relative;
+}
+
+.giftImageFrame {
+    position: relative;
+    aspect-ratio: 4/3;
+    border: 3px solid $light-gold;
+    overflow: hidden;
+}
+
+.giftImage {
+    object-fit: cover;
+}
+
+.giftBadge {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: $muted-gold;
+    border-radius: 50%;
+    color: #fff;
+
+    svg {
+        margin-bottom: 0.2rem;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+}
+
+.giftContent {
+    @media (max-width: 800px) {
+        text-align: center;
+    }
+}
+
+.giftLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $muted-gold;
+    margin-bottom: 0.5rem;
+}
+
+.giftTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: $text-warm;
+    margin: 0 0 1rem;
+}
+
+.giftDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-light;
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+}
+
+.giftContents {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px dotted $border-light;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-warm;
+
+        @media (max-width: 800px) {
+            justify-content: center;
+        }
+
+        svg {
+            color: $accent-sage;
+            flex-shrink: 0;
+        }
+    }
+}
+
+.giftCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: $accent-sage;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #698c5c;
+    }
+}
+
+// ========================================
+// 4. THREE PILLARS OF SUPPORT
+// ========================================
+
+.pillarsSection {
+    padding: 5rem 2rem;
+    background: $pale-cream;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $muted-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $text-warm;
+    margin: 0 0 0.75rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-light;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.pillarsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto 2rem;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+.pillarCard {
+    background: $soft-white;
+    border: 1px solid $border-light;
+    text-align: center;
+    overflow: hidden;
+}
+
+.pillarArch {
+    position: relative;
+    height: 100px;
+    background: linear-gradient(180deg, $soft-gold 0%, $light-gold 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1rem;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        background: $soft-white;
+        border-radius: 50%;
+        border: 3px solid $light-gold;
+    }
+}
+
+.pillarIcon {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: $soft-white;
+    border: 3px solid $light-gold;
+    border-radius: 50%;
+    margin-bottom: -32px;
+
+    svg {
+        color: $muted-gold;
+    }
+}
+
+.pillarContent {
+    padding: 2.5rem 1.5rem 2rem;
+}
+
+.pillarTitle {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: $text-warm;
+    margin: 0 0 0.25rem;
+}
+
+.pillarSubtitle {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $muted-gold;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.pillarDescription {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-light;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+
+.pillarDetails {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: $text-light;
+        padding: 0.4rem 0;
+        border-bottom: 1px dotted $border-light;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.coordinatorInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: rgba($muted-gold, 0.1);
+    max-width: 450px;
+    margin: 0 auto;
+
+    svg {
+        color: $muted-gold;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-warm;
+
+        strong {
+            color: $muted-gold;
+        }
+    }
+}
+
+// ========================================
+// 5. RESOURCES LIBRARY
+// ========================================
+
+.resourcesSection {
+    padding: 5rem 2rem;
+    background: $soft-white;
+}
+
+.resourcesShelf {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.resourceItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: $pale-cream;
+    border: 1px solid $border-light;
+    transition: all 0.3s ease;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &:hover {
+        border-color: $muted-gold;
+        box-shadow: 0 4px 12px rgba($muted-gold, 0.1);
+    }
+}
+
+.resourceIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: $soft-gold;
+    flex-shrink: 0;
+
+    svg {
+        color: $muted-gold;
+    }
+}
+
+.resourceInfo {
+    flex: 1;
+
+    h4 {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        color: $text-warm;
+        margin: 0 0 0.25rem;
+    }
+}
+
+.resourceSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-light;
+}
+
+.resourceAction {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: transparent;
+    border: 1px solid $muted-gold;
+    color: $muted-gold;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $muted-gold;
+        color: #fff;
+    }
+}
+
+.quoteBlock {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba($soft-gold, 0.3) 0%, rgba($soft-gold, 0.1) 100%);
+    max-width: 600px;
+    margin: 0 auto;
+
+    blockquote {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-style: italic;
+        color: $text-warm;
+        margin: 0 0 0.75rem;
+    }
+
+    cite {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $muted-gold;
+        font-style: normal;
+    }
+}
+
+// ========================================
+// 6. THE CONNECT FORM
+// ========================================
+
+.connectSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, $pale-cream 0%, $warm-cream 100%);
+}
+
+.connectContainer {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.connectHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    svg {
+        color: $muted-gold;
+        margin-bottom: 0.75rem;
+    }
+
+    h2 {
+        font-family: var(--font-display);
+        font-size: 1.75rem;
+        color: $text-warm;
+        margin: 0 0 0.75rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-light;
+        line-height: 1.6;
+        margin: 0;
+    }
+}
+
+.connectForm {
+    background: $soft-white;
+    border: 2px solid $light-gold;
+    padding: 2rem;
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+
+    label {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: $text-warm;
+        margin-bottom: 0.5rem;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        background: $pale-cream;
+        border: 1px solid $border-light;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-warm;
+        transition: all 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $muted-gold;
+            box-shadow: 0 0 0 3px rgba($muted-gold, 0.1);
+        }
+
+        &::placeholder {
+            color: rgba($text-warm, 0.4);
+        }
+    }
+
+    select {
+        cursor: pointer;
+    }
+}
+
+.submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: $muted-gold;
+    border: none;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #b8983f;
+    }
+}
+
+.privacyNote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-light;
+    text-align: center;
+    margin: 1.5rem 0 0;
+
+    svg {
+        color: $muted-gold;
+        flex-shrink: 0;
+    }
+}
+
+.successMessage {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: $soft-white;
+    border: 2px solid $light-gold;
+
+    svg {
+        color: $accent-sage;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: $text-warm;
+        margin: 0 0 0.75rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-light;
+        margin: 0;
+    }
+}
+
+.directContact {
+    margin-top: 2rem;
+    text-align: center;
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-light;
+        margin: 0 0 0.75rem;
+    }
+}
+
+.contactMethods {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $muted-gold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #b8983f;
+        }
+    }
+}
+
+// ========================================
+// CLOSING SECTION
+// ========================================
+
+.closingSection {
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, $warm-cream 0%, $soft-gold 100%);
+}
+
+.closingContent {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.closingVerse {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: $text-warm;
+    line-height: 1.7;
+    margin: 0 0 0.75rem;
+}
+
+.verseReference {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $muted-gold;
+}
