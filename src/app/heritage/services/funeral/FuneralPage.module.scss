@@ -1,0 +1,693 @@
+/* Funeral Services Page Styles
+ * Design: Solemn, Compassionate, Dignified
+ * Palette: Slate Blue, Dove Grey, Soft Sage (muted)
+ * Focus: Clarity and calmness for grieving users
+ */
+
+// ========================================
+// Variables
+// ========================================
+$slate-blue: #5a6a7a;
+$deep-slate: #3a4a5a;
+$charcoal: #2a2a2a;
+$dove-grey: #8a9099;
+$soft-sage: #7a8a7a;
+$warm-white: #f8f8f6;
+$paper: #f5f4f2;
+$silver: #c5c8cc;
+$muted-red: #8a4a4a;
+$text-dark: #2a2a2a;
+$text-muted: #5a5a5ab6;
+
+// ========================================
+// 1. THE SOLACE HERO
+// ========================================
+
+.solaceHero {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: brightness(0.25) saturate(0.7);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center,
+            transparent 0%,
+            rgba($charcoal, 0.5) 70%,
+            rgba($charcoal, 0.8) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.calligraphy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.arabicVerse {
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: $silver;
+    line-height: 1.4;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.transliteration {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(#fff, 0.6);
+    margin-top: 0.75rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(#fff, 0.7);
+    margin: 0;
+}
+
+// ========================================
+// 2. EMERGENCY ACTION BAR
+// ========================================
+
+.emergencyBar {
+    background: $charcoal;
+    padding: 1.5rem 2rem;
+    position: relative;
+
+    // Subtle top accent
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: $muted-red;
+    }
+}
+
+.emergencyContent {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.emergencyText {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    svg {
+        color: $muted-red;
+    }
+}
+
+.emergencyQuestion {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.emergencyActions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.phoneButton {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #fff;
+    color: $charcoal;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $paper;
+    }
+
+    svg {
+        color: $muted-red;
+    }
+}
+
+.phoneText {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.phoneLabel {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $text-muted;
+}
+
+.phoneNumber {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $charcoal;
+}
+
+.downloadLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(#fff, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+// ========================================
+// 3. JANAZAH PROCESS
+// ========================================
+
+.processSection {
+    padding: 5rem 2rem;
+    background: $warm-white;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $slate-blue;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $text-dark;
+    margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+}
+
+.processTimeline {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.processStep {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.timelineConnector {
+    position: absolute;
+    left: 20px;
+    top: 48px;
+    bottom: -2rem;
+    width: 2px;
+    background: linear-gradient(180deg, $slate-blue 0%, $dove-grey 100%);
+}
+
+.stepMarker {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $slate-blue;
+    border-radius: 50%;
+    z-index: 1;
+
+    svg {
+        color: #fff;
+    }
+}
+
+.stepContent {
+    flex: 1;
+    background: #fff;
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.stepHeader {
+    margin-bottom: 0.75rem;
+}
+
+.stepNumber {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $slate-blue;
+    margin-bottom: 0.25rem;
+}
+
+.stepTitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: $text-dark;
+    margin: 0;
+}
+
+.stepSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $dove-grey;
+}
+
+.stepDescription {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-muted;
+    line-height: 1.7;
+    margin: 0;
+}
+
+// ========================================
+// 4. CEMETERY & BURIAL PLOTS
+// ========================================
+
+.cemeterySection {
+    padding: 5rem 2rem;
+    background: $paper;
+}
+
+.cemeteryGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cemeteryInfo {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cemeteryTitle {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: $text-dark;
+    margin: 0 0 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $soft-sage;
+}
+
+.cemeteryDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.detailRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    svg {
+        color: $soft-sage;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    strong {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+    }
+}
+
+.mapLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $slate-blue;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $deep-slate;
+    }
+}
+
+.pricingBlock {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pricingTitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: $text-dark;
+    margin: 0 0 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $slate-blue;
+}
+
+.pricingTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+
+    tr {
+        border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    td {
+        padding: 0.75rem 0;
+        vertical-align: top;
+    }
+}
+
+.itemName {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+}
+
+.itemPrice {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $text-dark;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.itemNote {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $dove-grey;
+    font-style: italic;
+    text-align: right;
+    padding-left: 0.5rem;
+}
+
+.assistanceNote {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba($soft-sage, 0.1);
+    border-left: 3px solid $soft-sage;
+
+    svg {
+        color: $soft-sage;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+        line-height: 1.6;
+        margin: 0;
+    }
+}
+
+// ========================================
+// 5. CONDOLENCES & ETIQUETTE
+// ========================================
+
+.condolencesSection {
+    padding: 5rem 2rem;
+    background: $warm-white;
+}
+
+.condolencesCard {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.condolencesHeader {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    svg {
+        color: $soft-sage;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-family: var(--font-display);
+        font-size: 1.75rem;
+        color: $text-dark;
+        margin: 0 0 0.5rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-muted;
+        margin: 0;
+    }
+}
+
+.guidelinesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+
+    @media (max-width: 800px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.guidelineItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: $paper;
+
+    svg {
+        color: $slate-blue;
+        margin-bottom: 0.75rem;
+        display: block;
+    }
+
+    h4 {
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        color: $text-dark;
+        margin: 0 0 0.5rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.7rem;
+        color: $text-muted;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+.duaBlock {
+    text-align: center;
+    padding: 2rem;
+    background: rgba($slate-blue, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.duaArabic {
+    display: block;
+    font-family: var(--font-arabic, 'Amiri', serif);
+    font-size: 1.75rem;
+    color: $slate-blue;
+    margin-bottom: 0.5rem;
+}
+
+.duaTranslation {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-style: italic;
+    color: $text-muted;
+}
+
+// ========================================
+// 6. DONATE SECTION
+// ========================================
+
+.donateSection {
+    padding: 4rem 2rem;
+    background: $paper;
+}
+
+.donateCard {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+
+    @media (max-width: 700px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.donateContent {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @media (max-width: 700px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    svg {
+        color: $soft-sage;
+        flex-shrink: 0;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        margin: 0;
+        line-height: 1.6;
+    }
+}
+
+.donateButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $soft-sage;
+    color: #fff;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: darken($soft-sage, 8%);
+    }
+}
