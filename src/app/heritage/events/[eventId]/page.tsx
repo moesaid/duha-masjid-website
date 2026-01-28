@@ -244,20 +244,22 @@ export default function SingleEventPage() {
                         <span><MapPin size={16} /> {eventData.venue}</span>
                     </div>
 
-                    {/* CTA */}
-                    <button
-                        className={styles.heroCta}
-                        onClick={() => setShowReservationModal(true)}
-                    >
-                        <Ticket size={18} />
-                        Reserve Your Seat
-                    </button>
+                    {/* CTA Group */}
+                    <div className={styles.ctaGroup}>
+                        <button
+                            className={styles.heroCta}
+                            onClick={() => setShowReservationModal(true)}
+                        >
+                            <Ticket size={18} />
+                            Reserve Your Seat
+                        </button>
 
-                    {/* Back Button - Under Reserve Your Seat */}
-                    <button className={styles.backButton} onClick={() => router.back()}>
-                        <ArrowLeft size={16} />
-                        Go Back
-                    </button>
+                        {/* Back Button - Under Reserve Your Seat */}
+                        <button className={styles.backButton} onClick={() => router.back()}>
+                            <ArrowLeft size={16} />
+                            Go Back
+                        </button>
+                    </div>
                 </div>
 
                 {/* Decorative Wax Seal */}
