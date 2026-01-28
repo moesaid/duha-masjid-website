@@ -14,7 +14,10 @@ import {
     BadgeCheck,
     FileText,
     Users,
-    LogIn
+    LogIn,
+    Target,
+    Calendar,
+    TrendingUp
 } from 'lucide-react';
 import styles from './DonatePage.module.scss';
 
@@ -78,6 +81,76 @@ const trustStats = [
     }
 ];
 
+// All available campaigns
+const campaigns = [
+    {
+        id: 1,
+        title: 'Masjid Expansion Phase 2',
+        description: 'Expanding our prayer hall to accommodate 2,000 worshippers',
+        raised: 1200000,
+        goal: 2000000,
+        deadline: 'Dec 2026',
+        status: 'active',
+        category: 'Building',
+        icon: Building2
+    },
+    {
+        id: 2,
+        title: 'Ramadan Food Drive 2026',
+        description: 'Providing iftar meals and food baskets for 500 families',
+        raised: 35000,
+        goal: 75000,
+        deadline: 'Mar 2026',
+        status: 'active',
+        category: 'Charity',
+        icon: Wheat
+    },
+    {
+        id: 3,
+        title: 'Youth Scholarship Fund',
+        description: 'Supporting Islamic education for underprivileged students',
+        raised: 28000,
+        goal: 50000,
+        deadline: 'Ongoing',
+        status: 'active',
+        category: 'Education',
+        icon: BookOpen
+    },
+    {
+        id: 4,
+        title: 'Emergency Relief - Palestine',
+        description: 'Urgent humanitarian aid for families in need',
+        raised: 120000,
+        goal: 150000,
+        deadline: 'Ongoing',
+        status: 'urgent',
+        category: 'Emergency',
+        icon: Heart
+    },
+    {
+        id: 5,
+        title: 'New Minaret Installation',
+        description: 'Installing a beautiful minaret with LED lighting',
+        raised: 45000,
+        goal: 80000,
+        deadline: 'Jun 2026',
+        status: 'active',
+        category: 'Building',
+        icon: Building2
+    },
+    {
+        id: 6,
+        title: 'Community Center Renovation',
+        description: 'Upgrading the community hall with new facilities',
+        raised: 65000,
+        goal: 100000,
+        deadline: 'Sep 2026',
+        status: 'active',
+        category: 'Building',
+        icon: Users
+    }
+];
+
 export default function DonatePage() {
     const formatCurrency = (amount: number) => {
         if (amount >= 1000000) {
@@ -113,7 +186,7 @@ export default function DonatePage() {
                     </div>
                     <div className={styles.featuredContent}>
                         <span className={styles.urgentBadge}>Urgent Appeal</span>
-                        <h2 className={styles.featuredTitle}>{featuredCampaign.title}</h2>!
+                        <h2 className={styles.featuredTitle}>{featuredCampaign.title}</h2>
 
                         <div className={styles.progressContainer}>
                             <div className={styles.progressBar}>
@@ -168,7 +241,75 @@ export default function DonatePage() {
                 </div>
             </section>
 
-            {/* 4. TRANSPARENCY & TRUST */}
+            {/* 4. ALL CAMPAIGNS LIST */}
+            <section className={styles.campaignsSection}>
+                <div className={styles.sectionHeader}>
+                    <h2 className={styles.sectionTitle}>Active Campaigns</h2>
+                    <p className={styles.sectionSubtitle}>Support our ongoing initiatives</p>
+                </div>
+
+                <div className={styles.campaignsList}>
+                    {campaigns.map((campaign) => {
+                        const percentage = Math.round((campaign.raised / campaign.goal) * 100);
+                        return (
+                            <div
+                                key={campaign.id}
+                                className={`${styles.campaignCard} ${campaign.status === 'urgent' ? styles.urgentCampaign : ''}`}
+                            >
+                                <div className={styles.campaignIcon}>
+                                    <campaign.icon size={24} />
+                                </div>
+                                <div className={styles.campaignInfo}>
+                                    <div className={styles.campaignHeader}>
+                                        <h3 className={styles.campaignTitle}>{campaign.title}</h3>
+                                        {campaign.status === 'urgent' && (
+                                            <span className={styles.urgentTag}>Urgent</span>
+                                        )}
+                                    </div>
+                                    <p className={styles.campaignDesc}>{campaign.description}</p>
+                                    <div className={styles.campaignProgress}>
+                                        <div className={styles.campaignProgressBar}>
+                                            <div
+                                                className={styles.campaignProgressFill}
+                                                style={{ width: `${percentage}%` }}
+                                            />
+                                        </div>
+                                        <div className={styles.campaignStats}>
+                                            <span className={styles.campaignRaised}>
+                                                {formatCurrency(campaign.raised)} raised
+                                            </span>
+                                            <span className={styles.campaignGoal}>
+                                                of {formatCurrency(campaign.goal)}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className={styles.campaignMeta}>
+                                        <span className={styles.campaignCategory}>
+                                            <Target size={12} /> {campaign.category}
+                                        </span>
+                                        <span className={styles.campaignDeadline}>
+                                            <Calendar size={12} /> {campaign.deadline}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className={styles.campaignAction}>
+                                    <Link
+                                        href={`/heritage/donate/campaign/${campaign.id}`}
+                                        className={styles.campaignBtn}
+                                    >
+                                        Donate <ArrowRight size={14} />
+                                    </Link>
+                                    <span className={styles.campaignPercentage}>
+                                        <TrendingUp size={12} /> {percentage}%
+                                    </span>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </section>
+
+            {/* 5. TRANSPARENCY & TRUST */}
             <section className={styles.trustSection}>
                 <div className={styles.trustGrid}>
                     {trustStats.map((item, idx) => (

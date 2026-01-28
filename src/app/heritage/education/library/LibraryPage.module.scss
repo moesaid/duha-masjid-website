@@ -1,4 +1,6 @@
 // Library Page - "Al-Maktaba"
+@use "sass:color";
+
 // Design: Old World Library with Wood browns, Leather tans, Cream paper tones
 
 // Color Palette
@@ -472,7 +474,7 @@ $border-wood: rgba(61, 41, 20, 0.2);
 // ========================================
 .spotlightSection {
     padding: 5rem 2rem;
-    background: linear-gradient(135deg, $wood-dark 0%, darken($wood-dark, 5%) 100%);
+    background: linear-gradient(135deg, $wood-dark 0%, color.adjust($wood-dark, $lightness: -5%) 100%);
 }
 
 .spotlightContent {
@@ -582,7 +584,7 @@ $border-wood: rgba(61, 41, 20, 0.2);
     top: 0;
     width: 20px;
     height: 100%;
-    background: linear-gradient(to right, darken(#1A4D3E, 15%), #1A4D3E);
+    background: linear-gradient(to right, color.adjust(#1A4D3E, $lightness: -15%), #1A4D3E);
     transform: rotateY(90deg) translateZ(-10px);
     transform-origin: left;
 }
@@ -1121,7 +1123,7 @@ $border-wood: rgba(61, 41, 20, 0.2);
 
 .resultLanguage {
     background: rgba($brass-gold, 0.1);
-    color: darken($brass-gold, 10%);
+    color: color.adjust($brass-gold, $lightness: -10%);
 }
 
 .resultStatus {

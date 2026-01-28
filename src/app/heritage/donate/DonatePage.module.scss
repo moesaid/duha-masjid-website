@@ -373,7 +373,204 @@ $text-muted: #5a5a5a;
 }
 
 // ========================================
-// 4. TRANSPARENCY & TRUST
+// 4. ALL CAMPAIGNS LIST
+// ========================================
+.campaignsSection {
+    padding: 5rem 2rem;
+    background: $off-white;
+}
+
+.campaignsList {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.campaignCard {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: start;
+    background: $white;
+    border: 1px solid #e8e8e8;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: $gold;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+.urgentCampaign {
+    border-left: 4px solid #c82333;
+    background: linear-gradient(90deg, rgba(220, 53, 69, 0.03) 0%, $white 15%);
+}
+
+.campaignIcon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, $gold 0%, $gold-light 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $emerald-dark;
+    flex-shrink: 0;
+
+    @media (max-width: 700px) {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.campaignInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.campaignHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.campaignTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $text-dark;
+    margin: 0;
+}
+
+.urgentTag {
+    padding: 0.25rem 0.6rem;
+    background: rgba(220, 53, 69, 0.1);
+    color: #c82333;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.campaignDesc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.campaignProgress {
+    margin-bottom: 0.85rem;
+}
+
+.campaignProgressBar {
+    height: 8px;
+    background: $off-white;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.campaignProgressFill {
+    height: 100%;
+    background: linear-gradient(90deg, $gold-dark, $gold);
+    border-radius: 4px;
+    transition: width 0.6s ease-out;
+}
+
+.campaignStats {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.campaignRaised {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $emerald;
+}
+
+.campaignGoal {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+}
+
+.campaignMeta {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.campaignCategory,
+.campaignDeadline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+}
+
+.campaignAction {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+
+    @media (max-width: 700px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.campaignBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.25rem;
+    background: $emerald;
+    border: none;
+    color: $white;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+
+    &:hover {
+        background: $emerald-dark;
+    }
+}
+
+.campaignPercentage {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $gold-dark;
+}
+
+// ========================================
+// 5. TRANSPARENCY & TRUST
 // ========================================
 .trustSection {
     padding: 4rem 2rem;

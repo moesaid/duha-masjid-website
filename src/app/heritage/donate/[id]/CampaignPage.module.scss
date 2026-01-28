@@ -1,0 +1,1111 @@
+// Single Campaign Page - "The Appeal"
+// Design: Inspirational, Urgent, and Commemorative
+// Functional Goal: Keep the "Donate" widget accessible at all times
+
+// ========================================
+// GIVING PALETTE
+// ========================================
+$emerald: #1a5f3c;
+$emerald-dark: #0f4a2d;
+$emerald-light: #2d7a50;
+$gold: #d4a84b;
+$gold-light: #e8c66a;
+$gold-dark: #b8921f;
+$white: #ffffff;
+$off-white: #f8f9fa;
+$cream: #faf8f2;
+$paper: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #5a5a5a;
+
+// ========================================
+// BASE
+// ========================================
+.campaignPage {
+    min-height: 100vh;
+    background: $white;
+}
+
+// ========================================
+// 1. VISION HERO
+// ========================================
+.heroSection {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    max-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: $emerald-dark;
+    overflow: hidden;
+}
+
+.heroImageWrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+// LAYER 2: Color Overlay
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg,
+            rgba($emerald-dark, 0.9) 0%,
+            rgba($emerald, 0.85) 50%,
+            rgba($emerald-light, 0.8) 100%);
+}
+
+// LAYER 3: Pattern Overlay
+.heroPatternOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10L90 50L50 90L10 50z' fill='none' stroke='%23d4a84b' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='15' fill='none' stroke='%23d4a84b' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+// Overflow gradient for seamless transition
+.heroPatternOverflow {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, $white 10%, transparent 100%);
+    z-index: 4;
+    pointer-events: none;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 168, 75, 0.3);
+    color: $gold;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 700;
+    color: $white;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.videoButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 2px solid $gold;
+    color: $gold;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $gold;
+        color: $emerald-dark;
+
+        .playIcon {
+            background: $emerald-dark;
+            color: $gold;
+        }
+    }
+}
+
+.playIcon {
+    width: 44px;
+    height: 44px;
+    background: $gold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $emerald-dark;
+    transition: all 0.3s ease;
+}
+
+// ========================================
+// TABS NAVIGATION
+// ========================================
+.tabNavigation {
+    background: $white;
+    border-bottom: 1px solid #e8e8e8;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.tabContainer {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.tabButton {
+    padding: 1.5rem 0.5rem;
+    background: transparent;
+    border: none;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-muted;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $emerald;
+    }
+
+    &.active {
+        color: $emerald-dark;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: $gold;
+        }
+    }
+}
+
+// ========================================
+// MAIN CONTENT LAYOUT
+// ========================================
+.mainContent {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 3rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: 1fr;
+        padding-bottom: 120px;
+    }
+}
+
+.narrativeColumn {
+    min-width: 0;
+}
+
+// ========================================
+// 2. STICKY DONATION WIDGET
+// ========================================
+.donationSidebar {
+    @media (max-width: 1000px) {
+        display: none;
+    }
+}
+
+.donationWidget {
+    position: sticky;
+    top: 2rem;
+    background: $paper;
+    border: 3px solid $gold;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+
+.widgetHeader {
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 168, 75, 0.2);
+}
+
+.progressCircle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+
+    svg {
+        transform: rotate(-90deg);
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.progressBg {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.1);
+    stroke-width: 8;
+}
+
+.progressFill {
+    fill: none;
+    stroke: $gold;
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 1s ease-out;
+}
+
+.progressText {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.progressPercent {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $emerald-dark;
+}
+
+.progressLabel {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.fundingStats {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statValue {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $emerald-dark;
+}
+
+.statLabel {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: $text-muted;
+}
+
+.widgetBody {
+    padding: 1.5rem 2rem;
+}
+
+.fieldLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $text-muted;
+    margin-bottom: 0.75rem;
+}
+
+.amountSection {
+    margin-bottom: 1.5rem;
+}
+
+.amountGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.amountBtn {
+    padding: 0.75rem 0.5rem;
+    background: $white;
+    border: 2px solid #ddd;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $text-dark;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $gold;
+    }
+
+    &.selected {
+        background: $emerald;
+        border-color: $emerald;
+        color: $white;
+    }
+}
+
+.customAmount {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currencySymbol {
+    position: absolute;
+    left: 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+}
+
+.customInput {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2rem;
+    border: 2px solid #ddd;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+        outline: none;
+        border-color: $gold;
+    }
+
+    &::placeholder {
+        color: #aaa;
+    }
+}
+
+.frequencySection {
+    margin-bottom: 1.5rem;
+}
+
+.frequencyToggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 2px solid $emerald;
+    overflow: hidden;
+}
+
+.frequencyBtn {
+    padding: 0.75rem;
+    background: $white;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $emerald;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &.active {
+        background: $emerald;
+        color: $white;
+    }
+}
+
+.monthlyNote {
+    margin-top: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $gold-dark;
+    text-align: center;
+}
+
+.privacySection {
+    margin-bottom: 1.5rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    cursor: pointer;
+
+    input {
+        width: 18px;
+        height: 18px;
+        accent-color: $emerald;
+    }
+}
+
+.donateBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+    border: none;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $emerald-dark;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(212, 168, 75, 0.4);
+    }
+}
+
+.secureNote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+}
+
+.widgetFooter {
+    padding: 1rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(212, 168, 75, 0.2);
+}
+
+.backLink {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $emerald;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $emerald-dark;
+    }
+}
+
+// ========================================
+// 3. NARRATIVE SECTION
+// ========================================
+.narrativeSection {
+    margin-bottom: 4rem;
+}
+
+.narrativeTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $text-dark;
+    margin-bottom: 2rem;
+}
+
+.narrativeBlock {
+    margin-bottom: 2.5rem;
+}
+
+.narrativeSubtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.35rem;
+    color: $emerald;
+    margin-bottom: 1rem;
+}
+
+.narrativeText {
+    font-family: 'Georgia', serif;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: $text-dark;
+}
+
+.hadithCard {
+    background: linear-gradient(135deg, $emerald 0%, $emerald-dark 100%);
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.hadithArabic {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1.5rem;
+    color: $gold;
+    line-height: 2;
+    margin-bottom: 1.5rem;
+}
+
+.hadithTranslation {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.hadithSource {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+// ========================================
+// 4. IMPACT TIERS
+// ========================================
+.impactSection {
+    margin-bottom: 4rem;
+}
+
+.sectionTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    color: $text-dark;
+    margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    margin-bottom: 2rem;
+}
+
+.impactGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.impactCard {
+    background: $white;
+    border: 1px solid #e8e8e8;
+    padding: 1.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: $gold;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+    }
+}
+
+.impactIcon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, $gold 0%, $gold-light 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $emerald-dark;
+}
+
+.impactAmount {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $emerald;
+    margin-bottom: 0.5rem;
+}
+
+.impactTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    color: $text-dark;
+    margin-bottom: 0.5rem;
+}
+
+.impactDesc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+}
+
+// ========================================
+// 5. CAMPAIGN UPDATES
+// ========================================
+.updatesSection {
+    margin-bottom: 4rem;
+}
+
+.timeline {
+    position: relative;
+    border-left: 2px solid rgba($gold, 0.3);
+    margin-left: 1rem;
+    padding-left: 2rem;
+}
+
+.timelineItem {
+    position: relative;
+    margin-bottom: 2.5rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.timelineMarker {
+    position: absolute;
+    left: -2.6rem;
+    top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    background: $gold;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba($gold, 0.3);
+}
+
+.updateDate {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: $emerald;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.updateTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.updateText {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-muted;
+    line-height: 1.7;
+}
+
+.seeAllUpdates {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.seeAllBtn {
+    background: transparent;
+    border: 1px solid $emerald;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $emerald;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $emerald;
+        color: $white;
+    }
+}
+
+// Full Updates View
+.infoMessage {
+    background: $off-white;
+    padding: 1.5rem;
+    border-left: 3px solid $gold;
+    margin-bottom: 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+}
+
+.richTextContent {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: $text-dark;
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    strong {
+        color: $emerald-dark;
+    }
+
+    ul {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        list-style-type: disc;
+
+        li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+    }
+
+    blockquote {
+        border-left: 4px solid $gold;
+        padding: 0.5rem 0 0.5rem 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: $text-muted;
+        background: rgba($gold, 0.05);
+        border-radius: 0 8px 8px 0;
+    }
+
+    figure {
+        margin: 2.5rem 0;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        figcaption {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: $text-muted;
+            text-align: center;
+            margin-top: 0.75rem;
+            font-style: italic;
+        }
+    }
+
+    .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        /* 16:9 */
+        height: 0;
+        margin: 2.5rem 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        background: $off-white;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+}
+
+// ========================================
+// 6. RECENT DONORS
+// ========================================
+.donorsSection {
+    margin-bottom: 4rem;
+}
+
+.donorsList {
+    background: $off-white;
+    border: 1px solid #e8e8e8;
+}
+
+.donorItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e8e8e8;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.donorAvatar {
+    width: 40px;
+    height: 40px;
+    background: $emerald;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $white;
+    flex-shrink: 0;
+}
+
+.donorInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.donorName {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $text-dark;
+}
+
+.donorMessage {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-style: italic;
+    color: $text-muted;
+    margin-top: 0.25rem;
+}
+
+.donorAmount {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $gold-dark;
+    flex-shrink: 0;
+}
+
+// ========================================
+// 7. FAQ ACCORDION
+// ========================================
+.faqSection {
+    margin-bottom: 4rem;
+}
+
+.faqList {
+    border: 1px solid #e8e8e8;
+}
+
+.faqItem {
+    border-bottom: 1px solid #e8e8e8;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &.open {
+        .faqQuestion {
+            background: $off-white;
+        }
+    }
+}
+
+.faqQuestion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: $white;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-dark;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: $off-white;
+    }
+}
+
+.faqBadges {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.zakatBadge {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &.eligible {
+        background: rgba(26, 95, 60, 0.1);
+        color: $emerald;
+    }
+
+    &.notEligible {
+        background: rgba(220, 53, 69, 0.1);
+        color: #c82333;
+    }
+}
+
+.faqAnswer {
+    padding: 1.25rem;
+    background: $off-white;
+    border-top: 1px solid #e8e8e8;
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: $text-muted;
+        margin: 0;
+    }
+}
+
+// ========================================
+// MOBILE FLOATING BAR
+// ========================================
+.mobileBar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 1.5rem;
+    background: $paper;
+    border-top: 3px solid $gold;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+
+    @media (max-width: 1000px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+}
+
+.mobileProgress {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileRaised {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $emerald-dark;
+}
+
+.mobileGoal {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+}
+
+.mobileDonateBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+    border: none;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $emerald-dark;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+// ========================================
+// VIDEO OVERLAY
+// ========================================
+.videoOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.videoContainer {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    background: $text-dark;
+    cursor: default;
+}
+
+.closeVideo {
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: $white;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $gold;
+    }
+}
+
+.videoPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: $text-muted;
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+    }
+}
+
+.videoIframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
