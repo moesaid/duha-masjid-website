@@ -1,0 +1,341 @@
+// Committee Detail Page Styles
+
+@use "sass:color";
+
+// Color Tokens
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$gold-dark: #b8960c;
+$cream: #f8f5f0;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+.committeePage {
+    min-height: 100vh;
+    background: $cream;
+}
+
+// Hero Section
+.heroSection {
+    position: relative;
+    min-height: 45vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 4rem 2rem;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
+}
+
+.heroImage {
+    object-fit: cover;
+    z-index: 0;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    color: $white;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $gold;
+    }
+}
+
+.heroTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+// Content Container
+.contentContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Main Content
+.mainContent {
+    max-width: 100%;
+}
+
+.section {
+    margin-bottom: 2.5rem;
+
+    h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        color: $emerald-dark;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid $gold;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.7;
+        color: $text-dark;
+    }
+}
+
+.responsibilitiesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        position: relative;
+        padding: 0.75rem 0 0.75rem 2rem;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-dark;
+        border-bottom: 1px solid #e8e8e8;
+
+        &::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: $emerald;
+            font-weight: 700;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.projectCard {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: $white;
+    border: 1px solid #e8e8e8;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &.clickable {
+        cursor: pointer;
+
+        &:hover {
+            border-color: $emerald;
+            box-shadow: 0 4px 12px rgba($emerald, 0.1);
+            transform: translateY(-2px);
+
+            .projectName {
+                color: $emerald;
+            }
+        }
+    }
+}
+
+.projectNumber {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $emerald;
+    color: $white;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.projectInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.projectName {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $text-dark;
+    transition: color 0.2s ease;
+}
+
+.projectStatus {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $gold-dark;
+    margin-top: 0.35rem;
+}
+
+.projectProgress {
+    height: 6px;
+    background: #e8e8e8;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.projectProgressFill {
+    height: 100%;
+    background: linear-gradient(90deg, $emerald, color.adjust($emerald, $lightness: 10%));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.joinButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: $gold;
+    color: $emerald-dark;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: color.adjust($gold, $lightness: 8%);
+        transform: translateY(-2px);
+    }
+}
+
+// Sidebar
+.sidebar {
+    @media (max-width: 900px) {
+        order: -1;
+    }
+}
+
+.infoCard,
+.membersCard {
+    background: $white;
+    border: 1px solid #e8e8e8;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.1rem;
+        color: $emerald-dark;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid $gold;
+    }
+}
+
+.infoItem {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    svg {
+        color: $gold;
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.infoLabel {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $text-muted;
+    margin-bottom: 0.25rem;
+}
+
+.infoValue {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+}
+
+.infoLink {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $emerald;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.membersList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: 0.6rem 0;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+        border-bottom: 1px solid #eee;
+
+        &:first-child {
+            font-weight: 600;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

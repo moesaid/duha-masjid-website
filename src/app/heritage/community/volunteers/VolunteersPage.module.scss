@@ -1,0 +1,545 @@
+// Volunteers Page Styles - HERITAGE ALIGNED
+
+@use "sass:color";
+
+// Color Tokens
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$emerald-light: #0d7a48;
+$gold: #d4af37;
+$gold-dark: #b8960c;
+$cream: #f8f5f0;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+// Patterns
+$islamic-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Ccircle cx='30' cy='30' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+.volunteersPage {
+    min-height: 100vh;
+    background: $cream;
+}
+
+// Hero Section
+.heroSection {
+    position: relative;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $emerald-dark 0%, $emerald 100%);
+    overflow: hidden;
+    padding: 4rem 2rem;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: $islamic-pattern;
+    background-size: 80px 80px;
+    opacity: 0.08;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: $white;
+    max-width: 700px;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba($gold, 0.2);
+    border: 1px solid $gold;
+    color: $gold;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+// Introduction Section
+.introSection {
+    padding: 4rem 2rem;
+    background: $white;
+}
+
+.introContainer {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.introIcon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $emerald;
+    color: $gold;
+    border-radius: 50%;
+}
+
+.introTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $emerald-dark;
+    margin-bottom: 1rem;
+}
+
+.introText {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: $text-muted;
+}
+
+// Section Headers
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $emerald-dark;
+    margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+}
+
+// Opportunities Section
+.opportunitiesSection {
+    padding: 4rem 2rem;
+}
+
+.opportunitiesGrid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.opportunityCard {
+    background: $white;
+    padding: 1.75rem;
+    border: 1px solid #e8e8e8;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.oppIcon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $emerald;
+    color: $gold;
+    margin-bottom: 1rem;
+}
+
+.oppTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.oppDescription {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-muted;
+    margin-bottom: 1rem;
+}
+
+.oppMeta {
+    margin-bottom: 1rem;
+}
+
+.oppCommitment {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $gold-dark;
+}
+
+.oppSkills {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    li {
+        padding: 0.25rem 0.75rem;
+        background: $parchment;
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: $text-muted;
+    }
+}
+
+// Testimonials Section
+.testimonialsSection {
+    padding: 4rem 2rem;
+    background: $parchment;
+}
+
+.testimonialsSectionTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    color: $emerald-dark;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.testimonialsGrid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.testimonialCard {
+    background: $white;
+    padding: 2rem;
+    border-left: 4px solid $gold;
+}
+
+.testimonialQuote {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: $text-dark;
+    margin: 0 0 1.5rem;
+}
+
+.testimonialAuthor {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: $emerald-dark;
+}
+
+.authorRole {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+}
+
+// Signup Section
+.signupSection {
+    padding: 5rem 2rem;
+    background: $parchment;
+}
+
+.signupContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.signupInfo {
+    padding-right: 2rem;
+
+    @media (max-width: 900px) {
+        padding-right: 0;
+        text-align: center;
+    }
+}
+
+.signupTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $emerald-dark;
+    margin-bottom: 1rem;
+}
+
+.signupText {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin-bottom: 2rem;
+}
+
+.signupBenefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (max-width: 900px) {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.benefitItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $emerald;
+
+    @media (max-width: 900px) {
+        justify-content: center;
+    }
+}
+
+// Signup Form
+.signupForm {
+    background: $white;
+    padding: 2.5rem;
+    border: 1px solid #e8e8e8;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+    margin-bottom: 1.75rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.25rem;
+
+    label {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin-bottom: 0.625rem;
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 0.875rem 1rem;
+        border: 1px solid #ddd;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-dark;
+        background: $white;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $emerald;
+        }
+
+        &::placeholder {
+            color: #999;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+}
+
+.formGroupSpaced {
+    margin-top: 1rem;
+}
+
+.checkboxGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.75rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.checkboxItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    background: $parchment;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: rgba($emerald, 0.08);
+    }
+
+    input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: $emerald;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-dark;
+    }
+}
+
+// shadcn Select Overrides - Heritage Aligned
+.selectTrigger {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0.875rem 1rem !important;
+    border: 1px solid #ddd !important;
+    border-radius: 0 !important;
+    font-family: var(--font-body) !important;
+    font-size: 1rem !important;
+    color: $text-dark !important;
+    background: $white !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease !important;
+
+    &:hover {
+        background: $white !important;
+    }
+
+    &:focus,
+    &[data-state="open"] {
+        border-color: $emerald !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    // Placeholder styling
+    :global([data-placeholder]) {
+        color: #999 !important;
+    }
+
+    // Icon
+    svg {
+        color: $text-muted !important;
+    }
+}
+
+.selectContent {
+    border-radius: 0 !important;
+    border: 1px solid #ddd !important;
+    background: $white !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+    padding: 0.5rem !important;
+    z-index: 1000 !important;
+
+    :global([data-slot="select-item"]) {
+        padding: 0.75rem 1rem !important;
+        font-family: var(--font-body) !important;
+        font-size: 0.95rem !important;
+        color: $text-dark !important;
+        border-radius: 0 !important;
+        cursor: pointer !important;
+        transition: background 0.15s ease !important;
+
+        &:hover,
+        &:focus,
+        &[data-highlighted] {
+            background: rgba($emerald, 0.08) !important;
+            color: $emerald-dark !important;
+        }
+
+        &[data-state="checked"] {
+            background: rgba($gold, 0.15) !important;
+            color: $emerald-dark !important;
+            font-weight: 600 !important;
+        }
+    }
+
+    // Checkmark icon
+    :global([data-slot="select-item-indicator"]) svg {
+        color: $emerald !important;
+    }
+}
+
+.submitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1.125rem 2rem;
+    background: $gold;
+    color: $emerald-dark;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: color.adjust($gold, $lightness: 10%);
+        transform: translateY(-2px);
+    }
+}

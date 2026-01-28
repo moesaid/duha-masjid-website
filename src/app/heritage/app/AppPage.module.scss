@@ -1,0 +1,352 @@
+// App Page Styles - HERITAGE ALIGNED
+
+@use "sass:color";
+
+// Color Tokens
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$emerald-light: #0d7a48;
+$gold: #d4af37;
+$gold-dark: #b8960c;
+$cream: #f8f5f0;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+// Patterns
+$islamic-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Ccircle cx='30' cy='30' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+.appPage {
+    min-height: 100vh;
+    background: $cream;
+}
+
+// Hero Section
+.heroSection {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, $emerald-dark 0%, $emerald 100%);
+    overflow: hidden;
+    padding: 4rem 2rem;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top left, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: $islamic-pattern;
+    background-size: 80px 80px;
+    opacity: 0.08;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+.heroText {
+    color: $white;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba($gold, 0.2);
+    border: 1px solid $gold;
+    color: $gold;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 500px;
+
+    @media (max-width: 900px) {
+        margin: 0 auto 2rem;
+    }
+}
+
+.downloadButtons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 900px) {
+        justify-content: center;
+    }
+}
+
+.downloadBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: $text-dark;
+    color: $white;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        background: lighten($text-dark, 10%);
+    }
+
+    span {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        small {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+    }
+}
+
+.heroPhone {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+
+.phoneFrame {
+    width: 280px;
+    height: 500px;
+    background: $text-dark;
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.phoneScreen {
+    width: 100%;
+    height: 100%;
+    background: $white;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $emerald;
+}
+
+// Section Headers
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $emerald-dark;
+    margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+}
+
+// Features Section
+.featuresSection {
+    padding: 5rem 2rem;
+}
+
+.featuresGrid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.featureCard {
+    background: $white;
+    padding: 2rem;
+    border: 1px solid #e8e8e8;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.featureIcon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $emerald;
+    color: $gold;
+}
+
+.featureTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.featureDescription {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-muted;
+}
+
+// Screenshots Section
+.screenshotsSection {
+    padding: 4rem 2rem;
+    background: $parchment;
+}
+
+.screenshotsTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    color: $emerald-dark;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.screenshotsGrid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.screenshotWrapper {
+    position: relative;
+    aspect-ratio: 9/16;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.screenshotImage {
+    object-fit: cover;
+}
+
+// Benefits Section
+.benefitsSection {
+    padding: 5rem 2rem;
+    background: $white;
+}
+
+.benefitsContent {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.benefitsTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $emerald-dark;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.benefitsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+        background: $parchment;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-dark;
+
+        svg {
+            color: $emerald;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+    }
+}
+
+// CTA Section
+.ctaSection {
+    padding: 5rem 2rem;
+    background: $emerald-dark;
+}
+
+.ctaContent {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ctaTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $white;
+    margin-bottom: 1rem;
+}
+
+.ctaText {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+}

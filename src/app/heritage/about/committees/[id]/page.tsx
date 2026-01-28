@@ -1,0 +1,343 @@
+// Committee Detail Page - Dynamic Route
+// Shows individual committee information
+'use client';
+
+import { use } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './CommitteeDetailPage.module.scss';
+import { ArrowLeft, Calendar, Users, Mail, Clock, MapPin } from 'lucide-react';
+
+// Project type for structured projects
+type Project = {
+    id: string;
+    name: string;
+    status: string;
+    progress: number;
+};
+
+// Committee Data
+const committeesData: Record<string, {
+    id: string;
+    name: string;
+    description: string;
+    fullDescription: string;
+    image: string;
+    chair: string;
+    email: string;
+    members: string[];
+    meetingSchedule: string;
+    location: string;
+    responsibilities: string[];
+    currentProjects: (string | Project)[];
+    howToJoin: string;
+}> = {
+    'education': {
+        id: 'education',
+        name: 'Education Committee',
+        description: 'Oversees weekend school, adult education, and Quran programs',
+        fullDescription: 'The Education Committee is responsible for developing and overseeing all educational programs at Al-Noor Masjid. This includes our weekend Islamic school for children, adult education classes, Quran memorization programs, and special educational events throughout the year.',
+        image: '/images/heritage/mosque-interior.jpg',
+        chair: 'Dr. Fatima Hassan',
+        email: 'education@alnoormasjid.org',
+        members: ['Dr. Fatima Hassan (Chair)', 'Br. Omar Abdullah', 'Sr. Aisha Malik', 'Br. Ibrahim Khan', 'Sr. Maryam Ahmed'],
+        meetingSchedule: 'First Sunday of each month, 2:00 PM',
+        location: 'Conference Room A',
+        responsibilities: [
+            'Develop and update curriculum for weekend school',
+            'Recruit and train teachers and volunteers',
+            'Organize educational events and workshops',
+            'Manage Quran memorization programs',
+            'Coordinate adult education classes'
+        ],
+        currentProjects: [
+            'Launching new youth Islamic studies curriculum',
+            'Expanding adult Arabic language program',
+            'Developing online learning platform',
+            'Organizing annual Quran competition'
+        ],
+        howToJoin: 'We welcome educators, parents, and community members passionate about Islamic education. Contact us at education@alnoormasjid.org or attend our monthly meeting to learn more.'
+    },
+    'finance': {
+        id: 'finance',
+        name: 'Finance Committee',
+        description: 'Manages masjid budget, donations, and financial planning',
+        fullDescription: 'The Finance Committee ensures the financial health and sustainability of Al-Noor Masjid. We manage the annual budget, oversee donations and fundraising, and ensure transparent financial reporting to the community.',
+        image: '/images/heritage/mosque-dome.jpg',
+        chair: 'Br. Khalid Mansour',
+        email: 'finance@alnoormasjid.org',
+        members: ['Br. Khalid Mansour (Chair)', 'Sr. Nadia Rahman', 'Br. Ahmed Yusuf', 'CPA Consultant'],
+        meetingSchedule: 'Second Tuesday of each month, 7:00 PM',
+        location: 'Administrative Office',
+        responsibilities: [
+            'Prepare and manage annual budget',
+            'Oversee donation collection and tracking',
+            'Ensure financial transparency and compliance',
+            'Plan major fundraising campaigns',
+            'Present quarterly financial reports to board'
+        ],
+        currentProjects: [
+            'Building fund expansion campaign',
+            'Implementing new donation management system',
+            'Establishing endowment fund',
+            'Annual audit preparation'
+        ],
+        howToJoin: 'We seek members with backgrounds in finance, accounting, or business management. Contact finance@alnoormasjid.org for more information.'
+    },
+    'women': {
+        id: 'women',
+        name: "Women's Committee",
+        description: 'Organizes programs and services for sisters in the community',
+        fullDescription: "The Women's Committee creates a welcoming and supportive environment for sisters at Al-Noor Masjid. We organize programs, events, and services that address the unique needs of Muslim women in our community.",
+        image: '/images/heritage/shykh.jpg',
+        chair: 'Sr. Safiya Ahmed',
+        email: 'women@alnoormasjid.org',
+        members: ['Sr. Safiya Ahmed (Chair)', 'Sr. Khadija Omar', 'Sr. Zainab Ali', 'Sr. Ruqaiya Ibrahim', 'Sr. Amina Hassan'],
+        meetingSchedule: 'Second Saturday of each month, 11:00 AM',
+        location: "Women's Prayer Hall",
+        responsibilities: [
+            "Organize women-focused educational programs",
+            'Plan social events and gatherings',
+            'Address facility needs for sisters',
+            'Coordinate new Muslim sister support',
+            'Manage women volunteer coordination'
+        ],
+        currentProjects: [
+            'Monthly halaqah series',
+            "New mothers' support group",
+            "Ramadan sisters' iftar program",
+            "Women's health and wellness workshops"
+        ],
+        howToJoin: "All sisters are welcome to join our committee. Attend our monthly meeting or email women@alnoormasjid.org to get involved."
+    },
+    'youth': {
+        id: 'youth',
+        name: 'Youth Committee',
+        description: 'Develops programs for teens and young adults',
+        fullDescription: 'The Youth Committee focuses on engaging and empowering young Muslims ages 13-25. We create programs that address the unique challenges facing Muslim youth while building a strong Islamic identity and sense of community.',
+        image: '/images/heritage/mosque-interior.jpg',
+        chair: 'Br. Ahmad Malik',
+        email: 'youth@alnoormasjid.org',
+        members: ['Br. Ahmad Malik (Chair)', 'Sr. Yasmin Khan', 'Br. Bilal Hassan', 'Sr. Layla Ibrahim', 'Br. Hamza Omar'],
+        meetingSchedule: 'Every Friday after Isha',
+        location: 'Youth Center',
+        responsibilities: [
+            'Plan weekly youth programs and activities',
+            'Organize annual youth retreat',
+            'Coordinate sports and recreation',
+            'Develop leadership opportunities',
+            'Provide mentorship programs'
+        ],
+        currentProjects: [
+            { id: 'youth-center', name: 'North Wing Youth Center', status: 'In Progress', progress: 45 },
+            { id: 'youth-leadership', name: 'Youth Leadership Academy', status: 'Planning', progress: 15 },
+            { id: 'college-mentorship', name: 'College Prep Mentorship', status: 'Active', progress: 70 },
+            { id: 'annual-conference', name: 'Annual Youth Conference 2026', status: 'Planning', progress: 25 }
+        ],
+        howToJoin: 'Young adults (18-25) passionate about serving youth are welcome. College students and recent graduates especially encouraged. Email youth@alnoormasjid.org.'
+    },
+    'outreach': {
+        id: 'outreach',
+        name: 'Outreach Committee',
+        description: 'Manages dawah, interfaith relations, and community engagement',
+        fullDescription: 'The Outreach Committee represents Al-Noor Masjid to the broader community. We organize interfaith events, manage public relations, welcome visitors, and share the beautiful message of Islam with our neighbors.',
+        image: '/images/heritage/mosque-dome.jpg',
+        chair: 'Dr. Layla Ahmed',
+        email: 'outreach@alnoormasjid.org',
+        members: ['Dr. Layla Ahmed (Chair)', 'Br. Mustafa Ali', 'Sr. Hannah Rahman', 'Br. Yusuf Patel'],
+        meetingSchedule: 'Third Wednesday of each month, 7:30 PM',
+        location: 'Community Room',
+        responsibilities: [
+            'Organize open house events',
+            'Coordinate interfaith dialogue',
+            'Manage media relations',
+            'Train tour guides and ambassadors',
+            'Respond to community inquiries'
+        ],
+        currentProjects: [
+            'Annual Open Mosque Day',
+            'Interfaith Thanksgiving dinner',
+            'Neighbor relations initiative',
+            'What is Islam? workshop series'
+        ],
+        howToJoin: 'We seek articulate, friendly community members who enjoy meeting people. Training provided. Contact outreach@alnoormasjid.org.'
+    },
+    'facilities': {
+        id: 'facilities',
+        name: 'Facilities Committee',
+        description: 'Maintains building, grounds, and manages hall rentals',
+        fullDescription: 'The Facilities Committee ensures that Al-Noor Masjid remains a clean, safe, and welcoming space for worship and community activities. We oversee maintenance, manage hall rentals, and coordinate building projects.',
+        image: '/images/heritage/shykh.jpg',
+        chair: 'Br. Tariq Rahman',
+        email: 'facilities@alnoormasjid.org',
+        members: ['Br. Tariq Rahman (Chair)', 'Br. Salman Ahmed', 'Br. Jamal Hussein', 'Sr. Fatima Qureshi'],
+        meetingSchedule: 'First Saturday of each month, 10:00 AM',
+        location: 'Maintenance Office',
+        responsibilities: [
+            'Oversee building maintenance and repairs',
+            'Manage janitorial services',
+            'Coordinate hall rental bookings',
+            'Plan facility improvements',
+            'Ensure safety and security'
+        ],
+        currentProjects: [
+            'Phase 2 building expansion',
+            'Parking lot expansion',
+            'HVAC system upgrade',
+            'Security camera installation'
+        ],
+        howToJoin: 'We need volunteers with skills in construction, electrical, plumbing, or general handyman work. Contact facilities@alnoormasjid.org.'
+    }
+};
+
+interface CommitteeDetailPageProps {
+    params: Promise<{ id: string }>;
+}
+
+export default function CommitteeDetailPage({ params }: CommitteeDetailPageProps) {
+    const { id } = use(params);
+    const committee = committeesData[id] || committeesData['education'];
+
+    return (
+        <main className={styles.committeePage}>
+            {/* Hero Section */}
+            <header className={styles.heroSection}>
+                <div className={styles.heroOverlay} />
+                <Image
+                    src={committee.image}
+                    alt={committee.name}
+                    fill
+                    className={styles.heroImage}
+                    priority
+                />
+                <div className={styles.heroContent}>
+                    <Link href="/heritage/about/committees" className={styles.backLink}>
+                        <ArrowLeft size={18} />
+                        All Committees
+                    </Link>
+                    <h1 className={styles.heroTitle}>{committee.name}</h1>
+                    <p className={styles.heroSubtitle}>{committee.description}</p>
+                </div>
+            </header>
+
+            {/* Main Content */}
+            <div className={styles.contentContainer}>
+                <div className={styles.mainContent}>
+                    {/* About Section */}
+                    <section className={styles.section}>
+                        <h2>About This Committee</h2>
+                        <p>{committee.fullDescription}</p>
+                    </section>
+
+                    {/* Responsibilities */}
+                    <section className={styles.section}>
+                        <h2>Key Responsibilities</h2>
+                        <ul className={styles.responsibilitiesList}>
+                            {committee.responsibilities.map((item, idx) => (
+                                <li key={idx}>{item}</li>
+                            ))}
+                        </ul>
+                    </section>
+
+                    {/* Current Projects */}
+                    <section className={styles.section}>
+                        <h2>Current Projects</h2>
+                        <div className={styles.projectsGrid}>
+                            {committee.currentProjects.map((project, idx) => {
+                                // Check if project is a structured object or simple string
+                                const isStructured = typeof project === 'object' && project !== null;
+
+                                if (isStructured) {
+                                    return (
+                                        <Link
+                                            key={project.id}
+                                            href={`/heritage/projects/${project.id}`}
+                                            className={`${styles.projectCard} ${styles.clickable}`}
+                                        >
+                                            <span className={styles.projectNumber}>{idx + 1}</span>
+                                            <div className={styles.projectInfo}>
+                                                <span className={styles.projectName}>{project.name}</span>
+                                                <span className={styles.projectStatus}>{project.status}</span>
+                                                <div className={styles.projectProgress}>
+                                                    <div
+                                                        className={styles.projectProgressFill}
+                                                        style={{ width: `${project.progress}%` }}
+                                                    />
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    );
+                                }
+
+                                return (
+                                    <div key={idx} className={styles.projectCard}>
+                                        <span className={styles.projectNumber}>{idx + 1}</span>
+                                        <span className={styles.projectName}>{project}</span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </section>
+
+                    {/* How to Join */}
+                    <section className={styles.section}>
+                        <h2>How to Join</h2>
+                        <p>{committee.howToJoin}</p>
+                        <a href={`mailto:${committee.email}`} className={styles.joinButton}>
+                            <Mail size={18} />
+                            Contact Committee
+                        </a>
+                    </section>
+                </div>
+
+                {/* Sidebar */}
+                <aside className={styles.sidebar}>
+                    <div className={styles.infoCard}>
+                        <h3>Committee Details</h3>
+
+                        <div className={styles.infoItem}>
+                            <Users size={18} />
+                            <div>
+                                <span className={styles.infoLabel}>Chair</span>
+                                <span className={styles.infoValue}>{committee.chair}</span>
+                            </div>
+                        </div>
+
+                        <div className={styles.infoItem}>
+                            <Mail size={18} />
+                            <div>
+                                <span className={styles.infoLabel}>Email</span>
+                                <a href={`mailto:${committee.email}`} className={styles.infoLink}>{committee.email}</a>
+                            </div>
+                        </div>
+
+                        <div className={styles.infoItem}>
+                            <Calendar size={18} />
+                            <div>
+                                <span className={styles.infoLabel}>Meetings</span>
+                                <span className={styles.infoValue}>{committee.meetingSchedule}</span>
+                            </div>
+                        </div>
+
+                        <div className={styles.infoItem}>
+                            <MapPin size={18} />
+                            <div>
+                                <span className={styles.infoLabel}>Location</span>
+                                <span className={styles.infoValue}>{committee.location}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={styles.membersCard}>
+                        <h3>Committee Members</h3>
+                        <ul className={styles.membersList}>
+                            {committee.members.map((member, idx) => (
+                                <li key={idx}>{member}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    );
+}

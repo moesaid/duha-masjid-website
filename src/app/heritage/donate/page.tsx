@@ -294,7 +294,7 @@ export default function DonatePage() {
                                 </div>
                                 <div className={styles.campaignAction}>
                                     <Link
-                                        href={`/heritage/donate/campaign/${campaign.id}`}
+                                        href={`/heritage/donate/${campaign.id}`}
                                         className={styles.campaignBtn}
                                     >
                                         Donate <ArrowRight size={14} />

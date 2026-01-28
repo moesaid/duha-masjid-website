@@ -1,0 +1,461 @@
+// Article Page Styles - Rich Text Showcase
+
+@use "sass:color";
+
+// Color Tokens
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$gold-dark: #b8960c;
+$cream: #f8f5f0;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+.articlePage {
+    min-height: 100vh;
+    background: $cream;
+}
+
+// Hero Section
+.articleHero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 4rem 2rem;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
+}
+
+.heroImage {
+    object-fit: cover;
+    z-index: 0;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    color: $white;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $gold;
+    }
+}
+
+.categoryBadge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: $emerald;
+    color: $white;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.articleTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+.articleSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1.5rem;
+}
+
+.articleMeta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+
+    svg {
+        color: $gold;
+    }
+}
+
+// Article Container
+.articleContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.articleBody {
+    max-width: 100%;
+}
+
+// Author Card
+.authorCard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: $white;
+    border: 1px solid #e8e8e8;
+    margin-bottom: 2.5rem;
+}
+
+.authorAvatar {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.avatarImage {
+    object-fit: cover;
+}
+
+.authorInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-dark;
+}
+
+.authorBio {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+}
+
+// Rich Content Styles
+.richContent {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: $text-dark;
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        color: $text-muted;
+        border-left: 4px solid $gold;
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.75rem;
+        color: $emerald-dark;
+        margin: 2.5rem 0 1rem;
+    }
+
+    h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.35rem;
+        color: $text-dark;
+        margin: 2rem 0 0.75rem;
+    }
+
+    strong {
+        font-weight: 600;
+        color: $text-dark;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    a {
+        color: $emerald;
+        text-decoration: underline;
+
+        &:hover {
+            color: $gold-dark;
+        }
+    }
+
+    // Blockquotes
+    blockquote {
+        margin: 2rem 0;
+        padding: 1.5rem 2rem;
+        background: rgba($gold, 0.1);
+        border-left: 4px solid $gold;
+
+        p {
+            font-style: italic;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        cite {
+            display: block;
+            font-size: 0.9rem;
+            font-style: normal;
+            color: $gold-dark;
+            margin-top: 0.5rem;
+        }
+
+        &.quran {
+            background: rgba($emerald, 0.08);
+            border-color: $emerald;
+            text-align: center;
+
+            p:first-child {
+                font-family: 'Amiri', serif;
+                font-size: 1.5rem;
+                direction: rtl;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    // Lists
+    ul,
+    ol {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    li {
+        margin-bottom: 0.75rem;
+        padding-left: 0.5rem;
+    }
+
+    // Images and Figures
+    figure {
+        margin: 2.5rem 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    figcaption,
+    .caption {
+        font-size: 0.9rem;
+        font-style: italic;
+        color: $text-muted;
+        text-align: center;
+        margin-top: 0.75rem;
+    }
+
+    // Video Wrapper
+    .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        margin: 2.5rem 0 0.5rem;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    // Tables
+    table {
+        width: 100%;
+        margin: 2rem 0;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+    }
+
+    th,
+    td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background: $emerald;
+        color: $white;
+        font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+        background: $parchment;
+    }
+}
+
+// Share Section
+.shareSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+}
+
+.shareLabel {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $text-dark;
+}
+
+.shareButtons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.shareBtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $emerald;
+    color: $white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: $emerald-dark;
+    }
+}
+
+// Sidebar
+.articleSidebar {
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+
+.sidebarCard {
+    background: $white;
+    border: 1px solid #e8e8e8;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.1rem;
+        color: $emerald-dark;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid $gold;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        margin-bottom: 1rem;
+    }
+}
+
+.relatedList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #eee;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    a {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $emerald;
+        }
+    }
+}
+
+.subscribeBtn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: $gold;
+    color: $emerald-dark;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: color.adjust($gold, $lightness: 8%);
+    }
+}

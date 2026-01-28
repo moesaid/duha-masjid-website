@@ -28,6 +28,10 @@
                 {
                     "label": "Contact & Location",
                     "url": "/contact"
+                },
+                {
+                    "label": "Committees",
+                    "url": "/about/committees"
                 }
             ]
         },
@@ -59,6 +63,10 @@
                 {
                     "label": "New Muslim Support (Shahada)",
                     "url": "/services/new-muslims"
+                },
+                {
+                    "label": "Hall Rental",
+                    "url": "/services/hall-rental"
                 }
             ]
         },
@@ -107,6 +115,14 @@
                 {
                     "label": "Food Pantry",
                     "url": "/community/food-pantry"
+                },
+                {
+                    "label": "Membership",
+                    "url": "/community/membership"
+                },
+                {
+                    "label": "Volunteers",
+                    "url": "/community/volunteers"
                 }
             ]
         },
@@ -143,8 +159,17 @@
                 {
                     "label": "Newsletter",
                     "url": "/media/newsletter"
+                },
+                {
+                    "label": "Blog",
+                    "url": "/media/blog"
                 }
             ]
+        },
+        {
+            "label": "App",
+            "url": "/app",
+            "type": "single_link"
         },
         {
             "label": "Get Involved",

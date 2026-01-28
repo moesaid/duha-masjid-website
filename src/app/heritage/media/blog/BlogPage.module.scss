@@ -1,0 +1,350 @@
+// Blog Page Styles - HERITAGE ALIGNED
+
+@use "sass:color";
+
+// Color Tokens
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$emerald-light: #0d7a48;
+$gold: #d4af37;
+$gold-dark: #b8960c;
+$cream: #f8f5f0;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+// Patterns
+$islamic-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Ccircle cx='30' cy='30' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+.blogPage {
+    min-height: 100vh;
+    background: $cream;
+}
+
+// Hero Section
+.heroSection {
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $emerald-dark 0%, $emerald 100%);
+    overflow: hidden;
+    padding: 4rem 2rem;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: $islamic-pattern;
+    background-size: 80px 80px;
+    opacity: 0.08;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: $white;
+    max-width: 700px;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba($gold, 0.2);
+    border: 1px solid $gold;
+    color: $gold;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+// Featured Section
+.featuredSection {
+    padding: 4rem 2rem;
+    background: $white;
+}
+
+.featuredContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.featuredImageWrapper {
+    position: relative;
+    min-height: 400px;
+
+    @media (max-width: 768px) {
+        min-height: 250px;
+    }
+}
+
+.featuredImage {
+    object-fit: cover;
+}
+
+.featuredBadge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.35rem 1rem;
+    background: $emerald;
+    color: $white;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.featuredContent {
+    padding: 1rem 0;
+}
+
+.postCategory {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba($gold, 0.15);
+    color: $gold-dark;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.featuredTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    color: $text-dark;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.featuredExcerpt {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin-bottom: 1.25rem;
+}
+
+.postMeta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+
+    svg {
+        color: $gold;
+    }
+}
+
+.readMoreLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: $emerald;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $gold-dark;
+    }
+}
+
+// Filter Section
+.filterSection {
+    padding: 2rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.categoryTabs {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.categoryTab {
+    padding: 0.6rem 1.25rem;
+    background: transparent;
+    border: 1px solid #ddd;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $gold;
+        color: $text-dark;
+    }
+
+    &.active {
+        background: $emerald;
+        border-color: $emerald;
+        color: $white;
+    }
+}
+
+// Posts Section
+.postsSection {
+    padding: 4rem 2rem;
+}
+
+.postsGrid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.postCard {
+    background: $white;
+    border: 1px solid #e8e8e8;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.postImageWrapper {
+    position: relative;
+    height: 200px;
+}
+
+.postImage {
+    object-fit: cover;
+}
+
+.postContent {
+    padding: 1.5rem;
+}
+
+.postTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    color: $text-dark;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.postExcerpt {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: $text-muted;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.postLink {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $emerald;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $gold-dark;
+    }
+}
+
+// Newsletter Section
+.newsletterSection {
+    padding: 5rem 2rem;
+    background: $emerald-dark;
+}
+
+.newsletterContent {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newsletterTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $white;
+    margin-bottom: 1rem;
+}
+
+.newsletterText {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+}
+
+.newsletterButton {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: $gold;
+    color: $emerald-dark;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: color.adjust($gold, $lightness: 10%);
+        transform: translateY(-2px);
+    }
+}
