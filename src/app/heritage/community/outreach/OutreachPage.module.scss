@@ -1,0 +1,1216 @@
+// Outreach & Interfaith Page SCSS - HERITAGE ALIGNED
+// Design: Heritage Green + Gold + Cream (Diplomatic variant)
+// Pattern: Open Portal hero, book-style resources, plaque cards
+
+// ========================================
+// HERITAGE COLOR TOKENS
+// ========================================
+$heritage-green: #2d5a3d;
+$heritage-green-dark: #1a4a3a;
+$heritage-gold: #d4af37;
+$heritage-gold-dark: #b8960c;
+$heritage-cream: oklch(0.97 0.01 85);
+$heritage-parchment: oklch(0.98 0.01 85);
+$heritage-white: #fff;
+$text-dark: #333;
+$text-muted: #555;
+
+// ========================================
+// ARABESQUE PATTERN (Heritage Standard)
+// ========================================
+$arabesque-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.6'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3Cpath d='M40 10L70 40L40 70L10 40z'/%3E%3Cpath d='M40 20L60 40L40 60L20 40z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+// ========================================
+// BASE
+// ========================================
+.outreachPage {
+    min-height: 100vh;
+    background: $heritage-cream;
+}
+
+// ========================================
+// 1. HERO SECTION (Open Portal Design)
+// ========================================
+.heroSection {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+    overflow: hidden;
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: $arabesque-pattern;
+    background-size: 80px 80px;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.heroLayout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    align-items: center;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+}
+
+// Welcome Portal - Unique decorative element
+.welcomePortal {
+    display: flex;
+    justify-content: center;
+}
+
+.portalFrame {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    background: $heritage-green;
+    border-radius: 100px 100px 0 0;
+    padding: 4px;
+    box-shadow:
+        0 0 0 2px $heritage-gold,
+        0 8px 32px rgba(45, 90, 61, 0.35);
+    transition: transform 0.4s ease;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    @media (max-width: 600px) {
+        width: 160px;
+        height: 220px;
+        border-radius: 80px 80px 0 0;
+    }
+}
+
+.portalInner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, $heritage-green-dark 0%, $heritage-green 50%, $heritage-green-dark 100%);
+    border-radius: 96px 96px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    text-align: center;
+
+    @media (max-width: 600px) {
+        border-radius: 76px 76px 0 0;
+        padding: 1.5rem 1rem;
+    }
+}
+
+.portalIcon {
+    color: $heritage-gold;
+    margin-bottom: 1rem;
+}
+
+.portalLabel {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.25rem;
+}
+
+.portalHighlight {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: $heritage-white;
+    line-height: 1.2;
+
+    @media (max-width: 600px) {
+        font-size: 1.15rem;
+    }
+}
+
+.portalDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    color: $heritage-gold;
+    opacity: 0.6;
+
+    svg {
+        transform: rotate(45deg);
+    }
+}
+
+.portalSubtext {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1.5rem;
+    color: $heritage-gold;
+    opacity: 0.9;
+}
+
+// Hero Content (Right column)
+.heroContent {
+    max-width: 600px;
+
+    @media (max-width: 900px) {
+        max-width: 100%;
+    }
+}
+
+.heroVerse {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: $heritage-gold;
+    margin-bottom: 0.25rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.verseRef {
+    display: block;
+    font-family: var(--font-body, Georgia, serif);
+    font-size: 0.8rem;
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    color: $text-dark;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.titleAccent {
+    color: $heritage-green;
+    font-style: italic;
+}
+
+.heroSubtitle {
+    font-family: var(--font-body, Georgia, serif);
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    color: $text-muted;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+// Hero Stats (inline)
+.heroStats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid oklch(0.9 0.02 85);
+    border-bottom: 1px solid oklch(0.9 0.02 85);
+
+    @media (max-width: 900px) {
+        justify-content: center;
+    }
+
+    @media (max-width: 500px) {
+        gap: 1.25rem;
+    }
+}
+
+.heroStat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.statNum {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $heritage-green;
+    line-height: 1;
+
+    @media (max-width: 500px) {
+        font-size: 1.25rem;
+    }
+}
+
+.statLabel {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.heroActions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 900px) {
+        justify-content: center;
+    }
+}
+
+.primaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 0.9rem 1.6rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $heritage-green-dark;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(45, 90, 61, 0.3);
+    }
+}
+
+.secondaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    color: $heritage-green;
+    padding: 0.9rem 1.4rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid oklch(0.85 0.03 85);
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $heritage-green;
+        background: oklch(0.95 0.02 145);
+    }
+}
+
+// ========================================
+// 2. IMPACT STATS STRIP (removed - now in hero)
+// ========================================
+.impactStrip {
+    display: none; // Stats now in hero
+}
+
+// ========================================
+// 3. SECTION HEADER (Heritage Standard)
+// ========================================
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $heritage-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: $heritage-green;
+    margin-bottom: 0;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    margin-top: 0.75rem;
+}
+
+// ========================================
+// 4. MISSION SECTION
+// ========================================
+.missionSection {
+    padding: 5rem 2rem;
+    background: $heritage-white;
+}
+
+.missionLayout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+.missionContent {
+    .missionPhilosophy {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: $text-muted;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.missionQuote {
+    background: $heritage-parchment;
+    padding: 1.5rem;
+    border-left: 3px solid $heritage-gold;
+    margin-bottom: 2rem;
+
+    span {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1rem;
+        color: $text-dark;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    cite {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+        font-style: normal;
+    }
+}
+
+.activitiesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.activityItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: $heritage-cream;
+    border: 1px solid oklch(0.9 0.02 85);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-dark;
+    transition: all 0.2s ease;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    &:hover {
+        background: $heritage-green;
+        color: $heritage-white;
+        border-color: $heritage-green;
+
+        svg {
+            color: $heritage-gold;
+        }
+    }
+}
+
+.missionVisual {
+    display: flex;
+    justify-content: center;
+}
+
+.visualPlaceholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $heritage-green 0%, $heritage-green-dark 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: $heritage-white;
+    box-shadow: 0 12px 40px rgba(45, 90, 61, 0.25);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    span {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+}
+
+// ========================================
+// 5. SERVICES SECTION (Plaque Cards)
+// ========================================
+.servicesSection {
+    padding: 5rem 2rem;
+    background: oklch(0.96 0.01 90);
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+}
+
+.serviceCard {
+    position: relative;
+    padding: 2.5rem 2rem;
+    background: $heritage-parchment;
+    border: 1px solid oklch(0.85 0.03 85);
+    box-shadow:
+        inset 0 0 0 4px $heritage-parchment,
+        inset 0 0 0 5px oklch(0.85 0.03 85);
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow:
+            inset 0 0 0 4px $heritage-parchment,
+            inset 0 0 0 5px $heritage-gold,
+            0 12px 40px rgba(0, 0, 0, 0.12);
+
+        .serviceIcon {
+            background: $heritage-gold;
+            transform: scale(1.1);
+        }
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        color: $heritage-green;
+        margin-bottom: 0.75rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: $text-muted;
+        margin-bottom: 1rem;
+    }
+}
+
+.serviceIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    background: $heritage-green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $heritage-white;
+    margin: 0 auto 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.serviceDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $heritage-gold;
+    margin-bottom: 1.25rem;
+}
+
+.serviceBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    color: $heritage-green;
+    padding: 0.6rem 1.25rem;
+    border: 2px solid $heritage-green;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $heritage-green;
+        color: $heritage-white;
+    }
+}
+
+// ========================================
+// 6. TESTIMONIALS CAROUSEL
+// ========================================
+.testimonialsSection {
+    padding: 5rem 2rem;
+    background: $heritage-white;
+}
+
+.testimonialCarousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.carouselBtn {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid oklch(0.85 0.03 85);
+    background: $heritage-white;
+    color: $heritage-green;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $heritage-green;
+        border-color: $heritage-green;
+        color: $heritage-white;
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.testimonialCard {
+    flex: 1;
+    max-width: 650px;
+    background: $heritage-parchment;
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid oklch(0.85 0.03 85);
+    box-shadow:
+        inset 0 0 0 3px $heritage-parchment,
+        inset 0 0 0 4px oklch(0.85 0.03 85);
+}
+
+.quoteIcon {
+    color: $heritage-gold;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+}
+
+.testimonialQuote {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: $text-dark;
+    margin-bottom: 1.5rem;
+}
+
+.testimonialAuthor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.authorName {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: $heritage-green;
+}
+
+.authorRole {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+}
+
+.testimonialDots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: oklch(0.85 0.03 85);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $heritage-gold;
+    }
+}
+
+.activeDot {
+    background: $heritage-gold;
+    transform: scale(1.2);
+}
+
+// ========================================
+// 7. FEATURE EVENT SECTION (Improved Layout)
+// ========================================
+.eventSection {
+    position: relative;
+    padding: 5rem 2rem;
+    background: $heritage-green;
+    color: $heritage-white;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: $arabesque-pattern;
+        background-size: 80px 80px;
+        opacity: 0.08;
+        pointer-events: none;
+    }
+}
+
+.eventContent {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.eventHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.eventLabel {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.eventTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin-bottom: 1rem;
+}
+
+.eventSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.eventDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2rem 2.5rem;
+    border-radius: 4px;
+}
+
+.eventFeatures {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 0.65rem 1.15rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.22);
+        transform: translateY(-2px);
+    }
+}
+
+.eventActions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.eventDateBox {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.85rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    svg {
+        color: $heritage-gold;
+    }
+}
+
+.dateValue {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: $heritage-gold;
+}
+
+.eventCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-white;
+    color: $heritage-green;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $heritage-cream;
+        transform: translateY(-2px);
+    }
+}
+
+// ========================================
+// 8. PARTNERS SECTION
+// ========================================
+.partnersSection {
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+}
+
+.partnersGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.partnerBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-white;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid oklch(0.9 0.02 85);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-dark;
+    transition: all 0.2s ease;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    &:hover {
+        border-color: $heritage-green;
+        background: oklch(0.95 0.02 145);
+        transform: translateY(-2px);
+    }
+}
+
+// ========================================
+// 9. RESOURCES SECTION (Book-Style Cards)
+// ========================================
+.resourcesSection {
+    padding: 5rem 2rem;
+    background: $heritage-white;
+}
+
+.resourcesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+    }
+}
+
+.resourceCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: $heritage-parchment;
+    border: 1px solid oklch(0.85 0.03 85);
+    min-height: 320px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+
+        .bookSpine {
+            background: $heritage-gold;
+        }
+    }
+
+    // Color variants
+    &.green .bookSpine {
+        background: $heritage-green;
+    }
+
+    &.gold .bookSpine {
+        background: $heritage-gold;
+    }
+
+    &.green:hover .bookSpine {
+        background: $heritage-green-dark;
+    }
+
+    &.gold:hover .bookSpine {
+        background: $heritage-gold-dark;
+    }
+}
+
+.bookSpine {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 12px;
+    background: $heritage-green;
+    transition: background 0.3s ease;
+}
+
+.bookCover {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem 1.5rem;
+    padding-left: 2rem;
+    text-align: center;
+}
+
+.bookDecor {
+    color: $heritage-gold;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+
+    svg {
+        transform: rotate(45deg);
+    }
+}
+
+.bookTitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $text-dark;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.bookSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.bookMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $heritage-gold;
+}
+
+.bookActions {
+    display: flex;
+    border-top: 1px solid oklch(0.9 0.02 85);
+    margin-left: 12px;
+}
+
+.previewBtn,
+.downloadBtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.previewBtn {
+    background: $heritage-cream;
+    color: $text-dark;
+    border-right: 1px solid oklch(0.9 0.02 85);
+
+    &:hover {
+        background: oklch(0.93 0.02 85);
+    }
+}
+
+.downloadBtn {
+    background: $heritage-green;
+    color: $heritage-white;
+
+    &:hover {
+        background: $heritage-green-dark;
+    }
+}
+
+// ========================================
+// 10. VISIT SECTION
+// ========================================
+.visitSection {
+    padding: 4rem 2rem;
+    background: oklch(0.96 0.01 90);
+}
+
+.visitContent {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+.visitInfo {
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.75rem;
+        color: $heritage-green;
+        margin-bottom: 0.5rem;
+    }
+
+    >p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-muted;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.visitDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    @media (max-width: 768px) {
+        align-items: center;
+    }
+}
+
+.visitItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+
+    svg {
+        color: $heritage-gold;
+        flex-shrink: 0;
+    }
+}
+
+.visitBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 1rem 1.75rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $heritage-green-dark;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(45, 90, 61, 0.3);
+    }
+}
+
+// ========================================
+// 11. VOLUNTEER SECTION (Centered Inline)
+// ========================================
+.volunteerSection {
+    padding: 3rem 2rem;
+    background: $heritage-cream;
+    border-top: 1px solid oklch(0.9 0.02 85);
+}
+
+.volunteerCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.25rem;
+    }
+}
+
+.volunteerIconWrap {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    background: $heritage-green;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.volunteerIcon {
+    color: $heritage-gold;
+}
+
+.volunteerText {
+    flex: 1;
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        color: $heritage-green;
+        margin-bottom: 0.35rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: $text-muted;
+        margin: 0;
+    }
+}
+
+.volunteerBtn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: $heritage-green;
+    padding: 0.85rem 1.5rem;
+    border: 2px solid $heritage-green;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $heritage-green;
+        color: $heritage-white;
+    }
+}
+
+// ========================================
+// RESPONSIVE
+// ========================================
+@media (max-width: 768px) {
+    .heroSection {
+        min-height: auto;
+        padding: 3rem 1.5rem;
+    }
+
+    .missionSection,
+    .servicesSection,
+    .resourcesSection,
+    .eventSection,
+    .testimonialsSection {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .eventDetails {
+        padding: 1.5rem;
+    }
+
+    .visualPlaceholder {
+        width: 160px;
+        height: 160px;
+    }
+}

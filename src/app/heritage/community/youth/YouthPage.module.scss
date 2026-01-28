@@ -1,0 +1,751 @@
+// Youth Group Page - "The Next Generation"
+// Design: Noble, Adventurous, Grounded - Denim Blue + Brick Red accents
+
+// Color Palette - Heritage Compatible
+$heritage-green: #4A7C59;
+$heritage-green-dark: #3A6347;
+$warm-brown: #8B7355;
+$warm-brown-dark: #6E5A44;
+$brick-red: #8B4A5E;
+$brick-dark: #6E3A4A;
+$forest-green: #4A7C59;
+$gold-accent: #B8860B;
+$gold-light: #D4A84B;
+$cream-bg: #FAF8F5;
+$cream-warm: #F5F0E8;
+$text-dark: #1A2D3D;
+$text-muted: #5A6B7A;
+$border-light: rgba(74, 124, 89, 0.12);
+$white: #FFFFFF;
+
+// ========================================
+// PAGE CONTAINER
+// ========================================
+.youthPage {
+    background: $cream-bg;
+    min-height: 100vh;
+}
+
+// ========================================
+// 1. FUTUWAH HERO
+// ========================================
+.heroSection {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(135deg, rgba(74, 124, 89, 0.88) 0%, rgba(58, 99, 71, 0.92) 100%),
+        url('/images/heritage/future-generations.jpg') center/cover;
+    padding: 5rem 2rem;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(26, 45, 61, 0.25) 100%);
+    pointer-events: none;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+}
+
+.heroVerse {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 0.5rem;
+    line-height: 1.6;
+}
+
+.verseRef {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $gold-light;
+    margin-bottom: 2rem;
+}
+
+.heroTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 2.5rem;
+    line-height: 1.6;
+}
+
+.heroCtas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.primaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, #D4A84B 0%, #B8860B 100%);
+    color: #1A2D3D;
+    padding: 0.9rem 1.75rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(184, 134, 11, 0.35);
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: linear-gradient(135deg, #E5B95C 0%, #C9970C 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(184, 134, 11, 0.45);
+    }
+}
+
+.secondaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    padding: 0.9rem 1.75rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.6);
+    }
+}
+
+// ========================================
+// SHARED SECTION STYLES
+// ========================================
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $heritage-green;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: $text-dark;
+    margin: 0;
+}
+
+// ========================================
+// 2. THREE PILLARS
+// ========================================
+.pillarsSection {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pillarsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.pillarCard {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-muted;
+        line-height: 1.6;
+        margin: 0;
+    }
+}
+
+.pillarBadge {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--pillar-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.pillarSubtitle {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--pillar-color);
+    margin-bottom: 1rem;
+}
+
+// ========================================
+// 3. PROGRAM TRACKS
+// ========================================
+.tracksSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, $cream-warm 0%, $cream-bg 100%);
+}
+
+.trackTabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.trackTab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    border: 2px solid $border-light;
+    color: $text-muted;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: var(--track-color);
+        color: var(--track-color);
+    }
+
+    &.active {
+        background: var(--track-color);
+        border-color: var(--track-color);
+        color: #fff;
+    }
+}
+
+.trackCard {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.trackBadge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: var(--track-color);
+    color: #fff;
+
+    h3 {
+        font-family: var(--font-heading);
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        opacity: 0.85;
+    }
+}
+
+.trackContent {
+    padding: 2rem;
+}
+
+.trackFocus {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-dark;
+    margin-bottom: 1rem;
+
+    svg {
+        color: var(--track-color);
+    }
+
+    strong {
+        color: var(--track-color);
+    }
+}
+
+.trackDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+}
+
+.trackActivities {
+    margin-bottom: 1.5rem;
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $text-muted;
+        margin: 0 0 0.75rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+
+        @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: $text-dark;
+
+            svg {
+                color: var(--track-color);
+                flex-shrink: 0;
+            }
+        }
+    }
+}
+
+.trackMeeting {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-dark;
+    padding: 0.75rem 1rem;
+    background: $cream-warm;
+    border-radius: 8px;
+
+    svg {
+        color: var(--track-color);
+    }
+}
+
+// ========================================
+// 4. WEEKLY SCHEDULE
+// ========================================
+.scheduleSection {
+    padding: 5rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scheduleTimeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.scheduleItem {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid $heritage-green;
+}
+
+.scheduleIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, $heritage-green 0%, $heritage-green-dark 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.scheduleDetails {
+    flex: 1;
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+.scheduleDay {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $heritage-green;
+    margin-bottom: 0.25rem;
+}
+
+.scheduleTime {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-bottom: 0.5rem;
+}
+
+.calendarCta {
+    text-align: center;
+}
+
+.calendarBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-green;
+    color: #fff;
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: $heritage-green-dark;
+    }
+}
+
+// ========================================
+// 5. UPCOMING EVENTS
+// ========================================
+.eventsSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, $cream-bg 0%, $cream-warm 100%);
+}
+
+.eventsCarousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carouselBtn {
+    background: #fff;
+    border: 1px solid $border-light;
+    color: $text-muted;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+        border-color: $heritage-green;
+        color: $heritage-green;
+    }
+}
+
+.eventCard {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 400px;
+}
+
+.eventImage {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.eventStatus {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+}
+
+.eventDetails {
+    padding: 1.5rem;
+
+    h3 {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin: 0 0 0.75rem;
+    }
+}
+
+.eventDate {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $heritage-green;
+    margin-bottom: 0.5rem;
+}
+
+.eventLocation {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-bottom: 1rem;
+}
+
+.eventLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $heritage-green;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $heritage-green-dark;
+    }
+}
+
+.eventDots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $border-light;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &.active {
+        background: $heritage-green;
+    }
+
+    &:hover:not(.active) {
+        background: $heritage-green-dark;
+    }
+}
+
+// ========================================
+// 6. PARENT'S CORNER
+// ========================================
+.parentsSection {
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, $cream-warm 0%, #EDE8DF 100%);
+}
+
+.parentsContent {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.parentsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    svg {
+        color: $gold-accent;
+    }
+
+    h2 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin: 0;
+    }
+}
+
+.parentsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.parentItem {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+    svg {
+        color: $forest-green;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin: 0 0 0.35rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+.contactInfo {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $text-muted;
+        margin: 0 0 1rem;
+    }
+}
+
+.contactDetails {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-dark;
+
+        svg {
+            color: $heritage-green;
+        }
+    }
+}

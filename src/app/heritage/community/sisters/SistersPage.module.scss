@@ -1,0 +1,693 @@
+// Sisters Committee Page SCSS - SANCTUARY OF SISTERHOOD
+// Heritage-aligned with centered icons and Heritage color palette
+// Distinctive: Asymmetric hero, testimonial carousel, Heritage plaque cards
+
+// ========================================
+// HERITAGE COLOR PALETTE
+// ========================================
+$heritage-green: #2d5a3d;
+$heritage-green-light: oklch(0.55 0.12 145);
+$heritage-gold: #d4af37;
+$heritage-gold-dark: #b8960c;
+$heritage-cream: oklch(0.97 0.01 85);
+$heritage-parchment: oklch(0.98 0.005 90);
+$heritage-white: #fff;
+$text-dark: oklch(0.25 0.01 60);
+$text-muted: oklch(0.45 0.01 60);
+
+// ========================================
+// FLORAL ARABESQUE PATTERN (Unique to Sisters)
+// ========================================
+$floral-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5' opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3Cpath d='M30 10 Q35 20 30 30 Q25 20 30 10'/%3E%3Cpath d='M30 50 Q35 40 30 30 Q25 40 30 50'/%3E%3Cpath d='M10 30 Q20 35 30 30 Q20 25 10 30'/%3E%3Cpath d='M50 30 Q40 35 30 30 Q40 25 50 30'/%3E%3C/g%3E%3C/svg%3E");
+
+// ========================================
+// BASE
+// ========================================
+.sistersPage {
+    min-height: 100vh;
+    background: $heritage-cream;
+}
+
+// ========================================
+// 1. HERO SECTION (Heritage Centered Layout)
+// ========================================
+.heroSection {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+    overflow: hidden;
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: $floral-pattern;
+    background-size: 60px 60px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+// Arch-Masked Image
+.heroImageContainer {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+}
+
+.archMask {
+    position: relative;
+    width: 220px;
+    height: 280px;
+    margin: 0 auto;
+    border-radius: 110px 110px 0 0;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 4px $heritage-cream,
+        0 0 0 6px $heritage-gold,
+        0 12px 40px oklch(0.35 0.1 145 / 0.2);
+
+    @media (max-width: 600px) {
+        width: 180px;
+        height: 230px;
+        border-radius: 90px 90px 0 0;
+    }
+}
+
+.heroPhoto {
+    object-fit: cover;
+    object-position: center top;
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            oklch(0.97 0.01 85 / 0.6) 100%);
+    pointer-events: none;
+}
+
+.headerContent {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.headerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 0.4rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border-radius: 2rem;
+}
+
+.bismillah {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    color: $heritage-gold;
+    margin-bottom: 1.25rem;
+    direction: rtl;
+    letter-spacing: 0.05em;
+}
+
+.heroTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: $text-dark;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+}
+
+.titleAccent {
+    color: $heritage-green;
+    font-style: italic;
+}
+
+.heroQuote {
+    font-family: var(--font-body, Georgia, serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: $heritage-gold;
+    margin-bottom: 0.25rem;
+}
+
+.quoteRef {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-bottom: 1.25rem;
+}
+
+.heroDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $text-muted;
+    max-width: 550px;
+    margin: 0 auto 1.5rem;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.dividerIcon {
+    width: 16px;
+    height: 16px;
+    color: $heritage-gold;
+    transform: rotate(45deg);
+}
+
+.heroActions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.primaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: oklch(0.35 0.1 145);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px oklch(0.35 0.1 145 / 0.35);
+    }
+}
+
+.secondaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    color: $heritage-green;
+    padding: 0.85rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid oklch(0.85 0.03 85);
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $heritage-green;
+        background: oklch(0.95 0.02 145);
+    }
+}
+
+// ========================================
+// SECTION INTRO (Shared)
+// ========================================
+.sectionIntro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $heritage-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.sectionDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    line-height: 1.6;
+}
+
+// ========================================
+// 2. WEEKLY PROGRAMS (Elegant Cards)
+// ========================================
+.programsSection {
+    padding: 5rem 2rem;
+    background: $heritage-white;
+}
+
+.programsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.programCard {
+    position: relative;
+    padding: 2rem;
+    background: $heritage-parchment;
+    border: 1px solid oklch(0.9 0.02 85);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px oklch(0.35 0.1 145 / 0.15);
+    }
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.cardIconCircle {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $heritage-green;
+    color: $heritage-white;
+    border-radius: 50%;
+}
+
+.sistersOnlyTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: oklch(0.95 0.03 145);
+    color: $heritage-green;
+    padding: 0.35rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 1rem;
+}
+
+.cardTitle {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.cardDescription {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin-bottom: 1.25rem;
+}
+
+.cardFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-top: 1rem;
+    border-top: 1px solid oklch(0.9 0.02 85);
+}
+
+.cardTime {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $heritage-green;
+    font-weight: 500;
+}
+
+.cardInstructor {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-style: italic;
+    color: $text-muted;
+}
+
+// ========================================
+// 3. SOCIAL & SERVICE (Heritage Plaque Cards - 6 cards, centered icons)
+// ========================================
+.socialSection {
+    padding: 5rem 2rem;
+    background: $heritage-cream;
+}
+
+.socialGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.socialCard {
+    position: relative;
+    padding: 2rem 1.5rem;
+    background: $heritage-parchment;
+    border: 1px solid oklch(0.85 0.03 85);
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    // Heritage double-inset effect
+    box-shadow:
+        inset 0 0 0 3px $heritage-parchment,
+        inset 0 0 0 4px oklch(0.85 0.03 85);
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow:
+            inset 0 0 0 3px $heritage-parchment,
+            inset 0 0 0 4px $heritage-gold,
+            0 8px 24px oklch(0.35 0.1 145 / 0.15);
+    }
+}
+
+.socialIcon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1rem;
+    color: $heritage-gold;
+    display: block;
+}
+
+.socialTitle {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: $heritage-green;
+    margin-bottom: 0.5rem;
+}
+
+.socialDescription {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: $text-muted;
+}
+
+// ========================================
+// 4. TESTIMONIAL BANNER (Centered Icon - Heritage Green)
+// ========================================
+.testimonialSection {
+    position: relative;
+    padding: 4rem 2rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: $floral-pattern;
+        background-size: 60px 60px;
+        opacity: 0.1;
+        pointer-events: none;
+    }
+}
+
+.testimonialContent {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonialFlower {
+    color: $heritage-gold;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.testimonialQuote {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.testimonialAuthor {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.85);
+
+    span {
+        display: block;
+        font-size: 0.85rem;
+        color: $heritage-gold;
+        margin-top: 0.25rem;
+    }
+}
+
+.testimonialDots {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.activeDot {
+    background: $heritage-gold;
+    transform: scale(1.2);
+}
+
+// ========================================
+// 5. MENTORSHIP TRACKS (3 cards with centered icons)
+// ========================================
+.mentorshipSection {
+    padding: 5rem 2rem;
+    background: $heritage-white;
+}
+
+.mentorshipGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mentorshipCard {
+    padding: 2.5rem 2rem;
+    background: $heritage-parchment;
+    border: 1px solid oklch(0.85 0.03 85);
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    // Heritage double-inset effect
+    box-shadow:
+        inset 0 0 0 3px $heritage-parchment,
+        inset 0 0 0 4px oklch(0.85 0.03 85);
+
+    &:hover {
+        box-shadow:
+            inset 0 0 0 3px $heritage-parchment,
+            inset 0 0 0 4px $heritage-gold,
+            0 6px 20px oklch(0.35 0.1 145 / 0.1);
+    }
+}
+
+.mentorshipIcon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1.25rem;
+    color: $heritage-gold;
+    display: block;
+}
+
+.mentorshipTitle {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: $heritage-green;
+    margin-bottom: 0.75rem;
+}
+
+.mentorshipDescription {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-muted;
+}
+
+// ========================================
+// 6. CTA SECTION
+// ========================================
+.ctaSection {
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+    text-align: center;
+}
+
+.ctaContent {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ctaQuote {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: $heritage-gold;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+
+    cite {
+        display: block;
+        font-size: 0.85rem;
+        font-style: normal;
+        color: $text-muted;
+        margin-top: 0.35rem;
+    }
+}
+
+.ctaTitle {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.ctaDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+}
+
+.ctaContacts {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.contactLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    &:hover {
+        color: $heritage-green;
+    }
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 0.9rem 1.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 3rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: oklch(0.35 0.1 145);
+        transform: translateY(-2px);
+    }
+}
+
+// ========================================
+// RESPONSIVE
+// ========================================
+@media (max-width: 768px) {
+
+    .programsSection,
+    .socialSection,
+    .mentorshipSection {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .programsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .ctaContacts {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
