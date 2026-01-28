@@ -1,0 +1,1178 @@
+// Single Event Page SCSS - HERITAGE ALIGNED
+// Design: The Royal Invitation - Formal, Ceremonial, Elegant
+// Palette: Deep Maroon + Midnight Blue + Gold Foil
+
+// ========================================
+// COLOR TOKENS
+// ========================================
+$maroon-deep: #5c1a1a;
+$maroon-light: #8b2f2f;
+$midnight-blue: #1a2744;
+$midnight-deep: #0f1a2e;
+$heritage-gold: #d4af37;
+$heritage-gold-light: #e8c963;
+$parchment: #f5f0e6;
+$parchment-dark: #e8e0d0;
+$text-dark: #333;
+$text-muted: #666;
+$white: #fff;
+
+// ========================================
+// PATTERNS
+// ========================================
+$ornate-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.3'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3Ccircle cx='30' cy='30' r='5'/%3E%3C/g%3E%3C/svg%3E");
+
+// ========================================
+// BASE
+// ========================================
+.eventPage {
+    min-height: 100vh;
+    background: $parchment;
+}
+
+// ========================================
+// 1. ANNOUNCEMENT HERO
+// ========================================
+.heroSection {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $maroon-deep 0%, $midnight-deep 100%);
+    overflow: hidden;
+    padding: 4rem 2rem;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: $ornate-pattern;
+    background-size: 80px 80px;
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: $white;
+    max-width: 700px;
+}
+
+// Combined Date Badge & Status Row
+.heroBadgeRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dateBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: $heritage-gold;
+    color: $midnight-deep;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.dateMonth {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.dateDay {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.dateDayOfWeek {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+    opacity: 0.8;
+}
+
+.statusTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid $heritage-gold;
+    color: $heritage-gold;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    align-self: center;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 400;
+    color: $heritage-gold;
+    margin-bottom: 0.75rem;
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.heroMeta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+.heroCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: $heritage-gold;
+    color: $midnight-deep;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+
+    &:hover {
+        background: $heritage-gold-light;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 30px rgba(212, 175, 55, 0.4);
+    }
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.25rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $heritage-gold;
+        color: $heritage-gold;
+    }
+}
+
+.waxSeal {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, $maroon-light 0%, $maroon-deep 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        inset 0 2px 10px rgba(255, 255, 255, 0.1);
+    border: 3px solid $heritage-gold;
+
+    span {
+        font-family: 'Amiri', serif;
+        font-size: 1.5rem;
+        color: $heritage-gold;
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+// ========================================
+// 2. VIDEO PROMO SECTION
+// ========================================
+.videoSection {
+    padding: 4rem 2rem;
+    background: $midnight-deep;
+}
+
+.videoContainer {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.videoHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.videoTitle {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: $white;
+    margin-bottom: 0.5rem;
+}
+
+.videoSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.videoWrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    background: $midnight-blue;
+    border: 3px solid $heritage-gold;
+}
+
+.videoThumbnail {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-color: $midnight-deep;
+
+    &:hover .playButton {
+        transform: scale(1.1);
+        background: $heritage-gold-light;
+    }
+}
+
+.thumbnailOverlay {
+    position: absolute;
+    inset: 0;
+    background-image: $ornate-pattern;
+    background-size: 60px 60px;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.playButton {
+    position: relative;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: $heritage-gold;
+    color: $midnight-deep;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 30px rgba(212, 175, 55, 0.4);
+
+    svg {
+        margin-left: 4px; // Optical center for play icon
+    }
+}
+
+.videoIframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// ========================================
+// 3. EVENT DETAILS
+// ========================================
+.detailsSection {
+    padding: 5rem 2rem;
+    background: $white;
+}
+
+.detailsContainer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.descriptionBlock {
+    margin-bottom: 4rem;
+}
+
+.dropCap {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: $text-dark;
+    white-space: pre-line;
+
+    &::first-letter {
+        float: left;
+        font-family: var(--font-display);
+        font-size: 4rem;
+        font-weight: 700;
+        color: $maroon-deep;
+        line-height: 0.8;
+        padding-right: 0.75rem;
+        padding-top: 0.25rem;
+    }
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: $midnight-blue;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $parchment-dark;
+
+    svg {
+        color: $heritage-gold;
+    }
+}
+
+// Schedule Timeline
+.scheduleBlock {
+    margin-bottom: 4rem;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, $heritage-gold 0%, $parchment-dark 100%);
+    }
+}
+
+.timelineItem {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+
+.timelineDot {
+    position: absolute;
+    left: -2rem;
+    top: 0.25rem;
+    width: 12px;
+    height: 12px;
+    background: $heritage-gold;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 4px $white;
+}
+
+.timelineTime {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $maroon-deep;
+    min-width: 80px;
+}
+
+.timelineContent {
+    h4 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $midnight-blue;
+        margin-bottom: 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-muted;
+    }
+}
+
+// Speakers
+.speakersBlock {
+    margin-bottom: 2rem;
+}
+
+.speakersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.speakerCard {
+    text-align: center;
+    padding: 2rem;
+    background: $parchment;
+}
+
+.speakerAvatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: $midnight-blue;
+    border: 4px solid $heritage-gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        color: $heritage-gold;
+    }
+}
+
+.speakerName {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: $midnight-blue;
+    margin-bottom: 0.25rem;
+}
+
+.speakerTitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $heritage-gold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+}
+
+.speakerBio {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+}
+
+// ========================================
+// 4. PRICING SECTION
+// ========================================
+.pricingSection {
+    padding: 5rem 2rem;
+    background: $parchment;
+}
+
+.pricingContainer {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pricingSectionTitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: $midnight-blue;
+    margin-bottom: 0.5rem;
+
+    svg {
+        color: $heritage-gold;
+    }
+}
+
+.pricingSectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    margin-bottom: 2.5rem;
+}
+
+.pricingCard {
+    background: $white;
+    padding: 2rem 2.5rem;
+    text-align: left;
+    border: 2px solid $heritage-gold;
+    margin-bottom: 2rem;
+}
+
+.pricingRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid $parchment-dark;
+    font-family: var(--font-body);
+    color: $text-dark;
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+}
+
+.pricingLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    span {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
+
+.pricingAmount {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $maroon-deep;
+}
+
+.pricingNote {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    font-style: italic;
+    text-align: center;
+    margin: 0.5rem 0 1rem;
+}
+
+.pricingDivider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $heritage-gold, transparent);
+    margin: 1rem 0;
+}
+
+.pricingIncludes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+
+        svg {
+            color: $heritage-gold;
+            flex-shrink: 0;
+        }
+    }
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reserveMainBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: $midnight-blue;
+    color: $white;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $maroon-deep;
+        transform: translateY(-2px);
+    }
+
+    svg {
+        color: $heritage-gold;
+    }
+}
+
+// ========================================
+// 5. VENUE & LOGISTICS
+// ========================================
+.venueSection {
+    padding: 5rem 2rem;
+    background: $white;
+}
+
+.venueContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.venueMap {
+    background: $midnight-deep;
+    min-height: 350px;
+}
+
+.mapPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: $heritage-gold;
+    padding: 2rem;
+
+    span {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: $white;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+    }
+}
+
+.venueDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.logisticItem {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: $parchment;
+
+    svg {
+        color: $heritage-gold;
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+    }
+
+    h4 {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        color: $midnight-blue;
+        margin-bottom: 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        line-height: 1.5;
+    }
+}
+
+// ========================================
+// 6. FAQ
+// ========================================
+.faqSection {
+    padding: 5rem 2rem;
+    background: $parchment;
+}
+
+.faqContainer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faqTitle {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: $midnight-blue;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.faqItem {
+    background: $white;
+    border: 1px solid $parchment-dark;
+    overflow: hidden;
+}
+
+.faqQuestion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+
+    span {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 500;
+        color: $midnight-blue;
+    }
+
+    svg {
+        color: $heritage-gold;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+    }
+
+    .expanded & svg {
+        transform: rotate(180deg);
+    }
+}
+
+.faqAnswer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    .expanded & {
+        max-height: 200px;
+    }
+
+    p {
+        padding: 0 1.5rem 1.25rem;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-muted;
+        line-height: 1.6;
+    }
+}
+
+// ========================================
+// 7. RESERVATION MODAL
+// ========================================
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.modalContent {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    background: $white;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modalClose {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: $text-muted;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    z-index: 10;
+
+    &:hover {
+        color: $maroon-deep;
+    }
+}
+
+.modalHeader {
+    background: linear-gradient(135deg, $midnight-blue 0%, $midnight-deep 100%);
+    padding: 2rem;
+    text-align: center;
+    color: $white;
+
+    svg {
+        color: $heritage-gold;
+        margin-bottom: 0.75rem;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.modalBody {
+    padding: 2rem;
+}
+
+// VIP Toggle
+.vipToggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    background: $parchment;
+    padding: 0.35rem;
+}
+
+.toggleBtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &.active {
+        background: $midnight-blue;
+        color: $white;
+
+        svg {
+            color: $heritage-gold;
+        }
+    }
+}
+
+// Seat Counters
+.seatCounters {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.seatRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: $parchment;
+}
+
+.seatInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+        color: $midnight-blue;
+        margin-bottom: 0.15rem;
+    }
+}
+
+.seatPrice {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+}
+
+.seatCounter {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    button {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid $midnight-blue;
+        background: transparent;
+        color: $midnight-blue;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+
+        &:hover:not(:disabled) {
+            background: $midnight-blue;
+            color: $white;
+        }
+
+        &:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+    }
+
+    span {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $midnight-blue;
+        min-width: 30px;
+        text-align: center;
+    }
+}
+
+.freeNote {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    text-align: center;
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+// Modal Footer
+.modalFooter {
+    padding: 1.5rem 2rem;
+    background: $parchment;
+    border-top: 1px solid $parchment-dark;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+    color: $text-dark;
+}
+
+.totalPrice {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $maroon-deep;
+}
+
+.proceedBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: $heritage-gold;
+    color: $midnight-deep;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+        background: $heritage-gold-light;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+// Back to seats
+.backToSeats {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: $heritage-gold;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 1.5rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Contact Section
+.contactSection {
+    margin-bottom: 2rem;
+
+    h4 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $midnight-blue;
+        margin-bottom: 0.25rem;
+    }
+}
+
+.contactNote {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-bottom: 1rem;
+}
+
+.inputGroup {
+    display: flex;
+    align-items: center;
+    background: $parchment;
+    margin-bottom: 0.75rem;
+}
+
+.inputIcon {
+    padding: 0 1rem;
+    color: $heritage-gold;
+}
+
+.inputGroup input {
+    flex: 1;
+    padding: 0.9rem 1rem 0.9rem 0;
+    border: none;
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-dark;
+
+    &::placeholder {
+        color: $text-muted;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+// Attendees Section
+.attendeesSection {
+    h4 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $midnight-blue;
+        margin-bottom: 0.25rem;
+    }
+}
+
+.attendeeNote {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-bottom: 1rem;
+}
+
+.attendeeRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.attendeeLabel {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $midnight-blue;
+    min-width: 70px;
+}
+
+.attendeeRow input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid $parchment-dark;
+    background: $white;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+
+    &::placeholder {
+        color: $text-muted;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $heritage-gold;
+    }
+}

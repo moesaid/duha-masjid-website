@@ -1,0 +1,743 @@
+// Live Stream Page SCSS - HERITAGE ALIGNED
+// Design: Heritage Green + Lantern Gold + Cream
+// Pattern: Spiritual focus, compact layout
+
+// ========================================
+// HERITAGE PALETTE
+// ========================================
+$heritage-green: #2d5a3d;
+$heritage-green-dark: #1a4a3a;
+$lantern-gold: #d4a84b;
+$lantern-gold-dark: #b8921f;
+$heritage-cream: oklch(0.97 0.01 85);
+$heritage-parchment: oklch(0.98 0.01 85);
+$heritage-white: #fff;
+$text-dark: #333;
+$text-muted: #555;
+$live-red: #c62828;
+
+// ========================================
+// ARABESQUE PATTERN
+// ========================================
+$arabesque-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a84b' stroke-width='0.6'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3Cpath d='M40 10L70 40L40 70L10 40z'/%3E%3Cpath d='M40 20L60 40L40 60L20 40z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+// ========================================
+// ANIMATIONS
+// ========================================
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.15);
+    }
+}
+
+// ========================================
+// BASE
+// ========================================
+.liveStreamPage {
+    min-height: 100vh;
+    background: $heritage-cream;
+}
+
+// ========================================
+// 1. BISMILLAH HEADER
+// ========================================
+.headerSection {
+    position: relative;
+    padding: 2rem 2rem 1.5rem;
+    background: linear-gradient(135deg, $heritage-green 0%, $heritage-green-dark 100%);
+    text-align: center;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: $arabesque-pattern;
+        background-size: 80px 80px;
+        opacity: 0.08;
+    }
+}
+
+.headerContent {
+    position: relative;
+    z-index: 1;
+}
+
+.headerCalligraphy {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-bottom: 0.25rem;
+}
+
+.headerTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: $heritage-white;
+    margin: 0;
+}
+
+// ========================================
+// 2. MAIN CONTENT GRID
+// ========================================
+.mainSection {
+    padding: 1.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contentGrid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 1.5rem;
+    align-items: stretch;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// ========================================
+// 3. VIDEO PLAYER CARD
+// ========================================
+.playerCard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: $heritage-white;
+    border: 1px solid oklch(0.88 0.03 85);
+    box-shadow: 0 4px 20px oklch(0 0 0 / 0.08);
+}
+
+.playerWrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 3px solid $lantern-gold;
+}
+
+.videoFrame {
+    position: relative;
+    flex: 1;
+    min-height: 300px;
+    background: $heritage-green-dark;
+}
+
+.videoEmbed {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+// Status Badge
+.statusBadge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 10;
+
+    &.live .statusDot {
+        background: $live-red;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    &.offline .statusDot {
+        background: rgba(255, 255, 255, 0.4);
+    }
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.statusText {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $heritage-white;
+}
+
+// Standby Overlay
+.standbyOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $heritage-green 0%, $heritage-green-dark 100%);
+    text-align: center;
+    padding: 2rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: $arabesque-pattern;
+        background-size: 60px 60px;
+        opacity: 0.1;
+    }
+}
+
+.standbyContent {
+    position: relative;
+    z-index: 1;
+}
+
+.standbyIcon {
+    display: block;
+    margin: 0 auto 1rem;
+    color: $lantern-gold;
+    opacity: 0.6;
+}
+
+.standbyTitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: $heritage-white;
+    margin-bottom: 0.35rem;
+}
+
+.nextBroadcast {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.25rem;
+}
+
+.countdown {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.countdownUnit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: rgba(0, 0, 0, 0.25);
+    min-width: 50px;
+}
+
+.countdownValue {
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $lantern-gold;
+    line-height: 1;
+}
+
+.countdownLabel {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.2rem;
+}
+
+// ========================================
+// 4. CONTROL BAR
+// ========================================
+.controlBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: $heritage-parchment;
+    border-top: 1px solid oklch(0.9 0.02 85);
+}
+
+.streamInfo {
+    flex: 1;
+    min-width: 200px;
+}
+
+.streamTitle {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    color: $heritage-green;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+}
+
+.streamMeta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    svg {
+        color: $lantern-gold;
+    }
+}
+
+.streamActions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.donateBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.25rem;
+    background: linear-gradient(135deg, $lantern-gold 0%, $lantern-gold-dark 100%);
+    color: $heritage-white;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px oklch(0.65 0.12 70 / 0.4);
+    }
+}
+
+.shareBtn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $heritage-white;
+    border: 1px solid oklch(0.88 0.03 85);
+    color: $text-muted;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $heritage-green;
+        color: $heritage-green;
+    }
+}
+
+// ========================================
+// 5. SIDEBAR
+// ========================================
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (max-width: 1000px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.sidebarCard {
+    background: $heritage-white;
+    border: 1px solid oklch(0.88 0.03 85);
+}
+
+.sidebarHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1rem;
+    background: $heritage-green;
+    color: $heritage-white;
+
+    svg {
+        color: $lantern-gold;
+    }
+
+    h3 {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin: 0;
+    }
+}
+
+.sidebarBody {
+    padding: 1rem;
+}
+
+// Schedule List
+.scheduleList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.scheduleItem {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    background: $heritage-parchment;
+    border-left: 3px solid transparent;
+
+    &.upcoming {
+        border-left-color: $lantern-gold;
+        background: rgba($lantern-gold, 0.08);
+    }
+}
+
+.scheduleTime {
+    min-width: 55px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $lantern-gold-dark;
+}
+
+.scheduleInfo {
+    flex: 1;
+}
+
+.scheduleTitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-dark;
+    margin-bottom: 0.1rem;
+}
+
+.scheduleDay {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: $text-muted;
+}
+
+// Resources List
+.resourceList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.resourceItem {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.75rem;
+    background: $heritage-parchment;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: rgba($lantern-gold, 0.1);
+
+        .downloadIcon {
+            color: $heritage-green;
+        }
+    }
+}
+
+.resourceIcon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($lantern-gold, 0.15);
+    color: $lantern-gold-dark;
+}
+
+.resourceInfo {
+    flex: 1;
+}
+
+.resourceTitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-dark;
+    display: block;
+}
+
+.resourceSize {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: $text-muted;
+}
+
+.downloadIcon {
+    color: $text-muted;
+}
+
+// Mushaf Widget
+.mushafWidget {
+    text-align: center;
+    padding: 1rem;
+}
+
+.mushafIcon {
+    display: block;
+    margin: 0 auto 0.75rem;
+    color: $lantern-gold;
+    opacity: 0.5;
+}
+
+.mushafTitle {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: $heritage-green;
+    margin-bottom: 0.35rem;
+}
+
+.mushafSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.mushafLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1rem;
+    background: transparent;
+    border: 1px solid $heritage-green;
+    color: $heritage-green;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $heritage-green;
+        color: $heritage-white;
+    }
+}
+
+// ========================================
+// 6. ARCHIVES SECTION
+// ========================================
+.archivesSection {
+    padding: 2.5rem 2rem;
+    background: $heritage-parchment;
+    border-top: 1px solid oklch(0.9 0.02 85);
+}
+
+.archivesContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.archivesHeader {
+    margin: 0 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.archivesTitle {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: $heritage-green;
+    margin: 0;
+}
+
+.viewAllLink {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $lantern-gold-dark;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Archive Rail
+.categoryRail {
+    margin-bottom: 2rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.categoryTitle {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $lantern-gold-dark;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.railScroll {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 480px) {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.archiveCard {
+    scroll-snap-align: start;
+    background: $heritage-white;
+    border: 1px solid oklch(0.88 0.03 85);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    @media (max-width: 480px) {
+        flex-shrink: 0;
+        width: 220px;
+    }
+
+    &:hover {
+        border-color: $lantern-gold;
+        box-shadow: 0 4px 16px oklch(0 0 0 / 0.08);
+
+        .thumbnailPlaceholder {
+            background: $heritage-green;
+        }
+    }
+}
+
+.archiveThumbnail {
+    position: relative;
+    height: 124px;
+    background: $heritage-green-dark;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.thumbnailPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $heritage-green 0%, $heritage-green-dark 100%);
+    color: $lantern-gold;
+    opacity: 0.7;
+    transition: background 0.2s ease;
+}
+
+.archiveDuration {
+    position: absolute;
+    bottom: 0.4rem;
+    right: 0.4rem;
+    padding: 0.2rem 0.4rem;
+    background: rgba(0, 0, 0, 0.8);
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.7rem;
+    color: $heritage-white;
+}
+
+.archiveInfo {
+    padding: 0.75rem;
+}
+
+.archiveTitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-dark;
+    margin-bottom: 0.2rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.archiveDate {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: $text-muted;
+}
+
+// ========================================
+// 7. HELP FOOTER
+// ========================================
+.helpFooter {
+    padding: 1.25rem 2rem;
+    background: $heritage-green-dark;
+    text-align: center;
+}
+
+.helpText {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+
+    a {
+        color: $lantern-gold;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+
+        &:hover {
+            color: lighten($lantern-gold, 15%);
+        }
+    }
+}

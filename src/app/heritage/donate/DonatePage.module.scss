@@ -1,0 +1,490 @@
+// Donate Page - "The Giving Portal"
+// Design: Emerald Green + Gold + White (Generous palette)
+// Vibe: Generous, Transparent, and Impactful
+
+// ========================================
+// GIVING PALETTE
+// ========================================
+$emerald: #1a5f3c;
+$emerald-dark: #0f4a2d;
+$emerald-light: #2d7a50;
+$gold: #d4a84b;
+$gold-light: #e8c66a;
+$gold-dark: #b8921f;
+$white: #ffffff;
+$off-white: #f8f9fa;
+$cream: #faf8f2;
+$text-dark: #1a1a1a;
+$text-muted: #5a5a5a;
+
+// ========================================
+// BASE
+// ========================================
+.donatePage {
+    min-height: 100vh;
+    background: $white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+// ========================================
+// 1. INVEST HERO
+// ========================================
+.heroSection {
+    position: relative;
+    height: 60vh;
+    min-height: 480px;
+    max-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(165deg, $emerald-dark 0%, $emerald 50%, $emerald-light 100%);
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a84b' stroke-width='0.5'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3Cpath d='M40 15L65 40L40 65L15 40z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: 80px 80px;
+        opacity: 0.06;
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    padding: 2rem;
+}
+
+.heroCalligraphy {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: $gold;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+.heroTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    color: $white;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    max-width: 550px;
+    margin: 0 auto 2rem;
+}
+
+.heroCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: $gold;
+    border: none;
+    color: $emerald-dark;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $gold-light;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+}
+
+// ========================================
+// 2. FEATURED CAMPAIGN (Spotlight)
+// ========================================
+.featuredSection {
+    padding: 5rem 2rem;
+    background: $off-white;
+}
+
+.featuredCard {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: $white;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.featuredVisual {
+    position: relative;
+    min-height: 350px;
+    background: linear-gradient(135deg, $emerald 0%, $emerald-dark 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gold;
+    opacity: 0.9;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L55 30L30 55L5 30z' fill='none' stroke='%23d4a84b' stroke-width='0.5'/%3E%3C/svg%3E");
+        background-size: 60px 60px;
+        opacity: 0.1;
+    }
+}
+
+.buildingIcon {
+    position: relative;
+    z-index: 1;
+}
+
+.featuredContent {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.urgentBadge {
+    display: inline-block;
+    padding: 0.4rem 0.85rem;
+    background: rgba(220, 53, 69, 0.1);
+    color: #c82333;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+.featuredTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: $text-dark;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.progressContainer {
+    margin-bottom: 1.5rem;
+}
+
+.progressBar {
+    height: 12px;
+    background: $off-white;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, $gold-dark, $gold);
+    border-radius: 6px;
+    transition: width 1s ease-out;
+}
+
+.progressStats {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.raisedAmount {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $emerald;
+}
+
+.goalAmount {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-muted;
+}
+
+.percentage {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $gold-dark;
+}
+
+.featuredCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    background: $emerald;
+    border: none;
+    color: $white;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: fit-content;
+
+    &:hover {
+        background: $emerald-dark;
+        gap: 0.75rem;
+    }
+}
+
+// ========================================
+// 3. CAMPAIGN CATEGORIES (Grid)
+// ========================================
+.categoriesSection {
+    padding: 5rem 2rem;
+    background: $white;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $text-dark;
+    margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+}
+
+.categoryGrid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+.categoryCard {
+    background: $white;
+    border: 1px solid #e8e8e8;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        border-color: $gold;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+
+        .categoryIcon {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.categoryIcon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.25rem;
+    background: linear-gradient(135deg, $gold 0%, $gold-light 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $emerald-dark;
+    transition: transform 0.3s ease;
+}
+
+.categoryTag {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    background: $off-white;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $emerald;
+    margin-bottom: 1rem;
+}
+
+.categoryTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.35rem;
+    color: $text-dark;
+    margin-bottom: 0.5rem;
+}
+
+.categoryStat {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    margin-bottom: 1.25rem;
+}
+
+.categoryBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.25rem;
+    background: transparent;
+    border: 2px solid $emerald;
+    color: $emerald;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $emerald;
+        color: $white;
+    }
+}
+
+// ========================================
+// 4. TRANSPARENCY & TRUST
+// ========================================
+.trustSection {
+    padding: 4rem 2rem;
+    background: $emerald-dark;
+}
+
+.trustGrid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.trustItem {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.trustIcon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
+    background: rgba(212, 168, 75, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gold;
+}
+
+.trustStat {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $white;
+    margin-bottom: 0.5rem;
+}
+
+.trustLabel {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+// ========================================
+// 5. DONOR PORTAL FOOTER
+// ========================================
+.portalSection {
+    padding: 4rem 2rem;
+    background: $cream;
+}
+
+.portalContent {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    @media (min-width: 600px) {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+    }
+}
+
+.portalText {
+    flex: 1;
+}
+
+.portalTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.35rem;
+    color: $text-dark;
+    margin-bottom: 0.35rem;
+}
+
+.portalSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+}
+
+.portalBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    background: $text-dark;
+    border: none;
+    color: $white;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    &:hover {
+        background: $emerald;
+    }
+}

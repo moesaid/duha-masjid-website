@@ -1,0 +1,199 @@
+/* FullCalendar Heritage Theme Overrides
+ * These need to be in a non-module CSS file for global class targeting
+ */
+
+/* Color tokens */
+:root {
+    --fc-heritage-midnight: #1a2744;
+    --fc-heritage-midnight-deep: #0f1a2e;
+    --fc-heritage-gold: #d4af37;
+    --fc-heritage-gold-light: #e8c963;
+    --fc-heritage-parchment: #f5f0e6;
+    --fc-heritage-parchment-dark: #e8e0d0;
+    --fc-heritage-text: #333;
+    --fc-heritage-text-muted: #666;
+}
+
+/* Base calendar font */
+.fc {
+    font-family: var(--font-body, system-ui, sans-serif);
+}
+
+/* Toolbar (prev/next/today buttons) */
+.fc-toolbar {
+    margin-bottom: 1rem !important;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.fc-toolbar-title {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.25rem !important;
+    color: var(--fc-heritage-midnight);
+}
+
+.fc-button {
+    background: var(--fc-heritage-midnight) !important;
+    border-color: var(--fc-heritage-midnight) !important;
+    font-family: var(--font-body, system-ui, sans-serif) !important;
+    font-size: 0.85rem !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 4px !important;
+    text-transform: capitalize !important;
+}
+
+/* Add spacing between prev/next buttons */
+.fc-button-group {
+    gap: 0.5rem;
+}
+
+.fc-button-group>.fc-button {
+    margin-left: 0 !important;
+    border-radius: 4px !important;
+}
+
+.fc-button:hover {
+    background: #101a30 !important;
+}
+
+.fc-button:focus {
+    box-shadow: 0 0 0 2px var(--fc-heritage-gold) !important;
+}
+
+.fc-button-primary:not(:disabled).fc-button-active,
+.fc-button-primary:not(:disabled):active {
+    background: var(--fc-heritage-gold) !important;
+    border-color: var(--fc-heritage-gold) !important;
+    color: var(--fc-heritage-midnight-deep) !important;
+}
+
+/* Header cells (day names) */
+.fc-col-header-cell {
+    background: var(--fc-heritage-parchment);
+    padding: 0.75rem 0 !important;
+}
+
+.fc-col-header-cell-cushion {
+    font-family: var(--font-body, system-ui, sans-serif);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--fc-heritage-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+}
+
+/* Day cells */
+.fc-daygrid-day {
+    background: #fff;
+    transition: background 0.2s ease;
+}
+
+.fc-daygrid-day:hover {
+    background: rgba(212, 175, 55, 0.08);
+}
+
+.fc-day-today {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.22) 100%) !important;
+}
+
+.fc-daygrid-day-frame {
+    min-height: 100px;
+}
+
+.fc-daygrid-day-number {
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fc-heritage-text);
+    padding: 0.5rem !important;
+    text-decoration: none;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+    background: var(--fc-heritage-gold);
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* Events in grid */
+.fc-daygrid-event {
+    border-radius: 3px !important;
+    font-size: 0.75rem !important;
+    padding: 2px 4px !important;
+    margin: 1px 2px !important;
+    border: none !important;
+}
+
+.fc-daygrid-event-dot {
+    display: none;
+}
+
+.fc-event-title {
+    font-weight: 500;
+}
+
+.fc-daygrid-more-link {
+    font-family: var(--font-body, system-ui, sans-serif);
+    font-size: 0.7rem;
+    color: var(--fc-heritage-gold);
+    font-weight: 600;
+}
+
+/* List view */
+.fc-list {
+    border: none !important;
+}
+
+.fc-list-day-cushion {
+    background: var(--fc-heritage-midnight) !important;
+}
+
+.fc-list-day-cushion a {
+    color: #fff !important;
+    font-family: var(--font-display, Georgia, serif);
+    text-decoration: none;
+}
+
+.fc-list-event {
+    cursor: pointer;
+}
+
+.fc-list-event:hover td {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.fc-list-event-dot {
+    border-color: currentColor !important;
+}
+
+.fc-list-event-title a {
+    color: var(--fc-heritage-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.fc-list-event-time {
+    color: var(--fc-heritage-text-muted);
+}
+
+/* Borders */
+.fc-scrollgrid {
+    border-color: var(--fc-heritage-parchment-dark) !important;
+}
+
+.fc-scrollgrid td,
+.fc-scrollgrid th {
+    border-color: var(--fc-heritage-parchment-dark) !important;
+}
+
+/* Popover (more events) */
+.fc-popover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--fc-heritage-parchment-dark);
+}
+
+.fc-popover-header {
+    background: var(--fc-heritage-midnight);
+    color: #fff;
+}
