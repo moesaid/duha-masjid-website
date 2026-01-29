@@ -77,21 +77,21 @@ export const teachers: Teacher[] = [
         title: 'Lead Instructor',
         credentials: 'Ijazah in Hafs from Asim',
         bio: 'Sheikh Ahmad has over 20 years of experience teaching Quran and has helped more than 50 students complete their hifz.',
-        imageUrl: '/images/heritage/arab-men-1.jpg'
+        imageUrl: '/images/arab-men-1.jpg'
     },
     {
         name: 'Ustadha Fatima Ali',
         title: "Sisters' Program Director",
         credentials: 'Ijazah in Tajweed',
         bio: "Ustadha Fatima specializes in working with children and has developed our popular 'Seedlings' curriculum.",
-        imageUrl: '/images/heritage/arab-women-1.jpg'
+        imageUrl: '/images/arab-women-1.jpg'
     },
     {
         name: 'Hafiz Omar Yusuf',
         title: 'Youth Instructor',
         credentials: 'Complete Hifz at age 14',
         bio: "Hafiz Omar's youth and energy connect with our teenage students, making memorization engaging and fun.",
-        imageUrl: '/images/heritage/arab-men-2.jpg'
+        imageUrl: '/images/arab-men-2.jpg'
     }
 ];
 

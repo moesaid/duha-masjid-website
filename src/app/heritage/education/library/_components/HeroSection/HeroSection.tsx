@@ -52,7 +52,7 @@ export function HeroSection({
     return (
         <section className={styles.treasuryHero}>
             <div className={styles.heroBackground}>
-                <Image src="/images/heritage/library-shelves.jpg" alt="" fill priority className={styles.heroImage} />
+                <Image src="/images/library-shelves.jpg" alt="" fill priority className={styles.heroImage} />
                 <div className={styles.heroOverlay} />
             </div>
 

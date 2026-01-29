@@ -7,7 +7,7 @@ export function HeroSection() {
     return (
         <section className={styles.janazahHero}>
             <div className={styles.heroBackground}>
-                <Image src="/images/heritage/funeral.jpg" alt="" fill priority className={styles.heroImage} />
+                <Image src="/images/funeral.jpg" alt="" fill priority className={styles.heroImage} />
                 <div className={styles.heroOverlay} />
             </div>
             <div className={styles.heroContent}>

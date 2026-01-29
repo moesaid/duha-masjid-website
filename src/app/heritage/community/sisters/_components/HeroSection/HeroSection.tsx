@@ -12,7 +12,7 @@ export function HeroSection() {
             <div className={styles.heroImageContainer}>
                 <div className={styles.archMask}>
                     <Image
-                        src="/images/heritage/sisters-gathering.jpg"
+                        src="/images/sisters-gathering.jpg"
                         alt="Sisters gathering at the masjid"
                         fill
                         className={styles.heroPhoto}

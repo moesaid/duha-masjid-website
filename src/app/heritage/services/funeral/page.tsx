@@ -100,7 +100,7 @@ export default function FuneralPage() {
             <section className={styles.solaceHero}>
                 <div className={styles.heroBackground}>
                     <Image
-                        src="/images/heritage/night-sky.jpg"
+                        src="/images/night-sky.jpg"
                         alt="Abstract night sky"
                         fill
                         className={styles.heroImage}

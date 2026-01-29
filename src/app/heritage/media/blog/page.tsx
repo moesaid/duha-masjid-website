@@ -17,7 +17,7 @@ const blogPosts = [
         author: 'Imam Muhammad Ali',
         date: 'January 25, 2026',
         category: 'Community',
-        image: '/images/heritage/mosque-interior.jpg',
+        image: '/images/mosque-interior.jpg',
         featured: true
     },
     {
@@ -27,7 +27,7 @@ const blogPosts = [
         author: 'Sr. Fatima Hassan',
         date: 'January 20, 2026',
         category: 'Spirituality',
-        image: '/images/heritage/mosque-dome.jpg',
+        image: '/images/mosque-dome.jpg',
         featured: false
     },
     {
@@ -37,7 +37,7 @@ const blogPosts = [
         author: 'Br. Ahmad Malik',
         date: 'January 18, 2026',
         category: 'Youth',
-        image: '/images/heritage/shykh.jpg',
+        image: '/images/shykh.jpg',
         featured: false
     },
     {
@@ -47,7 +47,7 @@ const blogPosts = [
         author: 'Imam Muhammad Ali',
         date: 'January 15, 2026',
         category: 'Khutbah',
-        image: '/images/heritage/mosque-interior.jpg',
+        image: '/images/mosque-interior.jpg',
         featured: false
     },
     {
@@ -57,7 +57,7 @@ const blogPosts = [
         author: 'Dr. Layla Ahmed',
         date: 'January 12, 2026',
         category: 'Outreach',
-        image: '/images/heritage/mosque-dome.jpg',
+        image: '/images/mosque-dome.jpg',
         featured: false
     },
     {
@@ -67,7 +67,7 @@ const blogPosts = [
         author: 'Br. Khalid Mansour',
         date: 'January 8, 2026',
         category: 'Announcements',
-        image: '/images/heritage/shykh.jpg',
+        image: '/images/shykh.jpg',
         featured: false
     }
 ];

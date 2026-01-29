@@ -7,7 +7,7 @@ export function HeroSection() {
         <section className={styles.seekersHero}>
             <div className={styles.heroBackground}>
                 <Image
-                    src="/images/heritage/halaqa-circle.jpg"
+                    src="/images/halaqa-circle.jpg"
                     alt=""
                     fill
                     priority

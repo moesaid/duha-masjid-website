@@ -133,7 +133,7 @@ export default function MissionPage() {
             <section className={styles.nextGenSection}>
                 <div className={styles.nextGenImage}>
                     <Image
-                        src="/images/heritage/youth-learning.jpg"
+                        src="/images/youth-learning.jpg"
                         alt="Holy Quran with prayer beads - passing knowledge to future generations"
                         fill
                         className={styles.nextGenPhoto}

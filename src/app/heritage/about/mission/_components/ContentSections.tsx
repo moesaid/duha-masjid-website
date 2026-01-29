@@ -7,7 +7,7 @@ export function HeroSection() {
     return (
         <section className={styles.missionHero}>
             <div className={styles.heroBackground}>
-                <Image src="/images/heritage/mission.jpg" alt="" fill priority className={styles.heroImage} />
+                <Image src="/images/mission.jpg" alt="" fill priority className={styles.heroImage} />
                 <div className={styles.heroOverlay} />
             </div>
             <div className={styles.heroContent}>

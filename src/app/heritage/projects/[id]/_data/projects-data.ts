@@ -65,7 +65,7 @@ export const projectsData: Record<string, Project> = {
         status: 'in-progress',
         statusLabel: 'UNDER CONSTRUCTION',
         progress: 45,
-        heroImage: '/images/heritage/mosque-interior.jpg',
+        heroImage: '/images/mosque-interior.jpg',
         scope: {
             objective: 'To build a state-of-the-art 10,000 sq ft youth center that provides dedicated spaces for education, recreation, mentorship, and spiritual development for Muslims ages 13-25.',
             why: 'Our current facilities are operating at 150% capacity during youth programs. Young Muslims deserve a safe, welcoming third space where they can develop their Islamic identity, build lasting friendships, and prepare for leadership in the community. This center will feature classrooms, a gymnasium, counseling rooms, and a dedicated prayer space designed specifically for youth.',
@@ -74,19 +74,19 @@ export const projectsData: Record<string, Project> = {
             {
                 title: 'Fig 1.1: Main Floor Plan',
                 caption: 'Ground level layout showing gymnasium, multi-purpose rooms, and main entrance',
-                image: '/images/heritage/prayer-hall.jpg',
+                image: '/images/prayer-hall.jpg',
                 type: 'floorplan'
             },
             {
                 title: 'Fig 1.2: Interior Vision',
                 caption: 'Rendered view of the main gathering hall with modern Islamic design elements',
-                image: '/images/heritage/mosque-interior.jpg',
+                image: '/images/mosque-interior.jpg',
                 type: 'render'
             },
             {
                 title: 'Fig 1.3: Current Progress',
                 caption: 'Steel framing completion - January 2026',
-                image: '/images/heritage/shykh.jpg',
+                image: '/images/shykh.jpg',
                 type: 'construction'
             },
         ],
@@ -123,7 +123,7 @@ export const projectsData: Record<string, Project> = {
         status: 'planning',
         statusLabel: 'IN PLANNING',
         progress: 15,
-        heroImage: '/images/heritage/shykh.jpg',
+        heroImage: '/images/shykh.jpg',
         scope: {
             objective: 'To establish a comprehensive leadership development program that equips young Muslims (ages 16-25) with the skills, knowledge, and Islamic foundation needed to lead in their communities and professions.',
             why: 'Our community needs trained young leaders who can navigate modern challenges while staying rooted in Islamic values. This program combines executive coaching, public speaking, project management, and Islamic leadership principles into a 12-month intensive curriculum.',
@@ -132,13 +132,13 @@ export const projectsData: Record<string, Project> = {
             {
                 title: 'Fig 1.1: Program Structure',
                 caption: 'Curriculum overview and module breakdown',
-                image: '/images/heritage/mosque-dome.jpg',
+                image: '/images/mosque-dome.jpg',
                 type: 'floorplan'
             },
             {
                 title: 'Fig 1.2: Mentorship Model',
                 caption: 'One-on-one pairing with community leaders',
-                image: '/images/heritage/mosque-interior.jpg',
+                image: '/images/mosque-interior.jpg',
                 type: 'render'
             },
         ],
@@ -170,7 +170,7 @@ export const projectsData: Record<string, Project> = {
         status: 'in-progress',
         statusLabel: 'ACTIVE PROGRAM',
         progress: 70,
-        heroImage: '/images/heritage/mosque-dome.jpg',
+        heroImage: '/images/mosque-dome.jpg',
         scope: {
             objective: 'To provide comprehensive college preparation support to high school juniors and seniors, including application guidance, essay review, scholarship searches, and career counseling from Muslim professionals.',
             why: 'Many first-generation college students in our community lack access to the guidance and resources needed to navigate the complex college application process. This program connects them with successful professionals who have walked this path before.',
@@ -179,13 +179,13 @@ export const projectsData: Record<string, Project> = {
             {
                 title: 'Fig 1.1: Program Flow',
                 caption: 'Journey from enrollment to college acceptance',
-                image: '/images/heritage/mosque-interior.jpg',
+                image: '/images/mosque-interior.jpg',
                 type: 'floorplan'
             },
             {
                 title: 'Fig 1.2: Mentor Workshop',
                 caption: 'Monthly sessions covering applications, essays, and interviews',
-                image: '/images/heritage/shykh.jpg',
+                image: '/images/shykh.jpg',
                 type: 'render'
             },
         ],
@@ -219,7 +219,7 @@ export const projectsData: Record<string, Project> = {
         status: 'planning',
         statusLabel: 'IN PLANNING',
         progress: 25,
-        heroImage: '/images/heritage/mosque-interior.jpg',
+        heroImage: '/images/mosque-interior.jpg',
         scope: {
             objective: 'To organize a 3-day youth conference that brings together 500+ young Muslims from across the region for spiritual development, networking, and skill-building workshops led by renowned scholars and professionals.',
             why: 'Young Muslims often feel isolated in their faith journey. This conference creates a powerful experience where they can connect with peers, learn from inspiring speakers, and return to their communities energized and equipped.',
@@ -228,13 +228,13 @@ export const projectsData: Record<string, Project> = {
             {
                 title: 'Fig 1.1: Venue Layout',
                 caption: 'Convention center floor plan with session rooms',
-                image: '/images/heritage/mosque-dome.jpg',
+                image: '/images/mosque-dome.jpg',
                 type: 'floorplan'
             },
             {
                 title: 'Fig 1.2: Main Stage Concept',
                 caption: 'Keynote presentation area with multimedia capabilities',
-                image: '/images/heritage/shykh.jpg',
+                image: '/images/shykh.jpg',
                 type: 'render'
             },
         ],

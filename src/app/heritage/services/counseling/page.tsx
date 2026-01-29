@@ -159,7 +159,7 @@ export default function CounselingPage() {
             <section className={styles.tranquilityHero}>
                 <div className={styles.heroBackground}>
                     <Image
-                        src="/images/heritage/islamic-wood-pattern.jpg"
+                        src="/images/islamic-wood-pattern.jpg"
                         alt=""
                         fill
                         priority

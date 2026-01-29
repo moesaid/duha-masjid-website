@@ -137,7 +137,7 @@ export default function ZakatPage() {
             <section className={styles.purificationHero}>
                 <div className={styles.heroBackground}>
                     <Image
-                        src="/images/heritage/geometric-gold.jpg"
+                        src="/images/geometric-gold.jpg"
                         alt="Islamic geometric pattern"
                         fill
                         className={styles.heroImage}

@@ -69,7 +69,7 @@ export const eventData: EventData = {
     address: '123 Islamic Way, Springfield, IL 62701',
     status: 'Early Bird',
     promoVideoUrl: 'https://www.youtube.com/embed/oOEhCAvIl5I',
-    promoVideoPoster: '/images/heritage/halaqa-circle.jpg',
+    promoVideoPoster: '/images/halaqa-circle.jpg',
     description: `Join us for an extraordinary evening as we gather to honor the legacy of our beloved 
     community and celebrate the vision for our future. This prestigious gala brings together families, 
     scholars, and community leaders for a night of inspiration, fine dining, and fellowship.

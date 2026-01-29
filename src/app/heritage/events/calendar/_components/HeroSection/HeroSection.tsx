@@ -8,7 +8,7 @@ export function HeroSection() {
     return (
         <section className={styles.almanacHero}>
             <div className={styles.heroBackground}>
-                <Image src="/images/heritage/calendar-pattern.jpg" alt="" fill priority className={styles.heroImage} />
+                <Image src="/images/calendar-pattern.jpg" alt="" fill priority className={styles.heroImage} />
                 <div className={styles.heroOverlay} />
             </div>
 

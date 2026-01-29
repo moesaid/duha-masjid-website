@@ -92,7 +92,7 @@ const programCards = [
         description: 'Monthly Community Dinner. First Friday of every month.',
         detail: 'Guest Speakers, Kids Activities, and diverse cuisines. Bring a dish to share (Potluck style) or $10/family for pizza nights.',
         icon: Users,
-        image: '/images/heritage/community-dinner.jpg'
+        image: '/images/community-dinner.jpg'
     },
     {
         id: 'open-gym',
@@ -101,7 +101,7 @@ const programCards = [
         description: "Brothers' Basketball (Tue) & Sisters' Badminton (Thu).",
         detail: 'Building brotherhood and sisterhood through healthy competition. $5 entry fee.',
         icon: Dumbbell,
-        image: '/images/heritage/basketball.jpg'
+        image: '/images/basketball.jpg'
     },
     {
         id: 'morning-chai',
@@ -110,7 +110,7 @@ const programCards = [
         description: "Elders' Social Club.",
         detail: 'Every Wednesday morning after Fajr. A space for our seniors to connect over tea and conversation.',
         icon: Coffee,
-        image: '/images/heritage/seniors-tea.jpg'
+        image: '/images/seniors-tea.jpg'
     }
 ];
 

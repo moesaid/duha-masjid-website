@@ -37,7 +37,7 @@ export function PresidentSection() {
                 <div className={styles.letterContent}>
                     <div className={styles.presidentPhoto}>
                         <Image
-                            src="/images/heritage/shykh.jpg"
+                            src="/images/shykh.jpg"
                             alt="Dr. Omar Khan, President"
                             fill
                             className={styles.presidentImage}

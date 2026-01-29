@@ -11,7 +11,7 @@ export function HeroSection() {
     return (
         <section className={styles.embraceHero}>
             <div className={styles.heroBackground}>
-                <Image src="/images/heritage/new-muslim.jpg" alt="" fill priority className={styles.heroImage} />
+                <Image src="/images/new-muslim.jpg" alt="" fill priority className={styles.heroImage} />
                 <div className={styles.heroOverlay} />
             </div>
 

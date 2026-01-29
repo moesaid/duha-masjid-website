@@ -89,7 +89,7 @@ export default function PrayerPage() {
             <section className={styles.sanctuaryHero}>
                 <div className={styles.heroBackground}>
                     <Image
-                        src="/images/heritage/mosque-interior.jpg"
+                        src="/images/mosque-interior.jpg"
                         alt="Prayer Hall Interior"
                         fill
                         className={styles.heroImage}

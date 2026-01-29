@@ -14,7 +14,7 @@ export function TranquilityHero({
     verseReference,
     title,
     tagline,
-    backgroundImage = '/images/heritage/islamic-wood-pattern.jpg'
+    backgroundImage = '/images/islamic-wood-pattern.jpg'
 }: TranquilityHeroProps) {
     return (
         <section className={styles.tranquilityHero}>

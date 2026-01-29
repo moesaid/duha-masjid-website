@@ -19,7 +19,7 @@ export function WelcomeSection() {
                             </div>
                         ) : (
                             <Image
-                                src="/images/heritage/shykh.jpg"
+                                src="/images/shykh.jpg"
                                 alt="Sheikh Ahmad Hassan - Imam & Director"
                                 className={styles.archImage}
                                 width={480}

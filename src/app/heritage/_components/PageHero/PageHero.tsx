@@ -17,7 +17,7 @@ interface PageHeroProps {
 export function PageHero({
     title,
     subtitle,
-    backgroundImage = '/images/heritage/mosque-interior.jpg',
+    backgroundImage = '/images/mosque-interior.jpg',
     arabicText,
     backLink,
     overlay = 'gradient',

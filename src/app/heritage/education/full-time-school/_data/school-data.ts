@@ -152,9 +152,9 @@ export const admissionSteps: AdmissionStep[] = [
 ];
 
 export const faculty: FacultyMember[] = [
-    { name: 'Dr. Ahmad Hassan', subject: 'Principal / Islamic Studies', degree: 'Ph.D., Islamic Education', image: '/images/heritage/placeholder-teacher.jpg' },
-    { name: 'Sarah Williams, M.Ed.', subject: 'Vice Principal / English', degree: 'M.Ed., Curriculum & Instruction', image: '/images/heritage/placeholder-teacher.jpg' },
-    { name: 'Ustadh Yusuf Ali', subject: 'Quran & Arabic', degree: 'Ijazah, Al-Azhar University', image: '/images/heritage/placeholder-teacher.jpg' },
-    { name: 'Dr. Emily Chen', subject: 'STEM Director', degree: 'Ph.D., Chemistry', image: '/images/heritage/placeholder-teacher.jpg' },
-    { name: 'Michael Roberts, M.S.', subject: 'Mathematics', degree: 'M.S., Applied Mathematics', image: '/images/heritage/placeholder-teacher.jpg' }
+    { name: 'Dr. Ahmad Hassan', subject: 'Principal / Islamic Studies', degree: 'Ph.D., Islamic Education', image: '/images/placeholder-teacher.jpg' },
+    { name: 'Sarah Williams, M.Ed.', subject: 'Vice Principal / English', degree: 'M.Ed., Curriculum & Instruction', image: '/images/placeholder-teacher.jpg' },
+    { name: 'Ustadh Yusuf Ali', subject: 'Quran & Arabic', degree: 'Ijazah, Al-Azhar University', image: '/images/placeholder-teacher.jpg' },
+    { name: 'Dr. Emily Chen', subject: 'STEM Director', degree: 'Ph.D., Chemistry', image: '/images/placeholder-teacher.jpg' },
+    { name: 'Michael Roberts, M.S.', subject: 'Mathematics', degree: 'M.S., Applied Mathematics', image: '/images/placeholder-teacher.jpg' }
 ];

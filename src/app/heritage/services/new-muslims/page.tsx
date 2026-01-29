@@ -110,7 +110,7 @@ export default function NewMuslimsPage() {
             <section className={styles.homecomingHero}>
                 <div className={styles.heroBackground}>
                     <Image
-                        src="/images/heritage/sunlight-archway.jpg"
+                        src="/images/sunlight-archway.jpg"
                         alt=""
                         fill
                         priority
@@ -190,7 +190,7 @@ export default function NewMuslimsPage() {
                     <div className={styles.giftImageWrapper}>
                         <div className={styles.giftImageFrame}>
                             <Image
-                                src="/images/heritage/new-muslim-kit.jpg"
+                                src="/images/new-muslim-kit.jpg"
                                 alt="New Muslim Welcome Kit containing Quran, Prayer Rug, and more"
                                 fill
                                 className={styles.giftImage}

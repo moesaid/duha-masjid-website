@@ -22,7 +22,7 @@ export const samplePost: BlogPost = {
     date: 'January 25, 2026',
     readTime: '10 min read',
     category: 'Community',
-    image: '/images/heritage/mosque-community.jpg',
+    image: '/images/mosque-community.jpg',
     excerpt: 'As we gather for our weekly prayers, we see new faces joining our community every week. This growth brings both blessings and responsibilities that we must embrace together.',
     richContent: `
         <p class="lead">As we gather for our weekly prayers, we see new faces joining our community every week. This growth brings both blessings and responsibilities that we must embrace together as one unified body.</p>
@@ -79,7 +79,7 @@ export const samplePost: BlogPost = {
         </ol>
 
         <figure>
-            <img src="/images/heritage/halaqa-circle.jpg" alt="Community members gathering in a study circle" />
+            <img src="/images/halaqa-circle.jpg" alt="Community members gathering in a study circle" />
             <figcaption>Our weekly halaqa study circle brings community members together</figcaption>
         </figure>
 

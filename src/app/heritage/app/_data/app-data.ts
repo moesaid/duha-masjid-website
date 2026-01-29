@@ -54,9 +54,9 @@ export const features: Feature[] = [
 ];
 
 export const screenshots: Screenshot[] = [
-    { id: 1, alt: 'Prayer times screen', src: '/images/heritage/mosque-dome.jpg' },
-    { id: 2, alt: 'Events calendar screen', src: '/images/heritage/mosque-interior.jpg' },
-    { id: 3, alt: 'Donation screen', src: '/images/heritage/shykh.jpg' }
+    { id: 1, alt: 'Prayer times screen', src: '/images/mosque-dome.jpg' },
+    { id: 2, alt: 'Events calendar screen', src: '/images/mosque-interior.jpg' },
+    { id: 3, alt: 'Donation screen', src: '/images/shykh.jpg' }
 ];
 
 export const benefits: string[] = [

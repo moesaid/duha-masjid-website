@@ -6,7 +6,7 @@ export function HeroSection() {
         <header className={styles.heroSection}>
             <div className={styles.heroImage}>
                 <Image
-                    src="/images/heritage/mosque-interior.jpg"
+                    src="/images/mosque-interior.jpg"
                     alt="Imam leading prayer"
                     fill
                     className={styles.heroPhoto}

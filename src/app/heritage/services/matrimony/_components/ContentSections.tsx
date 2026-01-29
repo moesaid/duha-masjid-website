@@ -15,7 +15,7 @@ export function HeroSection() {
     return (
         <section className={styles.nikkahHero}>
             <div className={styles.heroBackground}>
-                <Image src="/images/heritage/wedding.jpg" alt="" fill priority className={styles.heroImage} />
+                <Image src="/images/wedding.jpg" alt="" fill priority className={styles.heroImage} />
                 <div className={styles.heroOverlay} />
             </div>
 

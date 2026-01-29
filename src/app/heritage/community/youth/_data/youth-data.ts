@@ -130,7 +130,7 @@ export const upcomingEvents: UpcomingEvent[] = [
         title: 'Annual Winter Retreat (Ski Trip)',
         date: 'Dec 24-26, 2026',
         location: 'Camp Pines, Minnesota',
-        image: '/images/heritage/future-generations.jpg',
+        image: '/images/future-generations.jpg',
         status: 'Registration Open',
         statusColor: '#4A7C59'
     },
@@ -138,7 +138,7 @@ export const upcomingEvents: UpcomingEvent[] = [
         title: 'Six Flags Muslim Day',
         date: 'June 15, 2027',
         location: 'Six Flags Great America',
-        image: '/images/heritage/mosque-community.jpg',
+        image: '/images/mosque-community.jpg',
         status: 'Coming Soon',
         statusColor: '#8B7355'
     },
@@ -146,7 +146,7 @@ export const upcomingEvents: UpcomingEvent[] = [
         title: 'Ramadan Qiyam Night',
         date: 'March 2027',
         location: 'Duha Masjid',
-        image: '/images/heritage/prayer-hall.jpg',
+        image: '/images/prayer-hall.jpg',
         status: 'Waitlist Only',
         statusColor: '#8B4A5E'
     }

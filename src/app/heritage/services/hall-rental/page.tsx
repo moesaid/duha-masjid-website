@@ -17,7 +17,7 @@ const halls = [
         capacity: 500,
         description: 'Our largest venue, perfect for weddings, community banquets, and large gatherings.',
         amenities: ['Full Stage', 'Sound System', 'Projector & Screen', 'Kitchen Access', 'Bridal Suite', 'Separate Entrances'],
-        image: '/images/heritage/mosque-interior.jpg',
+        image: '/images/mosque-interior.jpg',
         rates: {
             weekday: 800,
             weekend: 1200,
@@ -39,7 +39,7 @@ const halls = [
         capacity: 150,
         description: 'A versatile space ideal for medium-sized events, lectures, classes, and family gatherings. Includes modular seating arrangements.',
         amenities: ['Flexible Seating', 'Whiteboard', 'Basic AV', 'Kitchen Access'],
-        image: '/images/heritage/library-shelves.jpg',
+        image: '/images/library-shelves.jpg',
         rates: {
             weekday: 300,
             weekend: 450,
@@ -58,7 +58,7 @@ const halls = [
         capacity: 30,
         description: 'Professional meeting space for board meetings, small classes, or private consultations. Quiet and well-equipped.',
         amenities: ['Conference Table', 'Video Conferencing', 'Whiteboard', 'Coffee Service'],
-        image: '/images/heritage/shykh.jpg',
+        image: '/images/shykh.jpg',
         rates: {
             weekday: 100,
             weekend: 150,

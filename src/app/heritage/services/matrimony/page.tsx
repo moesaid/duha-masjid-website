@@ -133,7 +133,7 @@ export default function MatrimonyPage() {
             <section className={styles.covenantHero}>
                 <div className={styles.heroBackground}>
                     <Image
-                        src="/images/heritage/nikkah-ceremony.jpg"
+                        src="/images/nikkah-ceremony.jpg"
                         alt="Sacred Nikkah Ceremony"
                         fill
                         className={styles.heroImage}
