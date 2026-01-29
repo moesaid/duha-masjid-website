@@ -1,0 +1,173 @@
+// HeroSection styles - Heritage Aligned
+// Al-Shifa: The House of Healing
+
+@use "sass:color";
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$gold-light: #e8c963;
+$cream: #faf8f5;
+$white: #fff;
+
+$arabesque-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Cpath d='M30 10L50 30L30 50L10 30z'/%3E%3Ccircle cx='30' cy='30' r='5'/%3E%3C/g%3E%3C/svg%3E");
+
+.heroSection {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 2rem 12rem;
+    background: linear-gradient(135deg, $emerald 0%, $emerald-dark 100%);
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: $arabesque-pattern;
+        background-size: 60px 60px;
+        opacity: 0.1;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center,
+                transparent 0%,
+                rgba(0, 0, 0, 0.3) 100%);
+        pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+        padding: 4rem 1.5rem 14rem;
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.heroCalligraphy {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    color: $gold-light;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.heroRef {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba($white, 0.7);
+    margin-bottom: 2.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: $white;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: rgba($white, 0.9);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.heroCta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.heroBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+
+    &.primary {
+        background: $gold;
+        color: $emerald-dark;
+
+        &:hover {
+            background: $gold-light;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba($gold, 0.4);
+        }
+    }
+
+    &.secondary {
+        background: transparent;
+        color: $white;
+        border: 2px solid rgba($white, 0.4);
+
+        &:hover {
+            background: rgba($white, 0.1);
+            border-color: $white;
+        }
+    }
+}
+
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba($white, 0.15);
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+
+    .statusDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #4ade80;
+        animation: pulse 2s infinite;
+    }
+
+    .statusText {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $white;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+    }
+}

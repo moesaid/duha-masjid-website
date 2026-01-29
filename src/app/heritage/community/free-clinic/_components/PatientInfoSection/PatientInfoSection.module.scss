@@ -1,0 +1,141 @@
+// PatientInfoSection styles - High-visibility Triage Card
+// HERITAGE ALIGNED - Emerald, Gold, Cream
+
+@use "sass:color";
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$emerald-light: #0d7045;
+$gold: #d4af37;
+$gold-light: #e8c963;
+$cream: #faf8f5;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+.patientInfoSection {
+    margin-top: -10rem;
+    padding: 0 2rem 4rem;
+    position: relative;
+    z-index: 10;
+
+    @media (max-width: 768px) {
+        margin-top: -12rem;
+        padding: 0 1rem 3rem;
+    }
+}
+
+.infoCard {
+    max-width: 900px;
+    margin: 0 auto;
+    background: $white;
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.06);
+    border-top: 4px solid $gold;
+    overflow: hidden;
+}
+
+.cardHeader {
+    background: linear-gradient(90deg, $emerald 0%, $emerald-light 100%);
+    padding: 1.25rem 2rem;
+    text-align: center;
+}
+
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: rgba($white, 0.15);
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: $white;
+    letter-spacing: 0.02em;
+
+    &::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #4ade80;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+    }
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.infoItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 2rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+
+    &:last-child {
+        border-right: none;
+    }
+
+    @media (max-width: 768px) {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 1.5rem;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.infoIcon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    color: $gold;
+}
+
+.infoContent {
+    flex: 1;
+}
+
+.infoTitle {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $emerald;
+    margin-bottom: 0.5rem;
+}
+
+.infoValue {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: $text-dark;
+    margin: 0;
+}

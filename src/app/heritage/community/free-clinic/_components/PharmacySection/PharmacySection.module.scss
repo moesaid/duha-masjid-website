@@ -1,0 +1,67 @@
+// PharmacySection styles - Horizontal utility section
+// HERITAGE ALIGNED - Emerald, Gold, Cream
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$cream: #faf8f5;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+.pharmacySection {
+    padding: 3rem 2rem;
+    background: linear-gradient(90deg, $parchment 0%, $cream 100%);
+    border-top: 1px solid rgba($gold, 0.3);
+    border-bottom: 1px solid rgba($gold, 0.3);
+
+    @media (max-width: 768px) {
+        padding: 2rem 1rem;
+    }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.pharmacyIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: rgba($emerald, 0.1);
+    border-radius: 50%;
+    font-size: 1.75rem;
+    color: $emerald;
+    flex-shrink: 0;
+}
+
+.content {
+    flex: 1;
+}
+
+.title {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: 1.25rem;
+    color: $emerald-dark;
+    margin: 0 0 0.5rem;
+}
+
+.text {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-muted;
+    margin: 0;
+}

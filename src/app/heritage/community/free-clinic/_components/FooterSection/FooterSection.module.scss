@@ -1,0 +1,85 @@
+// FooterSection styles - Impact + Closing message
+// HERITAGE ALIGNED - Emerald, Gold, Cream
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$gold-light: #e8c963;
+$cream: #faf8f5;
+$parchment: #f5f0e6;
+$white: #fff;
+
+.footerSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, $emerald 0%, $emerald-dark 100%);
+    color: $white;
+
+    @media (max-width: 768px) {
+        padding: 3rem 1rem;
+    }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.impactGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.impactCard {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba($white, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba($white, 0.15);
+}
+
+.impactValue {
+    display: block;
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    color: $gold;
+    margin-bottom: 0.25rem;
+}
+
+.impactLabel {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba($white, 0.85);
+}
+
+.closingMessage {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba($white, 0.2);
+}
+
+.closingText {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-style: italic;
+    line-height: 1.7;
+    color: $gold-light;
+    max-width: 700px;
+    margin: 0 auto 0.75rem;
+}
+
+.closingRef {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba($white, 0.7);
+}

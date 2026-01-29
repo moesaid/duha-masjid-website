@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Users, Clock, Mail, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { Committee } from '../_data';
-import styles from '../CommitteesPage.module.scss';
+import styles from './_shared.module.scss';
 
 export function HeroSection() {
     return (

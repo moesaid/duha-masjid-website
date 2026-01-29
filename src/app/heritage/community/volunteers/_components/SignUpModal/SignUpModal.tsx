@@ -1,5 +1,6 @@
-import { X, Heart } from 'lucide-react';
+import { X, Heart, ChevronRight } from 'lucide-react';
 import { volunteerAreas } from '../../_data';
+import { FormDropdown } from '../../../../_components';
 import styles from './SignUpModal.module.scss';
 
 interface SignUpModalProps {
@@ -12,6 +13,12 @@ export function SignUpModal({ isOpen, selectedArea, onClose }: SignUpModalProps)
     if (!isOpen) return null;
 
     const selectedAreaData = volunteerAreas.find(a => a.id === selectedArea);
+
+    // Convert volunteer areas to dropdown options
+    const areaOptions = volunteerAreas.map(a => ({
+        value: a.id,
+        label: a.title
+    }));
 
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
@@ -32,14 +39,17 @@ export function SignUpModal({ isOpen, selectedArea, onClose }: SignUpModalProps)
                         <input type="email" placeholder="Email" required />
                         <input type="tel" placeholder="Phone" required />
                     </div>
-                    <select required defaultValue={selectedArea || ''}>
-                        <option value="" disabled>Select Area</option>
-                        {volunteerAreas.map(a => (
-                            <option key={a.id} value={a.id}>{a.title}</option>
-                        ))}
-                    </select>
+                    <FormDropdown
+                        placeholder="Select Area"
+                        options={areaOptions}
+                        defaultValue={selectedArea || ''}
+                        required
+                    />
                     <textarea placeholder="Tell us about your availability and experience..." rows={3} />
-                    <button type="submit" className={styles.submitBtn}>Submit Application</button>
+                    <button type="submit" className={styles.submitBtn}>
+                        Submit Application
+                        <ChevronRight size={18} />
+                    </button>
                 </form>
             </div>
         </div>

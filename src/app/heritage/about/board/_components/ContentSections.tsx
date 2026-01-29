@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Quote, Mail, ChevronDown, Download } from 'lucide-react';
 import { BoardMember, SubCommittee } from '../_data';
-import styles from '../BoardPage.module.scss';
+import styles from './_shared.module.scss';
 
 export function HeroSection() {
     return (

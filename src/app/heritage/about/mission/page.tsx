@@ -1,4 +1,4 @@
-import styles from './MissionPage.module.scss';
+import styles from './_components/_shared.module.scss';
 import templateStyles from '../../_styles/template.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';

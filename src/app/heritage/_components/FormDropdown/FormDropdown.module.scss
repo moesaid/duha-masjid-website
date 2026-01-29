@@ -1,0 +1,114 @@
+// FormDropdown styles - Shadcn-based Heritage Select
+// Uses shadcn Select with Heritage color tokens
+
+@use "sass:color";
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$gold-dark: #b8960c;
+$cream: #f8f5f0;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+$border: #e0dcd4;
+$error-red: #dc2626;
+
+.dropdownGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $text-dark;
+}
+
+.required {
+    color: $error-red;
+    margin-left: 0.25rem;
+}
+
+// Heritage-styled Select Trigger
+.selectTrigger {
+    width: 100% !important;
+    padding: 0.875rem 1rem !important;
+    height: auto !important;
+    min-height: 48px !important;
+    background: $white !important;
+    border: 1.5px solid rgba(0, 0, 0, 0.12) !important;
+    border-radius: 8px !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    color: $text-dark !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.25) !important;
+    }
+
+    &:focus,
+    &[data-state="open"] {
+        outline: none !important;
+        border-color: $emerald !important;
+        box-shadow: 0 0 0 3px rgba($emerald, 0.12) !important;
+    }
+
+    // Placeholder styling
+    [data-placeholder] {
+        color: $text-muted !important;
+    }
+
+    // Chevron styling
+    svg {
+        color: $text-muted !important;
+        opacity: 0.7 !important;
+    }
+}
+
+// Select Dropdown Content
+.selectContent {
+    background: $white !important;
+    border: 1px solid $border !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+    overflow: hidden !important;
+    z-index: 9999 !important;
+
+    // Animation overrides
+    animation-duration: 150ms !important;
+}
+
+// Select Items
+.selectItem {
+    padding: 0.75rem 1rem !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    color: $text-dark !important;
+    cursor: pointer !important;
+    border-radius: 0 !important;
+    transition: background-color 0.15s ease !important;
+
+    &:hover,
+    &:focus,
+    &[data-highlighted] {
+        background: $parchment !important;
+        outline: none !important;
+    }
+
+    &[data-state="checked"] {
+        background: rgba($emerald, 0.08) !important;
+        color: $emerald-dark !important;
+        font-weight: 500 !important;
+    }
+
+    // Check icon
+    span[data-slot="select-item-indicator"] svg {
+        color: $emerald !important;
+    }
+}

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { BookOpen, FileText, Download, Calendar, HardDrive, ShieldCheck, ChevronDown } from 'lucide-react';
 import { Category, Document, ConductRule, FAQ, categories } from '../_data';
-import styles from '../PoliciesPage.module.scss';
+import styles from './_shared.module.scss';
 
 export function HeroSection() {
     return (

@@ -1,49 +1,72 @@
-/* ApplicationModal Component Styles */
+// AppointmentModal styles - Heritage Aligned
 
-$navy-primary: #1A3A5C;
-$navy-dark: #0F2540;
-$navy-light: #2C5275;
-$gold-primary: #B8860B;
-$gold-light: #D4A84B;
-$cream-bg: #FAF8F5;
-$cream-warm: #F5F0E8;
-$text-dark: #1A2D3D;
-$text-muted: #5A6B7A;
-$border-light: rgba(26, 58, 92, 0.12);
-$success-green: #4CAF50;
-$error-red: #C62828;
+@use "sass:color";
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$gold-light: #e8c963;
+$cream: #faf8f5;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+$border-light: rgba(0, 0, 0, 0.1);
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .modalOverlay {
     position: fixed;
     inset: 0;
-    background: rgba(15, 37, 64, 0.85);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    padding: 2rem;
+    padding: 1rem;
     overflow-y: auto;
+    animation: fadeIn 0.3s ease;
 }
 
 .modalContent {
-    background: #fff;
-    border-radius: 16px;
-    max-width: 640px;
+    position: relative;
+    background: $white;
+    max-width: 560px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
-    position: relative;
+    border-radius: 16px;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
 }
 
 .modalClose {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba($white, 0.2);
     border: none;
-    color: #fff;
+    color: $white;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -52,43 +75,50 @@ $error-red: #C62828;
     justify-content: center;
     cursor: pointer;
     transition: background 0.2s ease;
+    z-index: 10;
 
     &:hover {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba($white, 0.3);
     }
 }
 
 .modalHeader {
-    background: $navy-primary;
-    color: #fff;
-    padding: 2rem;
+    background: linear-gradient(135deg, $emerald 0%, $emerald-dark 100%);
+    color: $white;
+    padding: 2.5rem 2rem;
     text-align: center;
 
-    svg {
-        color: $gold-light;
-        margin-bottom: 1rem;
-    }
-
     h2 {
-        font-family: var(--font-heading);
-        font-size: 1.5rem;
+        font-family: var(--font-display);
+        font-size: 1.75rem;
         font-weight: 700;
         margin: 0 0 0.5rem;
     }
 
     p {
         font-family: var(--font-body);
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.8);
+        font-size: 1rem;
+        color: rgba($white, 0.85);
         margin: 0;
     }
 }
 
-.modalBody {
-    padding: 2rem;
+.modalIcon {
+    width: 56px;
+    height: 56px;
+    background: rgba($gold, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+
+    svg {
+        color: $gold;
+    }
 }
 
-.applicationForm {
+.appointmentForm {
     padding: 2rem;
 
     @media (max-width: 500px) {
@@ -101,36 +131,21 @@ $error-red: #C62828;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid $border-light;
 
-    &:last-child {
+    &:last-of-type {
         margin-bottom: 0;
         padding-bottom: 0;
         border-bottom: none;
     }
 
     h3 {
-        font-family: var(--font-heading);
+        font-family: var(--font-display);
         font-size: 1.1rem;
         font-weight: 600;
-        color: $navy-primary;
+        color: $emerald-dark;
         margin: 0 0 1.25rem;
         padding-bottom: 0.75rem;
-        border-bottom: 2px solid $gold-primary;
+        border-bottom: 2px solid $gold;
         display: inline-block;
-    }
-
-    h4 {
-        font-family: var(--font-heading);
-        font-size: 1rem;
-        font-weight: 600;
-        color: $text-dark;
-        margin: 0 0 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-
-        svg {
-            color: $gold-primary;
-        }
     }
 }
 
@@ -170,13 +185,13 @@ $error-red: #C62828;
         font-family: var(--font-body);
         font-size: 0.95rem;
         color: $text-dark;
-        background: #fff;
+        background: $white;
         transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
         &:focus {
             outline: none;
-            border-color: $navy-primary;
-            box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.1);
+            border-color: $emerald;
+            box-shadow: 0 0 0 3px rgba($emerald, 0.1);
         }
 
         &::placeholder {
@@ -186,7 +201,7 @@ $error-red: #C62828;
 
     select {
         appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235A6B7A' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23555' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: right 1rem center;
         padding-right: 2.5rem;
@@ -195,7 +210,7 @@ $error-red: #C62828;
 
     textarea {
         resize: vertical;
-        min-height: 100px;
+        min-height: 80px;
     }
 }
 
@@ -212,60 +227,44 @@ $error-red: #C62828;
         transition: color 0.2s ease;
     }
 
-    input {
+    input,
+    select {
         padding-left: 2.75rem;
     }
 
     &:focus-within {
         svg {
-            color: $navy-primary;
+            color: $emerald;
         }
     }
 }
 
-.gradeLevel {
-    display: flex;
+.formFooter {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: $parchment;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.noInsuranceNote {
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem;
-    background: $cream-warm;
-    border-radius: 6px;
-    margin-bottom: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba($emerald, 0.1);
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
 
     svg {
-        color: $gold-primary;
+        color: $emerald;
     }
 
     span {
         font-family: var(--font-body);
         font-size: 0.9rem;
-        color: $text-dark;
-    }
-}
-
-.modalFooter {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    padding: 1.5rem 2rem;
-    background: #FAFAFA;
-    border-top: 1px solid $border-light;
-}
-
-.cancelBtn {
-    padding: 0.75rem 1.5rem;
-    background: transparent;
-    border: 1px solid $border-light;
-    border-radius: 6px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: $text-muted;
-    cursor: pointer;
-    transition: all 0.2s ease;
-
-    &:hover {
-        border-color: $navy-primary;
-        color: $navy-primary;
+        color: $emerald-dark;
+        font-weight: 500;
     }
 }
 
@@ -276,47 +275,26 @@ $error-red: #C62828;
     gap: 0.5rem;
     width: 100%;
     padding: 1rem 1.5rem;
-    background: $navy-primary;
+    background: $gold;
     border: none;
     border-radius: 8px;
     font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 600;
-    color: #fff;
+    color: $emerald-dark;
     cursor: pointer;
     transition: all 0.2s ease;
 
     &:hover {
-        background: $navy-dark;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(26, 58, 92, 0.3);
+        background: $gold-light;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba($gold, 0.4);
     }
 }
 
-.formFooter {
-    margin-top: 2rem;
-    padding: 1.5rem 2rem;
-    background: $cream-warm;
-    border-radius: 12px;
-    text-align: center;
-
-    @media (max-width: 500px) {
-        padding: 1.25rem;
-    }
-}
-
-.feeNotice {
+.confirmNote {
     font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: $text-dark;
-    margin: 0 0 1.25rem;
-    padding: 0.75rem 1rem;
-    background: rgba(184, 134, 11, 0.1);
-    border-left: 3px solid $gold-primary;
-    border-radius: 4px;
-    text-align: left;
-
-    strong {
-        color: $navy-primary;
-    }
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin: 1rem 0 0;
 }

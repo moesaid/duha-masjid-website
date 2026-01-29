@@ -1,0 +1,1 @@
+export { MedicalTeamSection } from './MedicalTeamSection';

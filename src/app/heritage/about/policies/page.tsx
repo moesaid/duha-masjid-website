@@ -10,7 +10,7 @@ import {
     ConductSection,
     FAQSection
 } from './_components';
-import styles from './PoliciesPage.module.scss';
+import styles from './_components/_shared.module.scss';
 import templateStyles from '../../_styles/template.module.scss';
 
 /**

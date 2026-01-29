@@ -4,7 +4,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import styles from './CommitteesPage.module.scss';
+import styles from './_components/_shared.module.scss';
 import { ChevronDown, Users, BookOpen, Heart, Megaphone, Home, Baby, Shield, Wallet } from 'lucide-react';
 
 // Committee Data

@@ -47,10 +47,10 @@ export const committeesData: Record<string, Committee> = {
             'Coordinate adult education classes'
         ],
         currentProjects: [
-            'Launching new youth Islamic studies curriculum',
-            'Expanding adult Arabic language program',
-            'Developing online learning platform',
-            'Organizing annual Quran competition'
+            { id: 'youth-curriculum', name: 'Youth Islamic Studies Curriculum', status: 'In Development', progress: 60 },
+            { id: 'arabic-program', name: 'Adult Arabic Language Program', status: 'Expanding', progress: 75 },
+            { id: 'online-platform', name: 'Online Learning Platform', status: 'Planning', progress: 20 },
+            { id: 'quran-competition', name: 'Annual Quran Competition', status: 'Organizing', progress: 40 }
         ],
         howToJoin: 'We welcome educators, parents, and community members passionate about Islamic education. Contact us at education@alnoormasjid.org or attend our monthly meeting to learn more.'
     },
@@ -73,10 +73,10 @@ export const committeesData: Record<string, Committee> = {
             'Present quarterly financial reports to board'
         ],
         currentProjects: [
-            'Building fund expansion campaign',
-            'Implementing new donation management system',
-            'Establishing endowment fund',
-            'Annual audit preparation'
+            { id: 'building-fund', name: 'Building Fund Expansion Campaign', status: 'Active', progress: 65 },
+            { id: 'donation-system', name: 'New Donation Management System', status: 'Implementation', progress: 80 },
+            { id: 'endowment-fund', name: 'Endowment Fund Establishment', status: 'Planning', progress: 25 },
+            { id: 'annual-audit', name: 'Annual Audit Preparation', status: 'In Progress', progress: 50 }
         ],
         howToJoin: 'We seek members with backgrounds in finance, accounting, or business management. Contact finance@alnoormasjid.org for more information.'
     },
@@ -99,10 +99,10 @@ export const committeesData: Record<string, Committee> = {
             'Manage women volunteer coordination'
         ],
         currentProjects: [
-            'Monthly halaqah series',
-            "New mothers' support group",
-            "Ramadan sisters' iftar program",
-            "Women's health and wellness workshops"
+            { id: 'halaqah-series', name: 'Monthly Halaqah Series', status: 'Ongoing', progress: 85 },
+            { id: 'mothers-support', name: "New Mothers' Support Group", status: 'Active', progress: 70 },
+            { id: 'sisters-iftar', name: "Ramadan Sisters' Iftar Program", status: 'Planning', progress: 30 },
+            { id: 'wellness-workshops', name: "Women's Health & Wellness Workshops", status: 'Monthly', progress: 60 }
         ],
         howToJoin: "All sisters are welcome to join our committee. Attend our monthly meeting or email women@alnoormasjid.org to get involved."
     },
@@ -151,10 +151,10 @@ export const committeesData: Record<string, Committee> = {
             'Respond to community inquiries'
         ],
         currentProjects: [
-            'Annual Open Mosque Day',
-            'Interfaith Thanksgiving dinner',
-            'Neighbor relations initiative',
-            'What is Islam? workshop series'
+            { id: 'open-mosque-day', name: 'Annual Open Mosque Day', status: 'Planning', progress: 35 },
+            { id: 'interfaith-dinner', name: 'Interfaith Thanksgiving Dinner', status: 'Organizing', progress: 45 },
+            { id: 'neighbor-initiative', name: 'Neighbor Relations Initiative', status: 'Active', progress: 70 },
+            { id: 'islam-workshop', name: 'What is Islam? Workshop Series', status: 'Ongoing', progress: 80 }
         ],
         howToJoin: 'We seek articulate, friendly community members who enjoy meeting people. Training provided. Contact outreach@alnoormasjid.org.'
     },
@@ -177,10 +177,10 @@ export const committeesData: Record<string, Committee> = {
             'Ensure safety and security'
         ],
         currentProjects: [
-            'Phase 2 building expansion',
-            'Parking lot expansion',
-            'HVAC system upgrade',
-            'Security camera installation'
+            { id: 'building-expansion', name: 'Phase 2 Building Expansion', status: 'In Progress', progress: 55 },
+            { id: 'parking-expansion', name: 'Parking Lot Expansion', status: 'Planning', progress: 20 },
+            { id: 'hvac-upgrade', name: 'HVAC System Upgrade', status: 'Scheduled', progress: 10 },
+            { id: 'security-cameras', name: 'Security Camera Installation', status: 'Implementation', progress: 75 }
         ],
         howToJoin: 'We need volunteers with skills in construction, electrical, plumbing, or general handyman work. Contact facilities@alnoormasjid.org.'
     }

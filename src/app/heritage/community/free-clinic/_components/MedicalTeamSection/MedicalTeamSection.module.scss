@@ -1,0 +1,164 @@
+// MedicalTeamSection styles - Volunteer Team
+// HERITAGE ALIGNED - Emerald, Gold, Cream
+
+@use "sass:color";
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$emerald-light: #0d7045;
+$gold: #d4af37;
+$gold-light: #e8c963;
+$cream: #faf8f5;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+.teamSection {
+    padding: 5rem 2rem;
+    background: $white;
+
+    @media (max-width: 768px) {
+        padding: 3rem 1rem;
+    }
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.imageColumn {
+    @media (max-width: 900px) {
+        order: 2;
+    }
+}
+
+.imagePlaceholder {
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, $parchment 0%, $cream 100%);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: 2px solid rgba($gold, 0.3);
+}
+
+.placeholderIcon {
+    font-size: 3rem;
+    color: $emerald;
+}
+
+.placeholderText {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $emerald;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.contentColumn {
+    @media (max-width: 900px) {
+        order: 1;
+        text-align: center;
+    }
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    background: rgba($gold, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: $emerald-dark;
+    margin: 0 0 1.25rem;
+}
+
+.description {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin: 0 0 2rem;
+
+    em {
+        font-style: italic;
+        color: $emerald;
+    }
+}
+
+.rolesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.roleCard {
+    background: $parchment;
+    border-radius: 8px;
+    padding: 1rem;
+    border-left: 3px solid $gold;
+}
+
+.roleTitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $emerald-dark;
+    margin: 0 0 0.35rem;
+}
+
+.roleDescription {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: $text-muted;
+    margin: 0;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: $gold;
+    color: $emerald-dark;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+
+    &:hover {
+        background: $gold-light;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba($gold, 0.4);
+    }
+}

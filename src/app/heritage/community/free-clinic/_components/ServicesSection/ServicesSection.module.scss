@@ -1,0 +1,145 @@
+// ServicesSection styles - The Formulary
+// HERITAGE ALIGNED - Emerald, Gold, Cream
+
+@use "sass:color";
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$gold-light: #e8c963;
+$cream: #faf8f5;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+.servicesSection {
+    padding: 5rem 2rem;
+    background: $cream;
+
+    @media (max-width: 768px) {
+        padding: 3rem 1rem;
+    }
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    background: rgba($gold, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: $emerald-dark;
+    margin: 0;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.serviceCard {
+    background: $white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-top: 3px solid $gold;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.serviceIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.25rem;
+    background: rgba($emerald, 0.1);
+    border-radius: 50%;
+    font-size: 1.75rem;
+    color: $emerald;
+}
+
+.serviceTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: 1.25rem;
+    color: $emerald-dark;
+    margin: 0 0 0.75rem;
+}
+
+.serviceDescription {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-muted;
+    margin: 0;
+}
+
+.disclaimer {
+    background: $parchment;
+    border: 1px solid rgba($gold, 0.3);
+    border-left: 4px solid $gold;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+}
+
+.disclaimerTitle {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: color.adjust($gold, $lightness: -20%);
+    margin: 0 0 0.75rem;
+}
+
+.disclaimerList {
+    margin: 0;
+    padding-left: 1.25rem;
+
+    li {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: $text-dark;
+        margin-bottom: 0.25rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

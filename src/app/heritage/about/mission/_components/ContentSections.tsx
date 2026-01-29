@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Target, Eye, Heart } from 'lucide-react';
 import { coreValues, missionStatement, visionStatement, historyTimeline, CoreValue } from '../_data';
-import styles from '../MissionPage.module.scss';
+import styles from './_shared.module.scss';
 
 export function HeroSection() {
     return (

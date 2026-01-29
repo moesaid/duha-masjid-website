@@ -1,0 +1,221 @@
+// Shared tokens and page container for Free Clinic page
+// HERITAGE PALETTE - Aligned with site-wide design system
+// Palette: Emerald, Gold, Cream | Vibe: Dignified, Healing, Trust
+
+@use "sass:color";
+
+// Heritage palette
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$emerald-light: #0d7045;
+$gold: #d4af37;
+$gold-light: #e8c963;
+$cream: #faf8f5;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+$midnight-blue: #1a2744;
+
+// Arabesque pattern (Heritage style)
+$arabesque-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Cpath d='M30 10L50 30L30 50L10 30z'/%3E%3Ccircle cx='30' cy='30' r='5'/%3E%3C/g%3E%3C/svg%3E");
+
+.freeClinicPage {
+    min-height: 100vh;
+    background: $cream;
+}
+
+// Shared section header
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    background: rgba($gold, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: $emerald-dark;
+    margin-bottom: 0.75rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: $text-muted;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+// Shared card styles
+.card {
+    background: $white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border-top: 3px solid $gold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+}
+
+// Primary CTA Button
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: $gold;
+    color: $emerald-dark;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+        background: color.adjust($gold, $lightness: 10%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba($gold, 0.4);
+    }
+}
+
+// Secondary Button
+.secondaryButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: $emerald;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid $emerald;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+        background: $emerald;
+        color: $white;
+    }
+}
+
+// Impact Strip
+.impactStrip {
+    background: $emerald;
+    padding: 2rem 0;
+
+    .impactGrid {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        flex-wrap: wrap;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .impactItem {
+        text-align: center;
+
+        .impactNumber {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: $gold;
+            display: block;
+        }
+
+        .impactLabel {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: rgba($white, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+    }
+}
+
+// Appointment booking styles
+.appointmentSection {
+    padding: 5rem 2rem;
+    background: $parchment;
+    text-align: center;
+}
+
+.appointmentCard {
+    max-width: 600px;
+    margin: 0 auto;
+    background: $white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid $gold;
+}
+
+.appointmentTitle {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: $emerald-dark;
+    margin-bottom: 0.5rem;
+}
+
+.appointmentDesc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    margin-bottom: 2rem;
+}
+
+.bookingActions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+
+    @media (min-width: 500px) {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.phoneNumber {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: $emerald;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    svg {
+        color: $gold;
+    }
+}
+
+.orDivider {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    padding: 0 1rem;
+}

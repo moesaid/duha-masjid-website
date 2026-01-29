@@ -1,0 +1,217 @@
+// FormDatePicker styles - Shadcn-based Heritage Calendar
+// Uses shadcn Calendar with Heritage color tokens
+
+@use "sass:color";
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$gold-dark: #b8960c;
+$cream: #f8f5f0;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+$border: #e0dcd4;
+$error-red: #dc2626;
+
+.datePickerGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $text-dark;
+}
+
+.required {
+    color: $error-red;
+    margin-left: 0.25rem;
+}
+
+// Heritage-styled Date Picker Trigger
+.datePickerTrigger {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: $white;
+    border: 1.5px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    svg {
+        color: $gold;
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.25);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $emerald;
+        box-shadow: 0 0 0 3px rgba($emerald, 0.12);
+    }
+
+    &.placeholder {
+        color: $text-muted;
+    }
+}
+
+// Calendar Popover Container
+.calendarPopover {
+    width: auto !important;
+    padding: 0 !important;
+    border: 1px solid $border !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+    background: $white !important;
+    z-index: 9999 !important;
+}
+
+// Heritage Calendar styling
+.heritageCalendar {
+    font-family: var(--font-body) !important;
+    background: $white !important;
+    padding: 1rem !important;
+
+    :global(.rdp-root) {
+        --rdp-cell-size: 40px !important;
+        --rdp-accent-color: #{$emerald} !important;
+        --rdp-accent-background-color: #{rgba($gold, 0.15)} !important;
+    }
+
+    :global(.rdp-month) {
+        padding: 0 !important;
+    }
+
+    :global(.rdp-month_caption) {
+        padding: 0 0.5rem 1rem !important;
+        margin-bottom: 0.5rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.75rem !important;
+    }
+
+    :global(.rdp-caption_label) {
+        font-family: 'Playfair Display', Georgia, serif !important;
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+        color: $emerald-dark !important;
+    }
+
+    :global(.rdp-nav) {
+        display: flex !important;
+        gap: 0.5rem !important;
+        justify-content: space-between !important;
+    }
+
+    :global(.rdp-button_previous),
+    :global(.rdp-button_next) {
+        width: 32px !important;
+        height: 32px !important;
+        padding: 0.4rem !important;
+        color: $emerald !important;
+        border: 1px solid $border !important;
+        background: $parchment !important;
+        border-radius: 6px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.2s ease !important;
+
+        &:hover {
+            background: $emerald !important;
+            color: $white !important;
+            border-color: $emerald !important;
+        }
+
+        svg {
+            width: 16px !important;
+            height: 16px !important;
+        }
+    }
+
+    :global(.rdp-weekdays) {
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    :global(.rdp-weekday) {
+        color: $text-muted !important;
+        font-weight: 600 !important;
+        font-size: 0.8rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        padding: 0.5rem !important;
+    }
+
+    :global(.rdp-week) {
+        margin: 2px 0 !important;
+    }
+
+    :global(.rdp-day) {
+        padding: 2px !important;
+    }
+
+    :global(.rdp-day) button,
+    :global(.rdp-day_button) {
+        width: 36px !important;
+        height: 36px !important;
+        font-family: var(--font-body) !important;
+        font-size: 0.9rem !important;
+        border-radius: 6px !important;
+        transition: all 0.15s ease !important;
+        border: 1px solid transparent !important;
+
+        &:hover {
+            background: rgba($gold, 0.15) !important;
+            border-color: $gold !important;
+        }
+    }
+
+    :global([data-selected="true"]),
+    :global([data-selected-single="true"]) {
+        background: $emerald !important;
+        color: $white !important;
+        font-weight: 600 !important;
+
+        &:hover {
+            background: $emerald-dark !important;
+            border-color: $emerald-dark !important;
+        }
+    }
+
+    :global(.rdp-today) {
+        border: 2px solid $gold !important;
+        background: rgba($gold, 0.1) !important;
+
+        &:global([data-selected="true"]),
+        &:global([data-selected-single="true"]) {
+            background: $emerald !important;
+            border-color: $emerald !important;
+        }
+    }
+
+    :global(.rdp-outside) {
+        opacity: 0.4 !important;
+    }
+
+    :global(.rdp-disabled) {
+        opacity: 0.3 !important;
+        cursor: not-allowed !important;
+    }
+}
