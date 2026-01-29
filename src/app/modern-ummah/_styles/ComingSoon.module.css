@@ -1,0 +1,198 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Coming Soon - Neo-Islamic Minimalism
+   Placeholder section for pages under construction
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.comingSoon {
+    min-height: calc(100vh - 5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    background: linear-gradient(180deg,
+            oklch(0.97 0.01 160 / 0.3) 0%,
+            oklch(0.98 0 0) 50%,
+            oklch(0.97 0.01 160 / 0.2) 100%);
+}
+
+:global(.dark) .comingSoon {
+    background: linear-gradient(180deg,
+            oklch(0.12 0.02 160 / 0.3) 0%,
+            oklch(0.08 0.01 250) 50%,
+            oklch(0.12 0.02 160 / 0.2) 100%);
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Card with glassmorphism */
+.card {
+    position: relative;
+    background: oklch(1 0 0 / 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow:
+        0 0 0 1px oklch(0 0 0 / 0.04),
+        0 8px 32px oklch(0 0 0 / 0.06),
+        0 24px 64px oklch(0.3 0.1 160 / 0.08);
+    overflow: hidden;
+}
+
+:global(.dark) .card {
+    background: oklch(0.14 0.01 250 / 0.9);
+    box-shadow:
+        0 0 0 1px oklch(1 0 0 / 0.06),
+        0 8px 32px oklch(0 0 0 / 0.3),
+        0 24px 64px oklch(0 0 0 / 0.4);
+}
+
+/* Decorative Islamic geometric pattern */
+.pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            #D4AF37 15%,
+            #F4D03F 30%,
+            #D4AF37 50%,
+            #F4D03F 70%,
+            #D4AF37 85%,
+            transparent 100%);
+    opacity: 0.8;
+}
+
+/* Icon wrapper */
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: linear-gradient(135deg, #064E3B 0%, #059669 100%);
+    border-radius: 1rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 16px oklch(0.3 0.12 160 / 0.3);
+}
+
+/* Title */
+.title {
+    font-family: var(--font-display, system-ui);
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: oklch(0.15 0.02 250);
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+:global(.dark) .title {
+    color: oklch(0.95 0 0);
+}
+
+/* Description */
+.description {
+    font-size: 1.125rem;
+    color: oklch(0.45 0.02 250);
+    line-height: 1.6;
+    margin: 0 0 2rem;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+:global(.dark) .description {
+    color: oklch(0.6 0.02 250);
+}
+
+/* Status badge */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: oklch(0.96 0.01 160);
+    border: 1px solid oklch(0.3 0.1 160 / 0.2);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #064E3B;
+}
+
+:global(.dark) .badge {
+    background: oklch(0.2 0.04 160 / 0.3);
+    border-color: oklch(0.5 0.1 160 / 0.3);
+    color: #10B981;
+}
+
+.badgeDot {
+    width: 8px;
+    height: 8px;
+    background: #10B981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+/* Crescent accent */
+.crescentAccent {
+    position: absolute;
+    bottom: -2rem;
+    right: -2rem;
+    width: 8rem;
+    height: 8rem;
+    border: 3px solid oklch(0.3 0.1 160 / 0.1);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+:global(.dark) .crescentAccent {
+    border-color: oklch(0.5 0.1 160 / 0.15);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .comingSoon {
+        padding: 2rem 1rem;
+        min-height: calc(100vh - 4rem);
+    }
+
+    .card {
+        padding: 2rem 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .iconWrapper {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .iconWrapper svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}

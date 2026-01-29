@@ -1,15 +1,10 @@
-import styles from '../../_styles/template.module.css';
+import { ComingSoon } from '../../_components/ComingSoon';
 
-export default function Page() {
+export default function MissionPage() {
     return (
-        <section className={styles.pageSection}>
-            <div className={styles.pageHeader}>
-                <h1>Our Mission & Vision</h1>
-                <p>Serving the community with the light of Quran and Sunnah</p>
-            </div>
-            <div className={styles.pageContent}>
-                <p>This page is under construction. Check back soon for more information.</p>
-            </div>
-        </section>
+        <ComingSoon
+            title="Our Mission"
+            description="Discover our vision, values, and commitment to serving the Muslim community."
+        />
     );
 }

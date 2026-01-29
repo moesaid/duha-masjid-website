@@ -1,15 +1,10 @@
-import styles from '../../_styles/template.module.css';
+import { ComingSoon } from '../../_components/ComingSoon';
 
-export default function Page() {
+export default function NewMuslimsPage() {
     return (
-        <section className={styles.pageSection}>
-            <div className={styles.pageHeader}>
-                <h1>New Muslim Support</h1>
-                <p>Shahada ceremony and community integration</p>
-            </div>
-            <div className={styles.pageContent}>
-                <p>This page is under construction. Check back soon for more information.</p>
-            </div>
-        </section>
+        <ComingSoon
+            title="New Muslim Support"
+            description="Resources and guidance for those new to Islam."
+        />
     );
 }

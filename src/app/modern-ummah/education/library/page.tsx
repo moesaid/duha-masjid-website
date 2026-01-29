@@ -1,15 +1,10 @@
-import styles from '../../_styles/template.module.css';
+import { ComingSoon } from '../../_components/ComingSoon';
 
-export default function Page() {
+export default function LibraryPage() {
     return (
-        <section className={styles.pageSection}>
-            <div className={styles.pageHeader}>
-                <h1>Library</h1>
-                <p>Islamic books and resources</p>
-            </div>
-            <div className={styles.pageContent}>
-                <p>This page is under construction. Check back soon for more information.</p>
-            </div>
-        </section>
+        <ComingSoon
+            title="Library"
+            description="Browse our collection of Islamic books and resources."
+        />
     );
 }

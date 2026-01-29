@@ -1,15 +1,10 @@
-import styles from '../../_styles/template.module.css';
+import { ComingSoon } from '../../_components/ComingSoon';
 
-export default function Page() {
+export default function YouthPage() {
     return (
-        <section className={styles.pageSection}>
-            <div className={styles.pageHeader}>
-                <h1>Youth Group</h1>
-                <p>Programs for teens and young adults</p>
-            </div>
-            <div className={styles.pageContent}>
-                <p>This page is under construction. Check back soon for more information.</p>
-            </div>
-        </section>
+        <ComingSoon
+            title="Youth Programs"
+            description="Engaging programs for our young Muslims."
+        />
     );
 }

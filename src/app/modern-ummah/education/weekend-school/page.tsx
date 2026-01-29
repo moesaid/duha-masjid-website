@@ -1,15 +1,10 @@
-import styles from '../../_styles/template.module.css';
+import { ComingSoon } from '../../_components/ComingSoon';
 
-export default function Page() {
+export default function WeekendSchoolPage() {
     return (
-        <section className={styles.pageSection}>
-            <div className={styles.pageHeader}>
-                <h1>Weekend School</h1>
-                <p>Islamic education for children</p>
-            </div>
-            <div className={styles.pageContent}>
-                <p>This page is under construction. Check back soon for more information.</p>
-            </div>
-        </section>
+        <ComingSoon
+            title="Weekend School"
+            description="Islamic education for children on weekends."
+        />
     );
 }
