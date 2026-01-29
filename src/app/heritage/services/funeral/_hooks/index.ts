@@ -1,0 +1,1 @@
+export { useFuneralState } from './useFuneralState';

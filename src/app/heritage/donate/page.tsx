@@ -19,6 +19,7 @@ import {
     Calendar,
     TrendingUp
 } from 'lucide-react';
+import { SectionHeader, StatCard } from '../_components';
 import styles from './DonatePage.module.scss';
 
 // ========================================
@@ -219,10 +220,12 @@ export default function DonatePage() {
 
             {/* 3. CAMPAIGN CATEGORIES */}
             <section className={styles.categoriesSection}>
-                <div className={styles.sectionHeader}>
-                    <h2 className={styles.sectionTitle}>Ways to Give</h2>
-                    <p className={styles.sectionSubtitle}>Choose the cause closest to your heart</p>
-                </div>
+                <SectionHeader
+                    title="Ways to Give"
+                    subtitle="Choose the cause closest to your heart"
+                    alignment="center"
+                    className={styles.sectionHeader}
+                />
 
                 <div className={styles.categoryGrid}>
                     {categories.map((category) => (
@@ -243,10 +246,12 @@ export default function DonatePage() {
 
             {/* 4. ALL CAMPAIGNS LIST */}
             <section className={styles.campaignsSection}>
-                <div className={styles.sectionHeader}>
-                    <h2 className={styles.sectionTitle}>Active Campaigns</h2>
-                    <p className={styles.sectionSubtitle}>Support our ongoing initiatives</p>
-                </div>
+                <SectionHeader
+                    title="Active Campaigns"
+                    subtitle="Support our ongoing initiatives"
+                    alignment="center"
+                    className={styles.sectionHeader}
+                />
 
                 <div className={styles.campaignsList}>
                     {campaigns.map((campaign) => {
@@ -313,13 +318,14 @@ export default function DonatePage() {
             <section className={styles.trustSection}>
                 <div className={styles.trustGrid}>
                     {trustStats.map((item, idx) => (
-                        <div key={idx} className={styles.trustItem}>
-                            <div className={styles.trustIcon}>
-                                <item.icon size={22} />
-                            </div>
-                            <div className={styles.trustStat}>{item.stat}</div>
-                            <div className={styles.trustLabel}>{item.label}</div>
-                        </div>
+                        <StatCard
+                            key={idx}
+                            icon={item.icon}
+                            stat={item.stat}
+                            label={item.label}
+                            variant="light"
+                            className={styles.trustItem}
+                        />
                     ))}
                 </div>
             </section>

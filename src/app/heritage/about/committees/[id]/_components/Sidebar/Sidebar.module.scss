@@ -1,0 +1,100 @@
+// Sidebar Styles
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+.sidebar {
+    @media (max-width: 900px) {
+        order: -1;
+    }
+}
+
+.infoCard,
+.membersCard {
+    background: $white;
+    border: 1px solid #e8e8e8;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.1rem;
+        color: $emerald-dark;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid $gold;
+    }
+}
+
+.infoItem {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    svg {
+        color: $gold;
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.infoLabel {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $text-muted;
+    margin-bottom: 0.25rem;
+}
+
+.infoValue {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+}
+
+.infoLink {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $emerald;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.membersList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: 0.6rem 0;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+        border-bottom: 1px solid #eee;
+
+        &:first-child {
+            font-weight: 600;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

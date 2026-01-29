@@ -1,0 +1,90 @@
+@use "sass:color";
+
+// Color tokens
+$emerald: #0a5c36;
+$gold: #d4a574;
+$navy: #1a2744;
+$blueprint-blue: #3d5a80;
+
+.progressContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.progressBar {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+
+    &.default {
+        .progressFill {
+            background: $emerald;
+        }
+    }
+
+    &.gold {
+        .progressFill {
+            background: linear-gradient(90deg, $gold, color.adjust($gold, $lightness: 10%));
+        }
+    }
+
+    &.emerald {
+        .progressFill {
+            background: linear-gradient(90deg, $emerald, color.adjust($emerald, $lightness: 10%));
+        }
+    }
+
+    &.blueprint {
+        background: rgba(255, 255, 255, 0.2);
+
+        .progressFill {
+            background: linear-gradient(90deg, $gold, color.adjust($gold, $lightness: 10%));
+        }
+    }
+}
+
+.progressFill {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+// Size variants
+.sm {
+    .progressBar {
+        height: 4px;
+    }
+
+    .progressLabel {
+        font-size: 0.75rem;
+    }
+}
+
+.md {
+    .progressBar {
+        height: 8px;
+    }
+
+    .progressLabel {
+        font-size: 0.875rem;
+    }
+}
+
+.lg {
+    .progressBar {
+        height: 12px;
+    }
+
+    .progressLabel {
+        font-size: 1rem;
+    }
+}
+
+.progressLabel {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: inherit;
+    white-space: nowrap;
+}

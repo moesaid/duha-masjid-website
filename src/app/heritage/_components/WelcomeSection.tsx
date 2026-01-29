@@ -4,11 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../_styles/WelcomeSection.module.scss';
 
-interface WelcomeSectionProps {
-    templateId: string;
-}
-
-export function WelcomeSection({ templateId }: WelcomeSectionProps) {
+export function WelcomeSection() {
     const [imageError, setImageError] = useState(false);
 
     return (

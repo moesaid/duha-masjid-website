@@ -79,11 +79,7 @@ async function fetchEvents(): Promise<EventsApiResponse> {
     };
 }
 
-interface EventsListProps {
-    templateId: string;
-}
-
-export function EventsList({ templateId }: EventsListProps) {
+export function EventsList() {
     const [events, setEvents] = useState<Event[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -144,7 +140,7 @@ export function EventsList({ templateId }: EventsListProps) {
                         </div>
 
                         {/* View All Link */}
-                        <Link href={`/${templateId}/events`} className={styles.viewAllLink}>
+                        <Link href="/heritage/events" className={styles.viewAllLink}>
                             View All Events →
                         </Link>
                     </>

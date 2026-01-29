@@ -10,11 +10,7 @@ interface GivingLevel {
     icon: string;
 }
 
-interface DonationSectionProps {
-    templateId: string;
-}
-
-export function DonationSection({ templateId }: DonationSectionProps) {
+export function DonationSection() {
     const givingLevels: GivingLevel[] = [
         {
             id: 'general',
@@ -55,7 +51,7 @@ export function DonationSection({ templateId }: DonationSectionProps) {
                     {givingLevels.map((level) => (
                         <Link
                             key={level.id}
-                            href={`/${templateId}/donate?fund=${level.id}`}
+                            href={`/heritage/donate?fund=${level.id}`}
                             className={styles.givingTile}
                         >
                             <span className={styles.givingIcon}>{level.icon}</span>
@@ -66,7 +62,7 @@ export function DonationSection({ templateId }: DonationSectionProps) {
                 </div>
 
                 {/* Main Donate Button */}
-                <Link href={`/${templateId}/donate`} className={styles.donateButton}>
+                <Link href="/heritage/donate" className={styles.donateButton}>
                     Donate Now
                 </Link>
             </div>

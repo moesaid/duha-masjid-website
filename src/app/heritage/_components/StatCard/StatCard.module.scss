@@ -1,0 +1,82 @@
+@use "sass:color";
+
+$gold: #d4a574;
+$emerald: #0a5c36;
+$navy: #1a2744;
+
+.statCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+
+    &.light {
+        background: #fff;
+        border: 1px solid #e8e8e8;
+
+        .statIcon {
+            color: $gold;
+        }
+
+        .statValue {
+            color: $emerald;
+        }
+
+        .statLabel {
+            color: #555;
+        }
+    }
+
+    &.dark {
+        background: $navy;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .statIcon {
+            color: $gold;
+        }
+
+        .statValue {
+            color: #fff;
+        }
+
+        .statLabel {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    &.gold {
+        background: linear-gradient(135deg, $gold, color.adjust($gold, $lightness: 10%));
+        border: none;
+
+        .statIcon {
+            color: #fff;
+        }
+
+        .statValue {
+            color: #fff;
+        }
+
+        .statLabel {
+            color: rgba(255, 255, 255, 0.9);
+        }
+    }
+}
+
+.statIcon {
+    margin-bottom: 0.75rem;
+}
+
+.statValue {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.statLabel {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}

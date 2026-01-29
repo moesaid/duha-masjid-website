@@ -21,10 +21,6 @@ interface PrayerTime {
     timeDate?: Date;
 }
 
-interface HeroSliderProps {
-    templateId: string;
-}
-
 // ========================================
 // SIMULATED DATA
 // ========================================
@@ -83,7 +79,7 @@ function useCountdown(targetHour: number, targetMinute: number) {
 
 const TOTAL_SLIDES = 7;
 
-export function HeroSlider({ templateId }: HeroSliderProps) {
+export function HeroSlider() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
 
@@ -146,7 +142,7 @@ export function HeroSlider({ templateId }: HeroSliderProps) {
                                 </div>
                             </div>
                         </div>
-                        <Link href={`/${templateId}/about`} className={styles.slideCta}>About Us</Link>
+                        <Link href="/heritage/about" className={styles.slideCta}>About Us</Link>
                     </div>
                 </div>
 
@@ -186,7 +182,7 @@ export function HeroSlider({ templateId }: HeroSliderProps) {
                                 </div>
                             </div>
                         </div>
-                        <Link href={`/${templateId}/services`} className={styles.slideCta}>View All Services</Link>
+                        <Link href="/heritage/services" className={styles.slideCta}>View All Services</Link>
                     </div>
                 </div>
 
@@ -220,7 +216,7 @@ export function HeroSlider({ templateId }: HeroSliderProps) {
                         <div className={styles.registrationUrgency}>
                             🔔 Registration closes in <strong>14 days</strong>
                         </div>
-                        <Link href={`/${templateId}/education`} className={styles.slideCta}>Enroll Now</Link>
+                        <Link href="/heritage/education" className={styles.slideCta}>Enroll Now</Link>
                     </div>
                 </div>
 
@@ -249,7 +245,7 @@ export function HeroSlider({ templateId }: HeroSliderProps) {
                                 </div>
                             </div>
                         </div>
-                        <Link href={`/${templateId}/community`} className={styles.slideCta}>Join Our Community</Link>
+                        <Link href="/heritage/community" className={styles.slideCta}>Join Our Community</Link>
                     </div>
                 </div>
 
@@ -280,7 +276,7 @@ export function HeroSlider({ templateId }: HeroSliderProps) {
                                 </div>
                             </div>
                         </div>
-                        <Link href={`/${templateId}/events`} className={styles.slideCta}>View All Events</Link>
+                        <Link href="/heritage/events" className={styles.slideCta}>View All Events</Link>
                     </div>
                 </div>
 
@@ -296,7 +292,7 @@ export function HeroSlider({ templateId }: HeroSliderProps) {
                         <p className={styles.slideSubtitle}>Watch, Listen, Learn from Anywhere</p>
 
                         <div className={styles.videoWidget}>
-                            <Link href={`/${templateId}/media/live`} className={styles.videoPlayer}>
+                            <Link href="/heritage/media/live" className={styles.videoPlayer}>
                                 <div className={styles.videoPlayButton}>
                                     <svg viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M8 5v14l11-7z" />
@@ -312,7 +308,7 @@ export function HeroSlider({ templateId }: HeroSliderProps) {
                                 <span className={styles.videoMeta}>1.2K watching now</span>
                             </div>
                         </div>
-                        <Link href={`/${templateId}/media/live`} className={styles.slideCta}>Watch Live</Link>
+                        <Link href="/heritage/media/live" className={styles.slideCta}>Watch Live</Link>
                     </div>
                 </div>
 
@@ -347,7 +343,7 @@ export function HeroSlider({ templateId }: HeroSliderProps) {
                             <span className={styles.statDivider}>•</span>
                             <span>{CAMPAIGN_DATA.daysLeft} days left</span>
                         </div>
-                        <Link href={`/${templateId}/donate`} className={`${styles.slideCta} ${styles.goldFilled}`}>
+                        <Link href="/heritage/donate" className={`${styles.slideCta} ${styles.goldFilled}`}>
                             Donate Now
                         </Link>
                     </div>

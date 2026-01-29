@@ -11,53 +11,49 @@ interface Service {
     href: string;
 }
 
-interface ServicesGridProps {
-    templateId: string;
-}
-
-export function ServicesGrid({ templateId }: ServicesGridProps) {
+export function ServicesGrid() {
     const services: Service[] = [
         {
             id: 'daily-prayers',
             title: 'Daily Prayers',
             description: 'Join us for the five daily prayers in congregation. Experience the spiritual upliftment of praying together as one community.',
             icon: <PrayerIcon />,
-            href: `/${templateId}/prayer-times`,
+            href: '/heritage/prayer-times',
         },
         {
             id: 'weekend-school',
             title: 'Weekend School',
             description: 'Comprehensive Islamic education for children and youth. Quran, Arabic, and Islamic studies every Saturday and Sunday.',
             icon: <BookIcon />,
-            href: `/${templateId}/education`,
+            href: '/heritage/education',
         },
         {
             id: 'counseling',
             title: 'Family Counseling',
             description: 'Confidential spiritual and family counseling services provided by our trained staff and Imam.',
             icon: <HeartIcon />,
-            href: `/${templateId}/services/counseling`,
+            href: '/heritage/services/counseling',
         },
         {
             id: 'nikah',
             title: 'Nikah Services',
             description: 'Complete matrimonial services including pre-marital counseling, nikah ceremonies, and wedding facilities.',
             icon: <RingsIcon />,
-            href: `/${templateId}/services/nikah`,
+            href: '/heritage/services/nikah',
         },
         {
             id: 'funeral',
             title: 'Janazah Services',
             description: 'Compassionate funeral and burial services following Islamic traditions. Available 24/7 for our community.',
             icon: <MoonIcon />,
-            href: `/${templateId}/services/funeral`,
+            href: '/heritage/services/funeral',
         },
         {
             id: 'zakat',
             title: 'Zakat Distribution',
             description: 'Transparent collection and distribution of Zakat to eligible recipients within our community and beyond.',
             icon: <HandsIcon />,
-            href: `/${templateId}/services/zakat`,
+            href: '/heritage/services/zakat',
         },
     ];
 

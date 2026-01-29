@@ -1,0 +1,84 @@
+$gold: #d4a574;
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$navy: #1a2744;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+
+.sectionHeader {
+    margin-bottom: 2rem;
+
+    &.center {
+        text-align: center;
+
+        .sectionSubtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &.left {
+        text-align: left;
+    }
+}
+
+.sectionNumber {
+    display: block;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $gold;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin-top: 0.75rem;
+    max-width: 600px;
+}
+
+// Variants
+.default {
+    .sectionTitle {
+        color: $emerald-dark;
+    }
+}
+
+.gold-border {
+    .sectionTitle {
+        color: $emerald-dark;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid $gold;
+    }
+}
+
+.blueprint {
+    .sectionNumber {
+        font-family: 'Roboto Slab', monospace;
+        color: $gold;
+    }
+
+    .sectionTitle {
+        font-family: 'Roboto Slab', Georgia, serif;
+        color: $navy;
+    }
+}
+
+.minimal {
+    .sectionTitle {
+        color: $text-dark;
+        font-size: clamp(1.25rem, 2vw, 1.5rem);
+    }
+}

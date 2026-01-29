@@ -24,7 +24,6 @@ interface NavigationData {
 
 interface HeaderProps {
     siteName?: string;
-    templateId: string;
 }
 
 // Simulated API call for navigation data
@@ -35,7 +34,7 @@ async function fetchNavigation(): Promise<NavigationData> {
     return response.default as NavigationData;
 }
 
-export function Header({ siteName = 'Al-Noor Masjid', templateId }: HeaderProps) {
+export function Header({ siteName = 'Al-Noor Masjid' }: HeaderProps) {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [expandedDropdowns, setExpandedDropdowns] = useState<Set<string>>(new Set());
     const [navItems, setNavItems] = useState<NavItem[]>([]);
@@ -71,7 +70,7 @@ export function Header({ siteName = 'Al-Noor Masjid', templateId }: HeaderProps)
             return (
                 <Link
                     key={item.label}
-                    href={`/${templateId}${item.url}`}
+                    href={`/heritage${item.url}`}
                     className={styles.navLink}
                 >
                     {item.label}
@@ -90,7 +89,7 @@ export function Header({ siteName = 'Al-Noor Masjid', templateId }: HeaderProps)
                     {item.children?.map((child) => (
                         <Link
                             key={child.url}
-                            href={`/${templateId}${child.url}`}
+                            href={`/heritage${child.url}`}
                             className={styles.dropdownLink}
                         >
                             {child.label}
@@ -115,7 +114,7 @@ export function Header({ siteName = 'Al-Noor Masjid', templateId }: HeaderProps)
                     </nav>
 
                     {/* Centered Logo */}
-                    <Link href={`/${templateId}`} className={styles.logo}>
+                    <Link href="/heritage" className={styles.logo}>
                         <span className={styles.logoMain}>{siteName}</span>
                         <span className={styles.logoTagline}>Est. 1985</span>
                     </Link>
@@ -123,7 +122,7 @@ export function Header({ siteName = 'Al-Noor Masjid', templateId }: HeaderProps)
                     {/* Right Navigation + Donate CTA */}
                     <nav className={styles.navRight}>
                         {rightNav.map((item) => renderNavItem(item, 'right'))}
-                        <Link href={`/${templateId}/donate`} className={styles.donateBtn}>
+                        <Link href="/heritage/donate" className={styles.donateBtn}>
                             Donate
                         </Link>
                     </nav>
@@ -160,7 +159,7 @@ export function Header({ siteName = 'Al-Noor Masjid', templateId }: HeaderProps)
                     <div key={item.label} className={styles.mobileNavItem}>
                         {item.type === 'single_link' ? (
                             <Link
-                                href={`/${templateId}${item.url}`}
+                                href={`/heritage${item.url}`}
                                 className={styles.mobileNavLink}
                                 onClick={() => setMobileOpen(false)}
                             >
@@ -182,7 +181,7 @@ export function Header({ siteName = 'Al-Noor Masjid', templateId }: HeaderProps)
                                     {item.children?.map((child) => (
                                         <Link
                                             key={child.url}
-                                            href={`/${templateId}${child.url}`}
+                                            href={`/heritage${child.url}`}
                                             className={styles.mobileNavLink}
                                             onClick={() => setMobileOpen(false)}
                                         >
@@ -196,7 +195,7 @@ export function Header({ siteName = 'Al-Noor Masjid', templateId }: HeaderProps)
                 ))}
 
                 <Link
-                    href={`/${templateId}/donate`}
+                    href="/heritage/donate"
                     className={styles.mobileDonateBtn}
                     onClick={() => setMobileOpen(false)}
                 >

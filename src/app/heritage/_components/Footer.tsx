@@ -17,7 +17,6 @@ interface NavigationData {
 
 interface FooterProps {
     siteName?: string;
-    templateId: string;
 }
 
 // Simulated API call for navigation data
@@ -26,7 +25,7 @@ async function fetchNavigation(): Promise<NavigationData> {
     return response.default as NavigationData;
 }
 
-export function Footer({ siteName = 'Al-Noor Masjid', templateId }: FooterProps) {
+export function Footer({ siteName = 'Al-Noor Masjid' }: FooterProps) {
     const currentYear = new Date().getFullYear();
     const [navItems, setNavItems] = useState<NavItem[]>([]);
     const [email, setEmail] = useState('');
@@ -54,7 +53,7 @@ export function Footer({ siteName = 'Al-Noor Masjid', templateId }: FooterProps)
                 <div className={styles.footerInner}>
                     {/* Column 1: Identity & Mission */}
                     <div className={`${styles.footerColumn} ${styles.logoColumn}`}>
-                        <Link href={`/${templateId}`} className={styles.footerLogo}>
+                        <Link href="/heritage" className={styles.footerLogo}>
                             {siteName.split(' ')[0]}
                             <span className={styles.footerLogoAccent}>
                                 {' '}{siteName.split(' ').slice(1).join(' ')}
@@ -88,7 +87,7 @@ export function Footer({ siteName = 'Al-Noor Masjid', templateId }: FooterProps)
                             {navItems.map((item) => (
                                 <li key={item.label} className={styles.navItem}>
                                     <Link
-                                        href={`/${templateId}${item.url || ''}`}
+                                        href={`/heritage${item.url || ''}`}
                                         className={styles.navLink}
                                     >
                                         {item.label}
@@ -166,15 +165,15 @@ export function Footer({ siteName = 'Al-Noor Masjid', templateId }: FooterProps)
                         © {currentYear} {siteName}. All rights reserved.
                     </span>
                     <div className={styles.legalLinks}>
-                        <Link href={`/${templateId}/privacy`} className={styles.legalLink}>
+                        <Link href="/heritage/privacy" className={styles.legalLink}>
                             Privacy Policy
                         </Link>
                         <span className={styles.legalDivider}>|</span>
-                        <Link href={`/${templateId}/terms`} className={styles.legalLink}>
+                        <Link href="/heritage/terms" className={styles.legalLink}>
                             Terms of Use
                         </Link>
                         <span className={styles.legalDivider}>|</span>
-                        <Link href={`/${templateId}/accessibility`} className={styles.legalLink}>
+                        <Link href="/heritage/accessibility" className={styles.legalLink}>
                             Accessibility
                         </Link>
                     </div>

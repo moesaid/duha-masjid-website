@@ -11,9 +11,9 @@ export default function HeritageLayout({
 }) {
     return (
         <div className={templateStyles.template}>
-            <Header templateId="heritage" />
+            <Header />
             <main>{children}</main>
-            <Footer templateId="heritage" />
+            <Footer />
         </div>
     );
 }

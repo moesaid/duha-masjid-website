@@ -1,0 +1,1 @@
+export * from './funeral-data';

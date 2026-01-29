@@ -4,11 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../_styles/NewsletterBand.module.scss';
 
-interface NewsletterBandProps {
-    templateId: string;
-}
-
-export function NewsletterBand({ templateId }: NewsletterBandProps) {
+export function NewsletterBand() {
     const [email, setEmail] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -44,7 +40,7 @@ export function NewsletterBand({ templateId }: NewsletterBandProps) {
 
                 <p className={styles.privacyNote}>
                     We respect your privacy. Unsubscribe anytime. Read our{' '}
-                    <Link href={`/${templateId}/privacy`} className={styles.privacyLink}>
+                    <Link href="/heritage/privacy" className={styles.privacyLink}>
                         Privacy Policy
                     </Link>
                     .

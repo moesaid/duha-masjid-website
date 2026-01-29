@@ -1,0 +1,1 @@
+export { useMatrimonyState } from './useMatrimonyState';

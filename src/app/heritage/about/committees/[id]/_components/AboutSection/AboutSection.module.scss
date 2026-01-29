@@ -1,0 +1,24 @@
+// AboutSection Styles
+$emerald-dark: #084228;
+$gold: #d4af37;
+$text-dark: #1a1a1a;
+
+.section {
+    margin-bottom: 2.5rem;
+
+    h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        color: $emerald-dark;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid $gold;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.7;
+        color: $text-dark;
+    }
+}

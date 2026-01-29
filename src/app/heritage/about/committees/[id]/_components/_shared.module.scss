@@ -1,0 +1,38 @@
+// Shared SCSS variables for Committee Detail Page components
+// Import this in each component's SCSS file
+
+@use "sass:color";
+
+// Color Tokens
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$gold-dark: #b8960c;
+$cream: #f8f5f0;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+// Page wrapper (used by page.tsx)
+.committeePage {
+    min-height: 100vh;
+    background: $cream;
+}
+
+.contentContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mainContent {
+    max-width: 100%;
+}
