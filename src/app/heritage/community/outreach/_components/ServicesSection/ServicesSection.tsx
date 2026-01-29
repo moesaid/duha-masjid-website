@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Clock, ChevronRight } from 'lucide-react';
-import { Service } from '../_data';
-import styles from '../OutreachPage.module.scss';
+import { Service } from '../../_data';
+import styles from './ServicesSection.module.scss';
 
 interface ServicesSectionProps {
     services: Service[];

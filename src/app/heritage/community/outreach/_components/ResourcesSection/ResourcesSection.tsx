@@ -1,6 +1,6 @@
 import { FileText, Eye, Download, Sparkle } from 'lucide-react';
-import { Resource } from '../_data';
-import styles from '../OutreachPage.module.scss';
+import { Resource } from '../../_data';
+import styles from './ResourcesSection.module.scss';
 
 interface ResourcesSectionProps {
     resources: Resource[];

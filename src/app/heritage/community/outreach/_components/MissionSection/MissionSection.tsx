@@ -1,6 +1,6 @@
 import { Globe } from 'lucide-react';
-import { Activity } from '../_data';
-import styles from '../OutreachPage.module.scss';
+import { Activity } from '../../_data';
+import styles from './MissionSection.module.scss';
 
 interface MissionSectionProps {
     activities: Activity[];

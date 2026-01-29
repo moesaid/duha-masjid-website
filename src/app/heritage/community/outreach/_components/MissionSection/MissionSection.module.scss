@@ -1,0 +1,157 @@
+// MissionSection styles - Outreach
+
+$heritage-green: #2d5a3d;
+$heritage-gold: #d4af37;
+$heritage-cream: oklch(0.97 0.01 85);
+$heritage-parchment: oklch(0.98 0.01 85);
+$heritage-white: #fff;
+$text-dark: #333;
+$text-muted: #555;
+
+.missionSection {
+    padding: 5rem 2rem;
+    background: $heritage-white;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $heritage-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: $heritage-green;
+    margin-bottom: 0;
+}
+
+.missionLayout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+.missionContent {
+    .missionPhilosophy {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: $text-muted;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.missionQuote {
+    background: $heritage-parchment;
+    padding: 1.5rem;
+    border-left: 3px solid $heritage-gold;
+    margin-bottom: 2rem;
+
+    span {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1rem;
+        color: $text-dark;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    cite {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+        font-style: normal;
+    }
+}
+
+.activitiesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.activityItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: $heritage-cream;
+    border: 1px solid oklch(0.9 0.02 85);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-dark;
+    transition: all 0.2s ease;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    &:hover {
+        background: $heritage-green;
+        color: $heritage-white;
+        border-color: $heritage-green;
+
+        svg {
+            color: $heritage-gold;
+        }
+    }
+}
+
+.missionVisual {
+    display: flex;
+    justify-content: center;
+}
+
+.visualPlaceholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $heritage-green 0%, darken($heritage-green, 10%) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: $heritage-white;
+    box-shadow: 0 12px 40px rgba(45, 90, 61, 0.25);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    span {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 768px) {
+    .missionSection {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .visualPlaceholder {
+        width: 160px;
+        height: 160px;
+    }
+}

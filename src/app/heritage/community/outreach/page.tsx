@@ -7,14 +7,14 @@ import {
     eventFeatures,
     resources,
     activities,
-    impactStats,
+
     testimonials,
     partners
 } from './_data';
 import { useTestimonialCarousel } from './_hooks';
 import {
     HeroSection,
-    ImpactStrip,
+
     MissionSection,
     ServicesSection,
     TestimonialsSection,
@@ -24,7 +24,7 @@ import {
     VisitSection,
     VolunteerCta
 } from './_components';
-import styles from './OutreachPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 /**
  * Outreach Page - Interfaith & Community Bridge
@@ -40,7 +40,7 @@ export default function OutreachPage() {
     return (
         <main className={styles.outreachPage}>
             <HeroSection />
-            <ImpactStrip stats={impactStats} />
+
             <MissionSection activities={activities} />
             <ServicesSection services={services} />
             <TestimonialsSection
@@ -51,8 +51,8 @@ export default function OutreachPage() {
                 onSelect={setIndex}
             />
             <EventSection features={eventFeatures} />
-            <PartnersSection partners={partners} />
             <ResourcesSection resources={resources} />
+            <PartnersSection partners={partners} />
             <VisitSection />
             <VolunteerCta />
         </main>

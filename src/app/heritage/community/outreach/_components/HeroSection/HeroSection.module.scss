@@ -1,0 +1,286 @@
+// HeroSection styles - Outreach
+
+$heritage-green: #2d5a3d;
+$heritage-green-dark: #1a4a3a;
+$heritage-gold: #d4af37;
+$heritage-cream: oklch(0.97 0.01 85);
+$heritage-white: #fff;
+$text-dark: #333;
+$text-muted: #555;
+
+$arabesque-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.6'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3Cpath d='M40 10L70 40L40 70L10 40z'/%3E%3Cpath d='M40 20L60 40L40 60L20 40z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+.heroSection {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+    overflow: hidden;
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: $arabesque-pattern;
+    background-size: 80px 80px;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.heroLayout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    align-items: center;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+}
+
+.welcomePortal {
+    display: flex;
+    justify-content: center;
+}
+
+.portalFrame {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    background: $heritage-green;
+    border-radius: 100px 100px 0 0;
+    padding: 4px;
+    box-shadow:
+        0 0 0 2px $heritage-gold,
+        0 8px 32px rgba(45, 90, 61, 0.35);
+    transition: transform 0.4s ease;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    @media (max-width: 600px) {
+        width: 160px;
+        height: 220px;
+        border-radius: 80px 80px 0 0;
+    }
+}
+
+.portalInner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, $heritage-green-dark 0%, $heritage-green 50%, $heritage-green-dark 100%);
+    border-radius: 96px 96px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    text-align: center;
+
+    @media (max-width: 600px) {
+        border-radius: 76px 76px 0 0;
+        padding: 1.5rem 1rem;
+    }
+}
+
+.portalIcon {
+    color: $heritage-gold;
+    margin-bottom: 1rem;
+}
+
+.portalLabel {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.25rem;
+}
+
+.portalHighlight {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: $heritage-white;
+    line-height: 1.2;
+
+    @media (max-width: 600px) {
+        font-size: 1.15rem;
+    }
+}
+
+.portalDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    color: $heritage-gold;
+    opacity: 0.6;
+
+    svg {
+        transform: rotate(45deg);
+    }
+}
+
+.portalSubtext {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1.5rem;
+    color: $heritage-gold;
+    opacity: 0.9;
+}
+
+.heroContent {
+    max-width: 600px;
+
+    @media (max-width: 900px) {
+        max-width: 100%;
+    }
+}
+
+.heroVerse {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: $heritage-gold;
+    margin-bottom: 0.25rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.verseRef {
+    display: block;
+    font-family: var(--font-body, Georgia, serif);
+    font-size: 0.8rem;
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    color: $text-dark;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.titleAccent {
+    color: $heritage-green;
+    font-style: italic;
+}
+
+.heroSubtitle {
+    font-family: var(--font-body, Georgia, serif);
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    color: $text-muted;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.heroStats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid oklch(0.9 0.02 85);
+    border-bottom: 1px solid oklch(0.9 0.02 85);
+
+    @media (max-width: 900px) {
+        justify-content: center;
+    }
+
+    @media (max-width: 500px) {
+        gap: 1.25rem;
+    }
+}
+
+.heroStat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.statNum {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $heritage-green;
+    line-height: 1;
+
+    @media (max-width: 500px) {
+        font-size: 1.25rem;
+    }
+}
+
+.statLabel {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.heroActions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 900px) {
+        justify-content: center;
+    }
+}
+
+.primaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 0.9rem 1.6rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $heritage-green-dark;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(45, 90, 61, 0.3);
+    }
+}
+
+.secondaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    color: $heritage-green;
+    padding: 0.9rem 1.4rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid oklch(0.85 0.03 85);
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $heritage-green;
+        background: oklch(0.95 0.02 145);
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSection {
+        min-height: auto;
+        padding: 3rem 1.5rem;
+    }
+}

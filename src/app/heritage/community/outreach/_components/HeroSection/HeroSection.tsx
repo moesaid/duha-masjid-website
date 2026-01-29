@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Globe, Calendar, ChevronRight, Sparkle } from 'lucide-react';
-import styles from '../OutreachPage.module.scss';
+import styles from './HeroSection.module.scss';
 
 export function HeroSection() {
     return (

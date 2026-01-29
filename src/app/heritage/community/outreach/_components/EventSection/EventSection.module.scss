@@ -1,0 +1,162 @@
+// EventSection styles - Outreach
+
+$heritage-green: #2d5a3d;
+$heritage-gold: #d4af37;
+$heritage-cream: oklch(0.97 0.01 85);
+$heritage-white: #fff;
+
+$arabesque-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.6'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3Cpath d='M40 10L70 40L40 70L10 40z'/%3E%3Cpath d='M40 20L60 40L40 60L20 40z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+.eventSection {
+    position: relative;
+    padding: 5rem 2rem;
+    background: $heritage-green;
+    color: $heritage-white;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: $arabesque-pattern;
+        background-size: 80px 80px;
+        opacity: 0.08;
+        pointer-events: none;
+    }
+}
+
+.eventContent {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.eventHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.eventLabel {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.eventTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin-bottom: 1rem;
+}
+
+.eventSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.eventDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2rem 2.5rem;
+    border-radius: 4px;
+}
+
+.eventFeatures {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 0.65rem 1.15rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.22);
+        transform: translateY(-2px);
+    }
+}
+
+.eventActions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.eventDateBox {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.85rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    svg {
+        color: $heritage-gold;
+    }
+}
+
+.dateValue {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: $heritage-gold;
+}
+
+.eventCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-white;
+    color: $heritage-green;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $heritage-cream;
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 768px) {
+    .eventSection {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .eventDetails {
+        padding: 1.5rem;
+    }
+}

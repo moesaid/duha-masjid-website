@@ -1,5 +1,5 @@
 import { Handshake } from 'lucide-react';
-import styles from '../OutreachPage.module.scss';
+import styles from './PartnersSection.module.scss';
 
 interface PartnersSectionProps {
     partners: string[];

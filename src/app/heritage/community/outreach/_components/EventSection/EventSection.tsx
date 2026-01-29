@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Calendar, ChevronRight } from 'lucide-react';
-import { EventFeature } from '../_data';
-import styles from '../OutreachPage.module.scss';
+import { EventFeature } from '../../_data';
+import styles from './EventSection.module.scss';
 
 interface EventSectionProps {
     features: EventFeature[];

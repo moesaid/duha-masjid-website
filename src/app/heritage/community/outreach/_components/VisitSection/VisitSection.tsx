@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { MapPin, Phone, Mail, Calendar, Handshake, ChevronRight } from 'lucide-react';
-import styles from '../OutreachPage.module.scss';
+import { MapPin, Phone, Mail, Calendar } from 'lucide-react';
+import styles from './VisitSection.module.scss';
 
 export function VisitSection() {
     return (
@@ -26,35 +26,12 @@ export function VisitSection() {
                     </div>
                 </div>
 
-                <div className={styles.visitCta}>
+                <div>
                     <Link href="/contact" className={styles.visitBtn}>
                         <Calendar size={18} />
                         Schedule Your Visit
                     </Link>
                 </div>
-            </div>
-        </section>
-    );
-}
-
-export function VolunteerCta() {
-    return (
-        <section className={styles.volunteerSection}>
-            <div className={styles.volunteerCenter}>
-                <div className={styles.volunteerIconWrap}>
-                    <Handshake size={32} className={styles.volunteerIcon} />
-                </div>
-                <div className={styles.volunteerText}>
-                    <h3>Want to Help Represent Your Faith?</h3>
-                    <p>
-                        Join the Dawah Committee. Training provided.
-                        Must attend the &quot;Dawah 101&quot; workshop.
-                    </p>
-                </div>
-                <Link href="/contact" className={styles.volunteerBtn}>
-                    Volunteer for Outreach
-                    <ChevronRight size={16} />
-                </Link>
             </div>
         </section>
     );

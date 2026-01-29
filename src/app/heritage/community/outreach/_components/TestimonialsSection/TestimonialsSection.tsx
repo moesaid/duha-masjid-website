@@ -1,6 +1,6 @@
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Testimonial } from '../_data';
-import styles from '../OutreachPage.module.scss';
+import { Testimonial } from '../../_data';
+import styles from './TestimonialsSection.module.scss';
 
 interface TestimonialsSectionProps {
     testimonials: Testimonial[];

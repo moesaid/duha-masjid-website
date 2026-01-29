@@ -1,0 +1,66 @@
+// PartnersSection styles - Outreach
+
+$heritage-green: #2d5a3d;
+$heritage-gold: #d4af37;
+$heritage-cream: oklch(0.97 0.01 85);
+$heritage-white: #fff;
+$text-dark: #333;
+
+.partnersSection {
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $heritage-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: $heritage-green;
+    margin-bottom: 0;
+}
+
+.partnersGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.partnerBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-white;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid oklch(0.9 0.02 85);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-dark;
+    transition: all 0.2s ease;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    &:hover {
+        border-color: $heritage-green;
+        background: oklch(0.95 0.02 145);
+        transform: translateY(-2px);
+    }
+}
