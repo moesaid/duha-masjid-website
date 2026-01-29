@@ -1,0 +1,140 @@
+$navy: #1a2744;
+$navy-dark: #0d1b2a;
+$gold: #c9a227;
+$text-dark: #1a1a1a;
+$text-muted: rgba(#1a1a1a, 0.65);
+$border-gold: rgba(#c9a227, 0.35);
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modalContent {
+    position: relative;
+    background: #fff;
+    max-width: 550px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 3px solid $gold;
+}
+
+.modalClose {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: $text-muted;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $navy;
+    }
+}
+
+.modalHeader {
+    padding: 2rem 2rem 1.5rem;
+    background: $navy;
+    color: #fff;
+    text-align: center;
+
+    svg {
+        color: $gold;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        margin: 0;
+    }
+}
+
+.gradeLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(#fff, 0.8);
+    margin-top: 0.5rem;
+}
+
+.registrationForm {
+    padding: 1.5rem 2rem 2rem;
+}
+
+.formSection {
+    margin-bottom: 1.5rem;
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: $navy;
+        margin: 0 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid $border-gold;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        border: 1px solid #ddd;
+        margin-bottom: 0.75rem;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $navy;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+    }
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.formFooter {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.submitBtn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: $navy;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $navy-dark;
+    }
+}

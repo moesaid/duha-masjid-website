@@ -1,0 +1,83 @@
+$navy: #1a2744;
+$gold: #c9a227;
+$cream: #faf6ed;
+$text-dark: #1a1a1a;
+$text-muted: rgba(#1a1a1a, 0.65);
+
+.scheduleSection {
+    padding: 5rem 2rem;
+    background: $cream;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $navy;
+    margin: 0;
+}
+
+.scheduleGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scheduleCard {
+    background: #fff;
+    border: 1px solid rgba($navy, 0.1);
+    overflow: hidden;
+}
+
+.dayHeader {
+    padding: 1.25rem;
+    background: $navy;
+    color: #fff;
+    text-align: center;
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        margin: 0 0 0.25rem;
+    }
+}
+
+.time {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $gold;
+}
+
+.activities {
+    list-style: none;
+    padding: 1.25rem;
+    margin: 0;
+
+    li {
+        padding: 0.5rem 0;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+        border-bottom: 1px dotted rgba($navy, 0.15);
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

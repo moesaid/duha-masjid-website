@@ -1,0 +1,97 @@
+$navy: #1a2744;
+$gold: #c9a227;
+$gold-light: #e8d078;
+$paper: #f5f1e6;
+$text-muted: rgba(#1a1a1a, 0.65);
+
+.testimonialsSection {
+    padding: 5rem 2rem;
+    background: $paper;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $navy;
+    margin: 0;
+}
+
+.testimonialCarousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carouselBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 2px solid $gold;
+    border-radius: 50%;
+    color: $navy;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $navy;
+        border-color: $navy;
+        color: #fff;
+    }
+}
+
+.testimonialCard {
+    flex: 1;
+    background: #fff;
+    border: 2px solid rgba($gold, 0.3);
+    padding: 2rem;
+    text-align: center;
+}
+
+.testimonialQuote {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: $navy;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+}
+
+.testimonialAuthor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.authorName {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $navy;
+}
+
+.authorRole {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $gold;
+}
