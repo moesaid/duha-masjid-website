@@ -1,0 +1,24 @@
+// Library Shared Design Tokens
+@use "sass:color";
+
+// Color Palette
+$wood-dark: #3D2914;
+$wood-medium: #5D4E37;
+$wood-light: #8B7355;
+$leather-tan: #8B4513;
+$leather-dark: #6B4423;
+$cream-paper: #FAF6F0;
+$cream-warm: #F5EDE0;
+$parchment: #F0E6D3;
+$brass-gold: #B8860B;
+$brass-light: #D4A84B;
+$ink-black: #2C2416;
+$text-dark: #3D2914;
+$text-muted: #6B5F52;
+$border-wood: rgba(61, 41, 20, 0.2);
+
+// Shared page container
+.libraryPage {
+    background: $cream-paper;
+    min-height: 100vh;
+}

@@ -11,7 +11,7 @@ import {
     HoursSection,
     SearchModal
 } from './_components';
-import styles from './LibraryPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 /**
  * Library Page

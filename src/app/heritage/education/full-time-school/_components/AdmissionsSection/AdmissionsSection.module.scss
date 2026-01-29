@@ -1,0 +1,140 @@
+/* AdmissionsSection Component Styles */
+
+$navy-primary: #1A3A5C;
+$gold-primary: #B8860B;
+$gold-light: #D4A84B;
+$cream-warm: #F5F0E8;
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $gold-light;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.admissionsSection {
+    padding: 5rem 2rem;
+    background: $navy-primary;
+}
+
+.admissionsTimeline {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 900px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+.timelineStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 220px;
+    position: relative;
+}
+
+.stepCircle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: $gold-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    z-index: 1;
+}
+
+.stepConnector {
+    position: absolute;
+    top: 28px;
+    left: calc(50% + 28px);
+    width: calc(100% - 56px);
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+
+.stepContent {
+    text-align: center;
+}
+
+.stepNumber {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $gold-light;
+    margin-bottom: 0.35rem;
+}
+
+.stepContent h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.5rem;
+}
+
+.stepContent p {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.admissionsCta {
+    text-align: center;
+}
+
+.primaryBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    color: $navy-primary;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+        background: $cream-warm;
+        transform: translateY(-2px);
+    }
+}

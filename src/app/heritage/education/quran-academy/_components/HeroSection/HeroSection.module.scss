@@ -1,0 +1,111 @@
+// HeroSection styles - Quran Academy
+
+// Variables (scoped to this component)
+$emerald: #1a5d3a;
+$emerald-dark: #134430;
+$gold: #c9a227;
+$gold-light: #e8d078;
+$mushaf-cream: #f8f4e8;
+$border-gold: rgba(#c9a227, 0.35);
+
+.guardiansHero {
+    position: relative;
+    height: 70vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: saturate(0.8);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba($emerald-dark, 0.85) 0%,
+            rgba($emerald, 0.92) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 850px;
+    padding: 2rem;
+}
+
+.guardiansBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba($gold, 0.15);
+    border: 1px solid rgba($gold, 0.3);
+    margin-bottom: 1.5rem;
+
+    svg {
+        color: $gold-light;
+    }
+
+    span {
+        font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+        font-size: 1.25rem;
+        color: $gold-light;
+    }
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #fff;
+    font-weight: 400;
+    margin: 0 0 0.75rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: rgba(#fff, 0.85);
+    margin: 0 0 2rem;
+}
+
+.heroStats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statNumber {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: $gold-light;
+}
+
+.statLabel {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(#fff, 0.8);
+}
+
+.statDivider {
+    width: 1px;
+    height: 50px;
+    background: rgba($gold, 0.4);
+}

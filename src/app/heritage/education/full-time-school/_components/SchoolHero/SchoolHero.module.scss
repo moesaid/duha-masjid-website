@@ -1,0 +1,92 @@
+/* SchoolHero Component Styles */
+
+$navy-primary: #1A3A5C;
+$navy-dark: #0F2540;
+$gold-primary: #B8860B;
+$gold-light: #D4A84B;
+$gold-muted: #A67C00;
+
+.heroSection {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(135deg, rgba(26, 58, 92, 0.92) 0%, rgba(15, 37, 64, 0.95) 100%),
+        url('/images/heritage/future-generations.jpg') center/cover;
+    padding: 6rem 2rem;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(15, 37, 64, 0.3) 100%);
+    pointer-events: none;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+}
+
+.schoolCrest {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: $gold-light;
+    margin-bottom: 2rem;
+
+    svg {
+        width: 64px;
+        height: 64px;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+    }
+}
+
+.heroTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 2.5rem;
+    line-height: 1.6;
+}
+
+.heroCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: $gold-primary;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+        background: $gold-muted;
+        transform: translateY(-2px);
+    }
+}

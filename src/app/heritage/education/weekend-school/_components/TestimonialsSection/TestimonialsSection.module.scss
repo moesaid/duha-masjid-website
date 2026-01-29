@@ -1,12 +1,16 @@
+// TestimonialsSection styles - Weekend School
+
 $navy: #1a2744;
 $gold: #c9a227;
 $gold-light: #e8d078;
-$paper: #f5f1e6;
+$cream: #faf6ed;
+$text-dark: #1a1a1a;
 $text-muted: rgba(#1a1a1a, 0.65);
+$border-gold: rgba(#c9a227, 0.3);
 
 .testimonialsSection {
     padding: 5rem 2rem;
-    background: $paper;
+    background: $cream;
 }
 
 .sectionHeader {
@@ -44,36 +48,42 @@ $text-muted: rgba(#1a1a1a, 0.65);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     background: #fff;
-    border: 2px solid $gold;
-    border-radius: 50%;
-    color: $navy;
+    border: 2px solid $border-gold;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    svg {
+        color: $navy;
+    }
 
     &:hover {
         background: $navy;
         border-color: $navy;
-        color: #fff;
+
+        svg {
+            color: #fff;
+        }
     }
 }
 
 .testimonialCard {
     flex: 1;
-    background: #fff;
-    border: 2px solid rgba($gold, 0.3);
+    max-width: 550px;
     padding: 2rem;
+    background: #fff;
+    border: 2px solid $border-gold;
     text-align: center;
 }
 
 .testimonialQuote {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-style: italic;
-    color: $navy;
-    line-height: 1.6;
+    color: $text-dark;
+    line-height: 1.7;
     margin: 0 0 1.5rem;
 }
 
@@ -92,6 +102,6 @@ $text-muted: rgba(#1a1a1a, 0.65);
 
 .authorRole {
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: $gold;
 }

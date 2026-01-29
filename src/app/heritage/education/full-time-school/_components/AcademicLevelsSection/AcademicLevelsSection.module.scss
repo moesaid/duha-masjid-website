@@ -1,0 +1,136 @@
+/* AcademicLevelsSection Component Styles */
+
+$navy-primary: #1A3A5C;
+$gold-primary: #B8860B;
+$cream-warm: #F5F0E8;
+$text-dark: #1A2D3D;
+$text-muted: #5A6B7A;
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $gold-primary;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: $navy-primary;
+    margin: 0;
+}
+
+.levelsSection {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.levelsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.levelCard {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    border-top: 4px solid var(--accent-color);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.levelHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    svg {
+        color: var(--accent-color);
+    }
+}
+
+.levelGrades {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-muted;
+    background: $cream-warm;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.levelTitle {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin: 0 0 0.25rem;
+}
+
+.levelSubtitle {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.levelDescription {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    line-height: 1.55;
+    margin: 0 0 1.25rem;
+}
+
+.levelHighlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: $text-dark;
+
+        svg {
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+    }
+}

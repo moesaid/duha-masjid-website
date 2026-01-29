@@ -13,7 +13,7 @@ import {
     FacultySection,
     ApplicationModal
 } from './_components';
-import styles from './FullTimeSchoolPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 /**
  * Full-Time School Page - K-12 Academy with Hifz Track

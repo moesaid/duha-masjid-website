@@ -1,0 +1,113 @@
+// ContactSection styles - Quran Academy
+
+$emerald: #1a5d3a;
+$emerald-dark: #134430;
+$gold: #c9a227;
+$gold-metallic: #d4af37;
+$gold-light: #e8d078;
+$mushaf-cream: #f8f4e8;
+$text-dark: #1a1a1a;
+$text-muted: rgba(#1a1a1a, 0.65);
+$border-gold: rgba(#c9a227, 0.35);
+
+.contactSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, $mushaf-cream 0%, #fff 100%);
+}
+
+.contactContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contactInfo {
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: $emerald-dark;
+        margin: 0 0 0.75rem;
+    }
+
+    >p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-muted;
+        line-height: 1.6;
+        margin: 0 0 1.5rem;
+    }
+}
+
+.contactMethods {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contactMethod {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    svg {
+        color: $emerald;
+    }
+
+    &:hover {
+        color: $emerald;
+    }
+}
+
+.ctaCard {
+    background: $emerald;
+    padding: 2.5rem;
+    text-align: center;
+
+    svg {
+        color: $gold-light;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: #fff;
+        margin: 0 0 0.75rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: rgba(#fff, 0.85);
+        margin: 0 0 1.5rem;
+    }
+}
+
+.ctaBtn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: $gold-metallic;
+    color: $emerald-dark;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $gold-light;
+        transform: translateY(-2px);
+    }
+}

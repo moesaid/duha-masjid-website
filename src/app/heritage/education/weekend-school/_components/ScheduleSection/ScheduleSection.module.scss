@@ -1,8 +1,12 @@
+// ScheduleSection styles - Weekend School
+
 $navy: #1a2744;
 $gold: #c9a227;
+$gold-light: #e8d078;
 $cream: #faf6ed;
 $text-dark: #1a1a1a;
 $text-muted: rgba(#1a1a1a, 0.65);
+$border-gold: rgba(#c9a227, 0.3);
 
 .scheduleSection {
     padding: 5rem 2rem;
@@ -46,22 +50,24 @@ $text-muted: rgba(#1a1a1a, 0.65);
 }
 
 .dayHeader {
-    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
     background: $navy;
     color: #fff;
-    text-align: center;
 
     h3 {
         font-family: var(--font-display);
-        font-size: 1.25rem;
-        margin: 0 0 0.25rem;
+        font-size: 1.1rem;
+        margin: 0;
     }
 }
 
 .time {
     font-family: var(--font-body);
     font-size: 0.85rem;
-    color: $gold;
+    color: $gold-light;
 }
 
 .activities {

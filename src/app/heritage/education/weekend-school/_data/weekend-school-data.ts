@@ -56,14 +56,6 @@ export const gradeLevels: GradeLevel[] = [
         ageRange: 'Ages 7-10',
         description: 'Intermediate level focusing on tajweed, fiqh basics, and Islamic history.',
         subjects: ['Tajweed', 'Fiqh', 'Islamic History', 'Arabic Grammar']
-    },
-    {
-        id: 'trees',
-        name: 'Strong Trees (5-8)',
-        arabicName: 'الأشجار',
-        ageRange: 'Ages 10-14',
-        description: 'Advanced studies in Quran memorization, aqeedah, and contemporary Islamic issues.',
-        subjects: ['Hifz Program', 'Aqeedah', 'Advanced Arabic', 'Islamic Ethics']
     }
 ];
 
@@ -120,6 +112,5 @@ export const schoolStats = {
 export const features = [
     { icon: BookOpen, title: 'Comprehensive Curriculum', description: 'Age-appropriate Islamic education covering Quran, Arabic, and Islamic Studies' },
     { icon: Users, title: 'Small Class Sizes', description: 'Maximum 15 students per class for personalized attention' },
-    { icon: Award, title: 'Certified Teachers', description: 'All instructors are trained in Islamic education and child development' },
-    { icon: Heart, title: 'Nurturing Environment', description: 'A loving space where children develop a lifelong love for Islam' }
+    { icon: Award, title: 'Certified Teachers', description: 'All instructors are trained in Islamic education and child development' }
 ];

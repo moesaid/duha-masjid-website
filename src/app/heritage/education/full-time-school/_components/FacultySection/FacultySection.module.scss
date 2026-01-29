@@ -1,0 +1,141 @@
+/* FacultySection Component Styles */
+
+$navy-primary: #1A3A5C;
+$navy-dark: #0F2540;
+$navy-light: #2C5275;
+$gold-primary: #B8860B;
+$gold-light: #D4A84B;
+$cream-bg: #FAF8F5;
+$text-dark: #1A2D3D;
+$text-muted: #5A6B7A;
+$border-light: rgba(26, 58, 92, 0.12);
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $gold-primary;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: $navy-primary;
+    margin: 0;
+}
+
+.facultySection {
+    padding: 5rem 2rem;
+    background: $cream-bg;
+}
+
+.facultyCarousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carouselBtn {
+    background: #fff;
+    border: 1px solid $border-light;
+    color: $text-muted;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+        border-color: $navy-primary;
+        color: $navy-primary;
+        background: #fff;
+    }
+}
+
+.facultyCard {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    max-width: 320px;
+}
+
+.facultyPhoto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $navy-light 0%, $navy-dark 100%);
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gold-light;
+}
+
+.facultyInfo h4 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: $text-dark;
+    margin: 0 0 0.5rem;
+}
+
+.facultySubject {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $navy-primary;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+}
+
+.facultyDegree {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+}
+
+.facultyDots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $border-light;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &.active {
+        background: $navy-primary;
+    }
+
+    &:hover:not(.active) {
+        background: $navy-light;
+    }
+}

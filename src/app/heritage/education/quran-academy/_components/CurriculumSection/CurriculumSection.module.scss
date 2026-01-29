@@ -1,0 +1,66 @@
+// CurriculumSection styles - Quran Academy
+
+$emerald: #1a5d3a;
+$emerald-dark: #134430;
+$gold: #c9a227;
+$paper-yellow: #f5f0dc;
+$text-dark: #1a1a1a;
+$text-muted: rgba(#1a1a1a, 0.65);
+$border-gold: rgba(#c9a227, 0.35);
+
+.curriculumSection {
+    padding: 5rem 2rem;
+    background: $paper-yellow;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $emerald;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $emerald-dark;
+    margin: 0;
+}
+
+.highlightsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.highlightCard {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid $border-gold;
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-dark;
+        line-height: 1.5;
+    }
+}
+
+.checkIcon {
+    color: $emerald;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}

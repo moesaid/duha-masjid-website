@@ -1,0 +1,192 @@
+// CollectionsSection styles
+@use "sass:color";
+
+// Color Palette
+$wood-dark: #3D2914;
+$wood-medium: #5D4E37;
+$wood-light: #8B7355;
+$leather-tan: #8B4513;
+$cream-warm: #F5EDE0;
+$brass-gold: #B8860B;
+$text-dark: #3D2914;
+$text-muted: #6B5F52;
+
+.collectionsSection {
+    padding: 4rem 2rem;
+    background: $cream-warm;
+
+    @media (max-width: 768px) {
+        padding-top: 8rem;
+    }
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: $leather-tan;
+    background: rgba($leather-tan, 0.1);
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: $text-dark;
+    margin: 0;
+}
+
+.bookshelvesContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.shelfRow {
+    position: relative;
+}
+
+.shelfLabel {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-dark;
+    margin: 0 0 0.75rem 0.5rem;
+}
+
+.shelf {
+    position: relative;
+    overflow: visible;
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 1rem 0.5rem 0.5rem;
+    justify-content: flex-start;
+    overflow: visible;
+}
+
+.bookSpine {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    width: 42px;
+    height: 140px;
+    border-radius: 2px 4px 4px 2px;
+    cursor: pointer;
+    transition: transform 0.2s ease, z-index 0s;
+    box-shadow:
+        inset -2px 0 4px rgba(0, 0, 0, 0.2),
+        2px 0 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 80%;
+        background: rgba(255, 215, 0, 0.3);
+    }
+
+    &::after {
+        content: attr(title);
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: $wood-dark;
+        color: #fff;
+        padding: 0.4rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-family: var(--font-body);
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+        pointer-events: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &:hover {
+        transform: translateY(-12px);
+        z-index: 10;
+        box-shadow:
+            inset -2px 0 4px rgba(0, 0, 0, 0.2),
+            2px 4px 12px rgba(0, 0, 0, 0.25);
+
+        &::after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.bookTitle {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    max-height: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.5rem 0;
+}
+
+.shelfBoard {
+    height: 16px;
+    background: linear-gradient(to bottom, $wood-light 0%, $wood-medium 50%, $wood-dark 100%);
+    border-radius: 2px;
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.libraryQuote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 3rem auto 0;
+    text-align: center;
+
+    svg {
+        color: $brass-gold;
+        flex-shrink: 0;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-style: italic;
+        color: $text-muted;
+        margin: 0;
+    }
+}

@@ -1,111 +1,136 @@
 // Adult Classes Page Data
-// Types and static data for Adult Education programs
+// Types and static data for the Majlis program
 
-import { LucideIcon, BookOpen, Users, Calendar, GraduationCap, Heart, MessageCircle } from 'lucide-react';
+import { LucideIcon, Sun, Moon, BookOpen, Scale, Heart } from 'lucide-react';
 
 // ============================================
 // Types
 // ============================================
 
-export interface AdultClass {
+export interface Khatira {
+    time: string;
+    icon: LucideIcon;
+    title: string;
+    subtitle: string;
+    description: string;
+}
+
+export interface ProgramTrack {
     id: string;
+    track: string;
     title: string;
     arabicTitle: string;
+    subtitle: string;
+    description: string;
     instructor: string;
     schedule: string;
-    level: string;
-    description: string;
-    topics: string[];
+    icon: LucideIcon;
+    color: 'blue' | 'mahogany' | 'green';
 }
 
-export interface Testimonial {
-    quote: string;
-    author: string;
-    role: string;
+export interface ArchiveRecording {
+    id: number;
+    series: string;
+    title: string;
+    duration: string;
+    hasNotes: boolean;
 }
 
 // ============================================
-// Classes
+// Daily Khatiras
 // ============================================
 
-export const adultClasses: AdultClass[] = [
+export const dailyKhatiras: Khatira[] = [
     {
-        id: 'arabic',
-        title: 'Arabic for Adults',
-        arabicTitle: 'العَرَبِيَّة',
-        instructor: 'Ustadh Ahmad',
-        schedule: 'Tuesdays & Thursdays, 7:00 PM',
-        level: 'Beginner to Advanced',
-        description: 'Learn classical Arabic from the basics to reading Quran and understanding scholarly texts.',
-        topics: ['Arabic Alphabet', 'Grammar (Nahw & Sarf)', 'Reading Practice', 'Quran Vocabulary']
+        time: 'After Fajr',
+        icon: Sun,
+        title: 'Riyad-us-Saliheen',
+        subtitle: 'Gardens of the Righteous',
+        description: "Daily hadith commentary from Imam Nawawi's masterpiece"
+    },
+    {
+        time: 'After Isha',
+        icon: Moon,
+        title: 'Tafseer of the Short Surahs',
+        subtitle: 'Juz Amma Explained',
+        description: 'Deep dive into the meanings of the Surahs we recite daily'
+    }
+];
+
+// ============================================
+// Weekly Program Tracks
+// ============================================
+
+export const programTracks: ProgramTrack[] = [
+    {
+        id: 'quran',
+        track: 'Track 1',
+        title: 'Quranic Sciences',
+        arabicTitle: 'علوم القرآن',
+        subtitle: 'Tajweed Correction & Tafseer',
+        description: 'Focus on reading fluency and understanding the deeper meanings of the Quran.',
+        instructor: 'Sh. Ahmad Hassan',
+        schedule: 'Fridays after Maghrib',
+        icon: BookOpen,
+        color: 'blue'
     },
     {
         id: 'fiqh',
-        title: 'Islamic Jurisprudence',
-        arabicTitle: 'الفِقْه',
-        instructor: 'Sheikh Muhammad',
-        schedule: 'Saturdays, 10:00 AM',
-        level: 'All Levels',
-        description: 'Comprehensive study of fiqh covering worship, transactions, and daily life matters.',
-        topics: ['Purification', 'Prayer', 'Fasting', 'Zakat', 'Family Law']
+        track: 'Track 2',
+        title: 'Fiqh & Law',
+        arabicTitle: 'الفقه والأحكام',
+        subtitle: 'Essentials of Worship',
+        description: 'Learning the rules of prayer, fasting, Zakat, and daily transactions.',
+        instructor: 'Sh. Yusuf Ali',
+        schedule: 'Saturdays at 7 PM',
+        icon: Scale,
+        color: 'mahogany'
     },
     {
-        id: 'seerah',
-        title: 'Life of the Prophet ﷺ',
-        arabicTitle: 'السِّيرَة',
-        instructor: 'Dr. Fatima',
-        schedule: 'Sundays, 11:00 AM',
-        level: 'All Levels',
-        description: 'Detailed study of the Prophet\'s life, character, and teachings.',
-        topics: ['Meccan Period', 'Medinan Period', 'Battles', 'Farewell Sermon']
-    },
-    {
-        id: 'tafseer',
-        title: 'Quran Tafseer',
-        arabicTitle: 'التَّفْسِير',
-        instructor: 'Imam Abdullah',
-        schedule: 'Wednesdays, 7:30 PM',
-        level: 'Intermediate',
-        description: 'In-depth explanation and context of Quranic verses.',
-        topics: ['Surah Al-Baqarah', 'Context of Revelation', 'Scholarly Interpretations']
+        id: 'tazkiyah',
+        track: 'Track 3',
+        title: 'Tazkiyah',
+        arabicTitle: 'تزكية النفس',
+        subtitle: 'Purification of the Heart',
+        description: 'Studying the works of Imam Ghazali and Ibn Qayyim on spiritual development.',
+        instructor: 'Sh. Ibrahim Noor',
+        schedule: 'Sundays at 11 AM',
+        icon: Heart,
+        color: 'green'
     }
 ];
 
 // ============================================
-// Features
+// Archive Recordings
 // ============================================
 
-export const features = [
-    { icon: GraduationCap, title: 'Qualified Instructors', description: 'Learn from scholars with ijazah and years of teaching experience.' },
-    { icon: Users, title: 'Welcoming Environment', description: 'Classes designed for adults at any stage of their Islamic journey.' },
-    { icon: Calendar, title: 'Flexible Scheduling', description: 'Evening and weekend options for working professionals.' },
-    { icon: Heart, title: 'Spiritual Growth', description: 'Not just knowledge, but practical application for a better life.' }
-];
-
-// ============================================
-// Testimonials
-// ============================================
-
-export const testimonials: Testimonial[] = [
+export const archiveRecordings: ArchiveRecording[] = [
     {
-        quote: "These classes have transformed my understanding of Islam. The teachers make complex topics accessible.",
-        author: 'Brother Kareem',
-        role: 'Student for 2 years'
+        id: 1,
+        series: 'Seerah',
+        title: 'Episode 45: The Migration to Medina',
+        duration: '45 min',
+        hasNotes: true
     },
     {
-        quote: "I never thought I could learn Arabic at my age. Now I can read Quran without transliteration!",
-        author: 'Sister Mariam',
-        role: 'Arabic Student'
+        id: 2,
+        series: 'Fiqh',
+        title: 'Zakat: Assets & Calculation Methods',
+        duration: '38 min',
+        hasNotes: true
+    },
+    {
+        id: 3,
+        series: 'Tafseer',
+        title: 'Surah Al-Mulk: Verse by Verse',
+        duration: '52 min',
+        hasNotes: false
+    },
+    {
+        id: 4,
+        series: 'Spirituality',
+        title: "Imam Ghazali's Book of Knowledge",
+        duration: '41 min',
+        hasNotes: true
     }
 ];
-
-// ============================================
-// Stats
-// ============================================
-
-export const programStats = {
-    students: '200+',
-    classes: '8',
-    instructors: '6',
-    yearsRunning: '12+'
-};

@@ -1,0 +1,153 @@
+/* AskImamForm Component Styles */
+
+$forest-green: #1a4a3a;
+$warm-gold: #c9a227;
+$cream: oklch(0.97 0.01 85);
+$soft-grey: #f5f5f5;
+$text-muted: #555;
+
+.askSection {
+    padding: 5rem 2rem;
+    background: $soft-grey;
+}
+
+.askContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.askHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.askIcon {
+    color: $forest-green;
+    margin-bottom: 1rem;
+}
+
+.askTitle {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: $forest-green;
+    margin-bottom: 0.5rem;
+}
+
+.askSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-muted;
+    margin: 0;
+}
+
+.askForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.formInput,
+.formTextarea {
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: $cream;
+    transition: all 0.2s ease;
+
+    &:focus {
+        outline: none;
+        border-color: $forest-green;
+        background: #fff;
+    }
+
+    &::placeholder {
+        color: #999;
+    }
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.formFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.privacyNote {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+    font-style: italic;
+
+    svg {
+        color: $forest-green;
+    }
+}
+
+.submitButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $forest-green;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #1f4a3a;
+        transform: translateY(-2px);
+    }
+}
+
+.formSuccess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem;
+    text-align: center;
+    color: $forest-green;
+
+    svg {
+        color: $warm-gold;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        margin: 0;
+    }
+}

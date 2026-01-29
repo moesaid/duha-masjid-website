@@ -11,7 +11,6 @@ import {
     AskImamForm,
     KhutbahsSection
 } from './_components';
-import styles from './TeamPage.module.scss';
 import templateStyles from '../../_styles/template.module.scss';
 
 /**

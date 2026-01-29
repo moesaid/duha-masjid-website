@@ -1,0 +1,128 @@
+// ProgramsSection styles - Quran Academy
+
+$emerald: #1a5d3a;
+$emerald-dark: #134430;
+$emerald-light: #2a7a50;
+$gold: #c9a227;
+$gold-light: #e8d078;
+$mushaf-cream: #f8f4e8;
+$paper-yellow: #f5f0dc;
+$text-dark: #1a1a1a;
+$text-muted: rgba(#1a1a1a, 0.65);
+$border-gold: rgba(#c9a227, 0.35);
+
+.programsSection {
+    padding: 5rem 2rem;
+    background: $mushaf-cream;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $emerald;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $emerald-dark;
+    margin: 0;
+}
+
+.programsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.programCard {
+    background: #fff;
+    border: 2px solid $border-gold;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        color: $emerald-dark;
+        margin: 0 0 0.5rem;
+    }
+}
+
+.programIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba($emerald, 0.1);
+    border: 2px solid rgba($emerald, 0.2);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+
+    svg {
+        color: $emerald;
+    }
+}
+
+.ageGroup {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $gold;
+    font-weight: 500;
+    margin: 0 0 0.75rem;
+}
+
+.description {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+
+.schedule {
+    padding: 0.5rem 1rem;
+    background: rgba($gold, 0.1);
+    margin-bottom: 1.25rem;
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $emerald-dark;
+    }
+}
+
+.enrollBtn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: $emerald;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: $emerald-dark;
+    }
+}

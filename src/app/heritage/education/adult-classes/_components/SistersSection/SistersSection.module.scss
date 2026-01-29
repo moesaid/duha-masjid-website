@@ -1,0 +1,113 @@
+// SistersSection styles - Adult Classes
+
+$forest-green: #1A4D3E;
+$sage: #A8C5B5;
+$sage-light: #D1E2D8;
+$lavender: #E8E0F0;
+$text-dark: #2C2416;
+$text-muted: #6B5F52;
+
+.sistersSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, $sage-light 0%, $lavender 100%);
+    position: relative;
+
+    // Floral arabesque pattern overlay
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A8C5B5' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+.sistersContent {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    border: 2px solid rgba($sage, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+    h2 {
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin: 0 0 1rem;
+    }
+}
+
+.sistersIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, $sage, darken($sage, 10%));
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    color: #fff;
+}
+
+.sistersDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+}
+
+.sistersDetails {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-dark;
+
+    svg {
+        color: $forest-green;
+    }
+}
+
+.whatsappBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #25D366;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+        background: darken(#25D366, 8%);
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 768px) {
+    .sistersDetails {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,7 +1,8 @@
-export { SchoolHero } from './SchoolHero';
-export { AcademicLevelsSection } from './AcademicLevelsSection';
-export { TuitionSection } from './TuitionSection';
-export { ValueSection } from './ValueSection';
-export { AdmissionsSection } from './AdmissionsSection';
-export { FacultySection } from './FacultySection';
-export { ApplicationModal } from './ApplicationModal';
+// Barrel exports for Full-Time School components
+export { SchoolHero } from './SchoolHero/SchoolHero';
+export { AcademicLevelsSection } from './AcademicLevelsSection/AcademicLevelsSection';
+export { TuitionSection } from './TuitionSection/TuitionSection';
+export { ValueSection } from './ValueSection/ValueSection';
+export { AdmissionsSection } from './AdmissionsSection/AdmissionsSection';
+export { FacultySection } from './FacultySection/FacultySection';
+export { ApplicationModal } from './ApplicationModal/ApplicationModal';

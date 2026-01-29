@@ -1,0 +1,221 @@
+/* TuitionSection Component Styles */
+
+$navy-primary: #1A3A5C;
+$navy-light: #2C5275;
+$gold-primary: #B8860B;
+$gold-light: #D4A84B;
+$cream-bg: #FAF8F5;
+$cream-warm: #F5F0E8;
+$text-dark: #1A2D3D;
+$text-muted: #5A6B7A;
+$border-light: rgba(26, 58, 92, 0.12);
+$error-red: #C62828;
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $gold-primary;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: $navy-primary;
+    margin: 0;
+}
+
+.tuitionSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, $cream-warm 0%, $cream-bg 100%);
+}
+
+.tuitionTabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tuitionTab {
+    background: transparent;
+    border: 1px solid $border-light;
+    color: $text-muted;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $navy-light;
+        color: $navy-primary;
+    }
+
+    &.active {
+        background: $navy-primary;
+        border-color: $navy-primary;
+        color: #fff;
+    }
+}
+
+.tuitionCard {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tuitionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: $navy-primary;
+    color: #fff;
+
+    h3 {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $gold-light;
+    }
+}
+
+.tuitionTable {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+        padding: 1rem 1.25rem;
+        text-align: left;
+        font-family: var(--font-body);
+    }
+
+    th {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: $text-muted;
+        background: #FAFAFA;
+        border-bottom: 1px solid $border-light;
+    }
+
+    td {
+        font-size: 0.95rem;
+        color: $text-dark;
+        border-bottom: 1px solid $border-light;
+    }
+
+    tbody tr:nth-child(even) {
+        background: #FAFAFA;
+    }
+
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+}
+
+.price {
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    font-weight: 600;
+    color: $navy-primary;
+}
+
+.installmentNote {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    padding: 1rem 1.5rem;
+    margin: 0;
+    background: #FAFAFA;
+    border-top: 1px solid $border-light;
+}
+
+.feesGrid {
+    max-width: 900px;
+    margin: 3rem auto 0;
+}
+
+.feesTitle {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-dark;
+    margin: 0 0 1.25rem;
+    text-align: center;
+}
+
+.feeCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feeCard {
+    background: #fff;
+    border: 1px solid $border-light;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+}
+
+.feeName {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $text-dark;
+}
+
+.feeAmount {
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $navy-primary;
+}
+
+.feeNote {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+
+    &.nonRefundable {
+        color: $error-red;
+        font-weight: 500;
+    }
+}

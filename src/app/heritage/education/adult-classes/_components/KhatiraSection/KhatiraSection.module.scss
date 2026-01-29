@@ -1,0 +1,114 @@
+// KhatiraSection styles - Adult Classes
+
+$ink-blue: #1A3A5C;
+$ink-blue-light: #2C5275;
+$gold-accent: #B8860B;
+
+.khatiraStrip {
+    background: linear-gradient(135deg, $ink-blue 0%, $ink-blue-light 100%);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    border-top: 4px solid $gold-accent;
+}
+
+.stripHeader {
+    margin-bottom: 2rem;
+
+    h2 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #fff;
+        margin: 0 0 0.25rem;
+    }
+
+    span {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.khatiraCards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.khatiraCard {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s ease, background 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    h3 {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #fff;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+.khatiraIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, $gold-accent, darken($gold-accent, 10%));
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    color: #fff;
+}
+
+.khatiraTime {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $gold-accent;
+    margin-bottom: 0.5rem;
+}
+
+.khatiraSubtitle {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .khatiraCards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .khatiraCard {
+        max-width: 100%;
+    }
+}

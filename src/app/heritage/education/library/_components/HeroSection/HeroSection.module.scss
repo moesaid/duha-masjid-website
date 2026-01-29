@@ -1,0 +1,290 @@
+// HeroSection styles
+@use "sass:color";
+
+// Color Palette
+$wood-dark: #3D2914;
+$wood-medium: #5D4E37;
+$wood-light: #8B7355;
+$cream-paper: #FAF6F0;
+$brass-gold: #B8860B;
+$brass-light: #D4A84B;
+$text-dark: #3D2914;
+$text-muted: #6B5F52;
+
+// Hero Section
+.treasuryHero {
+    position: relative;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 0 4rem;
+    overflow: visible;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: sepia(0.25) saturate(0.85) brightness(0.65);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(61, 41, 20, 0.5) 0%,
+            rgba(93, 78, 55, 0.7) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.quranVerse {
+    margin-bottom: 2rem;
+}
+
+.arabicVerse {
+    display: block;
+    font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 0.5rem;
+    direction: rtl;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.verseTranslation {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.02em;
+}
+
+.verseReference {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $brass-light;
+    margin-top: 0.25rem;
+}
+
+.heroTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.75rem;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 2rem;
+    line-height: 1.6;
+}
+
+.heroStats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statNumber {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $brass-light;
+}
+
+.statLabel {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.statDivider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 1px;
+    }
+}
+
+// Catalog Search (Card File Drawer)
+.catalogSearch {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 1.5rem;
+    margin: 2rem auto 0;
+    z-index: 10;
+
+    @media (max-width: 768px) {
+        bottom: -5rem;
+    }
+}
+
+.catalogDrawer {
+    position: relative;
+    background: linear-gradient(135deg, $wood-medium 0%, $wood-dark 100%);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v1H0zM0 20h100v0.5H0zM0 45h100v0.3H0zM0 70h100v0.5H0zM0 90h100v0.3H0z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
+        border-radius: 12px;
+        pointer-events: none;
+    }
+}
+
+.drawerLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: $brass-light;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.searchRow {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+}
+
+.searchInput {
+    position: relative;
+    flex: 1;
+
+    input {
+        width: 100%;
+        padding: 0.9rem 1rem 0.9rem 2.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        background: $cream-paper;
+        color: $text-dark;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $brass-gold;
+        }
+
+        &::placeholder {
+            color: $text-muted;
+        }
+    }
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-muted;
+    pointer-events: none;
+}
+
+.searchBtn {
+    background: linear-gradient(135deg, $brass-gold 0%, $brass-light 100%);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(184, 134, 11, 0.3);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(184, 134, 11, 0.4);
+    }
+}
+
+.filterRow {
+    display: flex;
+    gap: 0.75rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    select {
+        flex: 1;
+        padding: 0.6rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        background: rgba(255, 255, 255, 0.9);
+        color: $text-dark;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+            border-color: $brass-gold;
+        }
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .treasuryHero {
+        min-height: 85vh;
+        padding-bottom: 8rem;
+    }
+}

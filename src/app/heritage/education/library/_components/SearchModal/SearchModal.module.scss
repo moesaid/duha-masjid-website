@@ -1,0 +1,219 @@
+// SearchModal styles
+@use "sass:color";
+
+// Color Palette
+$wood-dark: #3D2914;
+$wood-medium: #5D4E37;
+$leather-tan: #8B4513;
+$cream-paper: #FAF6F0;
+$brass-gold: #B8860B;
+$brass-light: #D4A84B;
+$text-dark: #3D2914;
+$text-muted: #6B5F52;
+$border-wood: rgba(61, 41, 20, 0.2);
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.modalContent {
+    position: relative;
+    background: $cream-paper;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(139, 69, 19, 0.1);
+}
+
+.modalClose {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+    z-index: 10;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+    }
+}
+
+.modalHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, $wood-medium 0%, $wood-dark 100%);
+    color: #fff;
+
+    h2 {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+    }
+}
+
+.modalHeaderTop {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    svg {
+        color: $brass-light;
+    }
+}
+
+.resultCount {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $brass-light;
+}
+
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+
+    svg {
+        color: $text-muted;
+        opacity: 0.5;
+        margin-bottom: 1.5rem;
+    }
+
+    h3 {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin: 0 0 0.5rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-muted;
+        max-width: 300px;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+.resultsList {
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.resultItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid $border-wood;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+    }
+}
+
+.resultBookSpine {
+    width: 12px;
+    height: 60px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.resultInfo {
+    flex: 1;
+    min-width: 0;
+
+    h4 {
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+}
+
+.resultAuthor {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin: 0 0 0.5rem;
+}
+
+.resultMeta {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.resultSubject,
+.resultLanguage {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.resultSubject {
+    background: rgba($leather-tan, 0.1);
+    color: $leather-tan;
+}
+
+.resultLanguage {
+    background: rgba($brass-gold, 0.1);
+    color: color.adjust($brass-gold, $lightness: -10%);
+}
+
+.resultStatus {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #4CAF50;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    flex-shrink: 0;
+
+    svg {
+        flex-shrink: 0;
+    }
+}

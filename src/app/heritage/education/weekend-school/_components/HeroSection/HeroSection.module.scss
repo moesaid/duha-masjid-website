@@ -1,0 +1,111 @@
+// HeroSection styles - Weekend School
+
+$navy: #1a2744;
+$oxford-blue: #0d1b2a;
+$gold: #c9a227;
+$gold-light: #e8d078;
+
+.madrasahHero {
+    position: relative;
+    height: 60vh;
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    filter: sepia(0.15) saturate(0.85) brightness(0.6);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba($oxford-blue, 0.7) 0%,
+            rgba($navy, 0.85) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.schoolIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: rgba($gold, 0.15);
+    border: 2px solid $gold;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+
+    svg {
+        color: $gold;
+    }
+}
+
+.arabicTitle {
+    display: block;
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    color: $gold;
+    margin-bottom: 0.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #fff;
+    font-weight: 400;
+    margin: 0 0 0.75rem;
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(#fff, 0.85);
+    margin: 0 0 2rem;
+}
+
+.heroStats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statNumber {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: $gold-light;
+}
+
+.statLabel {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(#fff, 0.8);
+}
+
+.statDivider {
+    width: 1px;
+    height: 50px;
+    background: rgba($gold, 0.4);
+}

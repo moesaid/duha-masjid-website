@@ -1,0 +1,140 @@
+// TeachersSection styles - Quran Academy
+// Redesigned with elegant card layout
+
+$emerald: #1a5d3a;
+$emerald-dark: #134430;
+$gold: #c9a227;
+$gold-light: #e8d078;
+$mushaf-cream: #f8f4e8;
+$paper: #f5f1e6;
+$text-dark: #1a1a1a;
+$text-muted: rgba(#1a1a1a, 0.65);
+$border-gold: rgba(#c9a227, 0.35);
+
+.teachersSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, $paper 0%, $mushaf-cream 100%);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    background: rgba($gold, 0.1);
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: $emerald-dark;
+    margin: 0;
+}
+
+.teachersGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+.teacherCard {
+    position: relative;
+    background: #fff;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    border: 1px solid $border-gold;
+    box-shadow: 0 4px 20px rgba($emerald-dark, 0.08);
+    transition: all 0.3s ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, $emerald 0%, $gold 100%);
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba($emerald-dark, 0.12);
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        color: $emerald-dark;
+        margin: 0 0 0.35rem;
+    }
+}
+
+.teacherImage {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.25rem;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 2px dashed $border-gold;
+    }
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid $gold;
+    object-fit: cover;
+}
+
+.title {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #fff;
+    background: $emerald;
+    padding: 0.35rem 0.85rem;
+    margin: 0 0 0.5rem;
+}
+
+.credentials {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $gold;
+    font-style: italic;
+    margin: 0 0 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $border-gold;
+}
+
+.bio {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    line-height: 1.7;
+    margin: 0;
+}

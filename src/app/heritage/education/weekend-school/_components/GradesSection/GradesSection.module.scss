@@ -1,0 +1,146 @@
+// GradesSection styles - Weekend School
+
+$navy: #1a2744;
+$gold: #c9a227;
+$gold-light: #e8d078;
+$cream: #faf6ed;
+$paper: #f5f1e6;
+$text-dark: #1a1a1a;
+$text-muted: rgba(#1a1a1a, 0.65);
+$border-gold: rgba(#c9a227, 0.3);
+
+.gradesSection {
+    padding: 5rem 2rem;
+    background: $paper;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: $navy;
+    margin: 0;
+}
+
+.gradesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.gradeCard {
+    background: $cream;
+    border: 1px solid $border-gold;
+    padding: 2rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba($navy, 0.1);
+    }
+}
+
+.gradeHeader {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $border-gold;
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        color: $navy;
+        margin: 0 0 0.25rem;
+    }
+}
+
+.arabicName {
+    display: block;
+    font-family: var(--font-arabic, 'Scheherazade New', 'Amiri', serif);
+    font-size: 1.25rem;
+    color: $gold;
+    margin-bottom: 0.25rem;
+}
+
+.ageRange {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+}
+
+.gradeDesc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+    text-align: center;
+}
+
+.subjects {
+    margin-bottom: 1.25rem;
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: $navy;
+        margin: 0 0 0.75rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: $text-dark;
+
+            svg {
+                color: $gold;
+            }
+        }
+    }
+}
+
+.enrollBtn {
+    display: block;
+    width: 100%;
+    padding: 0.85rem;
+    background: $navy;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: darken($navy, 5%);
+    }
+}

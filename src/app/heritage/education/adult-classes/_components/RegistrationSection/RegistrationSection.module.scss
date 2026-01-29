@@ -1,0 +1,107 @@
+// RegistrationSection styles - Adult Classes
+
+$mahogany: #5C2626;
+$mahogany-light: #7A3B3B;
+$paper-cream: #FAF6F0;
+$text-dark: #2C2416;
+$text-muted: #6B5F52;
+$border-warm: rgba(92, 38, 38, 0.15);
+
+.registrationSection {
+    padding: 5rem 2rem;
+    background: linear-gradient(to bottom, $paper-cream, #fff);
+    border-top: 1px solid $border-warm;
+}
+
+.registrationContent {
+    text-align: center;
+    max-width: 550px;
+    margin: 0 auto;
+
+    h2 {
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin: 0 0 0.75rem;
+    }
+}
+
+.registrationNote {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0 0 2rem;
+}
+
+.newsletterForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: $mahogany;
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 0.9rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s ease;
+
+        &:hover {
+            background: $mahogany-light;
+        }
+    }
+}
+
+.inputWrapper {
+    position: relative;
+    width: 100%;
+
+    input {
+        width: 100%;
+        padding: 0.9rem 1rem 0.9rem 2.75rem;
+        border: 2px solid $border-warm;
+        border-radius: 8px;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        background: #fff;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $mahogany;
+        }
+
+        &::placeholder {
+            color: $text-muted;
+        }
+    }
+}
+
+.inputIcon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-muted;
+    pointer-events: none;
+}
+
+.privacyNote {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+    margin-top: 1rem;
+}

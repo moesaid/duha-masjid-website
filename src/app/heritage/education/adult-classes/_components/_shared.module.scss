@@ -1,0 +1,24 @@
+// Adult Classes shared design tokens
+// Palette: Mahogany, Paper Cream, Ink Blue, Gold
+
+$mahogany: #5C2626;
+$mahogany-light: #7A3B3B;
+$mahogany-dark: #3D1818;
+$paper-cream: #FAF6F0;
+$paper-warm: #F5EDE0;
+$ink-blue: #1A3A5C;
+$ink-blue-light: #2C5275;
+$forest-green: #1A4D3E;
+$sage: #A8C5B5;
+$sage-light: #D1E2D8;
+$lavender: #E8E0F0;
+$gold-accent: #B8860B;
+$text-dark: #2C2416;
+$text-muted: #6B5F52;
+$border-warm: rgba(92, 38, 38, 0.15);
+
+// Page container
+.adultClassesPage {
+    background: $paper-cream;
+    min-height: 100vh;
+}

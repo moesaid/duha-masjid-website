@@ -64,14 +64,6 @@ export const programs: Program[] = [
         ageGroup: 'Ages 13+',
         schedule: 'Sundays 9 AM - 12 PM',
         icon: Star
-    },
-    {
-        id: 'adult',
-        title: 'Adult Learners',
-        description: 'Flexible program for adults wanting to improve recitation or begin memorization.',
-        ageGroup: 'Adults 18+',
-        schedule: 'Weekdays after Maghrib',
-        icon: Award
     }
 ];
 
@@ -85,21 +77,21 @@ export const teachers: Teacher[] = [
         title: 'Lead Instructor',
         credentials: 'Ijazah in Hafs from Asim',
         bio: 'Sheikh Ahmad has over 20 years of experience teaching Quran and has helped more than 50 students complete their hifz.',
-        imageUrl: '/images/heritage/teacher-1.jpg'
+        imageUrl: '/images/heritage/arab-men-1.jpg'
     },
     {
         name: 'Ustadha Fatima Ali',
         title: "Sisters' Program Director",
         credentials: 'Ijazah in Tajweed',
         bio: "Ustadha Fatima specializes in working with children and has developed our popular 'Seedlings' curriculum.",
-        imageUrl: '/images/heritage/teacher-2.jpg'
+        imageUrl: '/images/heritage/arab-women-1.jpg'
     },
     {
         name: 'Hafiz Omar Yusuf',
         title: 'Youth Instructor',
         credentials: 'Complete Hifz at age 14',
         bio: "Hafiz Omar's youth and energy connect with our teenage students, making memorization engaging and fun.",
-        imageUrl: '/images/heritage/teacher-3.jpg'
+        imageUrl: '/images/heritage/arab-men-2.jpg'
     }
 ];
 

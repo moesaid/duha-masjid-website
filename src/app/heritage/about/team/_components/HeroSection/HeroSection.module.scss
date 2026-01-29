@@ -1,0 +1,87 @@
+/* HeroSection Component Styles */
+
+$forest-green: #1a4a3a;
+$warm-gold: #c9a227;
+
+.heroSection {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroImage {
+    position: absolute;
+    inset: 0;
+}
+
+.heroPhoto {
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba($forest-green, 0.7) 0%,
+            rgba($forest-green, 0.85) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 700px;
+}
+
+.arabicWatermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: clamp(12rem, 30vw, 20rem);
+    color: rgba(#fff, 0.03);
+    pointer-events: none;
+    z-index: 0;
+    line-height: 1;
+}
+
+.heroBadge {
+    display: inline-block;
+    background: rgba($warm-gold, 0.15);
+    color: $warm-gold;
+    padding: 0.5rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba($warm-gold, 0.3);
+}
+
+.heroTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(#fff, 0.85);
+    line-height: 1.7;
+    max-width: 550px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}

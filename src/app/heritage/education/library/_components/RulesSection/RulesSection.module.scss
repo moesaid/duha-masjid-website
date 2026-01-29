@@ -1,0 +1,156 @@
+// RulesSection styles - Borrowing Policies
+@use "sass:color";
+
+// Color Palette
+$leather-tan: #8B4513;
+$leather-dark: #6B4423;
+$cream-paper: #FAF6F0;
+$parchment: #F0E6D3;
+$brass-gold: #B8860B;
+$text-dark: #3D2914;
+$text-muted: #6B5F52;
+$border-wood: rgba(61, 41, 20, 0.2);
+
+.rulesSection {
+    padding: 5rem 2rem;
+    background: $cream-paper;
+}
+
+.rulesPlaque {
+    max-width: 800px;
+    margin: 0 auto;
+    background: $parchment;
+    border: 2px solid $border-wood;
+    border-radius: 8px;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border: 2px solid $brass-gold;
+        opacity: 0.5;
+    }
+
+    &::before {
+        top: 12px;
+        left: 12px;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    &::after {
+        bottom: 12px;
+        right: 12px;
+        border-left: none;
+        border-top: none;
+    }
+}
+
+.plaqueHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin: 0;
+    }
+}
+
+.exLibris {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $brass-gold;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+}
+
+.rulesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ruleItem {
+    display: flex;
+    gap: 1rem;
+}
+
+.ruleIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba($leather-tan, 0.1);
+    border-radius: 8px;
+    color: $leather-tan;
+    flex-shrink: 0;
+}
+
+.ruleContent {
+    h4 {
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+.applyCard {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid $border-wood;
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        margin: 0 0 1rem;
+    }
+}
+
+.applyBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $leather-tan;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: $leather-dark;
+    }
+}

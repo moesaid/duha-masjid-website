@@ -1,0 +1,81 @@
+// HoursSection styles
+@use "sass:color";
+
+// Color Palette
+$leather-tan: #8B4513;
+$cream-paper: #FAF6F0;
+$cream-warm: #F5EDE0;
+$brass-gold: #B8860B;
+$text-dark: #3D2914;
+$text-muted: #6B5F52;
+$border-wood: rgba(61, 41, 20, 0.2);
+
+.hoursSection {
+    padding: 3rem 2rem;
+    background: linear-gradient(to bottom, $cream-warm, $cream-paper);
+    border-top: 1px solid $border-wood;
+}
+
+.hoursContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 700px;
+    margin: 0 auto;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
+
+.hoursBlock {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    svg {
+        color: $brass-gold;
+        flex-shrink: 0;
+        margin-top: 0.25rem;
+    }
+
+    h4 {
+        font-family: var(--font-heading);
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: $text-muted;
+        margin: 0;
+        line-height: 1.5;
+    }
+}
+
+.staffed {
+    font-weight: 500;
+    color: $leather-tan !important;
+}
+
+.hoursDivider {
+    width: 1px;
+    height: 60px;
+    background: $border-wood;
+
+    @media (max-width: 600px) {
+        width: 60px;
+        height: 1px;
+    }
+}
