@@ -1,0 +1,188 @@
+// IftarSection styles - Community Iftar
+
+$heritage-green: #1a3a32;
+$heritage-cream: #f5eedc;
+$heritage-cream-light: #faf7f0;
+$heritage-white: #fff;
+$lantern-gold: #d4a84b;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $lantern-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    color: $heritage-green;
+}
+
+.iftarSection {
+    padding: 4rem 2rem;
+    background: $heritage-cream-light;
+}
+
+.iftarGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.iftarCard {
+    background: $heritage-white;
+    border-top: 4px solid $lantern-gold;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.iftarCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba($heritage-green, 0.1);
+
+    svg {
+        color: $lantern-gold;
+    }
+
+    h3 {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        color: $heritage-green;
+        margin: 0;
+    }
+}
+
+.iftarText {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+}
+
+.calendarLegend {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: $text-muted;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+}
+
+.legendAvailable {
+    width: 12px;
+    height: 12px;
+    background: rgba($heritage-green, 0.08);
+    border: 1px solid $heritage-green;
+}
+
+.legendSponsored {
+    width: 12px;
+    height: 12px;
+    background: rgba($lantern-gold, 0.15);
+    border: 1px solid $lantern-gold;
+}
+
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+}
+
+.calendarDay {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    border: 1px solid rgba($heritage-green, 0.15);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &.available {
+        background: rgba($heritage-green, 0.08);
+        color: $heritage-green;
+        border-color: $heritage-green;
+
+        &:hover {
+            background: $heritage-green;
+            color: $heritage-white;
+        }
+    }
+
+    &.sponsored {
+        background: rgba($lantern-gold, 0.15);
+        color: $lantern-gold;
+        border-color: $lantern-gold;
+        cursor: default;
+    }
+
+    &.header {
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        color: $text-muted;
+        border: none;
+        cursor: default;
+    }
+
+    &.clickable {
+        cursor: pointer;
+    }
+}
+
+.menuList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba($heritage-green, 0.08);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-dark;
+        line-height: 1.5;
+
+        svg {
+            color: $lantern-gold;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

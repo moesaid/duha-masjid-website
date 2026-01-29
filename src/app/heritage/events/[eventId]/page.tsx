@@ -14,7 +14,7 @@ import {
     FaqSection,
     ReservationModal
 } from './_components';
-import styles from './EventPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 /**
  * Single Event Page - Royal Invitation Design

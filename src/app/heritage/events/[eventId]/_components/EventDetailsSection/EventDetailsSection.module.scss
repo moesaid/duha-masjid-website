@@ -1,0 +1,182 @@
+// EventDetailsSection styles
+
+$maroon-deep: #5c1a1a;
+$midnight-blue: #1a2744;
+$heritage-gold: #d4af37;
+$parchment: #f5f0e6;
+$parchment-dark: #e8e0d0;
+$text-dark: #333;
+$text-muted: #666;
+$white: #fff;
+
+.detailsSection {
+    padding: 5rem 2rem;
+    background: $white;
+}
+
+.detailsContainer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.descriptionBlock {
+    margin-bottom: 4rem;
+}
+
+.dropCap {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: $text-dark;
+    white-space: pre-line;
+
+    &::first-letter {
+        float: left;
+        font-family: var(--font-display);
+        font-size: 4rem;
+        font-weight: 700;
+        color: $maroon-deep;
+        line-height: 0.8;
+        padding-right: 0.75rem;
+        padding-top: 0.25rem;
+    }
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: $midnight-blue;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $parchment-dark;
+
+    svg {
+        color: $heritage-gold;
+    }
+}
+
+// Schedule Timeline
+.scheduleBlock {
+    margin-bottom: 4rem;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, $heritage-gold 0%, $parchment-dark 100%);
+    }
+}
+
+.timelineItem {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+
+.timelineDot {
+    position: absolute;
+    left: -2rem;
+    top: 0.25rem;
+    width: 12px;
+    height: 12px;
+    background: $heritage-gold;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 4px $white;
+}
+
+.timelineTime {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $maroon-deep;
+    min-width: 80px;
+}
+
+.timelineContent {
+    h4 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: $midnight-blue;
+        margin-bottom: 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-muted;
+    }
+}
+
+// Speakers
+.speakersBlock {
+    margin-bottom: 2rem;
+}
+
+.speakersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.speakerCard {
+    text-align: center;
+    padding: 2rem;
+    background: $parchment;
+}
+
+.speakerAvatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: $midnight-blue;
+    border: 4px solid $heritage-gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        color: $heritage-gold;
+    }
+}
+
+.speakerName {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: $midnight-blue;
+    margin-bottom: 0.25rem;
+}
+
+.speakerTitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $heritage-gold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+}
+
+.speakerBio {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+}

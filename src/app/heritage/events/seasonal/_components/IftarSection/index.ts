@@ -1,0 +1,1 @@
+export { IftarSection } from './IftarSection';

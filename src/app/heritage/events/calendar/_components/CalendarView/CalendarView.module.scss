@@ -1,0 +1,11 @@
+// CalendarView wrapper styles
+
+$parchment-dark: #e8e0d0;
+$white: #fff;
+
+.calendarWrapper {
+    background: $white;
+    border: 1px solid $parchment-dark;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}

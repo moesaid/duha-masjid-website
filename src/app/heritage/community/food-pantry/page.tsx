@@ -13,7 +13,7 @@ import {
     ImpactSection,
     FooterSection
 } from './_components';
-import styles from './FoodPantryPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 /**
  * Food Pantry Page - Community Sustenance

@@ -12,7 +12,7 @@ import {
     EventsSection,
     ParentsSection
 } from './_components';
-import styles from './YouthPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 /**
  * Youth Page - "The Next Generation"

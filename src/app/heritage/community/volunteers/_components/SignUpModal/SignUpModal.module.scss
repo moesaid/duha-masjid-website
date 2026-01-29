@@ -1,0 +1,158 @@
+// SignUpModal styles
+
+@use "sass:color";
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$cream: #f8f5f0;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$white: #fff;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+    background: $white;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border-top: 6px solid $gold;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+.modalClose {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: $text-muted;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $emerald;
+    }
+}
+
+.modalHeader {
+    text-align: center;
+    padding: 2rem 2rem 1.5rem;
+    background: $parchment;
+
+    h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        color: $emerald-dark;
+        margin: 0.5rem 0;
+    }
+
+    svg {
+        color: $gold;
+    }
+}
+
+.areaLabel {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba($emerald, 0.1);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $emerald;
+}
+
+.signUpForm {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input,
+    select,
+    textarea {
+        padding: 0.75rem 1rem;
+        border: 1px solid #ddd;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: $text-dark;
+        background: $white;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $emerald;
+        }
+
+        &::placeholder {
+            color: #999;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.submitBtn {
+    background: $gold;
+    color: $emerald-dark;
+    padding: 0.875rem 2rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: color.adjust($gold, $lightness: 10%);
+    }
+}

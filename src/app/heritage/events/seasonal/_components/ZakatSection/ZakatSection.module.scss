@@ -1,0 +1,145 @@
+// ZakatSection styles - Zakat al-Fitr & Fidya
+
+$heritage-green: #1a3a32;
+$heritage-green-light: #2d5a4a;
+$heritage-cream: #f5eedc;
+$heritage-cream-light: #faf7f0;
+$heritage-white: #fff;
+$lantern-gold: #d4a84b;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+
+.zakatSection {
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+}
+
+.zakatCard {
+    background: $heritage-white;
+    border-top: 6px solid $lantern-gold;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.zakatIcon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: $lantern-gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $heritage-white;
+}
+
+.zakatTitle {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: $heritage-green;
+    margin-bottom: 0.5rem;
+}
+
+.zakatSubtitle {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-muted;
+    margin-bottom: 2rem;
+}
+
+.zakatInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.zakatRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    background: $heritage-cream-light;
+    border-left: 3px solid $lantern-gold;
+    text-align: left;
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.zakatLabel {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+
+    span {
+        display: block;
+        font-size: 0.75rem;
+        color: $text-muted;
+    }
+}
+
+.zakatInput {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    color: $text-muted;
+
+    input {
+        width: 50px;
+        padding: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        text-align: center;
+        border: 2px solid $heritage-green;
+        background: $heritage-white;
+
+        &:focus {
+            outline: none;
+            border-color: $lantern-gold;
+        }
+    }
+}
+
+.zakatTotal {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: $heritage-green;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: $heritage-cream-light;
+}
+
+.payNowBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $heritage-green-light;
+    }
+}
+
+.zakatNote {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: $text-muted;
+    margin-top: 1.5rem;
+    font-style: italic;
+}

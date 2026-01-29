@@ -1,0 +1,63 @@
+// BenefitsSection styles
+
+@use "sass:color";
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$parchment: #f5f0e6;
+$text-dark: #1a1a1a;
+$white: #fff;
+
+.benefitsSection {
+    padding: 4rem 2rem;
+    background: $parchment;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: $emerald-dark;
+}
+
+.benefitsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 1.25rem;
+        background: $white;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: $text-dark;
+
+        svg {
+            color: $emerald;
+            flex-shrink: 0;
+        }
+    }
+}

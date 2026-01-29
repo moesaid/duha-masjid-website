@@ -1,0 +1,49 @@
+// FaqSection styles - Membership
+
+$emerald-dark: #084228;
+$cream: #f8f5f0;
+$white: #fff;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+$border: #e0dcd4;
+
+.faqSection {
+    padding: 4rem 2rem;
+}
+
+.faqTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    color: $emerald-dark;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.faqList {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faqItem {
+    padding: 1.5rem;
+    background: $white;
+    border: 1px solid $border;
+}
+
+.faqQuestion {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.faqAnswer {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: $text-muted;
+}

@@ -1,0 +1,87 @@
+// HeroSection styles - Sustenance Hero
+
+$harvest-gold: #d4a84b;
+$wheat-light: #f5eedc;
+$heritage-white: #fff;
+
+$arabesque-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a84b' stroke-width='0.6'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3Cpath d='M40 10L70 40L40 70L10 40z'/%3E%3Cpath d='M40 20L60 40L40 60L20 40z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+.heroSection {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 14rem;
+    background: linear-gradient(135deg,
+            oklch(0.45 0.08 85) 0%,
+            oklch(0.38 0.06 70) 100%);
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: $arabesque-pattern;
+        background-size: 80px 80px;
+        opacity: 0.12;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center,
+                transparent 0%,
+                oklch(0.25 0.05 85 / 0.4) 100%);
+        pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+        padding: 4rem 1.5rem 18rem;
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+}
+
+.heroCalligraphy {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: $wheat-light;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px oklch(0 0 0 / 0.3);
+}
+
+.heroRef {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: oklch(0.85 0.02 85);
+    margin-bottom: 2rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    color: $heritage-white;
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+    text-shadow: 0 2px 12px oklch(0 0 0 / 0.3);
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: oklch(0.92 0.01 85);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}

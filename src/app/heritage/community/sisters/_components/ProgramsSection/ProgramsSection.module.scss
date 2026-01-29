@@ -1,0 +1,146 @@
+// ProgramsSection styles - Weekly Gatherings
+
+$heritage-green: #2d5a3d;
+$heritage-white: #fff;
+$heritage-parchment: oklch(0.98 0.005 90);
+$heritage-gold: #d4af37;
+$text-dark: oklch(0.25 0.01 60);
+$text-muted: oklch(0.45 0.01 60);
+
+.sectionIntro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $heritage-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.sectionDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    line-height: 1.6;
+}
+
+.programsSection {
+    padding: 5rem 2rem;
+    background: $heritage-white;
+
+    @media (max-width: 768px) {
+        padding: 3.5rem 1.5rem;
+    }
+}
+
+.programsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.programCard {
+    position: relative;
+    padding: 2rem;
+    background: $heritage-parchment;
+    border: 1px solid oklch(0.9 0.02 85);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px oklch(0.35 0.1 145 / 0.15);
+    }
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.cardIconCircle {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $heritage-green;
+    color: $heritage-white;
+    border-radius: 50%;
+}
+
+.sistersOnlyTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: oklch(0.95 0.03 145);
+    color: $heritage-green;
+    padding: 0.35rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 1rem;
+}
+
+.cardTitle {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.cardDescription {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin-bottom: 1.25rem;
+}
+
+.cardFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-top: 1rem;
+    border-top: 1px solid oklch(0.9 0.02 85);
+}
+
+.cardTime {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $heritage-green;
+    font-weight: 500;
+}
+
+.cardInstructor {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-style: italic;
+    color: $text-muted;
+}

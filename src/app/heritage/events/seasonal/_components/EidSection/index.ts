@@ -1,0 +1,1 @@
+export { EidSection } from './EidSection';

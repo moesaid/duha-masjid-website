@@ -13,7 +13,7 @@ import {
     EidSection,
     SponsorModal
 } from './_components';
-import styles from './RamadanPage.module.scss';
+import sharedStyles from './_components/_shared.module.scss';
 
 /**
  * Ramadan & Eid Page - Seasonal Events
@@ -27,7 +27,7 @@ export default function RamadanPage() {
     const state = useSeasonalState();
 
     return (
-        <main className={styles.ramadanPage}>
+        <main className={sharedStyles.ramadanPage}>
             <HeroSection countdown={state.countdown} />
             <TaraweehSection />
             <IftarSection onDaySelect={state.setSelectedDay} />

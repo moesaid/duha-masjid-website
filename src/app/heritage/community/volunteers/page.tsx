@@ -3,7 +3,7 @@
 'use client';
 
 import { useState } from 'react';
-import styles from './VolunteersPage.module.scss';
+import styles from './_components/_shared.module.scss';
 import { Heart, Users, BookOpen, Utensils, Shield, Mic, Baby, Brush, Calendar, HandHeart } from 'lucide-react';
 import {
     Select,

@@ -1,0 +1,1 @@
+export { ItikafSection } from './ItikafSection';

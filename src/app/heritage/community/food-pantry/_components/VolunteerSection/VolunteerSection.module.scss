@@ -1,0 +1,86 @@
+// VolunteerSection styles - Khidmah Crew
+
+$harvest-gold: #d4a84b;
+$heritage-green: #2d5a3d;
+$heritage-white: #fff;
+$heritage-cream: oklch(0.97 0.01 85);
+
+$arabesque-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a84b' stroke-width='0.6'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3Cpath d='M40 10L70 40L40 70L10 40z'/%3E%3Cpath d='M40 20L60 40L40 60L20 40z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+.volunteerSection {
+    position: relative;
+    padding: 4rem 2rem;
+    background: $heritage-green;
+    color: $heritage-white;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: $arabesque-pattern;
+        background-size: 80px 80px;
+        opacity: 0.08;
+        pointer-events: none;
+    }
+}
+
+.volunteerContent {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.volunteerIcon {
+    color: $harvest-gold;
+    margin-bottom: 1rem;
+}
+
+.volunteerTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 1rem;
+}
+
+.volunteerRoles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.roleTag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 0.6rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    svg {
+        color: $harvest-gold;
+    }
+}
+
+.volunteerBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: $heritage-white;
+    color: $heritage-green;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $heritage-cream;
+        transform: translateY(-2px);
+    }
+}

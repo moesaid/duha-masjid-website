@@ -1,0 +1,127 @@
+// ScheduleSection styles - Weekly Schedule
+
+$heritage-green: #4A7C59;
+$heritage-green-dark: #3A6347;
+$text-dark: #1A2D3D;
+$text-muted: #5A6B7A;
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $heritage-green;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: $text-dark;
+    margin: 0;
+}
+
+.scheduleSection {
+    padding: 5rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scheduleTimeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.scheduleItem {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid $heritage-green;
+}
+
+.scheduleIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, $heritage-green 0%, $heritage-green-dark 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.scheduleDetails {
+    flex: 1;
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin: 0 0 0.25rem;
+    }
+
+    p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: $text-muted;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+.scheduleDay {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $heritage-green;
+    margin-bottom: 0.25rem;
+}
+
+.scheduleTime {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-bottom: 0.5rem;
+}
+
+.calendarCta {
+    text-align: center;
+}
+
+.calendarBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-green;
+    color: #fff;
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: $heritage-green-dark;
+    }
+}

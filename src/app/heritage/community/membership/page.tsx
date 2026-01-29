@@ -5,7 +5,7 @@
 import { benefits, faqs } from './_data';
 import { useMembershipForm } from './_hooks';
 import { HeroSection, BenefitsSection, ApplicationForm, FaqSection } from './_components';
-import styles from './MembershipPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 /**
  * Membership Page - Community membership application

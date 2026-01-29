@@ -31,7 +31,7 @@ import {
     Grid3X3,
     List
 } from 'lucide-react';
-import styles from './CalendarPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 // ========================================
 // DATA

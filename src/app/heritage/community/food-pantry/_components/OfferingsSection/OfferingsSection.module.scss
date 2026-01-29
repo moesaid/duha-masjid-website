@@ -1,0 +1,120 @@
+// OfferingsSection styles - What We Provide
+
+$harvest-gold: #d4a84b;
+$wheat-light: #f5eedc;
+$sage-green: #7d8a6e;
+$heritage-green: #2d5a3d;
+$heritage-white: #fff;
+$text-muted: #555;
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: darken($harvest-gold, 15%);
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: $heritage-green;
+}
+
+.offeringsSection {
+    padding: 18rem 2rem 5rem;
+    background: $wheat-light;
+
+    @media (max-width: 768px) {
+        padding: 22rem 1.5rem 4rem;
+    }
+}
+
+.offeringsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+.offeringCard {
+    background: $heritage-white;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: 1px solid oklch(0.88 0.03 85);
+    box-shadow:
+        inset 0 0 0 4px $heritage-white,
+        inset 0 0 0 5px oklch(0.88 0.03 85);
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow:
+            inset 0 0 0 4px $heritage-white,
+            inset 0 0 0 5px $harvest-gold,
+            0 12px 40px oklch(0 0 0 / 0.1);
+
+        .offeringIcon {
+            background: $harvest-gold;
+            transform: scale(1.1);
+        }
+    }
+}
+
+.offeringIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: $sage-green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $heritage-white;
+    margin: 0 auto 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.offeringTitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: $heritage-green;
+    margin-bottom: 0.75rem;
+}
+
+.offeringDesc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-muted;
+}
+
+.halalBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    border-radius: 2rem;
+
+    svg {
+        color: $harvest-gold;
+    }
+}

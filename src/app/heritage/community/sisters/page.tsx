@@ -12,7 +12,7 @@ import {
     MentorshipSection,
     CtaSection
 } from './_components';
-import styles from './SistersPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 /**
  * Sisters Page - Sanctuary of Sisterhood

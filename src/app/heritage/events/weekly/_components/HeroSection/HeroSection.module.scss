@@ -1,0 +1,80 @@
+// HeroSection styles for Weekly Page
+
+$warm-amber: #d4a84b;
+$warm-amber-light: #e8c87a;
+$coffee: #6f4e37;
+$clay: #a0826d;
+$sage-green: #7d8b6a;
+$white: #ffffff;
+
+.weeklyHero {
+    position: relative;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $coffee 0%, $clay 50%, $sage-green 100%);
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    opacity: 0.25;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(111, 78, 55, 0.7) 0%, rgba(125, 139, 106, 0.6) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 3rem 2rem;
+    max-width: 800px;
+}
+
+.weeklyIcon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    border: 2px solid $warm-amber;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 168, 75, 0.1);
+    color: $warm-amber;
+}
+
+.arabicTitle {
+    display: block;
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1.75rem;
+    color: $warm-amber-light;
+    margin-bottom: 0.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: $white;
+    margin-bottom: 1rem;
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}

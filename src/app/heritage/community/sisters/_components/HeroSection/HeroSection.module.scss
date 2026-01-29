@@ -1,0 +1,202 @@
+// HeroSection styles - Sanctuary of Sisterhood
+
+$heritage-green: #2d5a3d;
+$heritage-gold: #d4af37;
+$heritage-cream: oklch(0.97 0.01 85);
+$heritage-white: #fff;
+$text-dark: oklch(0.25 0.01 60);
+$text-muted: oklch(0.45 0.01 60);
+
+$floral-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5' opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3Cpath d='M30 10 Q35 20 30 30 Q25 20 30 10'/%3E%3Cpath d='M30 50 Q35 40 30 30 Q25 40 30 50'/%3E%3Cpath d='M10 30 Q20 35 30 30 Q20 25 10 30'/%3E%3Cpath d='M50 30 Q40 35 30 30 Q40 25 50 30'/%3E%3C/g%3E%3C/svg%3E");
+
+.heroSection {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+    overflow: hidden;
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: $floral-pattern;
+    background-size: 60px 60px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.heroImageContainer {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+}
+
+.archMask {
+    position: relative;
+    width: 220px;
+    height: 280px;
+    margin: 0 auto;
+    border-radius: 110px 110px 0 0;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 4px $heritage-cream,
+        0 0 0 6px $heritage-gold,
+        0 12px 40px oklch(0.35 0.1 145 / 0.2);
+
+    @media (max-width: 600px) {
+        width: 180px;
+        height: 230px;
+        border-radius: 90px 90px 0 0;
+    }
+}
+
+.heroPhoto {
+    object-fit: cover;
+    object-position: center top;
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            oklch(0.97 0.01 85 / 0.6) 100%);
+    pointer-events: none;
+}
+
+.headerContent {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.headerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 0.4rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border-radius: 2rem;
+}
+
+.bismillah {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    color: $heritage-gold;
+    margin-bottom: 1.25rem;
+    direction: rtl;
+    letter-spacing: 0.05em;
+}
+
+.heroTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: $text-dark;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+}
+
+.titleAccent {
+    color: $heritage-green;
+    font-style: italic;
+}
+
+.heroQuote {
+    font-family: var(--font-body, Georgia, serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: $heritage-gold;
+    margin-bottom: 0.25rem;
+}
+
+.quoteRef {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-bottom: 1.25rem;
+}
+
+.heroDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $text-muted;
+    max-width: 550px;
+    margin: 0 auto 1.5rem;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.dividerIcon {
+    width: 16px;
+    height: 16px;
+    color: $heritage-gold;
+    transform: rotate(45deg);
+}
+
+.heroActions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.primaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: oklch(0.35 0.1 145);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px oklch(0.35 0.1 145 / 0.35);
+    }
+}
+
+.secondaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    color: $heritage-green;
+    padding: 0.85rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid oklch(0.85 0.03 85);
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $heritage-green;
+        background: oklch(0.95 0.02 145);
+    }
+}

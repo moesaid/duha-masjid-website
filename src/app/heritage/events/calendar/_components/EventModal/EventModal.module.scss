@@ -1,0 +1,146 @@
+// EventModal styles
+@use "sass:color";
+
+$midnight-blue: #1a2744;
+$heritage-gold: #d4af37;
+$parchment: #f5f0e6;
+$parchment-dark: #e8e0d0;
+$text-dark: #333;
+$text-muted: #666;
+$white: #fff;
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.modalContent {
+    background: $white;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modalClose {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: $white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
+.eventHeader {
+    padding: 2rem;
+    color: $white;
+}
+
+.eventCategory {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.eventHeader h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.eventDetails {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-dark;
+
+    svg {
+        color: $heritage-gold;
+        flex-shrink: 0;
+    }
+}
+
+.eventDescription {
+    padding: 0 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.eventActions {
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid $parchment-dark;
+}
+
+.addToCalendarBtn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: $midnight-blue;
+    color: $white;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: color.adjust($midnight-blue, $lightness: -8%);
+    }
+}
+
+.shareBtn {
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: 1px solid $parchment-dark;
+    color: $text-muted;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $midnight-blue;
+        color: $midnight-blue;
+    }
+}

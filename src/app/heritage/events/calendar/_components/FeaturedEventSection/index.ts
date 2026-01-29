@@ -1,0 +1,1 @@
+export { FeaturedEventSection } from './FeaturedEventSection';

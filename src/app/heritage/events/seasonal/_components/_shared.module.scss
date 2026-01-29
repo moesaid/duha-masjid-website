@@ -1,0 +1,49 @@
+// Shared tokens and page container for Ramadan page
+
+$night-sky: #0a1628;
+$night-sky-light: #132038;
+$heritage-green: #1a3a32;
+$heritage-green-light: #2d5a4a;
+$heritage-cream: #f5eedc;
+$heritage-cream-light: #faf7f0;
+$heritage-white: #fff;
+$lantern-gold: #d4a84b;
+$lantern-gold-light: #e8c97a;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+
+// Page container
+.ramadanPage {
+    min-height: 100vh;
+    background: $heritage-cream;
+}
+
+// Consistent section styling
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $lantern-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    color: $heritage-green;
+}
+
+// Consistent heritage card style
+.heritageCard {
+    background: $heritage-white;
+    border-top: 4px solid $lantern-gold;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}

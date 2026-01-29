@@ -1,0 +1,46 @@
+// ImpactSection styles - Stats
+
+$harvest-gold: #d4a84b;
+$wheat-light: #f5eedc;
+$text-muted: #555;
+
+.impactSection {
+    padding: 4rem 2rem;
+    background: $wheat-light;
+}
+
+.impactGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+.impactStat {
+    padding: 1rem;
+}
+
+.impactNumber {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: $harvest-gold;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.impactLabel {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}

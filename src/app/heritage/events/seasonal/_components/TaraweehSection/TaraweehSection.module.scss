@@ -1,0 +1,116 @@
+// TaraweehSection styles - Qiyam al-Layl Schedule
+
+$heritage-green: #1a3a32;
+$heritage-green-light: #2d5a4a;
+$heritage-cream: #f5eedc;
+$heritage-cream-light: #faf7f0;
+$heritage-white: #fff;
+$lantern-gold: #d4a84b;
+$lantern-gold-light: #e8c97a;
+$text-dark: #1a1a1a;
+$text-muted: #555;
+
+.taraweehSection {
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+}
+
+.taraweehCard {
+    background: $heritage-white;
+    border-top: 4px solid $lantern-gold;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.taraweehHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba($heritage-green, 0.1);
+
+    svg {
+        color: $lantern-gold;
+    }
+}
+
+.taraweehTitle {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: $heritage-green;
+    margin: 0;
+}
+
+.taraweehArabic {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    color: $lantern-gold;
+    margin-left: 0.5rem;
+}
+
+.taraweehGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.taraweehItem {
+    text-align: center;
+    padding: 1.25rem;
+    background: $heritage-cream-light;
+    border-left: 3px solid $lantern-gold;
+}
+
+.taraweehLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: $text-muted;
+    margin-bottom: 0.5rem;
+}
+
+.taraweehValue {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: $text-dark;
+    line-height: 1.4;
+}
+
+.juzProgress {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba($heritage-green, 0.1);
+}
+
+.juzLabel {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-bottom: 0.75rem;
+}
+
+.juzBar {
+    height: 8px;
+    background: $heritage-cream;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.juzFill {
+    height: 100%;
+    background: linear-gradient(90deg, $lantern-gold 0%, $lantern-gold-light 100%);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}

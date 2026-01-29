@@ -21,7 +21,7 @@ import styles from './LiveStreamPage.module.scss';
 // DATA
 // ========================================
 const currentStream = {
-    isLive: false, // Toggle this to test live/offline states
+    isLive: true, // Toggle this to test live/offline states
     title: 'Isha Prayer & Khatira',
     speaker: 'Sh. Abdullah Smith',
     viewers: 1247,

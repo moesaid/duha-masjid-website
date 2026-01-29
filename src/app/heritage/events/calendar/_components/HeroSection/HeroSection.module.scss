@@ -1,0 +1,74 @@
+// HeroSection styles - The Community Almanac Hero
+
+$midnight-blue: #1a2744;
+$midnight-deep: #0f1a2e;
+$heritage-gold: #d4af37;
+$parchment: #f5f0e6;
+$white: #fff;
+
+$arabesque-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3Cpath d='M40 10L70 40L40 70L10 40z'/%3E%3Cpath d='M40 20L60 40L40 60L20 40z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+.almanacHero {
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, $midnight-deep 0%, $midnight-blue 100%);
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    opacity: 0.15;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background-image: $arabesque-pattern;
+    background-size: 100px 100px;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: $white;
+    padding: 2rem;
+}
+
+.calendarIcon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    border: 2px solid $heritage-gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.1);
+    color: $heritage-gold;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.heroTagline {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 500px;
+    margin: 0 auto;
+}

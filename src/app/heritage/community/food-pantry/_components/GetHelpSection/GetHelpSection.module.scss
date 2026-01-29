@@ -1,0 +1,107 @@
+// GetHelpSection styles - Info Card
+
+$harvest-gold: #d4a84b;
+$heritage-green: #2d5a3d;
+$heritage-white: #fff;
+$sage-green: #7d8a6e;
+$sage-green-dark: #5c6858;
+$text-dark: #333;
+$text-muted: #555;
+
+.getHelpSection {
+    position: relative;
+    padding: 0 2rem;
+    margin-top: 0;
+    z-index: 10;
+    background: transparent;
+}
+
+.infoCard {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 4rem);
+    max-width: 700px;
+    background: $heritage-white;
+    padding: 2.5rem;
+    box-shadow:
+        0 8px 32px oklch(0 0 0 / 0.12),
+        0 0 0 1px oklch(0.9 0.02 85);
+    border-top: 4px solid $harvest-gold;
+}
+
+.infoCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+
+    svg {
+        color: $heritage-green;
+    }
+
+    h2 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: $heritage-green;
+        margin: 0;
+    }
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.infoItem {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+
+    svg {
+        color: $harvest-gold;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+}
+
+.infoLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $text-muted;
+    margin-bottom: 0.25rem;
+}
+
+.infoValue {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-dark;
+    line-height: 1.4;
+}
+
+.infoNote {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid oklch(0.9 0.02 85);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: $sage-green-dark;
+
+    svg {
+        color: $sage-green;
+        flex-shrink: 0;
+    }
+}

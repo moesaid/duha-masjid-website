@@ -1,1 +1,3 @@
-export { HeroSection, ScheduleSection, NoteSection } from './ContentSections';
+export { HeroSection } from './HeroSection';
+export { ScheduleSection } from './ScheduleSection';
+export { NoteSection } from './NoteSection';

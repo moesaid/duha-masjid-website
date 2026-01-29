@@ -1,0 +1,70 @@
+// HeroSection styles - Membership
+
+$emerald: #0a5c36;
+$emerald-dark: #084228;
+$gold: #d4af37;
+$white: #fff;
+
+// Patterns
+$islamic-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Ccircle cx='30' cy='30' r='8'/%3E%3C/g%3E%3C/svg%3E");
+
+.heroSection {
+    position: relative;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $emerald-dark 0%, $emerald 100%);
+    overflow: hidden;
+    padding: 4rem 2rem;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image: $islamic-pattern;
+    background-size: 80px 80px;
+    opacity: 0.08;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: $white;
+    max-width: 700px;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba($gold, 0.2);
+    border: 1px solid $gold;
+    color: $gold;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}

@@ -1,0 +1,44 @@
+// Shared tokens and page container for Sisters page
+
+$heritage-green: #2d5a3d;
+$heritage-gold: #d4af37;
+$heritage-cream: oklch(0.97 0.01 85);
+
+// Floral arabesque pattern (Unique to Sisters)
+$floral-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5' opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3Cpath d='M30 10 Q35 20 30 30 Q25 20 30 10'/%3E%3Cpath d='M30 50 Q35 40 30 30 Q25 40 30 50'/%3E%3Cpath d='M10 30 Q20 35 30 30 Q20 25 10 30'/%3E%3Cpath d='M50 30 Q40 35 30 30 Q40 25 50 30'/%3E%3C/g%3E%3C/svg%3E");
+
+.sistersPage {
+    min-height: 100vh;
+    background: $heritage-cream;
+}
+
+// Shared section intro styles
+.sectionIntro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.sectionLabel {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $heritage-gold;
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: oklch(0.25 0.01 60);
+    margin-bottom: 0.75rem;
+}
+
+.sectionDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: oklch(0.45 0.01 60);
+    line-height: 1.6;
+}

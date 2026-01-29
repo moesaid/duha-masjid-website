@@ -1,0 +1,103 @@
+// CtaSection styles - Lend Your Voice
+
+$heritage-cream: oklch(0.97 0.01 85);
+$heritage-green: #2d5a3d;
+$heritage-gold: #d4af37;
+$heritage-white: #fff;
+$text-dark: oklch(0.25 0.01 60);
+$text-muted: oklch(0.45 0.01 60);
+
+.ctaSection {
+    padding: 4rem 2rem;
+    background: $heritage-cream;
+    text-align: center;
+}
+
+.ctaContent {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ctaQuote {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: $heritage-gold;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+
+    cite {
+        display: block;
+        font-size: 0.85rem;
+        font-style: normal;
+        color: $text-muted;
+        margin-top: 0.35rem;
+    }
+}
+
+.ctaTitle {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+}
+
+.ctaDescription {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+}
+
+.ctaContacts {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+.contactLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: $text-muted;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    svg {
+        color: $heritage-gold;
+    }
+
+    &:hover {
+        color: $heritage-green;
+    }
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: $heritage-green;
+    color: $heritage-white;
+    padding: 0.9rem 1.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 3rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: oklch(0.35 0.1 145);
+        transform: translateY(-2px);
+    }
+}

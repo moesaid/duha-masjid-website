@@ -1,1 +1,5 @@
-export { HeroSection, CalendarControls, CalendarView, FeaturedEventSection, EventModal } from './ContentSections';
+export { HeroSection } from './HeroSection';
+export { CalendarControls } from './CalendarControls';
+export { CalendarView } from './CalendarView';
+export { FeaturedEventSection } from './FeaturedEventSection';
+export { EventModal } from './EventModal';

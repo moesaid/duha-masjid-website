@@ -1,0 +1,1 @@
+export { ZakatSection } from './ZakatSection';

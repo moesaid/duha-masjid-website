@@ -21,7 +21,7 @@ import {
     Moon,
     Sparkles
 } from 'lucide-react';
-import styles from './WeeklyPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 // ========================================
 // DATA
