@@ -24,7 +24,7 @@ export function VolunteerSection({ roles }: VolunteerSectionProps) {
                         );
                     })}
                 </div>
-                <Link href="/heritage/join/volunteer" className={styles.volunteerBtn}>
+                <Link href="/heritage/community/volunteers" className={styles.volunteerBtn}>
                     <Calendar size={18} />
                     Sign Up to Volunteer
                 </Link>

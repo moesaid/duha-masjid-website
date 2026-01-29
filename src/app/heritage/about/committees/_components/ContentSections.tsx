@@ -116,7 +116,7 @@ export function VolunteerCta() {
                 <p className={styles.ctaText}>
                     Interested in serving? Fill out our volunteer form and we&apos;ll match you with a committee that fits your skills and interests.
                 </p>
-                <Link href="/heritage/get-involved/volunteer" className={styles.ctaButton}>
+                <Link href="/heritage/community/volunteers" className={styles.ctaButton}>
                     Apply to Volunteer
                 </Link>
             </div>
