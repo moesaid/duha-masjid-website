@@ -19,6 +19,10 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+        // Neo-Islamic variants
+        neo: "rounded-full bg-[#064E3B] text-white hover:bg-[#065F46] shadow-[0_0_20px_rgba(6,78,59,0.2)] hover:shadow-[0_0_30px_rgba(6,78,59,0.35)] transition-all duration-300",
+        "neo-gold": "rounded-full bg-transparent border border-[#D4AF37] text-[#064E3B] hover:bg-[#D4AF37]/10 shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:shadow-[0_0_25px_rgba(212,175,55,0.3)] transition-all duration-300",
+        "neo-ghost": "rounded-full text-[#064E3B] hover:bg-[#064E3B]/5 transition-all duration-300",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
