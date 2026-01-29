@@ -1,1 +1,2 @@
-export { HeroSection, PlayerSection, ScheduleSection, SocialSection } from './ContentSections';
+// Components are inline in page.tsx for this page
+// This barrel file is kept for consistency with page architecture

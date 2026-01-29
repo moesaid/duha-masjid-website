@@ -16,7 +16,7 @@ import {
     Stamp,
     Mail
 } from 'lucide-react';
-import styles from './NewsletterPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 // ========================================
 // DATA

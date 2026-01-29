@@ -15,7 +15,7 @@ import {
     Play,
     ChevronRight
 } from 'lucide-react';
-import styles from './LiveStreamPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 // ========================================
 // DATA

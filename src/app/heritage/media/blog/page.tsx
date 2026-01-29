@@ -5,7 +5,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './BlogPage.module.scss';
+import styles from './_components/_shared.module.scss';
 import { Calendar, User, ArrowRight, Tag } from 'lucide-react';
 
 // Blog Posts Data

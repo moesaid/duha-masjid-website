@@ -1,6 +1,6 @@
 import { Play, Clock, User, MoreVertical, Download, Share2, Loader2 } from 'lucide-react';
-import { Khutbah, latestKhutbah } from '../_data';
-import styles from '../KhutbahsPage.module.scss';
+import { Khutbah, latestKhutbah } from '../../_data';
+import styles from '../_shared.module.scss';
 
 interface ArchiveSectionProps {
     displayedKhutbahs: Khutbah[];

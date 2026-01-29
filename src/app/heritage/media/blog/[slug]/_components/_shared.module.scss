@@ -301,15 +301,17 @@ $white: #fff;
         margin-top: 0.75rem;
     }
 
-    // Video Wrapper
-    .videoWrapper {
+    // Video Wrapper - :global() needed for raw HTML class names
+    :global(.videoWrapper) {
         position: relative;
-        padding-bottom: 56.25%;
+        width: 100%;
+        padding-bottom: 56.25%; // 16:9 aspect ratio
         height: 0;
-        margin: 2.5rem 0 0.5rem;
-        border-radius: 4px;
+        margin: 2.5rem 0 0.75rem;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        background: #000;
 
         iframe {
             position: absolute;
@@ -317,6 +319,7 @@ $white: #fff;
             left: 0;
             width: 100%;
             height: 100%;
+            border: none;
         }
     }
 
@@ -346,14 +349,18 @@ $white: #fff;
     }
 }
 
-// Share Section
+// Share Section - Full width with centered button
 .shareSection {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
-    margin-top: 3rem;
-    padding-top: 2rem;
+    width: 100%;
+    padding: 2rem;
+    background: $parchment;
     border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .shareLabel {
@@ -369,15 +376,19 @@ $white: #fff;
 }
 
 .shareBtn {
-    width: 40px;
-    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
     background: $emerald;
     color: $white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
     transition: background 0.2s ease;
 
     &:hover {
@@ -458,4 +469,263 @@ $white: #fff;
     &:hover {
         background: color.adjust($gold, $lightness: 8%);
     }
+}
+
+// ========================================
+// Component Styles for page.tsx and ContentSections.tsx
+// ========================================
+
+// Main page wrapper
+.blogPostPage {
+    min-height: 100vh;
+    background: $cream;
+}
+
+// Post Header Component
+.postHeader {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+}
+
+.headerImage {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.headerOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    z-index: 1;
+}
+
+.headerContent {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    color: $white;
+    text-align: center;
+
+    h1 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+    }
+}
+
+.category {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: $emerald;
+    color: $white;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.meta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    svg {
+        color: $gold;
+    }
+}
+
+// Post Content Component
+.postContent {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: $text-dark;
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.excerpt {
+    font-size: 1.2rem;
+    color: $text-muted;
+    border-left: 4px solid $gold;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+// Share Section Component - extensions with smooth animations
+.shareOptions {
+    position: absolute;
+    bottom: calc(100% + 0.75rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: $white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease-out;
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    a,
+    button {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $white;
+        border: 2px solid #ddd;
+        border-radius: 50%;
+        cursor: pointer;
+        text-decoration: none;
+        color: $text-dark;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: popIn 0.3s ease-out backwards;
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        &:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        &:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        &:hover {
+            background: $emerald;
+            color: $white;
+            border-color: $emerald;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba($emerald, 0.3);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        svg {
+            width: 22px;
+            height: 22px;
+        }
+    }
+}
+
+// Related Section Component
+.relatedSection {
+    background: $parchment;
+    padding: 3rem 2rem;
+
+    h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        color: $emerald-dark;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+.relatedGrid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.relatedCard {
+    display: block;
+    padding: 1.5rem;
+    background: $white;
+    border: 1px solid #e8e8e8;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $gold;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-dark;
+        line-height: 1.4;
+    }
+}
+
+.relatedCategory {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba($emerald, 0.1);
+    color: $emerald;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
 }

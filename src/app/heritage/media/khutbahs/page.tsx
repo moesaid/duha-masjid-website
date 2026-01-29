@@ -14,7 +14,7 @@ import {
     SubscribeSection,
     AudioPlayer
 } from './_components';
-import styles from './KhutbahsPage.module.scss';
+import styles from './_components/_shared.module.scss';
 
 /**
  * Khutbahs Page - Audio Archive

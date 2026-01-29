@@ -1,6 +1,6 @@
 import { Play, Pause, RotateCcw, SkipBack, SkipForward, Volume2 } from 'lucide-react';
-import { audioTracks, latestKhutbah } from '../_data';
-import styles from '../KhutbahsPage.module.scss';
+import { audioTracks, latestKhutbah } from '../../_data';
+import styles from '../_shared.module.scss';
 
 interface AudioPlayerProps {
     showPlayer: boolean;

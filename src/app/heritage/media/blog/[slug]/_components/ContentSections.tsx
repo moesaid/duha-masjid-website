@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, Clock, User, Tag, Share2, ChevronLeft, Facebook, Twitter, Link as LinkIcon } from 'lucide-react';
+import { Calendar, Clock, User, Tag, Share2, ChevronLeft, Facebook, Twitter, Link as LinkIcon, MessageCircle } from 'lucide-react';
+import { getFacebookUrl, getTwitterUrl, getWhatsAppUrl, copyToClipboard } from '@phntms/react-share';
 import { samplePost, relatedPosts, BlogPost } from '../_data';
-import styles from '../ArticlePage.module.scss';
+import styles from './_shared.module.scss';
 
 interface HeaderProps {
     post: BlogPost;
@@ -39,10 +40,10 @@ interface ContentProps {
 export function PostContent({ post }: ContentProps) {
     return (
         <article className={styles.postContent}>
-            <p className={styles.excerpt}>{post.excerpt}</p>
-            {post.content.map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
-            ))}
+            <div
+                className={styles.richContent}
+                dangerouslySetInnerHTML={{ __html: post.richContent }}
+            />
         </article>
     );
 }
@@ -53,6 +54,14 @@ interface ShareProps {
 }
 
 export function ShareSection({ isOpen, onToggle }: ShareProps) {
+    const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://duhamasjid.com/heritage/media/blog';
+    const shareTitle = 'Check out this article from Duha Masjid';
+
+    const handleCopyLink = async () => {
+        await copyToClipboard(shareUrl);
+        alert('Link copied to clipboard!');
+    };
+
     return (
         <div className={styles.shareSection}>
             <button className={styles.shareBtn} onClick={onToggle}>
@@ -61,9 +70,33 @@ export function ShareSection({ isOpen, onToggle }: ShareProps) {
             </button>
             {isOpen && (
                 <div className={styles.shareOptions}>
-                    <button><Facebook size={20} /></button>
-                    <button><Twitter size={20} /></button>
-                    <button><LinkIcon size={20} /></button>
+                    <a
+                        href={getFacebookUrl({ url: shareUrl })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Share on Facebook"
+                    >
+                        <Facebook size={20} />
+                    </a>
+                    <a
+                        href={getTwitterUrl({ url: shareUrl, text: shareTitle })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Share on Twitter"
+                    >
+                        <Twitter size={20} />
+                    </a>
+                    <a
+                        href={getWhatsAppUrl({ url: shareUrl })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Share on WhatsApp"
+                    >
+                        <MessageCircle size={20} />
+                    </a>
+                    <button onClick={handleCopyLink} aria-label="Copy link">
+                        <LinkIcon size={20} />
+                    </button>
                 </div>
             )}
         </div>
