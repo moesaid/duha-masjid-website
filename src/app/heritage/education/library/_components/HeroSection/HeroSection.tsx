@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import { Search, Library } from 'lucide-react';
+import { FormDropdown } from '../../../../_components';
 import { libraryInfo } from '../../_data';
 import styles from './HeroSection.module.scss';
 
@@ -14,6 +17,30 @@ interface HeroSectionProps {
     setLanguageFilter: (filter: string) => void;
     handleSearch: () => void;
 }
+
+// Filter options
+const subjectOptions = [
+    { value: 'all', label: 'All Subjects' },
+    { value: 'quran', label: 'Quran & Tafseer' },
+    { value: 'hadith', label: 'Hadith' },
+    { value: 'fiqh', label: 'Fiqh & Law' },
+    { value: 'seerah', label: 'Seerah & History' },
+    { value: 'children', label: 'Children' }
+];
+
+const authorOptions = [
+    { value: 'all', label: 'All Authors' },
+    { value: 'ibn kathir', label: 'Ibn Kathir' },
+    { value: 'nawawi', label: 'Imam Nawawi' },
+    { value: 'ghazali', label: 'Imam Ghazali' }
+];
+
+const languageOptions = [
+    { value: 'all', label: 'All Languages' },
+    { value: 'english', label: 'English' },
+    { value: 'arabic', label: 'Arabic' },
+    { value: 'urdu', label: 'Urdu' }
+];
 
 export function HeroSection({
     searchQuery, setSearchQuery,
@@ -75,26 +102,27 @@ export function HeroSection({
                     </div>
 
                     <div className={styles.filterRow}>
-                        <select aria-label="Filter by subject" value={subjectFilter} onChange={(e) => setSubjectFilter(e.target.value)}>
-                            <option value="">All Subjects</option>
-                            <option value="quran">Quran & Tafseer</option>
-                            <option value="hadith">Hadith</option>
-                            <option value="fiqh">Fiqh & Law</option>
-                            <option value="seerah">Seerah & History</option>
-                            <option value="children">Children</option>
-                        </select>
-                        <select aria-label="Filter by author" value={authorFilter} onChange={(e) => setAuthorFilter(e.target.value)}>
-                            <option value="">All Authors</option>
-                            <option value="ibn kathir">Ibn Kathir</option>
-                            <option value="nawawi">Imam Nawawi</option>
-                            <option value="ghazali">Imam Ghazali</option>
-                        </select>
-                        <select aria-label="Filter by language" value={languageFilter} onChange={(e) => setLanguageFilter(e.target.value)}>
-                            <option value="">All Languages</option>
-                            <option value="english">English</option>
-                            <option value="arabic">Arabic</option>
-                            <option value="urdu">Urdu</option>
-                        </select>
+                        <FormDropdown
+                            placeholder="All Subjects"
+                            options={subjectOptions}
+                            value={subjectFilter}
+                            onValueChange={setSubjectFilter}
+                            triggerClassName={styles.filterDropdown}
+                        />
+                        <FormDropdown
+                            placeholder="All Authors"
+                            options={authorOptions}
+                            value={authorFilter}
+                            onValueChange={setAuthorFilter}
+                            triggerClassName={styles.filterDropdown}
+                        />
+                        <FormDropdown
+                            placeholder="All Languages"
+                            options={languageOptions}
+                            value={languageFilter}
+                            onValueChange={setLanguageFilter}
+                            triggerClassName={styles.filterDropdown}
+                        />
                     </div>
                 </div>
             </div>

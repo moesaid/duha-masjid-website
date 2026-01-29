@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FormDropdown, FormDatePicker } from '../../_components';
 import styles from './MatrimonyPage.module.scss';
 import templateStyles from '../../_styles/template.module.scss';
 import {
@@ -105,7 +106,7 @@ export default function MatrimonyPage() {
         brideName: '',
         groomPhone: '',
         bridePhone: '',
-        preferredDate: '',
+        preferredDate: undefined as Date | undefined,
         package: '',
         message: '',
     });
@@ -120,7 +121,7 @@ export default function MatrimonyPage() {
             brideName: '',
             groomPhone: '',
             bridePhone: '',
-            preferredDate: '',
+            preferredDate: undefined,
             package: '',
             message: '',
         });
@@ -382,25 +383,28 @@ export default function MatrimonyPage() {
 
                             <div className={styles.formRow}>
                                 <div className={styles.formField}>
-                                    <label>Preferred Date</label>
-                                    <input
-                                        type="date"
-                                        value={formData.preferredDate}
-                                        onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                                    <FormDatePicker
+                                        label="Preferred Date"
+                                        date={formData.preferredDate}
+                                        onSelect={(date: Date | undefined) => setFormData({ ...formData, preferredDate: date })}
+                                        triggerClassName={styles.formDropdown}
+                                        minDate={new Date()}
                                         required
                                     />
                                 </div>
                                 <div className={styles.formField}>
-                                    <label>Package Preference</label>
-                                    <select
+                                    <FormDropdown
+                                        label="Package Preference"
+                                        placeholder="Select a package..."
+                                        options={[
+                                            { value: 'simple', label: 'Simple Nikkah ($300)' },
+                                            { value: 'hall', label: 'Hall Celebration ($1,200)' }
+                                        ]}
                                         value={formData.package}
-                                        onChange={(e) => setFormData({ ...formData, package: e.target.value })}
+                                        onValueChange={(value) => setFormData({ ...formData, package: value })}
+                                        triggerClassName={styles.formDropdown}
                                         required
-                                    >
-                                        <option value="">Select a package...</option>
-                                        <option value="simple">Simple Nikkah ($300)</option>
-                                        <option value="hall">Hall Celebration ($1,200)</option>
-                                    </select>
+                                    />
                                 </div>
                             </div>
 

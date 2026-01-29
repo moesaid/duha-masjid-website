@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { format, addMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday, isBefore, isWeekend, isSameDay, startOfToday } from 'date-fns';
 import styles from './HallRentalPage.module.scss';
 import { Calendar as CalendarIcon, Users, Clock, DollarSign, CheckCircle, Phone, Mail, ChevronLeft, ChevronRight, Info, X } from 'lucide-react';
+import { FormDropdown } from '../../_components';
 
 // Hall Options
 const halls = [
@@ -160,6 +161,11 @@ export default function HallRentalPage() {
         } else {
             setFormData(prev => ({ ...prev, [name]: value }));
         }
+    };
+
+    // Handle select change (for FormDropdown)
+    const handleSelectChange = (name: string, value: string) => {
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
     // Handle form submission
@@ -473,24 +479,23 @@ export default function HallRentalPage() {
                                     />
                                 </div>
                                 <div className={styles.formGroup}>
-                                    <label htmlFor="eventType">Event Type *</label>
-                                    <select
-                                        id="eventType"
-                                        name="eventType"
-                                        required
+                                    <FormDropdown
+                                        label="Event Type"
+                                        placeholder="Select event type"
+                                        options={[
+                                            { value: 'wedding', label: 'Wedding Reception' },
+                                            { value: 'walima', label: 'Walima' },
+                                            { value: 'aqeeqah', label: 'Aqeeqah' },
+                                            { value: 'memorial', label: 'Memorial/Janazah' },
+                                            { value: 'meeting', label: 'Meeting/Conference' },
+                                            { value: 'class', label: 'Class/Workshop' },
+                                            { value: 'community', label: 'Community Event' },
+                                            { value: 'other', label: 'Other' },
+                                        ]}
                                         value={formData.eventType}
-                                        onChange={handleInputChange}
-                                    >
-                                        <option value="">Select event type</option>
-                                        <option value="wedding">Wedding Reception</option>
-                                        <option value="walima">Walima</option>
-                                        <option value="aqeeqah">Aqeeqah</option>
-                                        <option value="memorial">Memorial/Janazah</option>
-                                        <option value="meeting">Meeting/Conference</option>
-                                        <option value="class">Class/Workshop</option>
-                                        <option value="community">Community Event</option>
-                                        <option value="other">Other</option>
-                                    </select>
+                                        onValueChange={(value) => handleSelectChange('eventType', value)}
+                                        required
+                                    />
                                 </div>
                             </div>
 
@@ -510,21 +515,20 @@ export default function HallRentalPage() {
                                     />
                                 </div>
                                 <div className={styles.formGroup}>
-                                    <label htmlFor="duration">Duration *</label>
-                                    <select
-                                        id="duration"
-                                        name="duration"
-                                        required
+                                    <FormDropdown
+                                        label="Duration"
+                                        placeholder="Select duration"
+                                        options={[
+                                            { value: '2', label: '2 hours' },
+                                            { value: '3', label: '3 hours' },
+                                            { value: '4', label: '4 hours' },
+                                            { value: '5', label: '5 hours' },
+                                            { value: '6', label: '6+ hours (full day)' },
+                                        ]}
                                         value={formData.duration}
-                                        onChange={handleInputChange}
-                                    >
-                                        <option value="">Select duration</option>
-                                        <option value="2">2 hours</option>
-                                        <option value="3">3 hours</option>
-                                        <option value="4">4 hours</option>
-                                        <option value="5">5 hours</option>
-                                        <option value="6">6+ hours (full day)</option>
-                                    </select>
+                                        onValueChange={(value) => handleSelectChange('duration', value)}
+                                        required
+                                    />
                                 </div>
                             </div>
 

@@ -7,6 +7,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
 import styles from './FormDropdown.module.scss';
 
 export interface DropdownOption {
@@ -24,6 +25,12 @@ interface FormDropdownProps {
     options: DropdownOption[];
     required?: boolean;
     disabled?: boolean;
+    /** Custom class for the container */
+    className?: string;
+    /** Custom class for the trigger button */
+    triggerClassName?: string;
+    /** Custom class for the dropdown content */
+    contentClassName?: string;
 }
 
 export function FormDropdown({
@@ -35,9 +42,12 @@ export function FormDropdown({
     options,
     required = false,
     disabled = false,
+    className,
+    triggerClassName,
+    contentClassName,
 }: FormDropdownProps) {
     return (
-        <div className={styles.dropdownGroup}>
+        <div className={cn(styles.dropdownGroup, className)}>
             {label && (
                 <label className={styles.label}>
                     {label}
@@ -45,10 +55,10 @@ export function FormDropdown({
                 </label>
             )}
             <Select value={value} defaultValue={defaultValue} onValueChange={onValueChange} disabled={disabled}>
-                <SelectTrigger className={styles.selectTrigger}>
+                <SelectTrigger className={cn(styles.selectTrigger, triggerClassName)}>
                     <SelectValue placeholder={placeholder} />
                 </SelectTrigger>
-                <SelectContent className={styles.selectContent}>
+                <SelectContent className={cn(styles.selectContent, contentClassName)}>
                     {options.map((option) => (
                         <SelectItem
                             key={option.value}

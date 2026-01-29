@@ -84,6 +84,7 @@
     --color-primary: oklch(0.55 0.12 145);
     --heritage-gold: oklch(0.78 0.14 85);
 }
+
 /* Page Sections - Placeholder styles */
 .pageSection {
     padding: var(--space-16) var(--space-8);
@@ -129,4 +130,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+/* Global Form Input Styles - No border-radius for Heritage */
+.template input[type="text"],
+.template input[type="email"],
+.template input[type="tel"],
+.template input[type="number"],
+.template input[type="password"],
+.template input[type="date"],
+.template input[type="time"],
+.template input[type="datetime-local"],
+.template input[type="url"],
+.template input[type="search"],
+.template select,
+.template textarea {
+    border-radius: var(--radius-none);
+}
+
+/* Button styles - maintain architectural feel */
+.template button {
+    border-radius: var(--radius-none);
 }

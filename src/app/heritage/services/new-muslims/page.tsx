@@ -23,6 +23,7 @@ import {
     Handshake,
     Coffee
 } from 'lucide-react';
+import { FormDropdown } from '../../_components';
 import styles from './NewMuslimsPage.module.scss';
 
 // Three Pillars of Support
@@ -80,11 +81,11 @@ const resources = [
 
 // Interest Options
 const interestOptions = [
-    'Taking my Shahada',
-    'Learning to Pray',
-    'Joining Islam 101 Classes',
-    'Finding a Mentor',
-    'Just Visiting / Learning'
+    { value: 'shahada', label: 'Taking my Shahada' },
+    { value: 'prayer', label: 'Learning to Pray' },
+    { value: 'classes', label: 'Joining Islam 101 Classes' },
+    { value: 'mentor', label: 'Finding a Mentor' },
+    { value: 'visiting', label: 'Just Visiting / Learning' }
 ];
 
 export default function NewMuslimsPage() {
@@ -365,19 +366,14 @@ export default function NewMuslimsPage() {
 
                             <div className={styles.formGroup}>
                                 <label htmlFor="interest">I am interested in...</label>
-                                <select
-                                    id="interest"
+                                <FormDropdown
+                                    placeholder="Please select..."
+                                    options={interestOptions}
                                     value={formData.interest}
-                                    onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
+                                    onValueChange={(value) => setFormData({ ...formData, interest: value })}
+                                    triggerClassName={styles.formDropdown}
                                     required
-                                >
-                                    <option value="">Please select...</option>
-                                    {interestOptions.map((option) => (
-                                        <option key={option} value={option}>
-                                            {option}
-                                        </option>
-                                    ))}
-                                </select>
+                                />
                             </div>
 
                             <button type="submit" className={styles.submitButton}>

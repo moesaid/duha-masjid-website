@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
 import styles from './FormDatePicker.module.scss';
 
 interface FormDatePickerProps {
@@ -20,6 +21,12 @@ interface FormDatePickerProps {
     captionLayout?: 'label' | 'dropdown' | 'dropdown-months' | 'dropdown-years';
     fromYear?: number;
     toYear?: number;
+    /** Custom class for the container */
+    className?: string;
+    /** Custom class for the trigger button */
+    triggerClassName?: string;
+    /** Custom class for the calendar popover */
+    popoverClassName?: string;
 }
 
 export function FormDatePicker({
@@ -33,6 +40,9 @@ export function FormDatePicker({
     captionLayout = 'label',
     fromYear,
     toYear,
+    className,
+    triggerClassName,
+    popoverClassName,
 }: FormDatePickerProps) {
     const [open, setOpen] = useState(false);
 
@@ -42,7 +52,7 @@ export function FormDatePicker({
     };
 
     return (
-        <div className={styles.datePickerGroup}>
+        <div className={cn(styles.datePickerGroup, className)}>
             {label && (
                 <label className={styles.label}>
                     {label}
@@ -53,13 +63,17 @@ export function FormDatePicker({
                 <PopoverTrigger asChild>
                     <button
                         type="button"
-                        className={`${styles.datePickerTrigger} ${!date ? styles.placeholder : ''}`}
+                        className={cn(
+                            styles.datePickerTrigger,
+                            !date && styles.placeholder,
+                            triggerClassName
+                        )}
                     >
                         <CalendarIcon size={18} />
                         <span>{date ? format(date, "MMMM d, yyyy") : placeholder}</span>
                     </button>
                 </PopoverTrigger>
-                <PopoverContent className={styles.calendarPopover} align="start" sideOffset={8}>
+                <PopoverContent className={cn(styles.calendarPopover, popoverClassName)} align="start" sideOffset={8}>
                     <Calendar
                         mode="single"
                         selected={date}

@@ -1,6 +1,9 @@
+'use client';
+
 import { format, isWeekend } from 'date-fns';
 import { Calendar as CalendarIcon, X } from 'lucide-react';
 import { Hall, BookingFormData, eventTypes, durationOptions } from '../_data';
+import { FormDropdown } from '../../../_components';
 import styles from '../HallRentalPage.module.scss';
 
 interface BookingModalProps {
@@ -10,6 +13,7 @@ interface BookingModalProps {
     formData: BookingFormData;
     getDateRate: (date: Date) => number;
     onInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
+    onSelectChange: (name: string, value: string) => void;
     onSubmit: (e: React.FormEvent) => void;
     onClose: () => void;
 }
@@ -21,6 +25,7 @@ export function BookingModal({
     formData,
     getDateRate,
     onInputChange,
+    onSelectChange,
     onSubmit,
     onClose
 }: BookingModalProps) {
@@ -91,24 +96,6 @@ export function BookingModal({
                             />
                         </div>
                         <div className={styles.formGroup}>
-                            <label htmlFor="eventType">Event Type *</label>
-                            <select
-                                id="eventType"
-                                name="eventType"
-                                required
-                                value={formData.eventType}
-                                onChange={onInputChange}
-                            >
-                                <option value="">Select event type</option>
-                                {eventTypes.map(type => (
-                                    <option key={type.value} value={type.value}>{type.label}</option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
-
-                    <div className={styles.formRow}>
-                        <div className={styles.formGroup}>
                             <label htmlFor="guestCount">Expected Guests *</label>
                             <input
                                 type="number"
@@ -122,20 +109,28 @@ export function BookingModal({
                                 onChange={onInputChange}
                             />
                         </div>
+                    </div>
+
+                    <div className={styles.formRow}>
                         <div className={styles.formGroup}>
-                            <label htmlFor="duration">Duration *</label>
-                            <select
-                                id="duration"
-                                name="duration"
+                            <FormDropdown
+                                label="Event Type"
+                                placeholder="Select event type"
+                                options={eventTypes}
+                                value={formData.eventType}
+                                onValueChange={(value) => onSelectChange('eventType', value)}
                                 required
+                            />
+                        </div>
+                        <div className={styles.formGroup}>
+                            <FormDropdown
+                                label="Duration"
+                                placeholder="Select duration"
+                                options={durationOptions}
                                 value={formData.duration}
-                                onChange={onInputChange}
-                            >
-                                <option value="">Select duration</option>
-                                {durationOptions.map(opt => (
-                                    <option key={opt.value} value={opt.value}>{opt.label}</option>
-                                ))}
-                            </select>
+                                onValueChange={(value) => onSelectChange('duration', value)}
+                                required
+                            />
                         </div>
                     </div>
 

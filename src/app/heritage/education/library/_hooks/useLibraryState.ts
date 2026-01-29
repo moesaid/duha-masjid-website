@@ -15,9 +15,9 @@ export interface LibraryFilters {
 
 export function useLibraryState() {
     const [searchQuery, setSearchQuery] = useState('');
-    const [subjectFilter, setSubjectFilter] = useState('');
-    const [authorFilter, setAuthorFilter] = useState('');
-    const [languageFilter, setLanguageFilter] = useState('');
+    const [subjectFilter, setSubjectFilter] = useState('all');
+    const [authorFilter, setAuthorFilter] = useState('all');
+    const [languageFilter, setLanguageFilter] = useState('all');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [hasSearched, setHasSearched] = useState(false);
 
@@ -28,9 +28,9 @@ export function useLibraryState() {
             const matchesQuery = searchQuery === '' ||
                 book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 book.author.toLowerCase().includes(searchQuery.toLowerCase());
-            const matchesSubject = subjectFilter === '' || book.subject === subjectFilter;
-            const matchesAuthor = authorFilter === '' || book.author.toLowerCase().includes(authorFilter.toLowerCase());
-            const matchesLanguage = languageFilter === '' || book.language === languageFilter;
+            const matchesSubject = subjectFilter === 'all' || book.subject === subjectFilter;
+            const matchesAuthor = authorFilter === 'all' || book.author.toLowerCase().includes(authorFilter.toLowerCase());
+            const matchesLanguage = languageFilter === 'all' || book.language === languageFilter;
 
             return matchesQuery && matchesSubject && matchesAuthor && matchesLanguage;
         });

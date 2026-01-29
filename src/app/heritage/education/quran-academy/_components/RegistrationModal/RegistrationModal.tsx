@@ -1,4 +1,8 @@
+'use client';
+
+import { useState } from 'react';
 import { BookOpen, X } from 'lucide-react';
+import { FormDropdown } from '../../../../_components';
 import { programs } from '../../_data';
 import styles from './RegistrationModal.module.scss';
 
@@ -9,9 +13,17 @@ interface RegistrationModalProps {
 }
 
 export function RegistrationModal({ isOpen, selectedProgram, onClose }: RegistrationModalProps) {
+    const [programValue, setProgramValue] = useState(selectedProgram || '');
+
     if (!isOpen) return null;
 
-    const selectedProgramData = programs.find(p => p.id === selectedProgram);
+    const selectedProgramData = programs.find(p => p.id === programValue);
+
+    // Convert programs to dropdown options
+    const programOptions = programs.map(p => ({
+        value: p.id,
+        label: `${p.title} - ${p.ageGroup}`
+    }));
 
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
@@ -35,12 +47,14 @@ export function RegistrationModal({ isOpen, selectedProgram, onClose }: Registra
                             <input type="text" placeholder="Student Full Name" required />
                             <input type="number" placeholder="Age" required min="5" max="100" />
                         </div>
-                        <select required defaultValue={selectedProgram || ''}>
-                            <option value="" disabled>Select Program</option>
-                            {programs.map(p => (
-                                <option key={p.id} value={p.id}>{p.title} - {p.ageGroup}</option>
-                            ))}
-                        </select>
+                        <FormDropdown
+                            placeholder="Select Program"
+                            options={programOptions}
+                            value={programValue}
+                            onValueChange={setProgramValue}
+                            triggerClassName={styles.modalDropdown}
+                            required
+                        />
                     </div>
 
                     <div className={styles.formSection}>

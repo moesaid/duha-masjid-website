@@ -1,6 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { X, Shield, ChevronRight, User, Mail, Phone } from 'lucide-react';
+import { FormDropdown, FormDatePicker } from '../../../../_components';
 import styles from './ApplicationModal.module.scss';
 
 interface ApplicationModalProps {
@@ -9,7 +11,37 @@ interface ApplicationModalProps {
 }
 
 export function ApplicationModal({ isOpen, onClose }: ApplicationModalProps) {
+    const [gradeLevel, setGradeLevel] = useState('');
+    const [relationship, setRelationship] = useState('');
+    const [howHeard, setHowHeard] = useState('');
+    const [dateOfBirth, setDateOfBirth] = useState<Date | undefined>(undefined);
+
     if (!isOpen) return null;
+
+    // Build grade options
+    const gradeOptions = [
+        { value: 'prek', label: 'Pre-K (Ages 3-4)' },
+        { value: 'k', label: 'Kindergarten' },
+        ...Array.from({ length: 12 }, (_, i) => ({
+            value: String(i + 1),
+            label: `Grade ${i + 1}`
+        })),
+        { value: 'hifz', label: 'Hifz Program' }
+    ];
+
+    const relationshipOptions = [
+        { value: 'mother', label: 'Mother' },
+        { value: 'father', label: 'Father' },
+        { value: 'guardian', label: 'Legal Guardian' }
+    ];
+
+    const howHeardOptions = [
+        { value: 'referral', label: 'Friend/Family Referral' },
+        { value: 'masjid', label: 'Masjid Announcement' },
+        { value: 'social', label: 'Social Media' },
+        { value: 'website', label: 'Website' },
+        { value: 'other', label: 'Other' }
+    ];
 
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
@@ -49,20 +81,27 @@ export function ApplicationModal({ isOpen, onClose }: ApplicationModalProps) {
                         </div>
                         <div className={styles.formRow}>
                             <div className={styles.formGroup}>
-                                <label>Date of Birth *</label>
-                                <input type="date" required />
+                                <FormDatePicker
+                                    label="Date of Birth"
+                                    placeholder="Select birth date"
+                                    date={dateOfBirth}
+                                    onSelect={setDateOfBirth}
+                                    maxDate={new Date()}
+                                    captionLayout="dropdown-years"
+                                    fromYear={2005}
+                                    toYear={new Date().getFullYear()}
+                                    required
+                                />
                             </div>
                             <div className={styles.formGroup}>
-                                <label>Applying for Grade *</label>
-                                <select required>
-                                    <option value="">Select Grade Level</option>
-                                    <option value="prek">Pre-K (Ages 3-4)</option>
-                                    <option value="k">Kindergarten</option>
-                                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(g => (
-                                        <option key={g} value={String(g)}>Grade {g}</option>
-                                    ))}
-                                    <option value="hifz">Hifz Program</option>
-                                </select>
+                                <FormDropdown
+                                    label="Applying for Grade"
+                                    placeholder="Select Grade Level"
+                                    options={gradeOptions}
+                                    value={gradeLevel}
+                                    onValueChange={setGradeLevel}
+                                    required
+                                />
                             </div>
                         </div>
                     </div>
@@ -78,13 +117,14 @@ export function ApplicationModal({ isOpen, onClose }: ApplicationModalProps) {
                                 </div>
                             </div>
                             <div className={styles.formGroup}>
-                                <label>Relationship *</label>
-                                <select required>
-                                    <option value="">Select Relationship</option>
-                                    <option value="mother">Mother</option>
-                                    <option value="father">Father</option>
-                                    <option value="guardian">Legal Guardian</option>
-                                </select>
+                                <FormDropdown
+                                    label="Relationship"
+                                    placeholder="Select Relationship"
+                                    options={relationshipOptions}
+                                    value={relationship}
+                                    onValueChange={setRelationship}
+                                    required
+                                />
                             </div>
                         </div>
                         <div className={styles.formRow}>
@@ -108,15 +148,13 @@ export function ApplicationModal({ isOpen, onClose }: ApplicationModalProps) {
                     <div className={styles.formSection}>
                         <h3>Additional Information</h3>
                         <div className={styles.formGroup}>
-                            <label>How did you hear about us?</label>
-                            <select>
-                                <option value="">Select an option</option>
-                                <option value="referral">Friend/Family Referral</option>
-                                <option value="masjid">Masjid Announcement</option>
-                                <option value="social">Social Media</option>
-                                <option value="website">Website</option>
-                                <option value="other">Other</option>
-                            </select>
+                            <FormDropdown
+                                label="How did you hear about us?"
+                                placeholder="Select an option"
+                                options={howHeardOptions}
+                                value={howHeard}
+                                onValueChange={setHowHeard}
+                            />
                         </div>
                         <div className={styles.formGroup}>
                             <label>Additional Notes</label>

@@ -18,6 +18,25 @@ $text-light: rgba(#3a3530, 0.7);
 $accent-sage: #7a9a6d;
 $border-light: rgba(#c9a962, 0.25);
 
+// FormDropdown customization for form context
+.formDropdown {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: $pale-cream;
+    border: 1px solid $border-light;
+    border-radius: 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: $text-warm;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+        border-color: $muted-gold;
+        box-shadow: 0 0 0 3px rgba($muted-gold, 0.1);
+    }
+}
+
 // ========================================
 // Base Page Styles
 // ========================================

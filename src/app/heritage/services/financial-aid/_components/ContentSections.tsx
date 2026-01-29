@@ -1,6 +1,10 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import { Heart, ChevronDown, ChevronUp, Phone, Mail, Clock, X, Check, HandHeart } from 'lucide-react';
 import { programs, applicationProcess, faqs, fundStats, AssistanceProgram, ProcessStep, FAQ } from '../_data';
+import { FormDropdown } from '../../../_components';
 import styles from '../ZakatPage.module.scss';
 
 // ============================================
@@ -219,9 +223,17 @@ interface ApplicationFormModalProps {
 }
 
 export function ApplicationFormModal({ isOpen, selectedProgram, onClose }: ApplicationFormModalProps) {
+    const [programValue, setProgramValue] = useState(selectedProgram || '');
+
     if (!isOpen) return null;
 
-    const selectedProgramData = programs.find(p => p.id === selectedProgram);
+    const selectedProgramData = programs.find(p => p.id === programValue);
+
+    // Convert programs to dropdown options
+    const programOptions = programs.map(p => ({
+        value: p.id,
+        label: p.title
+    }));
 
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
@@ -251,12 +263,13 @@ export function ApplicationFormModal({ isOpen, selectedProgram, onClose }: Appli
 
                     <div className={styles.formSection}>
                         <h4>Assistance Details</h4>
-                        <select required defaultValue={selectedProgram || ''}>
-                            <option value="" disabled>Select Program</option>
-                            {programs.map(p => (
-                                <option key={p.id} value={p.id}>{p.title}</option>
-                            ))}
-                        </select>
+                        <FormDropdown
+                            placeholder="Select Program"
+                            options={programOptions}
+                            value={programValue}
+                            onValueChange={setProgramValue}
+                            required
+                        />
                         <input type="text" placeholder="Amount Requested" />
                         <textarea placeholder="Please describe your situation and how we can help..." rows={4} required />
                     </div>

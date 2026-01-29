@@ -1,6 +1,10 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import { Heart, ChevronDown, ChevronUp, Phone, Mail, Clock, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { features, processSteps, successStories, faqs, programStats, ServiceFeature, ProcessStep, SuccessStory, FAQ } from '../_data';
+import { FormDropdown } from '../../../_components';
 import styles from '../MatrimonyPage.module.scss';
 
 // ============================================
@@ -230,7 +234,21 @@ interface RegistrationModalProps {
 }
 
 export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
+    const [gender, setGender] = useState('');
+    const [maritalStatus, setMaritalStatus] = useState('');
+
     if (!isOpen) return null;
+
+    const genderOptions = [
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' }
+    ];
+
+    const maritalStatusOptions = [
+        { value: 'single', label: 'Never Married' },
+        { value: 'divorced', label: 'Divorced' },
+        { value: 'widowed', label: 'Widowed' }
+    ];
 
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
@@ -252,17 +270,22 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                             <input type="number" placeholder="Age" required min="18" max="99" />
                         </div>
                         <div className={styles.formRow}>
-                            <select required>
-                                <option value="">Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                            <select required>
-                                <option value="">Marital Status</option>
-                                <option value="single">Never Married</option>
-                                <option value="divorced">Divorced</option>
-                                <option value="widowed">Widowed</option>
-                            </select>
+                            <FormDropdown
+                                placeholder="Gender"
+                                options={genderOptions}
+                                value={gender}
+                                onValueChange={setGender}
+                                triggerClassName={styles.modalDropdown}
+                                required
+                            />
+                            <FormDropdown
+                                placeholder="Marital Status"
+                                options={maritalStatusOptions}
+                                value={maritalStatus}
+                                onValueChange={setMaritalStatus}
+                                triggerClassName={styles.modalDropdown}
+                                required
+                            />
                         </div>
                     </div>
 
