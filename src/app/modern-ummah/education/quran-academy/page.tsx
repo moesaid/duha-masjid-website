@@ -1,10 +1,17 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+import {
+    AcademyHero,
+    ProgramJourney,
+    InstructorSanad,
+    RegistrationCta
+} from './_components';
 
 export default function QuranAcademyPage() {
     return (
-        <ComingSoon
-            title="Quran Academy"
-            description="Learn to read, memorize, and understand the Quran."
-        />
+        <main className="min-h-screen bg-slate-50">
+            <AcademyHero />
+            <ProgramJourney />
+            <InstructorSanad />
+            <RegistrationCta />
+        </main>
     );
 }

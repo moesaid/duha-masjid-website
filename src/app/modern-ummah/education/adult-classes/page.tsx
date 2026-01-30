@@ -1,10 +1,23 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+'use client';
+
+import {
+    ClassesHero,
+    KhatiraGrid,
+    CourseCatalog,
+    SistersSpotlight,
+    ArchiveGallery,
+    ProgramRegistration
+} from './_components';
 
 export default function AdultClassesPage() {
     return (
-        <ComingSoon
-            title="Adult Classes"
-            description="Islamic studies and educational programs for adults."
-        />
+        <main className="min-h-screen bg-slate-50">
+            <ClassesHero />
+            <KhatiraGrid />
+            <CourseCatalog />
+            <SistersSpotlight />
+            <ArchiveGallery />
+            <ProgramRegistration />
+        </main>
     );
 }
