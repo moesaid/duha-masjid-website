@@ -8,63 +8,67 @@
 /*
  * Global Styles - CSS Reset Only
  * All template-specific styling lives in src/templates/[template]/styles/
+ * Wrapped in @layer base so Tailwind utilities have higher specificity
  */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@layer base {
 
-* {
-  margin: 0;
-  padding: 0;
-}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-html {
-  -webkit-text-size-adjust: 100%;
-}
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
 
-ul,
-ol {
-  list-style: none;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
 }
 
 /*
@@ -197,6 +201,7 @@ ol {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

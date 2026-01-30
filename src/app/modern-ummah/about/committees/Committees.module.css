@@ -1,0 +1,704 @@
+/* Committees Page — "Contribution Dashboard" Design
+   Philosophy: Synergy & Service, Neo-Islamic Aesthetic
+   ===================================================== */
+
+/* ========================================
+   PAGE LAYOUT
+   ======================================== */
+.page {
+    position: relative;
+    background: var(--color-background);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ========================================
+   SHURA HERO — Editorial Minimalism
+   ======================================== */
+.hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-20) var(--space-8);
+    overflow: hidden;
+    background: linear-gradient(180deg, oklch(0.98 0.01 175) 0%, var(--color-background) 100%);
+}
+
+.heroGeometric {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    opacity: 0.05;
+    color: var(--color-primary);
+    pointer-events: none;
+    animation: rotateGeometric 180s linear infinite;
+}
+
+@keyframes rotateGeometric {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    background: oklch(0.65 0.15 175 / 0.1);
+    border: 1px solid oklch(0.65 0.15 175 / 0.2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-8);
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-6);
+}
+
+.heroSubtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   SECTION HEADER (Shared)
+   ======================================== */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: var(--space-10);
+}
+
+.sectionLabel {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-3);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+}
+
+.sectionDescription {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: var(--line-height-relaxed);
+}
+
+/* ========================================
+   COMMITTEE DIRECTORY
+   ======================================== */
+.directorySection {
+    padding: var(--space-20) 0;
+    background: var(--color-surface);
+}
+
+/* Tabs */
+.tabsContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-12);
+}
+
+.tabsList {
+    display: inline-flex;
+    gap: var(--space-2);
+    padding: var(--space-1);
+    background: oklch(0.95 0 0);
+    border-radius: var(--radius-full);
+}
+
+.tabsTrigger {
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tabsTrigger:hover {
+    color: var(--color-text);
+}
+
+.tabsActive {
+    background: white;
+    color: var(--color-primary);
+    box-shadow: 0 2px 8px oklch(0 0 0 / 0.08);
+}
+
+/* Committee Grid */
+.committeeGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+}
+
+.committeeCard {
+    background: white;
+    border: 1px solid oklch(0.94 0 0);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.committeeCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px oklch(0 0 0 / 0.1);
+}
+
+/* ========================================
+   NEW CARD DESIGN
+   ======================================== */
+.cardLink {
+    text-decoration: none;
+    display: block;
+}
+
+.committeeCard {
+    position: relative;
+    background: white;
+    border: 1px solid oklch(0 0 0 / 0.05);
+    border-radius: 1.75rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.4, 0.25, 1);
+}
+
+.committeeCard:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 40px oklch(0 0 0 / 0.08),
+        0 8px 16px oklch(0 0 0 / 0.04);
+    border-color: oklch(0 0 0 / 0.08);
+}
+
+/* Gradient Accent Strip */
+.cardAccent {
+    height: 4px;
+    width: 100%;
+}
+
+/* Card Body */
+.cardBody {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+}
+
+/* Top Row: Icon + Status */
+.cardTopRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-5);
+}
+
+.iconCircle {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 12px oklch(0 0 0 / 0.15);
+}
+
+/* Status Badge */
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-full);
+    letter-spacing: 0.02em;
+}
+
+.statusOpen {
+    background: oklch(0.92 0.08 145);
+    color: oklch(0.35 0.15 145);
+}
+
+.statusActive {
+    background: oklch(0.92 0.06 175);
+    color: oklch(0.35 0.12 175);
+}
+
+.statusFull {
+    background: oklch(0.92 0 0);
+    color: oklch(0.45 0 0);
+}
+
+/* Card Title */
+.cardTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.01em;
+}
+
+/* Card Description */
+.cardDescription {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-5);
+    flex-grow: 1;
+}
+
+/* Meta Row */
+.cardMeta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid oklch(0 0 0 / 0.05);
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.metaItem svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* Card Footer Row */
+.cardFooterRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.memberCount {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    background: oklch(0.96 0 0);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.viewLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    transition: gap 0.2s ease;
+}
+
+.committeeCard:hover .viewLink {
+    gap: var(--space-2);
+}
+
+/* ========================================
+   JOIN COMMITTEE CTA
+   ======================================== */
+.joinSection {
+    padding: var(--space-20) 0;
+    background: var(--color-background);
+}
+
+.joinCard {
+    background: linear-gradient(135deg, oklch(0.97 0.02 175), oklch(0.95 0.03 180));
+    border: 1px solid oklch(0.90 0.05 175);
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.joinContent {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-10);
+}
+
+.joinIcon {
+    width: 72px;
+    height: 72px;
+    background: oklch(0.65 0.15 175 / 0.15);
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.joinText {
+    flex: 1;
+}
+
+.joinTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.joinDescription {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+}
+
+.joinButton {
+    padding: var(--space-4) var(--space-8);
+    background: linear-gradient(135deg, var(--color-primary), oklch(0.55 0.15 175));
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-semibold);
+    box-shadow: 0 4px 16px oklch(0.65 0.15 175 / 0.3);
+    transition: all 0.2s ease;
+}
+
+.joinButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px oklch(0.65 0.15 175 / 0.4);
+}
+
+/* Native Dialog */
+.dialogOverlay {
+    position: fixed;
+    inset: 0;
+    background: oklch(0 0 0 / 0.5);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.dialogContent {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 1.5rem;
+    padding: var(--space-8);
+    box-shadow: 0 24px 80px oklch(0 0 0 / 0.25);
+    animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dialogClose {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    transition: all 0.2s ease;
+}
+
+.dialogClose:hover {
+    background: oklch(0.92 0 0);
+    color: var(--color-text);
+}
+
+.dialogHeader {
+    margin-bottom: var(--space-4);
+}
+
+.dialogTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.dialogDescription {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+}
+
+.applicationForm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.formLabel {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid oklch(0.90 0 0);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    transition: all 0.2s ease;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px oklch(0.65 0.15 175 / 0.15);
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-semibold);
+    margin-top: var(--space-2);
+}
+
+.submitButton:hover {
+    background: oklch(0.55 0.15 175);
+}
+
+/* ========================================
+   MONTHLY HIGHLIGHTS
+   ======================================== */
+.highlightsSection {
+    padding: var(--space-16) 0;
+    background: var(--color-surface);
+}
+
+.highlightsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+}
+
+.highlightsIcon {
+    color: var(--color-primary);
+}
+
+.highlightsTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.highlightsScroll {
+    display: flex;
+    gap: var(--space-6);
+    overflow-x: auto;
+    padding: var(--space-2) 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.highlightsScroll::-webkit-scrollbar {
+    display: none;
+}
+
+.highlightCard {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    min-width: 300px;
+    padding: var(--space-5);
+    background: white;
+    border: 1px solid oklch(0.94 0 0);
+    border-radius: 1rem;
+    flex-shrink: 0;
+}
+
+.highlightIconWrapper {
+    width: 40px;
+    height: 40px;
+    background: oklch(0.65 0.18 145 / 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.highlightCardIcon {
+    color: oklch(0.55 0.18 145);
+}
+
+.highlightContent {
+    flex: 1;
+}
+
+.highlightCommittee {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-1);
+}
+
+.highlightText {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    line-height: var(--line-height-relaxed);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+    .committeeGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .joinContent {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .joinButton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 50vh;
+        padding: var(--space-16) var(--space-6);
+    }
+
+    .heroGeometric {
+        width: 350px;
+        height: 350px;
+    }
+
+    .directorySection,
+    .joinSection,
+    .highlightsSection {
+        padding: var(--space-12) 0;
+    }
+
+    .tabsList {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tabsTrigger {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--font-size-xs);
+    }
+
+    .joinContent {
+        padding: var(--space-6);
+    }
+}

@@ -1,0 +1,79 @@
+/* ============================================
+   FullCalendar Tailwind Overrides
+   ============================================ */
+
+:root {
+    --fc-border-color: #e2e8f0;
+    --fc-today-bg-color: rgba(16, 185, 129, 0.05);
+    --fc-page-bg-color: #ffffff;
+    --fc-list-event-hover-bg-color: #f8fafc;
+}
+
+/* Base Tweak */
+.fc {
+    font-family: inherit;
+}
+
+/* Day Grid & Header */
+.fc-theme-standard td,
+.fc-theme-standard th {
+    border-color: var(--fc-border-color);
+}
+
+.fc .fc-col-header-cell-cushion {
+    padding: 12px 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+}
+
+/* Today Cell */
+.fc .fc-day-today {
+    background-color: var(--fc-today-bg-color) !important;
+}
+
+.fc .fc-daygrid-day-number {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+    padding: 8px;
+}
+
+.fc .fc-day-today .fc-daygrid-day-number {
+    color: #059669;
+    font-weight: 700;
+}
+
+/* Events (Custom Rendered, but structural styling) */
+.fc-h-event {
+    border: none;
+    background: transparent;
+}
+
+.fc-daygrid-event {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+/* List View */
+.fc-list {
+    border: none !important;
+}
+
+.fc-list-day-cushion {
+    background-color: #f8fafc !important;
+}
+
+.fc-list-event:hover td {
+    background-color: var(--fc-list-event-hover-bg-color);
+}
+
+/* More Link */
+.fc .fc-daygrid-more-link {
+    font-size: 0.75rem;
+    color: #059669;
+    font-weight: 600;
+    margin-left: 4px;
+}

@@ -1,0 +1,887 @@
+/* ==========================================================================
+   Youth Page - "Neo-Islamic" Design System
+   Electric & Grounded | Halal Fun + Serious Growth
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Design Tokens - Punchy Accent Palette
+   -------------------------------------------------------------------------- */
+:root {
+    --youth-bg: #f8fafb;
+    --youth-surface: #ffffff;
+    --youth-text: #1a1a2e;
+    --youth-text-muted: #64748b;
+
+    /* Punchy accent colors */
+    --youth-cyan: oklch(0.75 0.18 195);
+    --youth-lime: oklch(0.78 0.2 130);
+    --youth-emerald: oklch(0.6 0.17 160);
+    --youth-purple: oklch(0.65 0.2 300);
+
+    /* Gradients */
+    --youth-gradient-hero: linear-gradient(135deg, var(--youth-emerald) 0%, var(--youth-cyan) 100%);
+    --youth-gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 251, 0.95) 100%);
+
+    /* Shadows */
+    --youth-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --youth-shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --youth-shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+    --youth-shadow-glow-cyan: 0 0 30px rgba(0, 210, 211, 0.3);
+    --youth-shadow-glow-lime: 0 0 30px rgba(163, 230, 53, 0.3);
+
+    /* Spacing */
+    --section-gap: 6rem;
+    --container-max: 1280px;
+}
+
+/* --------------------------------------------------------------------------
+   Base Layout
+   -------------------------------------------------------------------------- */
+.page {
+    background: var(--youth-bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Section Headers
+   -------------------------------------------------------------------------- */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--youth-emerald);
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--youth-text);
+    margin: 0 0 0.5rem;
+}
+
+.sectionSubtitle {
+    font-size: 1.125rem;
+    color: var(--youth-text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   1. Gen Z Hero
+   ========================================================================== */
+.genZHero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.heroImageWrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.heroNoise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.heroGradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0.7) 100%);
+}
+
+/* Memphis-style floating shapes */
+.memphisShapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.memphisCircle {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--youth-cyan);
+    opacity: 0.6;
+    animation: float 6s ease-in-out infinite;
+}
+
+.memphisStar {
+    position: absolute;
+    bottom: 25%;
+    left: 8%;
+    width: 60px;
+    height: 60px;
+    background: var(--youth-lime);
+    opacity: 0.5;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: rotate 12s linear infinite;
+}
+
+.memphisSquiggle {
+    position: absolute;
+    top: 60%;
+    right: 15%;
+    width: 100px;
+    height: 40px;
+    border: 4px solid var(--youth-purple);
+    border-radius: 50%;
+    opacity: 0.4;
+    transform: rotate(-15deg);
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    padding: 8rem 0 4rem;
+}
+
+.heroText {
+    flex: 1;
+    max-width: 600px;
+}
+
+.heroTagline {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--youth-cyan);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.heroHeadline {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: white;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.heroHeadline span:nth-child(1) {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.heroHeadline span:nth-child(2) {
+    color: var(--youth-cyan);
+}
+
+.heroHeadline span:nth-child(3) {
+    color: var(--youth-lime);
+}
+
+.heroSubtext {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 2rem;
+    max-width: 480px;
+}
+
+.heroCtas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.primaryBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primaryBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.secondaryBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.secondaryBtn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Floating glassmorphism badge */
+.floatingBadge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.badgeIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--youth-cyan);
+    border-radius: 1rem;
+    color: white;
+}
+
+.badgeContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.badgeLabel {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.badgeTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+}
+
+.badgeTime {
+    font-size: 0.875rem;
+    color: var(--youth-lime);
+}
+
+/* ==========================================================================
+   2. Program Tracks
+   ========================================================================== */
+.programTracksSection {
+    padding: var(--section-gap) 0;
+    background: var(--youth-bg);
+}
+
+.tracksGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.trackCard {
+    position: relative;
+    background: var(--youth-surface);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 3px solid transparent;
+    box-shadow: var(--youth-shadow-md);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.trackCard.cyan {
+    border-color: var(--youth-cyan);
+}
+
+.trackCard.cyan:hover {
+    box-shadow: var(--youth-shadow-glow-cyan);
+}
+
+.trackCard.lime {
+    border-color: var(--youth-lime);
+}
+
+.trackCard.lime:hover {
+    box-shadow: var(--youth-shadow-glow-lime);
+}
+
+.trackIconCircle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--youth-cyan) 0%, var(--youth-emerald) 100%);
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.trackCard.lime .trackIconCircle {
+    background: linear-gradient(135deg, var(--youth-lime) 0%, var(--youth-emerald) 100%);
+}
+
+.trackAccentIcon {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: white;
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: var(--youth-shadow-sm);
+}
+
+.trackHeader {
+    margin-bottom: 1rem;
+}
+
+.trackTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--youth-text);
+    margin: 0 0 0.25rem;
+}
+
+.trackAge {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--youth-text-muted);
+}
+
+.trackVibe {
+    font-size: 1rem;
+    color: var(--youth-text);
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+}
+
+.trackFeatures {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.trackFeatures li {
+    font-size: 0.9rem;
+    color: var(--youth-text-muted);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.trackFeatures li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--youth-emerald);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   3. Life Gallery (Masonry)
+   ========================================================================== */
+.gallerySection {
+    padding: var(--section-gap) 0;
+    background: white;
+}
+
+.masonryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 1rem;
+}
+
+.masonryItem {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Shape variants */
+.masonryItem.pill {
+    border-radius: 100px;
+}
+
+.masonryItem.squircle {
+    border-radius: 2rem;
+}
+
+.masonryItem.oval {
+    border-radius: 50%;
+}
+
+/* Size variants */
+.masonryItem.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.masonryItem.medium {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.masonryImage {
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.masonryItem:hover .masonryImage {
+    transform: scale(1.08);
+}
+
+.masonryOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.masonryItem:hover .masonryOverlay {
+    opacity: 1;
+}
+
+.masonryCaption {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+
+/* ==========================================================================
+   4. Upcoming Hangouts (Horizontal Scroll)
+   ========================================================================== */
+.hangoutsSection {
+    padding: var(--section-gap) 0;
+    background: var(--youth-bg);
+}
+
+.hangoutsScroll {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding: 1rem 0 2rem;
+    margin: 0 auto;
+    max-width: var(--container-max);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hangoutsScroll::-webkit-scrollbar {
+    display: none;
+}
+
+.ticketCard {
+    flex-shrink: 0;
+    width: 200px;
+    background: var(--youth-surface);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--youth-shadow-md);
+    scroll-snap-align: start;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 4px solid var(--youth-emerald);
+}
+
+.ticketCard.brothers {
+    border-top-color: var(--youth-cyan);
+}
+
+.ticketCard.sisters {
+    border-top-color: var(--youth-purple);
+}
+
+.ticketCard.everyone {
+    border-top-color: var(--youth-lime);
+}
+
+.ticketDate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.ticketMonth {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--youth-text-muted);
+}
+
+.ticketDay {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: var(--youth-text);
+    line-height: 1;
+}
+
+.ticketDivider {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--youth-text-muted), transparent);
+    opacity: 0.2;
+    margin-bottom: 0.75rem;
+}
+
+.ticketContent {
+    flex: 1;
+}
+
+.ticketIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 0.5rem;
+    background: var(--youth-bg);
+    border-radius: 0.75rem;
+    color: var(--youth-emerald);
+}
+
+.ticketTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--youth-text);
+    margin: 0 0 0.25rem;
+}
+
+.ticketDesc {
+    font-size: 0.8rem;
+    color: var(--youth-text-muted);
+    margin: 0 0 1rem;
+}
+
+.rsvpBtn {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--youth-emerald);
+    background: transparent;
+    border: 2px solid var(--youth-emerald);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.rsvpBtn:hover {
+    background: var(--youth-emerald);
+    color: white;
+}
+
+/* ==========================================================================
+   5. Mentorship Section
+   ========================================================================== */
+.mentorshipSection {
+    padding: var(--section-gap) 0;
+    background: linear-gradient(180deg, white 0%, var(--youth-bg) 100%);
+}
+
+.mentorshipContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.mentorshipText {
+    max-width: 500px;
+}
+
+.mentorshipTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--youth-text);
+    margin: 0.5rem 0 1rem;
+}
+
+.mentorshipDesc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--youth-text-muted);
+    margin: 0 0 2rem;
+}
+
+.mentorAvatars {
+    display: flex;
+    align-items: center;
+}
+
+.mentorAvatar {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    box-shadow: var(--youth-shadow-sm);
+    margin-left: -16px;
+}
+
+.mentorAvatar:first-child {
+    margin-left: 0;
+}
+
+.mentorImage {
+    object-fit: cover;
+}
+
+.mentorCount {
+    margin-left: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--youth-text-muted);
+}
+
+.connectCard {
+    background: var(--youth-surface);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    box-shadow: var(--youth-shadow-lg);
+}
+
+.connectTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--youth-text);
+    margin: 0 0 0.5rem;
+}
+
+.connectDesc {
+    font-size: 1rem;
+    color: var(--youth-text-muted);
+    margin: 0 0 1.5rem;
+}
+
+.connectButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.whatsappBtn,
+.instagramBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.whatsappBtn {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+}
+
+.whatsappBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.instagramBtn {
+    background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F56040 100%);
+    color: white;
+}
+
+.instagramBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(225, 48, 108, 0.3);
+}
+
+.connectNote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--youth-text-muted);
+}
+
+.connectNote svg {
+    color: #ef4444;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .heroContent {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .heroText {
+        max-width: 100%;
+    }
+
+    .heroSubtext {
+        max-width: 100%;
+    }
+
+    .heroCtas {
+        justify-content: center;
+    }
+
+    .tracksGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .masonryGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mentorshipContent {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .mentorshipText {
+        max-width: 100%;
+    }
+
+    .mentorAvatars {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --section-gap: 4rem;
+    }
+
+    .heroHeadline {
+        font-size: 2.5rem;
+    }
+
+    .floatingBadge {
+        display: none;
+    }
+
+    .masonryGrid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+    }
+
+    .masonryItem.large {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .hangoutsScroll {
+        padding-left: 1rem;
+    }
+
+    .ticketCard {
+        width: 180px;
+    }
+
+    .connectCard {
+        padding: 1.5rem;
+    }
+}

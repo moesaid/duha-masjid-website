@@ -1,0 +1,128 @@
+/* Dropdown Widget — Shadcn-inspired Design
+   Global component for Modern Ummah template
+   ============================================ */
+
+.dropdownWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.required {
+    color: oklch(0.6 0.2 25);
+    margin-left: 0.25em;
+}
+
+.trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: oklch(0.99 0 0);
+    border: 1px solid oklch(0.90 0 0);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.trigger:hover {
+    border-color: oklch(0.75 0 0);
+}
+
+.trigger:focus,
+.trigger.open {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px oklch(0.65 0.15 175 / 0.15);
+}
+
+.selectedText {
+    color: var(--color-text);
+}
+
+.placeholderText {
+    color: oklch(0.65 0 0);
+}
+
+.chevron {
+    width: 18px;
+    height: 18px;
+    color: oklch(0.5 0 0);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.chevronOpen {
+    transform: rotate(180deg);
+}
+
+.menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: white;
+    border: 1px solid oklch(0.92 0 0);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px oklch(0 0 0 / 0.12);
+    padding: var(--space-1);
+    list-style: none;
+    margin: 0;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s ease;
+}
+
+.option:hover {
+    background: oklch(0.97 0.02 175);
+}
+
+.option.selected {
+    background: oklch(0.95 0.04 175);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+.checkIcon {
+    color: var(--color-primary);
+}
+
+.hiddenSelect {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    opacity: 0;
+    pointer-events: none;
+}

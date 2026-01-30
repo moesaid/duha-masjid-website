@@ -1,0 +1,498 @@
+/* Committee Detail Page - Modern Ummah Redesign */
+
+/* ========================================
+   PAGE LAYOUT
+   ======================================== */
+.page {
+    min-height: 100vh;
+    background: oklch(0.985 0 0);
+}
+
+/* ========================================
+   IMMERSIVE HERO
+   ======================================== */
+.hero {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-20) 0 var(--space-12);
+    overflow: hidden;
+}
+
+.heroBg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.heroContainer {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    text-decoration: none;
+    width: fit-content;
+    padding: var(--space-2) var(--space-4);
+    background: white;
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 8px oklch(0 0 0 / 0.08);
+    transition: all 0.2s ease;
+}
+
+.backLink:hover {
+    transform: translateX(-4px);
+    box-shadow: 0 4px 12px oklch(0 0 0 / 0.12);
+}
+
+.heroText {
+    max-width: 720px;
+}
+
+.categoryPill {
+    display: inline-block;
+    padding: var(--space-1) var(--space-4);
+    background: var(--color-primary);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-4);
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: var(--space-4);
+}
+
+.heroSubtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    max-width: 600px;
+}
+
+/* Stats Row */
+.statsRow {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.statCard {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px oklch(0 0 0 / 0.06);
+}
+
+.statCard svg {
+    color: var(--color-primary);
+}
+
+.statCard>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.statValue {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.statLabel {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+/* ========================================
+   CONTENT SECTION
+   ======================================== */
+.contentSection {
+    padding: var(--space-12) 0 var(--space-20);
+    margin-top: -var(--space-8);
+}
+
+.contentContainer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--space-8);
+}
+
+@media (max-width: 1024px) {
+    .contentContainer {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mainColumn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.sideColumn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+@media (max-width: 1024px) {
+    .sideColumn {
+        order: -1;
+    }
+}
+
+/* ========================================
+   CARD STYLES
+   ======================================== */
+.projectsCard,
+.responsibilitiesCard {
+    background: white;
+    border-radius: 1.5rem;
+    padding: var(--space-8);
+    box-shadow: 0 4px 24px oklch(0 0 0 / 0.04);
+    border: 1px solid oklch(0 0 0 / 0.04);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+}
+
+.cardHeader h2 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.headerIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--color-primary), oklch(0.55 0.15 145));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Projects List */
+.projectsList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.projectItem {
+    padding: var(--space-4);
+    background: oklch(0.98 0 0);
+    border-radius: 1rem;
+}
+
+.projectInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-3);
+}
+
+.projectInfo h3 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.projectStatus {
+    font-size: 10px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    background: oklch(0.55 0.15 175 / 0.1);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.progressContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.progressTrack {
+    flex: 1;
+    height: 8px;
+    background: oklch(0.93 0 0);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progressBar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), oklch(0.55 0.15 145));
+    border-radius: var(--radius-full);
+}
+
+.progressValue {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Responsibilities List */
+.responsibilitiesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.responsibilitiesList li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid oklch(0 0 0 / 0.04);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+}
+
+.responsibilitiesList li:last-child {
+    border-bottom: none;
+}
+
+.checkMark {
+    color: oklch(0.55 0.15 145);
+    font-weight: var(--font-weight-bold);
+    flex-shrink: 0;
+}
+
+/* ========================================
+   SIDEBAR CARDS
+   ======================================== */
+.leadershipCard,
+.membersCard,
+.meetingCard,
+.joinCard {
+    background: white;
+    border-radius: 1.25rem;
+    padding: var(--space-6);
+    box-shadow: 0 2px 12px oklch(0 0 0 / 0.04);
+    border: 1px solid oklch(0 0 0 / 0.04);
+}
+
+.leadershipCard h3,
+.membersCard h3,
+.meetingCard h3,
+.joinCard h3 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+}
+
+/* Leadership Card */
+.chairProfile {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.chairAvatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), oklch(0.55 0.15 145));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    flex-shrink: 0;
+}
+
+.chairInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.chairInfo strong {
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+}
+
+.chairInfo span {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+/* Members Card */
+.memberAvatars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.memberChip {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: oklch(0.95 0.02 175);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: var(--font-weight-bold);
+}
+
+.memberNamesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.memberNamesList li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    padding: var(--space-2) 0;
+    border-bottom: 1px dashed oklch(0 0 0 / 0.06);
+}
+
+.memberNamesList li:last-child {
+    border-bottom: none;
+}
+
+/* Meeting Card */
+.meetingDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.meetingRow {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.meetingRow svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Join Card */
+.joinCard {
+    background: linear-gradient(145deg, oklch(0.97 0.02 175), oklch(0.98 0.01 175));
+    border: 1px solid oklch(0.55 0.15 175 / 0.15);
+}
+
+.joinCard p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-4);
+}
+
+.joinButton {
+    width: 100%;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    font-weight: var(--font-weight-semibold);
+    transition: all 0.2s ease;
+}
+
+.joinButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px oklch(0.55 0.15 175 / 0.3);
+}
+
+.emailHint {
+    display: block;
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--color-primary);
+    margin-top: var(--space-3);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: var(--space-16) 0 var(--space-10);
+    }
+
+    .statsRow {
+        flex-direction: column;
+    }
+
+    .statCard {
+        width: 100%;
+    }
+
+    .projectsCard,
+    .responsibilitiesCard {
+        padding: var(--space-6);
+    }
+
+    .contentContainer {
+        gap: var(--space-6);
+    }
+}

@@ -1,10 +1,18 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+import {
+    ShuraHero,
+    CommitteeDirectory,
+    JoinCommittee,
+    MonthlyHighlights,
+} from './_components';
+import styles from './Committees.module.css';
 
 export default function CommitteesPage() {
     return (
-        <ComingSoon
-            title="Committees"
-            description="Learn about our various committees working to serve the community."
-        />
+        <div className={styles.page}>
+            <ShuraHero />
+            <CommitteeDirectory />
+            <JoinCommittee />
+            <MonthlyHighlights />
+        </div>
     );
 }

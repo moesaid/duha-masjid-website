@@ -1,10 +1,18 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+import {
+    AdlHero,
+    DocumentLibrary,
+    PolicyAccordion,
+    IncidentReporting,
+} from './_components';
+import { policyDocuments, policyItems } from './_data';
 
 export default function PoliciesPage() {
     return (
-        <ComingSoon
-            title="Policies"
-            description="Review our masjid's policies and guidelines."
-        />
+        <main>
+            <AdlHero />
+            <DocumentLibrary documents={policyDocuments} />
+            <PolicyAccordion policies={policyItems} />
+            <IncidentReporting />
+        </main>
     );
 }

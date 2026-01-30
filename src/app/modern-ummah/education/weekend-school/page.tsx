@@ -1,10 +1,19 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+import {
+    WeekendHero,
+    GrowthLevels,
+    WeeklySchedule,
+    ParentVoices,
+    EnrollmentCTA
+} from './_components';
 
 export default function WeekendSchoolPage() {
     return (
-        <ComingSoon
-            title="Weekend School"
-            description="Islamic education for children on weekends."
-        />
+        <main className="min-h-screen bg-slate-50">
+            <WeekendHero />
+            <GrowthLevels />
+            <WeeklySchedule />
+            <ParentVoices />
+            <EnrollmentCTA />
+        </main>
     );
 }

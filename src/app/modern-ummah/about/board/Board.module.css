@@ -1,0 +1,646 @@
+/* Board of Directors Page — "Governance Dashboard" Design
+   Philosophy: Transparency, Stewardship, Neo-Islamic Aesthetic
+   ============================================================ */
+
+/* ========================================
+   PAGE LAYOUT
+   ======================================== */
+.page {
+    position: relative;
+    background: var(--color-background);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+}
+
+/* ========================================
+   SECTION HEADER (Shared)
+   ======================================== */
+.sectionHeader {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-12);
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-4);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+}
+
+.sectionSubtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+}
+
+/* ========================================
+   AMANAH HERO — Editorial Minimalism
+   ======================================== */
+.hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-20) var(--space-8);
+    overflow: hidden;
+    background: linear-gradient(180deg, oklch(0.98 0.01 175) 0%, var(--color-background) 100%);
+}
+
+.heroGeometric {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+    color: var(--color-primary);
+    pointer-events: none;
+    animation: rotateGeometric 180s linear infinite;
+}
+
+@keyframes rotateGeometric {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    background: oklch(0.65 0.15 175 / 0.1);
+    border: 1px solid oklch(0.65 0.15 175 / 0.2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-8);
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-6);
+}
+
+.heroSubtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   LEADERSHIP GRID — Glassmorphism Cards
+   ======================================== */
+.leadershipSection {
+    padding: var(--space-20) 0;
+    background: var(--color-surface);
+}
+
+.leadershipGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+}
+
+.memberCard {
+    background: oklch(1 0 0 / 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.9 0 0);
+    border-radius: 1.5rem;
+    padding: var(--space-8);
+    transition: all 0.4s cubic-bezier(0.25, 0.4, 0.25, 1);
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.memberCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px oklch(0 0 0 / 0.1);
+    border-color: oklch(0.65 0.15 175 / 0.3);
+}
+
+.memberImageContainer {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--space-6);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 3px solid white;
+    box-shadow: 0 4px 16px oklch(0 0 0 / 0.1);
+}
+
+.memberImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.memberLinkedIn {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 36px;
+    height: 36px;
+    background: #0A66C2;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px oklch(0 0 0 / 0.2);
+    transition: transform 0.2s;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.memberLinkedIn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.memberContent {
+    text-align: center;
+}
+
+.memberName {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.memberRole {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background: oklch(0.65 0.15 175 / 0.1);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+}
+
+.memberRole.president {
+    background: linear-gradient(135deg, oklch(0.75 0.15 85) 0%, oklch(0.65 0.12 75) 100%);
+    color: oklch(0.35 0.1 85);
+}
+
+.memberRole.vice-president {
+    background: oklch(0.65 0.15 175 / 0.15);
+}
+
+.memberVision {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    font-style: italic;
+    margin-bottom: var(--space-4);
+}
+
+.memberBioBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: transparent;
+    border: 1px solid oklch(0.85 0 0);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s ease;
+}
+
+.memberBioBtn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.memberBioBtn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/* ========================================
+   GOVERNANCE DASHBOARD — Document Cards
+   ======================================== */
+.governanceSection {
+    padding: var(--space-20) 0;
+    background: var(--color-background);
+}
+
+.documentsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+}
+
+.documentCard {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-6);
+    background: white;
+    border: 1px solid oklch(0.92 0 0);
+    border-radius: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.documentCard:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 32px oklch(0.65 0.15 175 / 0.1);
+    transform: translateY(-2px);
+}
+
+.documentIcon {
+    width: 56px;
+    height: 56px;
+    background: oklch(0.65 0.15 175 / 0.08);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.documentContent {
+    flex: 1;
+    min-width: 0;
+}
+
+.documentTitle {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.documentDesc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-2);
+}
+
+.documentDate {
+    font-size: var(--font-size-xs);
+    color: oklch(0.6 0 0);
+    font-weight: var(--font-weight-medium);
+}
+
+.documentAction {
+    width: 44px;
+    height: 44px;
+    background: var(--color-surface);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+
+.documentCard:hover .documentAction {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* ========================================
+   ADVISORY COUNCIL — Centered Grid
+   ======================================== */
+.advisorySection {
+    padding: var(--space-20) 0;
+    background: var(--color-surface);
+}
+
+.advisoryGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-10);
+    padding: var(--space-4) 0;
+}
+
+.advisorCard {
+    text-align: center;
+    width: 160px;
+    transition: transform 0.3s ease;
+}
+
+.advisorCard:hover {
+    transform: translateY(-4px);
+}
+
+.advisorImageWrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--space-4);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 8px 24px oklch(0 0 0 / 0.12);
+    transition: box-shadow 0.3s ease;
+}
+
+.advisorCard:hover .advisorImageWrapper {
+    box-shadow: 0 12px 32px oklch(0.65 0.15 175 / 0.2);
+}
+
+.advisorImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.advisorName {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.advisorTitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+/* ========================================
+   CONTACT SECTION — Feedback Loop
+   ======================================== */
+.contactSection {
+    padding: var(--space-20) 0;
+    background: linear-gradient(135deg, oklch(0.97 0.02 175), oklch(0.95 0.03 180));
+}
+
+.contactCard {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 1.5rem;
+    padding: var(--space-12);
+    box-shadow: 0 8px 40px oklch(0 0 0 / 0.08);
+}
+
+.contactContent {
+    text-align: center;
+}
+
+.contactIcon {
+    width: 72px;
+    height: 72px;
+    background: oklch(0.65 0.15 175 / 0.1);
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    margin: 0 auto var(--space-6);
+}
+
+.contactTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+}
+
+.contactSubtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+}
+
+.contactButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: linear-gradient(135deg, var(--color-primary), oklch(0.55 0.15 175));
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    box-shadow: 0 4px 16px oklch(0.65 0.15 175 / 0.3);
+    transition: all 0.2s ease;
+}
+
+.contactButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px oklch(0.65 0.15 175 / 0.4);
+}
+
+/* Contact Form */
+.contactForm {
+    margin-top: var(--space-10);
+    padding-top: var(--space-10);
+    border-top: 1px solid oklch(0.92 0 0);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.formGroup {
+    margin-bottom: var(--space-5);
+    text-align: left;
+}
+
+.formLabel {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.formInput,
+.formTextarea {
+    width: 100%;
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid oklch(0.9 0 0);
+    border-radius: 0.75rem;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px oklch(0.65 0.15 175 / 0.1);
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.formSubmit {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.formSubmit:hover {
+    background: oklch(0.55 0.15 175);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+    .leadershipGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-6);
+    }
+
+    .hero {
+        min-height: 50vh;
+        padding: var(--space-16) var(--space-6);
+    }
+
+    .heroGeometric {
+        width: 350px;
+        height: 350px;
+    }
+
+    .leadershipSection,
+    .governanceSection,
+    .advisorySection,
+    .contactSection {
+        padding: var(--space-12) 0;
+    }
+
+    .leadershipGrid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .documentsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .documentCard {
+        padding: var(--space-5);
+    }
+
+    .contactCard {
+        padding: var(--space-8);
+    }
+}
+
+@media (max-width: 480px) {
+    .memberCard {
+        padding: var(--space-6);
+    }
+
+    .memberImageContainer {
+        width: 100px;
+        height: 100px;
+    }
+}

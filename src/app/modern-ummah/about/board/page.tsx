@@ -1,10 +1,21 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+import {
+    AmanahHero,
+    LeadershipGrid,
+    GovernanceDashboard,
+    AdvisoryCouncil,
+    ContactBoard,
+} from './_components';
+import { boardMembers, governanceDocuments, advisors } from './_data';
+import styles from './Board.module.css';
 
 export default function BoardPage() {
     return (
-        <ComingSoon
-            title="Leadership & Board"
-            description="Meet our dedicated board members guiding our masjid's vision."
-        />
+        <div className={styles.page}>
+            <AmanahHero />
+            <LeadershipGrid members={boardMembers} />
+            <GovernanceDashboard documents={governanceDocuments} />
+            <AdvisoryCouncil advisors={advisors} />
+            <ContactBoard />
+        </div>
     );
 }

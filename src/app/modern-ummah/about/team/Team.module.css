@@ -1,0 +1,580 @@
+/* Team Page — Neo-Islamic "Luminous & Approachable" Design
+   Philosophy: Spiritual Leadership Meets Warmth
+   Palette: Teal (Primary) + Gold (Accent) + Slate (Neutral)
+   ================================================================== */
+
+/* ========================================
+   PAGE LAYOUT
+   ======================================== */
+.page {
+    position: relative;
+    background: var(--color-background);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ========================================
+   HERO SECTION — Large Editorial Header
+   ======================================== */
+.hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-20) var(--space-8);
+    overflow: hidden;
+    background: linear-gradient(180deg, oklch(0.98 0.01 175) 0%, var(--color-background) 100%);
+}
+
+.heroGeometric {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+    color: var(--color-primary);
+    pointer-events: none;
+    animation: rotateGeometric 180s linear infinite;
+}
+
+@keyframes rotateGeometric {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    background: oklch(0.65 0.15 175 / 0.1);
+    border: 1px solid oklch(0.65 0.15 175 / 0.2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-8);
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-6);
+}
+
+.heroSubtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   MAIN SHEIKH SECTION
+   ======================================== */
+.mainSheikhSection {
+    padding: var(--space-20) 0;
+    background: linear-gradient(180deg, oklch(0.97 0.01 175), var(--color-background));
+}
+
+.mainSheikhGrid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: var(--space-12);
+    align-items: start;
+}
+
+/* Left: Image with decorative frame */
+.sheikhImageContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sheikhImageFrame {
+    position: relative;
+    width: 320px;
+    height: 380px;
+}
+
+.sheikhImageDecoration {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 320px;
+    background: linear-gradient(180deg, oklch(0.65 0.15 175 / 0.15), transparent);
+    border-radius: 140px 140px 0 0;
+    z-index: 1;
+}
+
+.sheikhImageWrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 320px;
+    border-radius: 130px 130px 0 0;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 12px 40px oklch(0 0 0 / 0.12);
+}
+
+.sheikhImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sheikhNameCard {
+    text-align: center;
+    margin-top: var(--space-6);
+}
+
+.sheikhName {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.sheikhRole {
+    font-size: var(--font-size-base);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Right: Bio & Schedule */
+.sheikhContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.sheikhBio {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    font-style: italic;
+}
+
+.credentialsSection h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.credentialsList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.credentialItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+}
+
+.credentialCheck {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* Weekly Schedule Card — Teal Dark */
+.scheduleCard {
+    background: linear-gradient(135deg, oklch(0.25 0.08 175), oklch(0.20 0.06 175));
+    border-radius: 1.5rem;
+    padding: var(--space-6);
+    margin-top: var(--space-4);
+    box-shadow: 0 8px 32px oklch(0 0 0 / 0.15);
+}
+
+.scheduleHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: white;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-5);
+}
+
+.scheduleGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+.scheduleItem {
+    background: oklch(0.30 0.08 175);
+    border-radius: 1rem;
+    padding: var(--space-4);
+    transition: all 0.2s ease;
+}
+
+.scheduleItem:hover {
+    background: oklch(0.35 0.08 175);
+}
+
+.scheduleDay {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: oklch(0.75 0.12 85);
+    margin-bottom: var(--space-2);
+}
+
+.scheduleTime {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: white;
+    margin-bottom: var(--space-1);
+}
+
+.scheduleActivity {
+    font-size: var(--font-size-sm);
+    color: oklch(0.75 0 0);
+    font-style: italic;
+}
+
+/* ========================================
+   RESIDENT SCHOLARS SECTION
+   ======================================== */
+.scholarsSection {
+    padding: var(--space-20) 0;
+    background: var(--color-surface);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-3);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.scholarsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+}
+
+.scholarCard {
+    background: white;
+    border: 1px solid oklch(0.94 0 0);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.scholarCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px oklch(0 0 0 / 0.1);
+    border-color: oklch(0.85 0.1 175);
+}
+
+.scholarImageWrapper {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.scholarImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.scholarCard:hover .scholarImage {
+    transform: scale(1.05);
+}
+
+.scholarContent {
+    padding: var(--space-6);
+    text-align: center;
+}
+
+.scholarName {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.scholarRole {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ========================================
+   ASK THE IMAM SECTION
+   ======================================== */
+.askImamSection {
+    padding: var(--space-20) 0;
+    background: linear-gradient(180deg, var(--color-background), oklch(0.97 0.01 175));
+}
+
+.askImamGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+.askImamContent h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+}
+
+.askImamContent p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+}
+
+.askImamForm {
+    background: white;
+    border: 1px solid oklch(0.94 0 0);
+    border-radius: 1.5rem;
+    padding: var(--space-10);
+    box-shadow: 0 8px 32px oklch(0 0 0 / 0.06);
+}
+
+.formGroup {
+    margin-bottom: var(--space-5);
+}
+
+.formLabel {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.formInput,
+.formTextarea {
+    width: 100%;
+    padding: var(--space-4);
+    background: oklch(0.99 0 0);
+    border: 1px solid oklch(0.90 0 0);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    transition: all 0.2s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px oklch(0.65 0.15 175 / 0.15);
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.formSubmit {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: linear-gradient(135deg, var(--color-primary), oklch(0.50 0.15 175));
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px oklch(0.65 0.15 175 / 0.3);
+}
+
+.formSubmit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px oklch(0.65 0.15 175 / 0.4);
+}
+
+/* ========================================
+   FRIDAY KHUTBAHS SECTION
+   ======================================== */
+.khutbahsSection {
+    padding: var(--space-20) 0;
+    background: var(--color-surface);
+}
+
+.khutbahsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+.khutbahCard {
+    background: white;
+    border: 1px solid oklch(0.94 0 0);
+    border-radius: 1.25rem;
+    padding: var(--space-6);
+    transition: all 0.3s ease;
+}
+
+.khutbahCard:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 24px oklch(0 0 0 / 0.06);
+    transform: translateY(-2px);
+}
+
+.khutbahMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+}
+
+.khutbahTitle {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+    line-height: 1.4;
+}
+
+.khutbahSpeaker {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.khutbahPlayBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    background: oklch(0.95 0.05 175);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.khutbahPlayBtn:hover {
+    background: oklch(0.90 0.08 175);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+    .mainSheikhGrid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .sheikhImageContainer {
+        margin: 0 auto;
+    }
+
+    .scholarsGrid,
+    .khutbahsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .askImamGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .mainSheikhSection,
+    .scholarsSection,
+    .askImamSection,
+    .khutbahsSection {
+        padding: var(--space-12) 0;
+    }
+
+    .scholarsGrid,
+    .khutbahsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .scheduleGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .askImamForm {
+        padding: var(--space-6);
+    }
+
+    .sectionHeader {
+        margin-bottom: var(--space-8);
+    }
+}

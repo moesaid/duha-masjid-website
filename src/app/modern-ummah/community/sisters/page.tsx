@@ -1,10 +1,27 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+'use client';
 
+import { SakinahHero } from './_components/SakinahHero';
+import { CorePillars } from './_components/CorePillars';
+import { FeaturedPrograms } from './_components/FeaturedPrograms';
+import { SistersSpotlight } from './_components/SistersSpotlight';
+import { CommitteeLeadership } from './_components/CommitteeLeadership';
+import { GetInvolved } from './_components/GetInvolved';
+
+/**
+ * Sisters Committee Page - "Neo-Islamic" Minimalist Design
+ * Serenity & Connection aesthetic
+ * Sophisticated, serene, and empowering
+ * Unique: Split-layout hero, testimonials spotlight
+ */
 export default function SistersPage() {
     return (
-        <ComingSoon
-            title="Sisters Committee"
-            description="Programs and activities for sisters in our community."
-        />
+        <main className="min-h-screen bg-white w-full">
+            <SakinahHero />
+            <CorePillars />
+            <FeaturedPrograms />
+            <SistersSpotlight />
+            <CommitteeLeadership />
+            <GetInvolved />
+        </main>
     );
 }

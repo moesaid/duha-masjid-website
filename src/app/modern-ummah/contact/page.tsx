@@ -1,10 +1,29 @@
-import { ComingSoon } from '../_components/ComingSoon';
+import {
+    HeroSection,
+    ContactGrid,
+    MessageForm,
+    LocationMap,
+    QuickLinks,
+} from './_components';
+import { contactInfo } from './_data';
+import styles from './Contact.module.css';
 
 export default function ContactPage() {
     return (
-        <ComingSoon
-            title="Contact Us"
-            description="Get in touch with our masjid for inquiries and support."
-        />
+        <div className={styles.page}>
+            <HeroSection />
+            <ContactGrid contactInfo={contactInfo} />
+
+            <section className={styles.formSection}>
+                <div className={styles.container}>
+                    <div className={styles.formGrid}>
+                        <MessageForm />
+                        <LocationMap />
+                    </div>
+                </div>
+            </section>
+
+            <QuickLinks />
+        </div>
     );
 }

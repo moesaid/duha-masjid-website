@@ -1,10 +1,22 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+'use client';
 
+import {
+    WeeklyHero,
+    WeeklyRhythm,
+    ProgramCardsGrid,
+    HalaqaTimeline,
+    VolunteerCta,
+    UpdatesBanner
+} from './_components';
 export default function WeeklyPage() {
     return (
-        <ComingSoon
-            title="Weekly Programs"
-            description="Regular weekly classes, halaqas, and gatherings."
-        />
+        <main className="min-h-screen bg-white">
+            <WeeklyHero />
+            <WeeklyRhythm />
+            <ProgramCardsGrid />
+            <HalaqaTimeline />
+            <VolunteerCta />
+            <UpdatesBanner />
+        </main>
     );
 }

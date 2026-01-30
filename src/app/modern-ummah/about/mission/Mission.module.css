@@ -1,0 +1,541 @@
+/* Mission & Vision Page — "Clarity & Purpose" Design
+   Philosophy: Stark, high-contrast editorial with massive typography
+   ================================================================== */
+
+/* ========================================
+   PAGE LAYOUT
+   ======================================== */
+.page {
+    position: relative;
+    background: var(--color-background);
+    overflow-x: hidden;
+}
+
+/* ========================================
+   NORTH STAR HERO — Editorial Minimalism
+   ======================================== */
+.hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-20) var(--space-8);
+    overflow: hidden;
+}
+
+/* Rotating geometric wireframe background */
+.heroGeometric {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+    animation: rotateGeometric 120s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotateGeometric {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-5);
+    border: 1px solid oklch(0.8 0 0);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-8);
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-6);
+}
+
+.heroSubtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   MISSION/VISION SPLIT — Contrasting Cards
+   ======================================== */
+.splitSection {
+    padding: var(--space-20) var(--space-8);
+    background: var(--color-surface);
+}
+
+.splitContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.splitGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+}
+
+.splitCard {
+    padding: var(--space-12);
+    border-radius: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.4, 0.25, 1);
+}
+
+.splitCard:hover {
+    transform: translateY(-4px);
+}
+
+/* Mission card — light */
+.splitCard.missionCard {
+    background: white;
+    border: 1px solid oklch(0.92 0 0);
+    box-shadow: 0 4px 24px oklch(0 0 0 / 0.04);
+}
+
+.splitCard.missionCard:hover {
+    box-shadow: 0 12px 40px oklch(0 0 0 / 0.08);
+}
+
+/* Vision card — dark emerald */
+.splitCard.visionCard {
+    background: linear-gradient(135deg, oklch(0.28 0.1 175), oklch(0.22 0.08 180));
+    border: 1px solid oklch(0.35 0.08 175);
+    color: white;
+}
+
+.splitCard.visionCard:hover {
+    box-shadow: 0 12px 40px oklch(0.25 0.1 175 / 0.3);
+}
+
+.splitCardLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-6);
+}
+
+.missionCard .splitCardLabel {
+    color: var(--color-primary);
+}
+
+.visionCard .splitCardLabel {
+    color: oklch(0.8 0.1 175);
+}
+
+.splitCardTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-bottom: var(--space-6);
+}
+
+.missionCard .splitCardTitle {
+    color: var(--color-text);
+}
+
+.visionCard .splitCardTitle {
+    color: white;
+}
+
+.splitCardText {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+.missionCard .splitCardText {
+    color: var(--color-text-muted);
+}
+
+.visionCard .splitCardText {
+    color: oklch(0.85 0 0);
+}
+
+/* ========================================
+   CORE VALUES GRID — 3x2 with Watermarks
+   ======================================== */
+.valuesSection {
+    padding: var(--space-24) var(--space-8);
+    background: var(--color-background);
+}
+
+.valuesContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-16);
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-4);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+}
+
+.sectionSubtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+.valueCard {
+    position: relative;
+    background: white;
+    border: 1px solid oklch(0.92 0 0);
+    border-radius: 1.5rem;
+    padding: var(--space-8);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.4, 0.25, 1);
+}
+
+.valueCard:hover {
+    transform: translateY(-4px);
+    border-color: oklch(0.85 0 0);
+    box-shadow: 0 12px 40px oklch(0 0 0 / 0.08);
+}
+
+/* Watermark icon */
+.valueCardWatermark {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 140px;
+    height: 140px;
+    color: oklch(0.65 0.15 175 / 0.06);
+    pointer-events: none;
+}
+
+.valueCardIcon {
+    width: 56px;
+    height: 56px;
+    background: oklch(0.65 0.15 175 / 0.08);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    margin-bottom: var(--space-5);
+}
+
+.valueCardIcon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.valueCardName {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.valueCardArabic {
+    font-family: 'Amiri', serif;
+    font-size: var(--font-size-base);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.valueCardDesc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   STRATEGIC PILLARS ACCORDION
+   ======================================== */
+.pillarsSection {
+    padding: var(--space-20) var(--space-8);
+    background: var(--color-surface);
+}
+
+.pillarsContainer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.accordionItem {
+    background: white;
+    border: 1px solid oklch(0.94 0 0);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.accordionItem:hover {
+    border-color: oklch(0.88 0 0);
+}
+
+.accordionItem.open {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 20px oklch(0.65 0.15 175 / 0.08);
+}
+
+.accordionTrigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5) var(--space-6);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.accordionTriggerContent {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.accordionNumber {
+    width: 32px;
+    height: 32px;
+    background: oklch(0.65 0.15 175 / 0.1);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.accordionTitle {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.accordionChevron {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text-muted);
+    transition: transform 0.3s ease;
+}
+
+.accordionItem.open .accordionChevron {
+    transform: rotate(180deg);
+}
+
+.accordionContent {
+    padding: 0 var(--space-6) var(--space-6);
+    padding-left: calc(var(--space-6) + 32px + var(--space-4));
+}
+
+.accordionDesc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-5);
+}
+
+.initiativesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.initiativeItem {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.initiativeBullet {
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: var(--radius-full);
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   CTA BANNER
+   ======================================== */
+.ctaSection {
+    padding: var(--space-20) var(--space-8);
+    background: linear-gradient(135deg, oklch(0.97 0.02 175), oklch(0.95 0.03 180));
+}
+
+.ctaContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ctaTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+}
+
+.ctaSubtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-10);
+}
+
+.ctaButtons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ctaButton.primary {
+    background: linear-gradient(135deg, var(--color-primary), oklch(0.55 0.15 175));
+    color: white;
+    border: none;
+    box-shadow: 0 4px 16px oklch(0.65 0.15 175 / 0.3);
+}
+
+.ctaButton.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px oklch(0.65 0.15 175 / 0.4);
+}
+
+.ctaButton.outline {
+    background: white;
+    color: var(--color-text);
+    border: 1px solid oklch(0.85 0 0);
+}
+
+.ctaButton.outline:hover {
+    border-color: var(--color-primary);
+    background: oklch(0.65 0.15 175 / 0.05);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+    .valuesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 60vh;
+        padding: var(--space-16) var(--space-6);
+    }
+
+    .heroGeometric {
+        width: 400px;
+        height: 400px;
+    }
+
+    .splitGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .splitCard {
+        padding: var(--space-8);
+    }
+
+    .valuesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .valuesSection,
+    .pillarsSection,
+    .ctaSection {
+        padding: var(--space-12) var(--space-6);
+    }
+
+    .accordionContent {
+        padding-left: var(--space-6);
+    }
+}
