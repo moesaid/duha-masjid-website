@@ -3,230 +3,293 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../../_styles/HomePage.module.css';
+import { ArrowRight, Play, Clock, MapPin, Calendar, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface HeroSectionProps {
     templateId: string;
 }
 
-// Featured announcements with image media
-const ANNOUNCEMENTS = [
+// Cinematic Announcements suitable for the split layout
+const HERO_SLIDES = [
     {
         id: 1,
-        type: 'event',
-        badge: 'Upcoming Event',
-        title: 'Spring Registration Now Open',
-        subtitle: 'Weekend Islamic School 2026',
-        description: 'Enroll your children in our comprehensive Islamic education program. Classes begin March 1st for ages 5-16.',
-        cta: { label: 'Register Now', href: '/education/weekend-school' },
-        secondary: { label: 'Learn More', href: '/education' },
-        image: 'https://images.unsplash.com/photo-1585036156171-384164a8c675?w=600&q=80',
-        accentColor: 'emerald',
+        subtitle: 'The Heart of Community',
+        title: 'A Sanctuary for the Soul',
+        description: 'More than just a mosque. We are a thriving hub for spiritual growth, education, and community service. Come as you are, grow with us.',
+        image: '/images/sunlight-archway.jpg',
+        badge: { text: "Welcome Home", color: "emerald" },
+        primaryCta: { label: 'About Our Mission', href: '/about/mission' },
+        secondaryCta: { label: 'Watch Video', href: '#' },
+        floatingCard: {
+            title: "Next Prayer",
+            value: "Asr 4:45 PM",
+            icon: Clock,
+            color: "emerald"
+        }
     },
     {
         id: 2,
-        type: 'service',
-        badge: 'New Service',
-        title: 'Al-Shifa Community Clinic',
-        subtitle: 'Free Healthcare for All',
-        description: 'Our new medical clinic offers free consultations every Saturday. Open to all community members.',
-        cta: { label: 'Book Appointment', href: '/community/free-clinic' },
-        secondary: { label: 'View Services', href: '/services' },
-        image: 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&q=80',
-        accentColor: 'teal',
+        subtitle: 'Education & Growth',
+        title: 'Nurturing Future Leaders',
+        description: 'From our Weekend School to the comprehensive Quran Academy, we provide a holistic Islamic education that builds character and confidence.',
+        image: '/images/youth-learning.jpg',
+        badge: { text: "Registration Open", color: "amber" },
+        primaryCta: { label: 'View Programs', href: '/education' },
+        secondaryCta: { label: 'Scholarships', href: '/services/financial-aid' },
+        floatingCard: {
+            title: "Spring Term",
+            value: "Starting Mar 1",
+            icon: Calendar,
+            color: "amber"
+        }
     },
     {
         id: 3,
-        type: 'announcement',
-        badge: 'Ramadan Prep',
-        title: 'Ramadan is Coming',
-        subtitle: '30 Days of Mercy Await',
-        description: 'Join our pre-Ramadan programs, taraweeh schedule, and community iftars. Register for our meal program.',
-        cta: { label: 'View Schedule', href: '/events/seasonal' },
-        secondary: { label: 'Volunteer', href: '/join/volunteer' },
-        image: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80',
-        accentColor: 'gold',
-    },
+        subtitle: 'Community Service',
+        title: 'Serving With Excellence',
+        description: 'Our food pantry and free clinic serve hundreds of families weekly. Join our volunteer force and experience the joy of Khidmah (service).',
+        image: '/images/mosque-community.jpg',
+        badge: { text: "Impact Update", color: "blue" },
+        primaryCta: { label: 'Volunteer Now', href: '/join/volunteer' },
+        secondaryCta: { label: 'Donate', href: '/donate' },
+        floatingCard: {
+            title: "Families Served",
+            value: "1,250+ This Month",
+            icon: MapPin,
+            color: "blue"
+        }
+    }
+];
+
+const AVATARS = [
+    '/images/arab-men-1.jpg',
+    '/images/arab-women-1.jpg',
+    '/images/arab-men-2.jpg',
+    '/images/arab-women-2.jpg'
 ];
 
 export function HeroSection({ templateId }: HeroSectionProps) {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-    const [isPaused, setIsPaused] = useState(false);
-    const [direction, setDirection] = useState<'next' | 'prev'>('next');
-    const progressRef = useRef<HTMLDivElement>(null);
-    const announcement = ANNOUNCEMENTS[currentSlide];
+    // Use ref to track animation state without triggering re-renders or staleness
+    const isAnimating = useRef(false);
 
-    const goToSlide = useCallback((index: number, dir: 'next' | 'prev' = 'next') => {
-        if (isAnimating) return;
-        setIsAnimating(true);
-        setDirection(dir);
-        setCurrentSlide(index);
-        setTimeout(() => setIsAnimating(false), 600);
-    }, [isAnimating]);
-
-    const nextSlide = useCallback(() => {
-        const next = (currentSlide + 1) % ANNOUNCEMENTS.length;
-        goToSlide(next, 'next');
-    }, [currentSlide, goToSlide]);
-
-    const prevSlide = useCallback(() => {
-        const prev = (currentSlide - 1 + ANNOUNCEMENTS.length) % ANNOUNCEMENTS.length;
-        goToSlide(prev, 'prev');
-    }, [currentSlide, goToSlide]);
-
-    // Auto-rotate announcements (pauses on hover)
+    // Auto-rotate logic
     useEffect(() => {
-        if (ANNOUNCEMENTS.length <= 1 || isPaused) return;
-        const timer = setInterval(nextSlide, 7000);
+        const timer = setInterval(() => {
+            handleNextSlide();
+        }, 8000);
         return () => clearInterval(timer);
-    }, [nextSlide, isPaused]);
+    }, [currentSlide]);
 
-    // Handle pause/resume for progress bar animation
-    const handleMouseEnter = () => {
-        setIsPaused(true);
-        if (progressRef.current) {
-            progressRef.current.style.animationPlayState = 'paused';
-        }
-    };
+    const handleNextSlide = useCallback(() => {
+        if (isAnimating.current) return;
+        isAnimating.current = true;
+        setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+        setTimeout(() => {
+            isAnimating.current = false;
+        }, 800);
+    }, []);
 
-    const handleMouseLeave = () => {
-        setIsPaused(false);
-        if (progressRef.current) {
-            progressRef.current.style.animationPlayState = 'running';
-        }
-    };
+    const activeSlide = HERO_SLIDES[currentSlide];
 
     return (
-        <section className={styles.heroSection}>
-            <div className={styles.container}>
-                <div
-                    className={`${styles.heroCard} ${styles[`accent${announcement.accentColor}`]}`}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                >
-                    {/* Progress bar */}
-                    <div className={styles.heroProgressBar}>
-                        <div
-                            ref={progressRef}
-                            className={styles.heroProgressFill}
-                            key={currentSlide}
-                        />
+        <section className="relative w-full py-12 lg:py-20 overflow-hidden bg-slate-50">
+            {/* Background Texture (Subtle Noise or Tint) */}
+            <div className="absolute inset-0 bg-[url('/patterns/subtle-grain.png')] opacity-20 pointer-events-none" />
+
+            {/* Abstract Decorative Elements */}
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-tr from-emerald-100/40 to-teal-50/0 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-indigo-50/40 to-slate-50/0 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+
+            {/* Main Container */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+                    {/* Left Column: Text & Invitation (5 Columns) */}
+                    <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left pt-6 lg:pt-0">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeSlide.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.5 }}
+                                className="w-full"
+                            >
+                                {/* Animated Badge */}
+                                <div className="flex justify-center lg:justify-start">
+                                    <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase mb-6 bg-white border shadow-sm ${activeSlide.badge.color === 'emerald' ? 'text-emerald-700 border-emerald-100' :
+                                        activeSlide.badge.color === 'amber' ? 'text-amber-700 border-amber-100' :
+                                            'text-blue-700 border-blue-100'
+                                        }`}>
+                                        <span className={`w-2 h-2 rounded-full animate-pulse ${activeSlide.badge.color === 'emerald' ? 'bg-emerald-500' :
+                                            activeSlide.badge.color === 'amber' ? 'bg-amber-500' :
+                                                'bg-blue-500'
+                                            }`} />
+                                        {activeSlide.badge.text}
+                                    </span>
+                                </div>
+
+                                {/* Animated Heading */}
+                                <div className="min-h-[220px] lg:min-h-[280px] flex flex-col justify-center">
+                                    <h1 className="text-5xl sm:text-6xl/none font-serif font-bold text-slate-900 mb-6 tracking-tight">
+                                        {activeSlide.title}
+                                    </h1>
+                                    <p className="text-lg text-slate-600 leading-relaxed lg:max-w-md mx-auto lg:mx-0">
+                                        {activeSlide.description}
+                                    </p>
+                                </div>
+
+                                {/* Actions */}
+                                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2 justify-center lg:justify-start">
+                                    <Link
+                                        href={`/${templateId}${activeSlide.primaryCta.href}`}
+                                        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-emerald-700 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-slate-900/10 group"
+                                    >
+                                        {activeSlide.primaryCta.label}
+                                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                    </Link>
+
+                                    {activeSlide.secondaryCta.label === 'Watch Video' ? (
+                                        <button className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white border border-slate-200 text-slate-700 font-semibold rounded-full hover:bg-slate-50 transition-all duration-300 group">
+                                            <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-200 transition-colors">
+                                                <Play className="w-3 h-3 text-emerald-700 ml-0.5 fill-emerald-700" />
+                                            </div>
+                                            Watch Video
+                                        </button>
+                                    ) : (
+                                        <Link
+                                            href={`/${templateId}${activeSlide.secondaryCta.href}`}
+                                            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-slate-200 text-slate-700 font-semibold rounded-full hover:bg-slate-50 transition-all duration-300"
+                                        >
+                                            {activeSlide.secondaryCta.label}
+                                        </Link>
+                                    )}
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+
+                        {/* Stats / Social Proof */}
+                        <div className="mt-12 flex items-center gap-8 border-t border-slate-200 pt-8 w-full justify-center lg:justify-start">
+                            <div className="text-left">
+                                <p className="text-3xl font-bold text-slate-900 font-serif">5,000+</p>
+                                <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Families Served</p>
+                            </div>
+                            <div className="w-px h-12 bg-slate-200" />
+                            <div>
+                                <div className="flex -space-x-3 mb-2 justify-center lg:justify-start">
+                                    {AVATARS.map((avatar, i) => (
+                                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 relative overflow-hidden">
+                                            <Image
+                                                src={avatar}
+                                                alt=""
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
+                                    ))}
+                                    <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-900 text-white flex items-center justify-center text-[10px] font-bold">
+                                        +42
+                                    </div>
+                                </div>
+                                <p className="text-xs text-slate-500 font-medium tracking-wide text-left">Join the community</p>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Navigation arrows */}
-                    {ANNOUNCEMENTS.length > 1 && (
-                        <>
-                            <button
-                                className={`${styles.heroNavBtn} ${styles.heroNavPrev}`}
-                                onClick={prevSlide}
-                                aria-label="Previous announcement"
-                            >
-                                <ChevronIcon direction="left" />
-                            </button>
-                            <button
-                                className={`${styles.heroNavBtn} ${styles.heroNavNext}`}
-                                onClick={nextSlide}
-                                aria-label="Next announcement"
-                            >
-                                <ChevronIcon direction="right" />
-                            </button>
-                        </>
-                    )}
-
-                    {/* Content */}
-                    <div className={`${styles.heroContent} ${isAnimating ? styles[`slide${direction}`] : ''}`}>
-                        {/* Badge */}
-                        <div className={styles.heroBadge}>
-                            <span className={styles.heroBadgeDot} />
-                            {announcement.badge}
-                        </div>
-
-                        <div className={styles.heroInner}>
-                            <div className={styles.heroText}>
-                                <h1 className={styles.heroTitle} key={`title-${currentSlide}`}>
-                                    {announcement.title}
-                                </h1>
-                                <p className={styles.heroSubtitle} key={`sub-${currentSlide}`}>
-                                    {announcement.subtitle}
-                                </p>
-                                <p className={styles.heroDescription} key={`desc-${currentSlide}`}>
-                                    {announcement.description}
-                                </p>
-
-                                <div className={styles.heroActions}>
-                                    <Link
-                                        href={`/${templateId}${announcement.cta.href}`}
-                                        className={styles.heroPrimaryBtn}
-                                    >
-                                        {announcement.cta.label}
-                                        <ArrowIcon />
-                                    </Link>
-                                    <Link
-                                        href={`/${templateId}${announcement.secondary.href}`}
-                                        className={styles.heroSecondaryBtn}
-                                    >
-                                        {announcement.secondary.label}
-                                    </Link>
-                                </div>
-                            </div>
-
-                            {/* Image Media with Floating Elements */}
-                            <div className={styles.heroMedia} key={`media-${currentSlide}`}>
-                                <div className={styles.heroMediaInner}>
+                    {/* Right Column: Visual Window (7 Columns) */}
+                    <div className="lg:col-span-7 relative h-[500px] lg:h-[650px] w-full">
+                        {/* The Window Mask */}
+                        <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-900/10 transition-all duration-700 transform group">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={activeSlide.image}
+                                    initial={{ scale: 1.1, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="absolute inset-0"
+                                >
                                     <Image
-                                        src={announcement.image}
-                                        alt={announcement.title}
+                                        src={activeSlide.image}
+                                        alt={activeSlide.title}
                                         fill
-                                        sizes="280px"
-                                        className={styles.heroImage}
-                                        priority={currentSlide === 0}
+                                        className="object-cover"
+                                        priority
                                     />
-                                </div>
-                                {/* Floating decorative elements */}
-                                <div className={styles.heroFloatingOrb1} />
-                                <div className={styles.heroFloatingOrb2} />
-                                <div className={styles.heroFloatingOrb3} />
-                                <div className={styles.heroFloatingShape} />
-                            </div>
-                        </div>
-                    </div>
+                                    {/* Inner Shadow Gradient */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-60" />
 
-                    {/* Slide indicators */}
-                    {ANNOUNCEMENTS.length > 1 && (
-                        <div className={styles.heroIndicators}>
-                            {ANNOUNCEMENTS.map((_, index) => (
+                                    {/* Pattern Overlay */}
+
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Floating Glass Card (Dynamic based on slide) */}
+                        <div className="absolute -bottom-6 -left-6 lg:bottom-12 lg:-left-12 z-20">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={`float-${activeSlide.id}`}
+                                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                >
+                                    <div className="bg-white/90 backdrop-blur-md border border-white/40 p-5 pr-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all hover:scale-105 cursor-pointer">
+                                        <div className="flex items-center gap-4">
+                                            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${activeSlide.badge.color === 'emerald' ? 'bg-emerald-100 text-emerald-600' :
+                                                activeSlide.badge.color === 'amber' ? 'bg-amber-100 text-amber-600' :
+                                                    'bg-blue-100 text-blue-600'
+                                                }`}>
+                                                <activeSlide.floatingCard.icon size={24} />
+                                            </div>
+                                            <div>
+                                                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-0.5">
+                                                    {activeSlide.floatingCard.title}
+                                                </p>
+                                                <p className="text-xl font-bold text-slate-900">
+                                                    {activeSlide.floatingCard.value}
+                                                </p>
+                                            </div>
+                                            <div className="ml-2 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400">
+                                                <ArrowUpRight size={16} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Progress Indicators (Over Image) */}
+                        {/* Progress Indicators (Over Image) */}
+                        <div className="absolute bottom-8 right-8 z-30 flex gap-3">
+                            {HERO_SLIDES.map((slide, idx) => (
                                 <button
-                                    key={index}
-                                    className={`${styles.heroIndicator} ${index === currentSlide ? styles.active : ''}`}
-                                    onClick={() => goToSlide(index, index > currentSlide ? 'next' : 'prev')}
-                                    aria-label={`Go to announcement ${index + 1}`}
-                                />
+                                    key={slide.id}
+                                    onClick={() => setCurrentSlide(idx)}
+                                    className="group relative h-1.5 w-12 bg-white/30 rounded-full overflow-hidden transition-all hover:bg-white/50"
+                                    aria-label={`Go to slide ${idx + 1}`}
+                                >
+                                    {idx === currentSlide && (
+                                        <motion.div
+                                            className="absolute inset-y-0 left-0 bg-white"
+                                            initial={{ width: "0%" }}
+                                            animate={{ width: "100%" }}
+                                            transition={{ duration: 8, ease: "linear" }}
+                                            layoutId="progress"
+                                        />
+                                    )}
+                                    {idx < currentSlide && (
+                                        <div className="absolute inset-0 bg-white/80" />
+                                    )}
+                                </button>
                             ))}
                         </div>
-                    )}
+                    </div>
                 </div>
             </div>
         </section>
-    );
-}
-
-function ArrowIcon() {
-    return (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-    );
-}
-
-function ChevronIcon({ direction }: { direction: 'left' | 'right' }) {
-    return (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            {direction === 'left' ? (
-                <path d="M15 18l-6-6 6-6" />
-            ) : (
-                <path d="M9 18l6-6-6-6" />
-            )}
-        </svg>
     );
 }
