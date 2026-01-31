@@ -3,11 +3,30 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Radio, Users, Heart, Share2, Clock } from 'lucide-react';
+import Link from 'next/link';
 import { currentStream, nextBroadcast } from '../_data';
 
 export function StreamPlayer() {
-    // For demo purposes, we can toggle this state
     const [isLive, setIsLive] = useState(currentStream.isLive);
+
+    const handleShare = async () => {
+        const shareData = {
+            title: currentStream.title,
+            text: `Watch ${currentStream.title} live at Duha Masjid`,
+            url: window.location.href,
+        };
+
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                console.error('Error sharing:', err);
+            }
+        } else {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Link copied to clipboard!'); // Simple feedback
+        }
+    };
 
     return (
         <div className="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
@@ -85,11 +104,18 @@ export function StreamPlayer() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                    <button className="px-5 py-2.5 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition-colors flex items-center gap-2 shadow-lg shadow-emerald-600/20">
+                    <Link
+                        href="/modern-ummah/donate"
+                        className="px-5 py-2.5 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition-colors flex items-center gap-2 shadow-lg shadow-emerald-600/20"
+                    >
                         <Heart size={18} />
                         Support Stream
-                    </button>
-                    <button className="p-2.5 text-slate-400 hover:text-slate-600 bg-slate-100 rounded-xl transition-colors">
+                    </Link>
+                    <button
+                        onClick={handleShare}
+                        className="p-2.5 text-slate-400 hover:text-slate-600 bg-slate-100 rounded-xl transition-colors"
+                        title="Share Stream"
+                    >
                         <Share2 size={20} />
                     </button>
                 </div>

@@ -21,8 +21,8 @@ export function ScheduleSidebar() {
                         <div
                             key={item.id}
                             className={`p-4 rounded-2xl border transition-all ${item.upcoming
-                                    ? 'bg-emerald-50/50 border-emerald-100'
-                                    : 'bg-white border-slate-100 hover:border-slate-200'
+                                ? 'bg-emerald-50/50 border-emerald-100'
+                                : 'bg-white border-slate-100 hover:border-slate-200'
                                 }`}
                         >
                             <div className="flex items-start justify-between mb-1">
@@ -40,7 +40,7 @@ export function ScheduleSidebar() {
                 </div>
             </div>
 
-            {/* Digital Mushaf */}
+            {/* Khutbah Archive */}
             <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-6 md:p-8 text-white relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none" />
 
@@ -48,20 +48,19 @@ export function ScheduleSidebar() {
                     <div className="p-2 bg-white/10 rounded-xl backdrop-blur-sm">
                         <BookOpen size={20} className="text-emerald-400" />
                     </div>
-                    <h3 className="text-lg font-serif font-bold">Follow Along</h3>
+                    <h3 className="text-lg font-serif font-bold">Khutbah Archive</h3>
                 </div>
 
                 <p className="text-slate-300 text-sm mb-6 relative z-10">
-                    Open the Digital Mushaf to read along with the reciter during live prayers.
+                    Missed a sermon? Explore our complete library of past Jumu'ah khutbahs and lectures.
                 </p>
 
                 <Link
-                    href="https://quran.com"
-                    target="_blank"
+                    href="/modern-ummah/media/khutbahs"
                     className="inline-flex items-center justify-between w-full px-4 py-3 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl transition-all relative z-10 group-hover:pl-5"
                 >
-                    <span className="font-medium text-sm">Open Quran.com</span>
-                    <ExternalLink size={16} className="text-emerald-400" />
+                    <span className="font-medium text-sm">View Archive</span>
+                    <ArrowRight size={16} className="text-emerald-400" />
                 </Link>
             </div>
         </div>
