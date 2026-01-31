@@ -42,11 +42,9 @@ export function FeaturedPost({ post }: FeaturedPostProps) {
                         {/* Content Side */}
                         <div className="bg-slate-900 text-white p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
                             {/* Background Pattern */}
-                            <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                                style={{
-                                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30l15-15l15 15l-15 15l-15-15zm0 0l-15 15l-15-15l15-15l15 15z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-                                    backgroundSize: '60px 60px'
-                                }}
+                            <div
+                                className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/patterns/noun-islamic-ornament-one.svg')] bg-repeat"
+                                style={{ backgroundSize: '80px 80px' }}
                             />
 
                             <div className="relative z-10">

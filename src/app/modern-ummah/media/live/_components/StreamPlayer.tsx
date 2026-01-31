@@ -23,7 +23,7 @@ export function StreamPlayer() {
                     />
                 ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-8">
-                        <div className="absolute inset-0 bg-[url('/patterns/topography.svg')] opacity-10" />
+                        <div className="absolute inset-0 bg-[url('/patterns/noun-islamic-ornament.svg')] opacity-10" />
                         <div className="relative z-10 text-center">
                             <div className="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl border border-slate-700">
                                 <Radio className="text-emerald-400" size={32} />

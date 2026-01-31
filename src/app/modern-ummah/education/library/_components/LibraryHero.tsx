@@ -13,18 +13,15 @@ export function LibraryHero({ searchQuery, setSearchQuery, onSearchClick }: Libr
     return (
         <section className="relative py-24 bg-slate-50 overflow-hidden">
             {/* Islamic Geometric Pattern */}
-            <div className="absolute inset-0 opacity-[0.015] pointer-events-none"
-                style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30l15-15l15 15l-15 15l-15-15zm0 0l-15 15l-15-15l15-15l15 15z' fill='%230f172a' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-                    backgroundSize: '60px 60px'
-                }}
+            <div
+                className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[url('/patterns/noun-islamic-ornament.svg')] bg-repeat"
+                style={{ backgroundSize: '60px 60px' }}
             />
 
             {/* New Islamic Pattern Overlay */}
-            <div className="absolute inset-0 opacity-[0.025] pointer-events-none"
-                style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230f172a' fill-opacity='1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-                }}
+            <div
+                className="absolute inset-0 opacity-[0.025] pointer-events-none bg-[url('/patterns/noun-islamic-geometric-patterns.svg')] bg-repeat"
+                style={{ backgroundSize: '80px 80px' }}
             />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">

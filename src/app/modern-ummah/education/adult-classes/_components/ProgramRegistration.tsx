@@ -6,10 +6,9 @@ export function ProgramRegistration() {
     return (
         <section className="py-24 bg-emerald-900 text-white relative overflow-hidden">
             {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none"
-                style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30l15-15l15 15l-15 15l-15-15zm0 0l-15 15l-15-15l15-15l15 15z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E")`
-                }}
+            <div
+                className="absolute inset-0 opacity-10 pointer-events-none bg-[url('/patterns/noun-ornament.svg')] bg-repeat"
+                style={{ backgroundSize: '80px 80px' }}
             />
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">

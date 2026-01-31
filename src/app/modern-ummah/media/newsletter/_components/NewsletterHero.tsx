@@ -41,7 +41,7 @@ export function NewsletterHero() {
                 </motion.p>
             </div>
 
-            <div className="absolute inset-0 bg-[url('/patterns/paper-texture.png')] opacity-20 pointer-events-none mix-blend-multiply" />
+            <div className="absolute inset-0 bg-[url('/patterns/noun-islamic-geometric-patterns.svg')] opacity-20 pointer-events-none mix-blend-multiply" />
         </div>
     );
 }

@@ -39,7 +39,7 @@ export function CommunityFund() {
                     {/* Right: Donation CTA */}
                     <div className="bg-slate-900 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
                         {/* Background Pattern */}
-                        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
+                        <div className="absolute inset-0 opacity-10 bg-[url('/patterns/noun-ornament.svg')] mix-blend-overlay"></div>
 
                         <div className="relative z-10">
                             <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6 border border-slate-700 text-slate-400">

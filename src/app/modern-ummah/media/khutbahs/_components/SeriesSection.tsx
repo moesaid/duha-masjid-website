@@ -33,7 +33,7 @@ export function SeriesSection({ onSeriesPlay }: SeriesSectionProps) {
                             onClick={() => onSeriesPlay(series.id)}
                         >
                             {/* Abstract Pattern overlay */}
-                            <div className="absolute inset-0 opacity-10 bg-[url('/patterns/topography.svg')]" />
+                            <div className="absolute inset-0 opacity-10 bg-[url('/patterns/noun-islamic-ornament-one.svg')]" />
                             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500" />
 
                             <div className="relative z-10 h-full flex flex-col justify-between">

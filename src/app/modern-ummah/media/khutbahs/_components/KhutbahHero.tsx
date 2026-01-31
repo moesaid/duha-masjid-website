@@ -74,7 +74,7 @@ export function KhutbahHero({ onPlay }: KhutbahHeroProps) {
                     {/* Visual/Waveform */}
                     <div className="flex-1 w-full lg:max-w-md">
                         <div className="aspect-square bg-gradient-to-br from-slate-800 to-slate-900 rounded-[2rem] border border-slate-700 flex items-center justify-center relative shadow-2xl overflow-hidden group">
-                            <div className="absolute inset-0 bg-[url('/patterns/topography.svg')] opacity-5" />
+                            <div className="absolute inset-0 bg-[url('/patterns/noun-islamic-art.svg')] opacity-5" />
 
                             {/* Decorative Circular Wave */}
                             <div className="absolute flex items-center justify-center">
