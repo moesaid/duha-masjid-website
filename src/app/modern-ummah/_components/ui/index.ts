@@ -3,3 +3,5 @@ export * from './Textarea';
 export * from './Select';
 export * from './Popover';
 export * from './DatePicker';
+export * from './AlertDialog';
+export * from './Dialog';
