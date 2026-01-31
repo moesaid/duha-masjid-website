@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Button } from '../../../_components';
 import { Users, CalendarPlus } from 'lucide-react';
 import type { JumuahInfo } from '../_data';
 import styles from '../Prayer.module.css';
@@ -82,29 +83,15 @@ export function JumuahCard({ info }: JumuahCardProps) {
                     </div>
 
                     {/* CTA */}
-                    <motion.button
+                    <Button
+                        variant="primary"
+                        onClick={() => { }}
                         className={styles.jumuahCta}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        style={{
-                            marginTop: '2rem',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '0.5rem',
-                            padding: '0.75rem 1.5rem',
-                            background: 'linear-gradient(135deg, oklch(0.65 0.15 175), oklch(0.55 0.15 175))',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: '9999px',
-                            fontSize: '0.875rem',
-                            fontWeight: 600,
-                            cursor: 'pointer',
-                            boxShadow: '0 4px 16px oklch(0.65 0.15 175 / 0.3)',
-                        }}
+                        style={{ marginTop: '2rem' }}
                     >
                         <CalendarPlus size={16} />
                         Add to Calendar
-                    </motion.button>
+                    </Button>
                 </motion.div>
             </div>
         </div>

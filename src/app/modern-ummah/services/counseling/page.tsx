@@ -1,10 +1,17 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+import {
+    CounselingHero,
+    ServicesGrid,
+    CounselorProfiles,
+    BookingFlow
+} from './_components';
 
 export default function CounselingPage() {
     return (
-        <ComingSoon
-            title="Counseling Services"
-            description="Family and religious counseling support."
-        />
+        <main>
+            <CounselingHero />
+            <ServicesGrid />
+            <CounselorProfiles />
+            <BookingFlow />
+        </main>
     );
 }

@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Mail, Phone, Calendar, FileText, ArrowRight } from 'lucide-react';
+import { DatePicker } from '../../../_components';
 
 export function ApplicationForm() {
     const [familyMembers, setFamilyMembers] = useState(1);
+    const [dob, setDob] = useState<Date | undefined>();
 
     return (
         <section className="py-20" id="apply">
@@ -55,10 +57,10 @@ export function ApplicationForm() {
                             <label className="block text-sm font-medium text-slate-700 mb-2">
                                 Date of Birth *
                             </label>
-                            <input
-                                type="date"
+                            <DatePicker
+                                date={dob}
+                                setDate={setDob}
                                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
-                                required
                             />
                         </div>
                     </div>

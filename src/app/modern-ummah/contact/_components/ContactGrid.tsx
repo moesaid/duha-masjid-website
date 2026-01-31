@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Button } from '../../_components';
 import type { ContactInfo } from '../_data';
 import styles from '../Contact.module.css';
 
@@ -52,14 +53,15 @@ export function ContactGrid({ contactInfo }: ContactGridProps) {
                             {contactInfo.address.street}<br />
                             {contactInfo.address.city}, {contactInfo.address.state} {contactInfo.address.zip}
                         </p>
-                        <a
+                        <Button
                             href={contactInfo.address.directionsUrl}
+                            variant="secondary"
                             className={styles.contactCardLink}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             Get Directions <ArrowRight size={14} />
-                        </a>
+                        </Button>
                     </motion.div>
 
                     {/* Call Us */}
@@ -72,12 +74,13 @@ export function ContactGrid({ contactInfo }: ContactGridProps) {
                             Office: {contactInfo.phone.office}<br />
                             Emergency Janazah: {contactInfo.phone.emergency}
                         </p>
-                        <a
+                        <Button
                             href={`tel:${contactInfo.phone.office.replace(/[^0-9]/g, '')}`}
+                            variant="secondary"
                             className={styles.contactCardLink}
                         >
                             Call Now <ArrowRight size={14} />
-                        </a>
+                        </Button>
                     </motion.div>
 
                     {/* Email Us */}
@@ -90,12 +93,13 @@ export function ContactGrid({ contactInfo }: ContactGridProps) {
                             General Inquiries<br />
                             {contactInfo.email}
                         </p>
-                        <a
+                        <Button
                             href={`mailto:${contactInfo.email}`}
+                            variant="secondary"
                             className={styles.contactCardLink}
                         >
                             Send Email <ArrowRight size={14} />
-                        </a>
+                        </Button>
                     </motion.div>
                 </motion.div>
             </div>

@@ -1,10 +1,17 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+import {
+    AidHero,
+    ZakatCalculator,
+    AssistanceTabs,
+    PrivacyNotice
+} from './_components';
 
 export default function FinancialAidPage() {
     return (
-        <ComingSoon
-            title="Zakat & Financial Assistance"
-            description="Financial support programs for those in need."
-        />
+        <main>
+            <AidHero />
+            <ZakatCalculator />
+            <AssistanceTabs />
+            <PrivacyNotice />
+        </main>
     );
 }

@@ -1,10 +1,17 @@
-import { ComingSoon } from '../../_components/ComingSoon';
+import {
+    WelcomeHero,
+    ShahadaGuide,
+    MentorshipProgram,
+    ResourceLibrary
+} from './_components';
 
 export default function NewMuslimsPage() {
     return (
-        <ComingSoon
-            title="New Muslim Support"
-            description="Resources and guidance for those new to Islam."
-        />
+        <main>
+            <WelcomeHero />
+            <ShahadaGuide />
+            <MentorshipProgram />
+            <ResourceLibrary />
+        </main>
     );
 }

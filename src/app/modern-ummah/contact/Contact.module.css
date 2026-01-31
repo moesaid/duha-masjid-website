@@ -133,20 +133,7 @@
     margin-bottom: var(--space-4);
 }
 
-.contactCardLink {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.contactCardLink:hover {
-    gap: var(--space-3);
-}
+/* Button styles handled by component */
 
 /* ========================================
    MESSAGE FORM — The Inquiry
@@ -200,59 +187,8 @@
     margin-bottom: var(--space-2);
 }
 
-.formInput,
-.formSelect,
-.formTextarea {
-    width: 100%;
-    padding: var(--space-4);
-    background: oklch(0.99 0 0);
-    border: 1px solid oklch(0.90 0 0);
-    border-radius: var(--radius-lg);
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-    transition: all 0.2s ease;
-}
 
-.formInput:focus,
-.formSelect:focus,
-.formTextarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px oklch(0.65 0.15 175 / 0.15);
-}
-
-.formInput::placeholder,
-.formTextarea::placeholder {
-    color: oklch(0.65 0 0);
-}
-
-.formTextarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.formSubmit {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    padding: var(--space-4) var(--space-8);
-    background: linear-gradient(135deg, var(--color-primary), oklch(0.50 0.15 175));
-    color: white;
-    border: none;
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 16px oklch(0.65 0.15 175 / 0.3);
-}
-
-.formSubmit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px oklch(0.65 0.15 175 / 0.4);
-}
+/* Button styles handled by component */
 
 /* ========================================
    LOCATION MAP — Masked View

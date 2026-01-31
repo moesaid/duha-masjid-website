@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
-import { Dropdown } from '../../_components';
+import { Button, Input, Textarea, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../_components';
 import styles from '../Contact.module.css';
 
 const fadeIn = {
@@ -61,10 +61,8 @@ export function MessageForm() {
                     <label htmlFor="name" className={styles.formLabel}>
                         Brother/Sister Name
                     </label>
-                    <input
-                        type="text"
+                    <Input
                         id="name"
-                        className={styles.formInput}
                         placeholder="Your full name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -76,10 +74,9 @@ export function MessageForm() {
                     <label htmlFor="email" className={styles.formLabel}>
                         Email Address
                     </label>
-                    <input
+                    <Input
                         type="email"
                         id="email"
-                        className={styles.formInput}
                         placeholder="email@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -88,24 +85,33 @@ export function MessageForm() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    <Dropdown
-                        id="topic"
-                        label="Topic"
-                        options={topics}
+                    <label htmlFor="topic" className={styles.formLabel}>
+                        Topic <span style={{ color: 'var(--destructive)' }}>*</span>
+                    </label>
+                    <Select
                         value={formData.topic}
-                        onChange={(value) => setFormData({ ...formData, topic: value })}
-                        placeholder="Select a topic"
+                        onValueChange={(value) => setFormData({ ...formData, topic: value })}
                         required
-                    />
+                    >
+                        <SelectTrigger id="topic">
+                            <SelectValue placeholder="Select a topic" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {topics.map((topic) => (
+                                <SelectItem key={topic.value} value={topic.value}>
+                                    {topic.label}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
                 </div>
 
                 <div className={styles.formGroup}>
                     <label htmlFor="message" className={styles.formLabel}>
                         Your Message
                     </label>
-                    <textarea
+                    <Textarea
                         id="message"
-                        className={styles.formTextarea}
                         placeholder="How can we help you?"
                         rows={5}
                         value={formData.message}
@@ -114,15 +120,14 @@ export function MessageForm() {
                     />
                 </div>
 
-                <motion.button
+                <Button
                     type="submit"
+                    variant="primary"
                     className={styles.formSubmit}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
                 >
                     <Send size={18} />
                     Send Message
-                </motion.button>
+                </Button>
             </form>
         </motion.div>
     );

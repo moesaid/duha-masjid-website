@@ -1,0 +1,161 @@
+/* MentorshipProgram.module.css */
+.section {
+    padding: 6rem 2rem;
+    background-color: var(--color-background-alt);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+}
+
+/* Pillars Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 6rem;
+}
+
+.card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.iconWrapper {
+    width: 64px;
+    height: 64px;
+    background: var(--color-background-alt);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.cardSubtitle {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.cardDescription {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.detailsList {
+    list-style: disc;
+    padding-left: 1.25rem;
+    color: var(--color-text-tertiary);
+    font-size: 0.9rem;
+}
+
+.detailsList li {
+    margin-bottom: 0.5rem;
+}
+
+/* Gift Section */
+.giftContainer {
+    background: white;
+    border-radius: 2rem;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+}
+
+.giftContent {
+    flex: 1;
+}
+
+.giftLabel {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.giftTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.giftDescription {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.giftItems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.giftItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+.checkIcon {
+    color: var(--color-gold);
+    flex-shrink: 0;
+}
+
+/* Button handled by component */
+
+@media (max-width: 768px) {
+    .giftContainer {
+        flex-direction: column;
+        padding: 2rem;
+    }
+}

@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { Button } from './index';
 import styles from '../_styles/Hero.module.css';
 
 interface HeroProps {
@@ -24,13 +26,13 @@ export function Hero({
                 <p className={styles.heroSubtitle}>{subtitle}</p>
 
                 <div className={styles.heroActions}>
-                    <Link href={`/${templateId}/programs`} className={styles.btnPrimary}>
+                    <Button href={`/${templateId}/programs`} variant="primary">
                         Explore Programs
-                        <ArrowIcon />
-                    </Link>
-                    <Link href={`/${templateId}/about`} className={styles.btnSecondary}>
+                        <ArrowRight size={16} />
+                    </Button>
+                    <Button href={`/${templateId}/about`} variant="secondary">
                         Learn More
-                    </Link>
+                    </Button>
                 </div>
 
                 <div className={styles.features}>
@@ -63,13 +65,6 @@ export function Hero({
     );
 }
 
-function ArrowIcon() {
-    return (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-    );
-}
 
 function ClockIcon() {
     return (
