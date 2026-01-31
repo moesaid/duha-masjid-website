@@ -1,12 +1,18 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Flower, Star, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { CircleModal } from './CircleModal';
+import { Button } from '../../../_components/Button/Button';
 
 export function SistersSpotlight() {
+    const [isCircleModalOpen, setIsCircleModalOpen] = useState(false);
+
     return (
         <section className="py-24 bg-rose-50/50 border-t border-rose-100 overflow-hidden relative">
+            <CircleModal open={isCircleModalOpen} onOpenChange={setIsCircleModalOpen} />
+
             <div className="absolute top-0 right-0 w-64 h-64 bg-rose-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-50/50 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
 
@@ -58,12 +64,12 @@ export function SistersSpotlight() {
                             ))}
                         </ul>
 
-                        <Link
-                            href="/modern-ummah/programs/sisters"
+                        <Button
+                            onClick={() => setIsCircleModalOpen(true)}
                             className="inline-flex items-center gap-2 px-8 py-3 bg-rose-600 text-white rounded-full font-bold shadow-lg shadow-rose-600/20 hover:bg-rose-700 hover:shadow-rose-700/30 transition-all hover:-translate-y-1"
                         >
                             Join the Circle
-                        </Link>
+                        </Button>
                     </div>
 
                 </div>

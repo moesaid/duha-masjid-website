@@ -1,11 +1,17 @@
 'use client';
 
+import { useState } from 'react';
 import { ArrowRight, Leaf } from 'lucide-react';
 import Link from 'next/link';
+import { RegistrationModal } from './RegistrationModal';
 
 export function EnrollmentCTA() {
+    const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+
     return (
         <section className="py-20" id="enroll">
+            <RegistrationModal open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen} />
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-emerald-800 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
                     {/* Background Pattern */}
@@ -27,12 +33,18 @@ export function EnrollmentCTA() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <button className="w-full sm:w-auto px-8 py-5 bg-white text-emerald-900 rounded-full font-bold text-lg hover:bg-emerald-50 transition-colors shadow-xl flex items-center justify-center gap-2">
+                            <button
+                                onClick={() => setIsRegistrationOpen(true)}
+                                className="w-full sm:w-auto px-8 py-5 bg-white text-emerald-900 rounded-full font-bold text-lg hover:bg-emerald-50 transition-colors shadow-xl flex items-center justify-center gap-2"
+                            >
                                 Register Student ($150) <ArrowRight size={20} />
                             </button>
-                            <button className="w-full sm:w-auto px-8 py-5 bg-transparent border-2 border-emerald-600 text-emerald-100 rounded-full font-bold text-lg hover:bg-emerald-700/50 transition-colors">
+                            <Link
+                                href="/modern-ummah/contact"
+                                className="w-full sm:w-auto px-8 py-5 bg-transparent border-2 border-emerald-600 text-emerald-100 rounded-full font-bold text-lg hover:bg-emerald-700/50 transition-colors inline-block"
+                            >
                                 Contact Administration
-                            </button>
+                            </Link>
                         </div>
 
                         <p className="mt-8 text-emerald-300/80 text-sm">

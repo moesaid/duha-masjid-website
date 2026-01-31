@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { PlayCircle, Mic, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import { archiveRecordings } from '../_data';
 
 export function ArchiveGallery() {
@@ -16,10 +17,10 @@ export function ArchiveGallery() {
                         <p className="text-slate-600 leading-relaxed mb-8">
                             Missed a class? Access our growing archive of recorded sessions, khutbahs, and special lectures.
                         </p>
-                        <button className="flex items-center gap-2 text-emerald-700 font-bold hover:gap-3 transition-all group">
+                        <Link href="/modern-ummah/media/khutbahs" className="flex items-center gap-2 text-emerald-700 font-bold hover:gap-3 transition-all group">
                             View Full Archive
                             <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Content Col */}

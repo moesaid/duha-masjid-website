@@ -1,13 +1,20 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sun, Leaf, Heart, ArrowRight } from 'lucide-react';
+import { Sun, Leaf, Heart, ArrowRight, Mail } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { RegistrationModal } from './RegistrationModal';
+import { Button } from '../../../_components/Button/Button';
 
 export function WeekendHero() {
+    const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+
     return (
         <section className="relative overflow-hidden bg-amber-50/50 min-h-[600px] flex items-center pt-20">
+            <RegistrationModal open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen} />
+
             {/* Background Organic Shapes */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-amber-100/40 rounded-full blur-[100px] -mr-40 -mt-40 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-50/60 rounded-full blur-[80px] -ml-20 -mb-20 pointer-events-none" />
@@ -42,11 +49,15 @@ export function WeekendHero() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                            <Link href="#enroll" className="w-full sm:w-auto px-8 py-4 bg-emerald-600 text-white rounded-full font-bold shadow-xl shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-emerald-700/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
-                                Enroll for Fall 2026 <ArrowRight size={18} />
-                            </Link>
-                            <Link href="#levels" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-full font-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
-                                View Curriculum
+                            <Button
+                                onClick={() => setIsRegistrationOpen(true)}
+                                className="w-full sm:w-auto px-8 py-4 bg-emerald-600 text-white rounded-full font-bold shadow-xl shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-emerald-700/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                            >
+                                Register Student ($150) <ArrowRight size={18} />
+                            </Button>
+                            <Link href="/modern-ummah/contact" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-full font-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
+                                <Mail size={18} />
+                                Contact Administration
                             </Link>
                         </div>
                     </motion.div>

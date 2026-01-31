@@ -31,15 +31,6 @@ export function ClassesHero() {
                     <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10">
                         Join a community of lifelong learners dedicated to seeking sacred knowledge, purifying the heart, and practicing the Sunnah.
                     </p>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <button className="px-8 py-3 bg-emerald-700 text-white rounded-full font-bold hover:bg-emerald-800 transition-colors shadow-lg shadow-emerald-700/20">
-                            Browse Courses
-                        </button>
-                        <button className="px-8 py-3 bg-white text-emerald-800 border-2 border-emerald-100 rounded-full font-bold hover:bg-emerald-50 transition-colors">
-                            Halaqa Schedule
-                        </button>
-                    </div>
                 </motion.div>
             </div>
         </section>

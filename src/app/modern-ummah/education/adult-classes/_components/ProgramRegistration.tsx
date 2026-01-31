@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight, Mail } from 'lucide-react';
+import Link from 'next/link';
 
 export function ProgramRegistration() {
     return (
@@ -20,14 +21,10 @@ export function ProgramRegistration() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button className="w-full sm:w-auto px-8 py-4 bg-white text-emerald-900 rounded-full font-bold shadow-xl hover:bg-emerald-50 transition-colors flex items-center justify-center gap-2">
-                        Register for Semester
-                        <ArrowRight size={18} />
-                    </button>
-                    <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-emerald-400 text-white rounded-full font-bold hover:bg-emerald-800 transition-colors flex items-center justify-center gap-2">
+                    <Link href="/modern-ummah/newsletter" className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-emerald-400 text-white rounded-full font-bold hover:bg-emerald-800 transition-colors flex items-center justify-center gap-2">
                         <Mail size={18} />
                         Join Mailing List
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>

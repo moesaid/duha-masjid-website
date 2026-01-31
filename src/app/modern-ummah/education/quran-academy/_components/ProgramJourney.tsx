@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Users, Star, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ScheduleModal } from './ScheduleModal';
 
 const Programs = [
     {
@@ -52,8 +54,18 @@ const Programs = [
 ];
 
 export function ProgramJourney() {
+    const [scheduleOpen, setScheduleOpen] = useState(false);
+    const [selectedProgram, setSelectedProgram] = useState('');
+
+    const openSchedule = (title: string) => {
+        setSelectedProgram(title);
+        setScheduleOpen(true);
+    };
+
     return (
         <section className="py-24 bg-white relative overflow-hidden">
+            <ScheduleModal open={scheduleOpen} onOpenChange={setScheduleOpen} programTitle={selectedProgram} />
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-24">
                     <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium uppercase tracking-widest mb-3">
@@ -100,7 +112,10 @@ export function ProgramJourney() {
                                         ))}
                                     </div>
 
-                                    <button className={`inline-flex items-center gap-2 font-bold ${program.accent} hover:opacity-80 transition-opacity group`}>
+                                    <button
+                                        onClick={() => openSchedule(program.title)}
+                                        className={`inline-flex items-center gap-2 font-bold ${program.accent} hover:opacity-80 transition-opacity group`}
+                                    >
                                         View {program.title} Schedule
                                         <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                                     </button>
