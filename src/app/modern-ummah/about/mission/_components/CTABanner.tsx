@@ -33,7 +33,7 @@ export function CTABanner() {
                     place for you in building this community.
                 </p>
                 <div className={styles.ctaButtons}>
-                    <Link href="/modern-ummah/join/volunteer">
+                    <Link href="/modern-ummah/community/volunteers">
                         <motion.button
                             className={`${styles.ctaButton} ${styles.primary}`}
                             whileHover={{ scale: 1.02 }}

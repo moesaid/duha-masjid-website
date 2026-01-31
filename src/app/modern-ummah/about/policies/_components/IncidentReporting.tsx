@@ -15,7 +15,7 @@ export function IncidentReporting() {
                             of our code of conduct or have a concern, please report it. All reports are handled
                             with the utmost confidentiality.
                         </p>
-                        <a href="/contact?type=confidential" className={styles.reportBtn}>
+                        <a href="/modern-ummah/contact" className={styles.reportBtn}>
                             <LockIcon />
                             Confidential Report
                         </a>

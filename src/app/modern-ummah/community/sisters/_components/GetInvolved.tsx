@@ -31,7 +31,7 @@ export function GetInvolved() {
                             </p>
 
                             <Link
-                                href="/modern-ummah/join/volunteer"
+                                href="/modern-ummah/community/volunteers"
                                 className="inline-flex items-center gap-2 border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white font-medium px-8 py-4 rounded-full transition-all duration-200"
                             >
                                 Volunteer with Us

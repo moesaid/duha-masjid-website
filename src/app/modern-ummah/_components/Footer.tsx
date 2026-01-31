@@ -15,7 +15,7 @@ export function Footer({ siteName = 'Ummah Center', templateId }: FooterProps) {
         { label: 'Prayer Times', href: `/${templateId}/prayer-times` },
         { label: 'Events Calendar', href: `/${templateId}/events/calendar` },
         { label: 'Donate', href: `/${templateId}/donate` },
-        { label: 'Volunteer', href: `/${templateId}/join/volunteer` },
+        { label: 'Volunteer', href: `/${templateId}/community/volunteers` },
     ];
 
     const resourceLinks = [

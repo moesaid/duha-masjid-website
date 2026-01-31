@@ -32,7 +32,7 @@ export function VolunteerCta() {
                 </p>
 
                 <Link
-                    href="/modern-ummah/join/volunteer"
+                    href="/modern-ummah/community/volunteers"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-white text-emerald-950 rounded-full font-bold hover:bg-emerald-50 hover:scale-105 transition-all duration-300 shadow-xl shadow-emerald-900/20"
                 >
                     Sign up to Setup/Cleanup

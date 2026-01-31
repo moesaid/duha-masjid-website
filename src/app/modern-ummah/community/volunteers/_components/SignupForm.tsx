@@ -3,6 +3,16 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Users, HandHeart, ArrowRight } from 'lucide-react';
+import { Input } from '../../../_components/ui/Input';
+import { Button } from '../../../_components/Button/Button';
+import { Textarea } from '../../../_components/ui/Textarea';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '../../../_components/ui/Select';
 
 const opportunities = [
     { id: 'education', label: 'Education & Teaching' },
@@ -17,6 +27,9 @@ const opportunities = [
 
 export function SignupForm() {
     const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+
+    // Select component state handlers to bridge custom Select with form data if needed
+    // For now, we are just using the UI components as drop-in replacements
 
     const toggleInterest = (id: string) => {
         setSelectedInterests((prev) =>
@@ -77,9 +90,8 @@ export function SignupForm() {
                                 <label className="block text-sm font-medium text-slate-700 mb-2">
                                     Full Name *
                                 </label>
-                                <input
+                                <Input
                                     type="text"
-                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
                                     placeholder="Your full name"
                                     required
                                 />
@@ -88,9 +100,8 @@ export function SignupForm() {
                                 <label className="block text-sm font-medium text-slate-700 mb-2">
                                     Email Address *
                                 </label>
-                                <input
+                                <Input
                                     type="email"
-                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
                                     placeholder="your@email.com"
                                     required
                                 />
@@ -102,9 +113,8 @@ export function SignupForm() {
                                 <label className="block text-sm font-medium text-slate-700 mb-2">
                                     Phone Number *
                                 </label>
-                                <input
+                                <Input
                                     type="tel"
-                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
                                     placeholder="(555) 123-4567"
                                     required
                                 />
@@ -113,13 +123,17 @@ export function SignupForm() {
                                 <label className="block text-sm font-medium text-slate-700 mb-2">
                                     Age Range
                                 </label>
-                                <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all">
-                                    <option value="">Select age range</option>
-                                    <option value="18-25">18-25 years</option>
-                                    <option value="26-35">26-35 years</option>
-                                    <option value="36-50">36-50 years</option>
-                                    <option value="51+">51+ years</option>
-                                </select>
+                                <Select>
+                                    <SelectTrigger>
+                                        <SelectValue placeholder="Select age range" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="18-25">18-25 years</SelectItem>
+                                        <SelectItem value="26-35">26-35 years</SelectItem>
+                                        <SelectItem value="36-50">36-50 years</SelectItem>
+                                        <SelectItem value="51+">51+ years</SelectItem>
+                                    </SelectContent>
+                                </Select>
                             </div>
                         </div>
 
@@ -128,13 +142,14 @@ export function SignupForm() {
                             <label className="block text-sm font-medium text-slate-700 mb-3">
                                 Areas of Interest *
                             </label>
-                            <div className="grid grid-cols-2 gap-2">
+                            {/* Updated Layout: Single line wrapping (flex-wrap) instead of grid */}
+                            <div className="flex flex-wrap gap-2">
                                 {opportunities.map((opp) => (
                                     <label
                                         key={opp.id}
-                                        className={`flex items-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${selectedInterests.includes(opp.id)
-                                                ? 'border-emerald-500 bg-emerald-50'
-                                                : 'border-slate-200 hover:border-slate-300'
+                                        className={`flex items-center gap-2 p-2 px-3 rounded-xl border cursor-pointer transition-all ${selectedInterests.includes(opp.id)
+                                            ? 'border-emerald-500 bg-emerald-50'
+                                            : 'border-slate-200 hover:border-slate-300'
                                             }`}
                                     >
                                         <input
@@ -144,9 +159,9 @@ export function SignupForm() {
                                             className="sr-only"
                                         />
                                         <div
-                                            className={`w-4 h-4 rounded border-2 flex items-center justify-center ${selectedInterests.includes(opp.id)
-                                                    ? 'border-emerald-600 bg-emerald-600'
-                                                    : 'border-slate-300'
+                                            className={`flex-shrink-0 w-4 h-4 rounded border-2 flex items-center justify-center ${selectedInterests.includes(opp.id)
+                                                ? 'border-emerald-600 bg-emerald-600'
+                                                : 'border-slate-300'
                                                 }`}
                                         >
                                             {selectedInterests.includes(opp.id) && (
@@ -155,7 +170,7 @@ export function SignupForm() {
                                                 </svg>
                                             )}
                                         </div>
-                                        <span className="text-sm text-slate-700">{opp.label}</span>
+                                        <span className="text-sm text-slate-700 whitespace-nowrap">{opp.label}</span>
                                     </label>
                                 ))}
                             </div>
@@ -166,26 +181,34 @@ export function SignupForm() {
                                 <label className="block text-sm font-medium text-slate-700 mb-2">
                                     Time Availability *
                                 </label>
-                                <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all">
-                                    <option value="">Select availability</option>
-                                    <option value="weekday-mornings">Weekday Mornings</option>
-                                    <option value="weekday-evenings">Weekday Evenings</option>
-                                    <option value="weekends">Weekends</option>
-                                    <option value="flexible">Flexible Schedule</option>
-                                    <option value="events-only">Events Only</option>
-                                </select>
+                                <Select>
+                                    <SelectTrigger>
+                                        <SelectValue placeholder="Select availability" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="weekday-mornings">Weekday Mornings</SelectItem>
+                                        <SelectItem value="weekday-evenings">Weekday Evenings</SelectItem>
+                                        <SelectItem value="weekends">Weekends</SelectItem>
+                                        <SelectItem value="flexible">Flexible Schedule</SelectItem>
+                                        <SelectItem value="events-only">Events Only</SelectItem>
+                                    </SelectContent>
+                                </Select>
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 mb-2">
                                     Hours per Month
                                 </label>
-                                <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all">
-                                    <option value="">Select hours</option>
-                                    <option value="1-5">1-5 hours</option>
-                                    <option value="5-10">5-10 hours</option>
-                                    <option value="10-20">10-20 hours</option>
-                                    <option value="20+">20+ hours</option>
-                                </select>
+                                <Select>
+                                    <SelectTrigger>
+                                        <SelectValue placeholder="Select hours" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="1-5">1-5 hours</SelectItem>
+                                        <SelectItem value="5-10">5-10 hours</SelectItem>
+                                        <SelectItem value="10-20">10-20 hours</SelectItem>
+                                        <SelectItem value="20+">20+ hours</SelectItem>
+                                    </SelectContent>
+                                </Select>
                             </div>
                         </div>
 
@@ -193,21 +216,22 @@ export function SignupForm() {
                             <label className="block text-sm font-medium text-slate-700 mb-2">
                                 Special Skills or Experience
                             </label>
-                            <textarea
+                            <Textarea
                                 rows={3}
-                                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all resize-none"
+                                className="resize-none"
                                 placeholder="Tell us about any relevant skills, certifications, or experience..."
                             />
                         </div>
 
-                        <button
+                        <Button
                             type="submit"
-                            className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-4 rounded-full transition-colors duration-200 shadow-lg shadow-emerald-600/20"
+                            variant="primary"
+                            className="w-full h-14 text-base gap-2 rounded-full shadow-lg shadow-emerald-600/20"
                         >
                             <Heart size={18} />
                             Submit Volunteer Interest
                             <ArrowRight size={18} />
-                        </button>
+                        </Button>
                     </form>
                 </motion.div>
             </div>

@@ -12,13 +12,15 @@ import {
 } from "./Popover"
 
 // --- Custom Calendar Component (Matches Input Styling) ---
+// --- Custom Calendar Component (Matches Input Styling) ---
 interface InternalCalendarProps {
     selectedDate: Date | undefined;
     onSelectDate: (date: Date | undefined) => void;
     minDate?: Date;
+    showYearSelect?: boolean;
 }
 
-function InternalCalendar({ selectedDate, onSelectDate, minDate }: InternalCalendarProps) {
+function InternalCalendar({ selectedDate, onSelectDate, minDate, showYearSelect }: InternalCalendarProps) {
     const [currentMonth, setCurrentMonth] = React.useState(selectedDate ? startOfMonth(selectedDate) : startOfMonth(new Date()));
     const today = startOfToday();
 
@@ -40,6 +42,16 @@ function InternalCalendar({ selectedDate, onSelectDate, minDate }: InternalCalen
     const handlePrevMonth = () => setCurrentMonth(subMonths(currentMonth, 1));
     const handleNextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
 
+    const handleYearChange = (year: string) => {
+        const newDate = new Date(currentMonth);
+        newDate.setFullYear(parseInt(year));
+        setCurrentMonth(newDate);
+    };
+
+    // Generate years (1900 to current year + 5)
+    const currentYear = new Date().getFullYear();
+    const years = Array.from({ length: currentYear - 1900 + 6 }, (_, i) => currentYear + 5 - i);
+
     const handleDayClick = (date: Date) => {
         if (!isDisabled(date)) {
             onSelectDate(date);
@@ -57,9 +69,28 @@ function InternalCalendar({ selectedDate, onSelectDate, minDate }: InternalCalen
                 >
                     <ChevronLeft className="w-4 h-4" />
                 </button>
-                <span className="text-sm font-semibold text-slate-900">
-                    {format(currentMonth, 'MMMM yyyy')}
-                </span>
+
+                <div className="flex items-center gap-1">
+                    <span className="text-sm font-semibold text-slate-900">
+                        {format(currentMonth, 'MMMM')}
+                    </span>
+                    {showYearSelect ? (
+                        <select
+                            value={currentMonth.getFullYear()}
+                            onChange={(e) => handleYearChange(e.target.value)}
+                            className="text-sm font-semibold text-slate-900 bg-transparent cursor-pointer focus:outline-none focus:ring-1 focus:ring-emerald-500 rounded p-0.5"
+                        >
+                            {years.map(year => (
+                                <option key={year} value={year}>{year}</option>
+                            ))}
+                        </select>
+                    ) : (
+                        <span className="text-sm font-semibold text-slate-900">
+                            {format(currentMonth, 'yyyy')}
+                        </span>
+                    )}
+                </div>
+
                 <button
                     onClick={handleNextMonth}
                     type="button"
@@ -125,6 +156,7 @@ interface DatePickerProps {
     className?: string
     disabled?: boolean
     minDate?: Date
+    showYearSelect?: boolean
 }
 
 export function DatePicker({
@@ -133,7 +165,8 @@ export function DatePicker({
     placeholder = "Select date",
     className,
     disabled = false,
-    minDate
+    minDate,
+    showYearSelect
 }: DatePickerProps) {
     const [open, setOpen] = React.useState(false)
 
@@ -171,6 +204,7 @@ export function DatePicker({
                     selectedDate={date}
                     onSelectDate={handleSelect}
                     minDate={minDate}
+                    showYearSelect={showYearSelect}
                 />
             </PopoverContent>
         </Popover>

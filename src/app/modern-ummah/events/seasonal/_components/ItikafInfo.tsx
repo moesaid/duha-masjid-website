@@ -2,6 +2,7 @@
 
 import { Moon, CheckCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ItikafRegistrationModal } from './ItikafRegistrationModal';
 
 export function ItikafInfo() {
     return (
@@ -20,11 +21,13 @@ export function ItikafInfo() {
                             Experience spiritual seclusion, community, and the search for Laylatul Qadr in a serene environment.
                         </p>
 
-                        <button className="flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-amber-900/20 group">
-                            <Moon size={18} className="fill-current" />
-                            <span>Register for I'tikaf</span>
-                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        <ItikafRegistrationModal>
+                            <button className="flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-amber-900/20 group">
+                                <Moon size={18} className="fill-current" />
+                                <span>Register for I'tikaf</span>
+                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </ItikafRegistrationModal>
                     </div>
 
                     <motion.div

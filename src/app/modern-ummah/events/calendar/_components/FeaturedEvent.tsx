@@ -52,7 +52,7 @@ export function FeaturedEvent() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Link href="#" className="px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl font-bold transition-all shadow-lg shadow-slate-200 flex items-center justify-center gap-2 group-hover:scale-105 duration-300">
+                                <Link href="/modern-ummah/events/1" className="px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl font-bold transition-all shadow-lg shadow-slate-200 flex items-center justify-center gap-2 group-hover:scale-105 duration-300">
                                     Get Tickets <ArrowRight size={18} />
                                 </Link>
                                 <Link href="#" className="px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 rounded-2xl font-bold transition-colors flex items-center justify-center border border-slate-200 shadow-sm hover:shadow-md">

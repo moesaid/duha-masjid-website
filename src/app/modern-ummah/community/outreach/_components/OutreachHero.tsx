@@ -33,7 +33,7 @@ export function OutreachHero() {
                         transition={{ delay: 0.3, duration: 0.5 }}
                     >
                         <Link
-                            href="#initiatives"
+                            href="#our-impact"
                             className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-4 rounded-full transition-colors duration-200 shadow-lg shadow-emerald-600/20"
                         >
                             Explore Our Work

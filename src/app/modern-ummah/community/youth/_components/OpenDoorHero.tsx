@@ -33,7 +33,7 @@ export function OpenDoorHero() {
                             href="#join"
                             className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-4 rounded-full transition-colors duration-200 shadow-lg shadow-emerald-600/20"
                         >
-                            Join the WhatsApp Group
+                            Join the Duha Circle
                             <ArrowRight size={18} />
                         </Link>
                     </motion.div>

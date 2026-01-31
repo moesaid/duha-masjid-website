@@ -39,7 +39,7 @@ const links = [
         icon: Users,
     },
     {
-        href: '/modern-ummah/join/volunteer',
+        href: '/modern-ummah/community/volunteers',
         label: 'Volunteer',
         description: 'Join our team',
         icon: HandHeart,

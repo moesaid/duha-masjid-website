@@ -89,7 +89,7 @@ export function RegistrationCta() {
                                     </button>
                                 </div>
                                 <p className="mt-6 text-xs text-slate-400">
-                                    Need help? Contact <a href="#" className="underline hover:text-amber-600">academy@duhamasjid.com</a>
+                                    Need help? Contact <a href="/modern-ummah/contact" className="underline hover:text-amber-600">academy@duhamasjid.com</a>
                                 </p>
                             </div>
                         </div>

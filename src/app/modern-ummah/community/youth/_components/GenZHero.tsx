@@ -72,7 +72,7 @@ export function GenZHero() {
                     <motion.div className={styles.heroCtas} custom={3} variants={fadeUp}>
                         <Link href="#join" className={styles.primaryBtn}>
                             <MessageCircle size={18} />
-                            Join the WhatsApp Group
+                            Join the Duha Circle
                         </Link>
                         <Link href="#hangouts" className={styles.secondaryBtn}>
                             See Upcoming Events

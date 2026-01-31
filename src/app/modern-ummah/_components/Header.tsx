@@ -198,9 +198,9 @@ export function Header({ siteName = 'Ummah Center', templateId }: HeaderProps) {
                     <Link href={`/${templateId}/app`} className={styles.secondaryBtn}>
                         App
                     </Link>
-                    {/* <Link href={`/${templateId}/contact`} className={styles.secondaryBtn}>
+                    <Link href={`/${templateId}/contact`} className={styles.secondaryBtn}>
                         Contact
-                    </Link> */}
+                    </Link>
                     <Link href={`/${templateId}/donate`} className={styles.primaryBtn}>
                         <HeartIcon />
                         Donate

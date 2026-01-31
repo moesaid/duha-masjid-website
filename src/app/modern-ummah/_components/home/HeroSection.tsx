@@ -51,7 +51,7 @@ const HERO_SLIDES = [
         description: 'Our food pantry and free clinic serve hundreds of families weekly. Join our volunteer force and experience the joy of Khidmah (service).',
         image: '/images/mosque-community.jpg',
         badge: { text: "Impact Update", color: "blue" },
-        primaryCta: { label: 'Volunteer Now', href: '/join/volunteer' },
+        primaryCta: { label: 'Volunteer Now', href: '/modern-ummah/community/volunteers' },
         secondaryCta: { label: 'Donate', href: '/donate' },
         floatingCard: {
             title: "Families Served",

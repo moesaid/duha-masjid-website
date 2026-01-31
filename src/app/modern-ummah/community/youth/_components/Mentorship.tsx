@@ -74,7 +74,7 @@ export function Mentorship() {
                         <div className={styles.connectButtons}>
                             <a href="#" className={styles.whatsappBtn}>
                                 <MessageCircle size={18} />
-                                WhatsApp Group
+                                Duha Circle
                             </a>
                             <a href="#" className={styles.instagramBtn}>
                                 <Instagram size={18} />
