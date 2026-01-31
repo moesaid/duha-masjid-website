@@ -2,7 +2,12 @@ import Link from 'next/link';
 import { Button } from '../../../_components';
 import styles from './WelcomeHero.module.css';
 
-export function WelcomeHero() {
+
+interface WelcomeHeroProps {
+    onOpenShahada: () => void;
+}
+
+export function WelcomeHero({ onOpenShahada }: WelcomeHeroProps) {
     return (
         <section className={styles.hero}>
             <div className={styles.content}>
@@ -15,7 +20,7 @@ export function WelcomeHero() {
                 </p>
 
                 <div className={styles.actions}>
-                    <Button href="#shahada" variant="primary" size="lg">
+                    <Button onClick={onOpenShahada} variant="primary" size="lg">
                         Take Your Shahada
                     </Button>
                     <Button href="#connect" variant="secondary" size="lg">

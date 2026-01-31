@@ -48,31 +48,4 @@ export const specialPrayers: SpecialPrayer[] = [
     },
 ];
 
-export interface FacilityInfo {
-    id: string;
-    title: string;
-    content: string;
-}
 
-export const facilities: FacilityInfo[] = [
-    {
-        id: 'parking',
-        title: 'Parking Guidelines',
-        content: 'Free parking is available in the main lot. During Jumu\'ah and special events, overflow parking is available at the adjacent community center. Please do not block fire lanes or handicap spaces.',
-    },
-    {
-        id: 'shoes',
-        title: 'Shoe Storage',
-        content: 'Shoe racks are provided at all entrances. For valuable footwear, we recommend using the personal shoe bags available at the welcome desk. The Masjid is not responsible for lost or misplaced items.',
-    },
-    {
-        id: 'children',
-        title: 'Children in the Masjid',
-        content: 'Children are welcome and encouraged to attend. A supervised children\'s area is available during Jumu\'ah. Parents are kindly requested to ensure children remain respectful and do not disturb worshippers.',
-    },
-    {
-        id: 'wudu',
-        title: 'Wudu Facilities',
-        content: 'Separate wudu areas are available for brothers and sisters. Towels are provided. Please help keep these areas clean and dry for the next person.',
-    },
-];

@@ -52,7 +52,7 @@ export function StickyPrayerPill({ templateId }: StickyPrayerPillProps) {
                 in <span className={styles.pillCountdownValue}>{countdown}</span>
             </span>
 
-            <Link href={`/${templateId}/prayer-times`} className={styles.pillExpandBtn} aria-label="View all prayer times">
+            <Link href={`/${templateId}/prayer`} className={styles.pillExpandBtn} aria-label="View all prayer times">
                 <ChevronIcon />
             </Link>
         </div>

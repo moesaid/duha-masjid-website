@@ -3,7 +3,12 @@ import { Button } from '../../../_components';
 import { Sun, Heart } from 'lucide-react';
 import styles from './ShahadaGuide.module.css';
 
-export function ShahadaGuide() {
+
+interface ShahadaGuideProps {
+    onOpenShahada: () => void;
+}
+
+export function ShahadaGuide({ onOpenShahada }: ShahadaGuideProps) {
     return (
         <section id="shahada" className={styles.section}>
             <div className={styles.container}>
@@ -25,7 +30,7 @@ export function ShahadaGuide() {
                         "I bear witness that there is no deity but Allah, and I bear witness that Muhammad is His Messenger."
                     </p>
 
-                    <Button href="#connect" variant="primary" className={styles.cta}>
+                    <Button onClick={onOpenShahada} variant="primary" className={styles.cta}>
                         <Heart size={18} />
                         I want to take my Shahada
                     </Button>

@@ -4,7 +4,12 @@ import { Gift, CheckCircle } from 'lucide-react';
 import styles from './MentorshipProgram.module.css';
 import { supportPillars, welcomeGiftItems } from '../_data';
 
-export function MentorshipProgram() {
+
+interface MentorshipProgramProps {
+    onOpenGiftBox: () => void;
+}
+
+export function MentorshipProgram({ onOpenGiftBox }: MentorshipProgramProps) {
     return (
         <section className={styles.section}>
             <div className={styles.container}>
@@ -54,7 +59,7 @@ export function MentorshipProgram() {
                             ))}
                         </div>
 
-                        <Button href="#connect" variant="primary">
+                        <Button onClick={onOpenGiftBox} variant="primary">
                             <Gift size={18} />
                             Request Your Gift Box
                         </Button>
