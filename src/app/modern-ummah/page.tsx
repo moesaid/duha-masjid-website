@@ -1,5 +1,6 @@
 import styles from './_styles/HomePage.module.css';
 import { HeroSection, PrayerTimeline, ServicePillars, EventsSection, DonationSection } from './_components/home';
+import { Hero } from './_components';
 
 export default function ModernUmmahPage() {
     const templateId = 'modern-ummah';
@@ -8,6 +9,8 @@ export default function ModernUmmahPage() {
         <div className={styles.pageWrapper}>
             {/* Hero - "The Gateway" */}
             <HeroSection templateId={templateId} />
+
+
 
             {/* Prayer Times - "Time as a River" */}
             <PrayerTimeline />
