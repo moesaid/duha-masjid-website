@@ -1,13 +1,19 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, GraduationCap, Calendar, Users, ArrowRight, Download } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
+import { Button } from '../../../_components/Button/Button';
+import { ApplicationModal } from './ApplicationModal';
 
 export function AcademyHero() {
+    const [isApplicationOpen, setIsApplicationOpen] = useState(false);
+
     return (
         <section className="relative overflow-hidden bg-slate-50 pt-6 md:pt-12">
+            <ApplicationModal open={isApplicationOpen} onOpenChange={setIsApplicationOpen} />
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row min-h-[600px] bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100">
                     {/* Content Side */}
@@ -33,14 +39,22 @@ export function AcademyHero() {
                             </p>
 
                             <div className="flex flex-wrap gap-4">
-                                <Link href="#admissions" className="group flex items-center gap-3 bg-emerald-700 text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-emerald-800 hover:pr-10 shadow-lg shadow-emerald-700/20">
+                                <Button
+                                    onClick={() => setIsApplicationOpen(true)}
+                                    className="group flex items-center gap-3 bg-emerald-700 text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-emerald-800 hover:pr-10 shadow-lg shadow-emerald-700/20"
+                                >
                                     Apply Now
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                                <Link href="#" className="flex items-center gap-3 bg-slate-100 text-slate-700 px-8 py-4 rounded-full font-medium transition-all hover:bg-slate-200">
+                                </Button>
+                                <Button
+                                    href="/files/full-time-school-prospectus.pdf"
+                                    download
+                                    variant="secondary"
+                                    className="flex items-center gap-3 bg-slate-100 text-slate-700 px-8 py-4 rounded-full font-medium transition-all hover:bg-slate-200"
+                                >
                                     <Download size={18} />
                                     Prospectus
-                                </Link>
+                                </Button>
                             </div>
                         </motion.div>
                     </div>

@@ -1,8 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, ClipboardCheck, MessageSquare, CheckCircle, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { Button } from '../../../_components/Button/Button';
+import { ApplicationModal } from './ApplicationModal';
 
 const steps = [
     { num: 1, title: 'Application', desc: 'Online submission ($150 fee)', icon: FileText },
@@ -12,8 +14,12 @@ const steps = [
 ];
 
 export function AdmissionsProcess() {
+    const [isApplicationOpen, setIsApplicationOpen] = useState(false);
+
     return (
         <section className="py-24 bg-white" id="admissions">
+            <ApplicationModal open={isApplicationOpen} onOpenChange={setIsApplicationOpen} />
+
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-slate-50 rounded-[3rem] p-8 md:p-16 border border-slate-100 relative overflow-hidden">
                     {/* Decorative Circle */}
@@ -25,9 +31,12 @@ export function AdmissionsProcess() {
                                 <h2 className="text-3xl font-serif font-bold text-slate-900">Admissions Process</h2>
                                 <p className="text-slate-600 mt-2">Join a community of lifelong learners.</p>
                             </div>
-                            <Link href="#" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/10">
+                            <Button
+                                onClick={() => setIsApplicationOpen(true)}
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/10"
+                            >
                                 Begin Application <ArrowRight size={16} />
-                            </Link>
+                            </Button>
                         </div>
 
                         <div className="relative">

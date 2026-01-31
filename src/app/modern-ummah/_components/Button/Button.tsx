@@ -11,6 +11,7 @@ interface BaseProps {
     href?: string;
     className?: string;
     children: React.ReactNode;
+    download?: boolean;
 }
 
 type ButtonProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
@@ -22,6 +23,7 @@ export function Button({
     href,
     className = '',
     children,
+    download,
     ...props
 }: ButtonProps | AnchorProps) {
     const classes = `
@@ -32,10 +34,15 @@ export function Button({
     `.trim();
 
     if (href) {
-        // External link
-        if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+        // External link or Download
+        if (
+            download ||
+            href.startsWith('http') ||
+            href.startsWith('mailto:') ||
+            href.startsWith('tel:')
+        ) {
             return (
-                <a href={href} className={classes} {...(props as AnchorProps)}>
+                <a href={href} className={classes} download={download} {...(props as AnchorProps)}>
                     {children}
                 </a>
             );
